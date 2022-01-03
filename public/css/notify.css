@@ -1,0 +1,69 @@
+body {
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    font-family: 'Calibri';
+    font-weight: normal;
+    font-size: 16px;
+    color: #4077bb;
+    font-weight: 400;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+img {
+    border: 0 none;
+}
+
+p {
+    margin: 0 0 25px 0;
+}
+
+button:focus,
+textarea:focus,
+input:focus {
+    outline: none;
+}
