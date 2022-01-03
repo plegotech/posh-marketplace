@@ -10,13 +10,17 @@
     <title>{{ config('app.name', 'POSH MARKETPLACE') }}</title>
 
     <!-- Scripts -->
-
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/fonts.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"  href="{{ asset('css/app.css') }}" rel="stylesheet">

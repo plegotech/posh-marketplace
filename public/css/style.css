@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 body {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;;
 }
 
 html,
@@ -70,13 +71,40 @@ textarea:focus,
 input:focus {
     outline: none;
 }
-
+input[type="text"] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 0px;
+    border-radius: 4px;
+}
+span.pending-number-bx {
+    position: absolute;
+    left: 13px;
+    background: #FF6B6B;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
 .main aside {
-    position: fixed;
-    left: 0;
+	left: 0;
     z-index: 12;
     height: 100%;
+    width: 320px;
+    float: left;
+    position: sticky;
+	background: #fff;
+    top: 0;
+    /*position: fixed;
+    left: 0;
+    z-index: 12;
+    height: 100%;*/
 }
+.navbar-dark .navbar-brand{
+	color: #fff;
+    font-weight: 600;
+	}
 /* menu starts */
 a:hover{ text-decoration: none; }
 /** ======================  header ==============================**/
@@ -237,14 +265,23 @@ a.navbar-brand {
 /***    left menu ****/
 
 /***********************  TOP Bar ********************/
-.sidebar{width:220px;background-color: #f6f6f6;transition: all 0.5s  ease-in-out;}
+.sidebar{width:300px;background-color: #f6f6f6;transition: all 0.5s  ease-in-out;}
 .bg-defoult{background-color:#222;}
 .sidebar ul{list-style:none;margin:0px;padding:0px;float: left;height: 100%;width: 100%;}
 .sidebar ul li ul{list-style:none;margin: initial;padding: initial;float: initial;height: initial;width: initial;padding-left: 18px;margin-left: 10px;border-left: 1px solid #cfcfcf;margin-top: 15px;margin-bottom: 15px;}
 
-.sidebar li a,.sidebar li a.collapsed.active{display:block;padding:8px 12px;color: #525252;text-decoration:none;}
+.sidebar li a, .sidebar li a.collapsed.active {
+    display: block;
+    padding: 8px 12px 8px 40px;
+    color: #525252;
+    text-decoration: none;
+    position: relative;
+}
 .sidebar li a.active{background-color: #fff;transition: all 0.5s  ease-in-out;}
-.sidebar li:hover{background-color: #DCF0FF;}
+ul.list-sidebar li a:hover, ul.list-sidebar li a.router-link-active {
+    background-color: #DCF0FF;
+    border-radius: 0 30px 30px 0;
+}
 .sub-menu:hover {background:white !important}
 .sub-menu:hover ul li:hover {background:white !important;font-weight:bold;color:#0862a3;}
 .sidebar li a i{ padding-right:5px;}
@@ -252,6 +289,20 @@ a.navbar-brand {
 .sidebar li a i img.arrow {
     position: relative;
     float: right;
+}
+ul.list-sidebar li {
+    padding-right: 17px;
+    padding-bottom: 5px;
+}
+ul.list-sidebar li a.router-link-active:before {
+    content: "";
+    background: #0862A3;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+	left: 0;
 }
 .sidebar ul li .sub-menu li a{ position:relative}
 .sidebar ul li .sub-menu li a:before{
@@ -317,7 +368,7 @@ a.navbar-brand {
     float: left;
     width: 100%;
     margin-bottom: 0px;
-    padding: 25px 15px;
+    padding: 25px 15px 25px 40px;
     background: white;
 }
 .user-panel>.info {
@@ -360,10 +411,101 @@ a.navbar-brand {
     align-items: center;
     color: #0862A3;
 }
-.main .body {height: 100%;width: calc(100% - 220px);float: right;}
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    background: #fff;
+}
+i.sb-menu-icon {
+    position: relative;
+}
+.router-link-active span.nav-label {
+    color: #0862A3;
+    font-weight: bold;
+}
+i.overview-icon:before {
+    background: url(/img/menu-icons/overview.png);
+}
+.router-link-active i.overview-icon:before {
+    background: url(/img/menu-icons/overview-active.png);
+}
+i.manage-vendors:before {
+    background: url(/img/menu-icons/manage-vendors.png);
+}
+.router-link-active i.manage-vendors:before {
+    background: url(/img/menu-icons/manage-vendors-active.png);
+}
+i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers.png);
+}
+.router-link-active i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers-active.png);
+}
+i.pending-vendor-signups:before {
+    background: url(/img/menu-icons/pending-vendor-signups.png);
+}
+.router-link-active i.pending-vendor-signups:before {
+    background: url(/img/menu-icons/pending-vendor-signups-active.png);
+}
+i.pending-seller-signups:before {
+    background: url(/img/menu-icons/pending-seller-signups.png);
+}
+.router-link-active i.pending-seller-signups:before {
+    background: url(/img/menu-icons/pending-seller-signups-active.png);
+}
+i.manage-users:before {
+    background: url(/img/menu-icons/manage-users.png);
+}
+.router-link-active i.manage-users:before {
+    background: url(/img/menu-icons/manage-users-active.png);
+}
+i.orders:before {
+    background: url(/img/menu-icons/orders.png);
+}
+.router-link-active i.orders:before {
+    background: url(/img/menu-icons/orders-active.png);
+}
+i.reports:before {
+    background: url(/img/menu-icons/reports.png);
+}
+i.router-link-active i.reports:before {
+    background: url(/img/menu-icons/reports-active.png);
+}
+i.payment-details:before {
+    background: url(/img/menu-icons/payment-details.png);
+}
+.router-link-active i.payment-details:before {
+    background: url(/img/menu-icons/payment-details-active.png);
+}
+i.payment-history:before {
+    background: url(/img/menu-icons/payment-history.png);
+}
+.router-link-active i.payment-history:before {
+    background: url(/img/menu-icons/payment-history-active.png);
+}
+ul.list-sidebar.bg-white span.nav-label {
+    padding-left: 28px;
+    font-size: 18px;
+    line-height: 25px;
+}
+i.sb-menu-icon:before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background-size: contain!important;
+	background-repeat:no-repeat!important;
+	top: 0px
+}
+.sidebar li a i {
+    padding-right: 5px;
+}
+.main .body {height: 100%;width: calc(100% - 220px);float: right;background:#F8F8F8}
 .main .body nav {
     background:#0862A3;
-    border-radius: 21px 0 0 0;
+    border-radius: 31px 0 0 0;
     padding: 13px 20px;
 }
 .main .body .box {
@@ -380,7 +522,7 @@ a.navbar-brand {
 .main .body .box .left {
     /* width: 40%; */
     text-align: center;
-    padding: 0 30px;
+    padding: 0 6px;
 }
 .main .body .seller_ord .box .right {text-align:left}
 .main .body .box .left img {
@@ -429,7 +571,7 @@ a.navbar-brand {
     box-sizing: border-box;
     border-radius: 4px;
     width: 100%;
-    padding: 6px 8px;
+    padding: 0px;
     background: none;
 }
 .main .myorder select {margin-top:0;}
