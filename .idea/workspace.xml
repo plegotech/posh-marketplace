@@ -154,7 +154,7 @@
       <workItem from="1638997186409" duration="735000" />
       <workItem from="1640884277763" duration="19275000" />
       <workItem from="1640970383861" duration="411000" />
-      <workItem from="1641223677838" duration="6168000" />
+      <workItem from="1641223677838" duration="20515000" />
     </task>
     <servers />
   </component>
@@ -171,14 +171,19 @@
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1640902376273" />
     <state x="1829" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1640970816491" />
-    <state x="1883" y="287" key="NewPhpFileDialog" timestamp="1641228193680">
+    <state x="1883" y="287" key="NewPhpFileDialog" timestamp="1641234087708">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1640895078158" />
-    <state x="1883" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1641228193680" />
-    <state x="389" y="66" width="587" height="596" key="find.popup" timestamp="1640904027175">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1883" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1641234087708" />
+    <state x="1755" y="66" width="587" height="596" key="find.popup" timestamp="1641233465755">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="389" y="66" width="587" height="596" key="find.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1640904027175" />
+    <state x="1755" y="66" width="587" height="596" key="find.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1641233465755" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1641239504360">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1641239504360" />
   </component>
 </project>

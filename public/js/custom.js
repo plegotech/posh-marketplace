@@ -53,3 +53,37 @@ $(document).ready(function () {
 
 });
 
+document.addEventListener('click', function (event) {
+
+    // Don't follow the link
+    event.preventDefault();
+    // If the clicked element doesn't have the right selector, bail
+    if (event.target.matches('.cst-slct')) {
+        var options = event.target.getElementsByClassName('more-opts')[0];
+        options.style.display = 'block'
+    };
+
+    return;
+
+}, false);
+
+function closeAllModals() {
+
+    // get modals
+    const modals = document.getElementsByClassName('modal');
+
+    // on every modal change state like in hidden modal
+    for(let i=0; i<modals.length; i++) {
+        modals[i].classList.remove('show');
+        modals[i].setAttribute('aria-hidden', 'true');
+        modals[i].setAttribute('style', 'display: none');
+    }
+
+    // get modal backdrops
+    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
+
+    // remove every modal backdrop
+    for(let i=0; i<modalsBackdrops.length; i++) {
+        document.body.removeChild(modalsBackdrops[i]);
+    }
+}

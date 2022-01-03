@@ -127,7 +127,7 @@ class UsersTableSeeder extends seeder
                 'last_name'     => $last_name,
                 'user_type'     => $user_type[array_rand($user_type)],
                 'verified'      => $verified[array_rand($verified)],
-                'email'         => $first_name . rand(0, 999) . $last_name . '@yopmail.com',
+                'email'         => $first_name . $u . $last_name . '@yopmail.com',
                 'password'      => Hash::make(strtolower($first_name))
             ];
             User::insert($insert);

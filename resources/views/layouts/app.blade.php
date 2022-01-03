@@ -12,10 +12,6 @@
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -31,5 +27,11 @@
             @yield('content')
         </div>
     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    {{--    <script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
