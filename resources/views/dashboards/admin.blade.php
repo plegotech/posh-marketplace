@@ -11,43 +11,43 @@
             <ul class="list-sidebar bg-white">
                 <li>
                     <router-link to="/admin/dashboard">
-                        <i><img src="{{ asset('img/menu-icons/overview.png') }}" alt=""></i>
+                        <i class="sb-menu-icon overview-icon"></i>
                         <span class="nav-label">Overview</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/manage-vendors">
-                        <i><img src="{{ asset('img/menu-icons/manage-vendors.png') }}" alt=""></i>
+                        <i class="sb-menu-icon manage-vendors"></i>
                         <span class="nav-label">Manage Vendors</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/manage-sellers">
-                        <i><img src="{{ asset('img/menu-icons/manage-sellers.png') }}" alt=""></i>
+                       <i class="sb-menu-icon manage-sellers"></i>
                         <span class="nav-label">Manage Sellers</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/pending-vendor-signups">
-                        <i><img src="{{ asset('img/menu-icons/pending-vendor-signups.png') }}" alt=""></i>
+					<span class="pending-number-bx">23</span> <i class="sb-menu-icon pending-vendor-signups"></i>
                         <span class="nav-label">Pending Vendor Signups</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/pending-seller-signups">
-                        <i><img src="{{ asset('img/menu-icons/pending-seller-signups.png') }}" alt=""></i>
+					<span class="pending-number-bx">23</span> <i class="sb-menu-icon pending-seller-signups"></i>
                         <span class="nav-label">Pending Seller Signups</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/manage-users">
-                        <i><img src="{{ asset('img/menu-icons/manage-users.png') }}" alt=""></i>
+					<i class="sb-menu-icon manage-users"></i>
                         <span class="nav-label">Manage Users</span>
                     </router-link>
                 </li>
                 <li class="sub-menu">
                     <a href="#">
-                        <i><img src="{{ asset('img/menu-icons/orders.png') }}" alt=""></i>
+					<i class="sb-menu-icon orders"></i>
                         <span class="nav-label">Orders <i><img class="arrow" src="{{ asset('img/menu-icons/arrow-down.png') }}"
                                                                alt=""></i> </span>
                         <ul>
@@ -66,7 +66,7 @@
                 </li>
                 <li class="sub-menu">
                     <a href="#">
-                        <i><img src="{{ asset('img/menu-icons/Reports.png') }}" alt=""></i>
+					<i class="sb-menu-icon reports"></i>
                         <span class="nav-label">Reports <i><img class="arrow" src="{{ asset('img/menu-icons/arrow-down.png') }}"
                                                                alt=""></i> </span>
                         <ul>
@@ -85,13 +85,13 @@
                 </li>
                 <li>
                     <router-link to="/admin/payment-details">
-                        <i class="fa fa-laptop"></i>
+                        <i class="sb-menu-icon payment-details"></i>
                         <span class="nav-label">Payment Details</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/admin/payment-history">
-                        <i><img src="{{ asset('img/menu-icons/payment-history.png') }}" alt=""></i>
+					<i class="sb-menu-icon payment-history"></i>
                         <span class="nav-label">Payment History</span>
                     </router-link>
                 </li>
