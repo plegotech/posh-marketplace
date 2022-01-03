@@ -50,9 +50,9 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">First Name <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Last Name <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Email Address <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col" @click="fetchUsers(0, 0, 'first_name')">First Name <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col" @click="fetchUsers(0, 0, 'last_name')">Last Name <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col" @click="fetchUsers(0, 0, 'email')">Email Address <img class="shuffle" src="/img/shuffle.png"></th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
                             <th scope="col">Actions</th>
@@ -118,18 +118,21 @@ export default {
     data() {
         return {
             users:              [],
+            per_page:           0,
+            order:              'asc',
+            order_by:           0,
             to:                 null,
             from:               null,
             total:              null,
             current_page:       null,
             user: {
-                id: '',
-                first_name: '',
-                last_name: '',
-                phone: '',
-                email: '',
-                user_type: '',
-                verified: '',
+                id:             '',
+                first_name:     '',
+                last_name:      '',
+                phone:          '',
+                email:          '',
+                user_type:      '',
+                verified:       '',
             }
         }
     },
@@ -140,12 +143,29 @@ export default {
         this.fetchUsers();
     },
     methods: {
-        fetchUsers(page = 0, per_page) {
+        fetchUsers(page = 0, per_page = 0, order_by = 0) {
             var url = '/api/users/user';
-            // var per_page = document.getElementById("per_page").value;
 
-            if(per_page > 0) {
-                url += '/' + per_page;
+            if(per_page > 0 || this.per_page > 0) {
+                if(per_page > 0) {
+                    this.per_page = per_page;
+                }
+                url += '/' + this.per_page;
+            } else {
+                url += '/25';
+            }
+
+            if(order_by != 0 || this.order_by > 0) {
+                if(order_by != 0) {
+                    this.order_by   = order_by;
+                    if(this.order == 'asc') {
+                        this.order = 'desc';
+                    } else {
+                        this.order = 'asc';
+                    }
+                }
+                url += '/' + this.order_by;
+                url += '/' + this.order;
             }
 
             if(page > 0) {

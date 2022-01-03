@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users/{type?}/{perpage?}', 'UsersController@users');
+Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}', 'UsersController@users');
 Route::post('/user', 'UsersController@createUser');
 Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');
 

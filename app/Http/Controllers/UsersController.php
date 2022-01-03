@@ -17,10 +17,10 @@ class UsersController extends Controller
         return 'silence is the gold';
     }
 
-    public function users(Request $request, $type = null, $perpage = 25)
+    public function users(Request $request, $type = null, $perpage = 25, $order_by = 'id', $order = 'desc')
     {
         return User::where('user_type', $type)
-            ->orderBy('id', 'desc')
+            ->orderBy($order_by, $order)
             ->paginate($perpage);
     }
 
