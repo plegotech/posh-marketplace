@@ -640,7 +640,11 @@ i.sb-menu-icon:before {
 .main .body .tabs ul {
     background: white;
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1px;
+}
+li.nav-item a.nav-link {
+    border-bottom: 1px solid #333;
 }
 .main .body .tabs .ui-state-active {background:white;border: 1px solid #1162a9;border-bottom: 0px;}
 .main .pending-vend .tabs ul li.ui-state-active {
@@ -651,7 +655,8 @@ i.sb-menu-icon:before {
     background: white;
     font-family: 'Inter';
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #333333;
 }
 .main .body .tabs ul li.active {}
 .main .body .tabs .ui-state-active a {color: #0862a3;font-family: 'Inter';font-weight: 600;}
@@ -665,6 +670,18 @@ i.sb-menu-icon:before {
     left: 50%;
     transform: translatex(-50%);
     cursor: pointer;
+}
+.main .body h2 {
+   
+    padding-left: 15px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+    color: #3D3D3D;
+    margin: 14px 0;
+    margin-top: 35px;
 }
 .dropdown.cst-slct.show ul.dropdown-menu.show {
     min-width: 100px!important;
@@ -685,7 +702,7 @@ span.sort-ad {
 .main .body .tabs table tbody tr:nth-child(2n+2) {background: #F9F9F9;}
 .main .body .tabs table tbody tr td {
     padding: 7px 5px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .top-prodMain {
     padding: 20px;
@@ -701,6 +718,10 @@ span.sort-ad {
 .top-prodMain thead tr  {}
 .top-prodMain thead tr th {
     padding: 15px;
+}
+li.nav-item a.nav-link.active {
+    color: #0862A3!Important;
+	font-weight: 600!important;
 }
 .top-prodMain tbody tr {vertical-align:middle;}
 .top-prodMain tbody tr:nth-child(2n+2) {
