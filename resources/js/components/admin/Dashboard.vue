@@ -104,16 +104,14 @@
         </div>
 
         <div class="row">
-            <h1>Sales By Categories</h1>
+            
             <div class="col-sm-6">
-                <div class="tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
-                    <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-                        <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true"><a href="#tabs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">Current Year</a></li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tabs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Current Month</a></li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tabs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Current Quarter</a></li>
-                    </ul>
-                    <div id="tabs-1" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
-                        <table>
+			<h2>Sales By Categories</h2>
+			<div>
+  <b-tabs content-class="mt-3">
+    <b-tab title="Current Year" active>
+	<!-- START:: CURRENT YEAR CONTENT -->
+	 <table>
                             <tbody>
                             <tr>
                                 <td>Phoenix Entertainment NYC</td>
@@ -141,11 +139,11 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div id="tabs-2" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-
-
-                        <table>
+	<!-- END  :: CURRENT YEAR CONTENT -->
+	</b-tab>
+    <b-tab title="Current Month">
+	<!-- START:: CURRENT MONTH CONTENT -->
+	 <table>
                             <tbody>
                             <tr>
                                 <td>Computers</td>
@@ -173,10 +171,11 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div id="tabs-3" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-
-                        <table>
+	<!-- END::   CURRENT MONTH CONTENT -->
+	</b-tab>
+    <b-tab title="Current Quarter" >
+		<!-- START:: CURRENT QUARTER CONTETN -->
+		<table>
                             <tbody>
                             <tr>
                                 <td>Architecture</td>
@@ -204,19 +203,20 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
+		<!-- END ::: CURRENT QUARTER CONTENT -->
+	</b-tab>
+  </b-tabs>
+</div>
+                
             </div>
             <div class="col-sm-6">
-                <div class="tabs ui-tabs ui-corner-all ui-widget ui-widget-content">
-                    <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-                        <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active" aria-controls="tabs-1" aria-labelledby="ui-id-4" aria-selected="true" aria-expanded="true"><a href="#tabs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Current Year</a></li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false"><a href="#tabs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Current Month</a></li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-6" aria-selected="false" aria-expanded="false"><a href="#tabs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-6">Current Quarter</a></li>
-                    </ul>
-                    <div id="tabs-1" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
-                        <table>
-                            <tbody>
+			<h2>Sales By Categories</h2>
+			<div>
+  <b-tabs content-class="mt-3">
+    <b-tab title="Current Year" active>
+	<!-- START:: CURRENT YEAR CONTENT -->
+	 <table>
+	 <tbody>
                             <tr>
                                 <td>Computers</td>
                                 <td>$1,000,000</td>
@@ -242,22 +242,24 @@
                                 <td>$23,350</td>
                             </tr>
                             </tbody>
+                            
                         </table>
-                    </div>
-                    <div id="tabs-2" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-
-                        <table>
+	<!-- END  :: CURRENT YEAR CONTENT -->
+	</b-tab>
+    <b-tab title="Current Month">
+	<!-- START:: CURRENT MONTH CONTENT -->
+	 <table>
                             <tbody>
                             <tr>
-                                <td>Computers</td>
+                                <td>Phoenix Entertainment NYC</td>
                                 <td>$1,000</td>
                             </tr>
                             <tr>
-                                <td>Beauty &amp; Personal Care</td>
+                                <td>Wildly Different</td>
                                 <td>$432,600</td>
                             </tr>
                             <tr>
-                                <td>Digital Music</td>
+                                <td>Tastling NYC | SoFlo</td>
                                 <td>$235,450</td>
                             </tr>
                             <tr>
@@ -265,19 +267,20 @@
                                 <td>$333,460</td>
                             </tr>
                             <tr>
-                                <td>Electronics</td>
+                                <td>Williamson</td>
                                 <td>$1,234</td>
                             </tr>
                             <tr>
-                                <td>Home &amp; Kitchen</td>
+                                <td>Extreme Commerce</td>
                                 <td>$33,350</td>
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div id="tabs-3" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-
-                        <table>
+	<!-- END::   CURRENT MONTH CONTENT -->
+	</b-tab>
+    <b-tab title="Current Quarter" >
+		<!-- START:: CURRENT QUARTER CONTETN -->
+		<table>
                             <tbody>
                             <tr>
                                 <td>Architecture</td>
@@ -305,8 +308,11 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
+		<!-- END ::: CURRENT QUARTER CONTENT -->
+	</b-tab>
+  </b-tabs>
+</div>
+                
             </div>
         </div>
 
