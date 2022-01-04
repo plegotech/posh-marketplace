@@ -17,13 +17,13 @@
 			</form>
         </div>	
 <!-- start: TABLE -->	
- <table class="table">
+ <table class="table" id="pvs-tab" >
                                 <thead>
                                 <tr>
-                                    <th scope="col">First Name <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Last Name <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Address <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">City & State <img class="shuffle" src="/img/shuffle.png"></th>
+                                    <th scope="col"><span class="sort-ad">First Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col"><span class="sort-ad">Last Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col">Address </th>
+                                    <th scope="col">City & State </th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Company</th>
                                     <th scope="col">Subscription Fees</th>
@@ -60,16 +60,17 @@
                                                 09:58 PM</span>
                                     </td>
                                     <td>
-                                        <span>ricky@yahoo.com</span>
+                                        <span>ricky@yahoo.com habib</span>
                                     </td>
                                     <td>
-                                        <div class="cst-slct">
-                                            <img src="/img/more.png" class="more-opt" alt="">
-                                            <ul>
-                                                <li>Edit</li>
-                                                <li>Inactive</li>
-                                            </ul>
-                                        </div>
+									
+									
+									<div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                                     </td>
                                 </tr>
@@ -103,13 +104,12 @@
                                         <span>ricky@yahoo.com</span>
                                     </td>
                                     <td>
-                                        <div class="cst-slct">
-                                            <img src="/img/more.png" class="more-opt" alt="">
-                                            <ul>
-                                                <li>Edit</li>
-                                                <li>Inactive</li>
-                                            </ul>
-                                        </div>
+                                        <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                                     </td>
                                 </tr>
@@ -136,10 +136,10 @@
  <table class="table">
                                 <thead>
                                 <tr>
-                                    <th scope="col">First Name <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Last Name <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Address <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">City & State <img class="shuffle" src="/img/shuffle.png"></th>
+                                    <th scope="col"><span class="sort-ad">First Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col"><span class="sort-ad">Last Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col">Address </th>
+                                    <th scope="col">City & State </th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Company</th>
                                     <th scope="col">Subscription Fees</th>
@@ -179,14 +179,12 @@
                                         <span>ricky@yahoo.com</span>
                                     </td>
                                     <td>
-                                        <div class="cst-slct">
-                                            <img src="/img/more.png" class="more-opt" alt="">
-                                            <ul>
-                                                <li>Edit</li>
-                                                <li>Inactive</li>
-                                            </ul>
-                                        </div>
-
+                                       <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -219,14 +217,12 @@
                                         <span>ricky@yahoo.com</span>
                                     </td>
                                     <td>
-                                        <div class="cst-slct">
-                                            <img src="/img/more.png" class="more-opt" alt="">
-                                            <ul>
-                                                <li>Edit</li>
-                                                <li>Inactive</li>
-                                            </ul>
-                                        </div>
-
+                                        <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
                                     </td>
                                 </tr>
 								</tbody>
