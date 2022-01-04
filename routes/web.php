@@ -21,4 +21,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/demo', function () {
+    return view('auth.loginMarkup');
+});
+
 Auth::routes();

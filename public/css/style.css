@@ -889,3 +889,118 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .export_item {position: absolute;cursor: pointer;right: 25px;top: 55px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 12px;color: #0862A3 !important;}
 .shipped {color:#3CC13B !important;font-weight:bold;font-family: Inter;}
 .pending {color:#F3BB1C !important;font-weight:bold;font-family: Inter;}
+
+
+
+
+
+/* Login Work */
+.login-area {
+    width: 100%;
+    float: left;
+    min-height: 100%;
+    font-family: Inter;
+    padding-top: 50px;
+}
+.login-area .top-log {}
+.login-area .top-log .logo {}
+.login-area .top-log .logo h1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 44px;
+    align-items: center;
+    color: #0862A3;
+}
+.login-area .top-log .login-box {
+    text-align: center;
+    border: 1px solid #b3b3b3;
+    max-width: 330px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: 8px;
+}
+.login-area .top-log .login-box h1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    align-items: center;
+    color: #0862A3;
+    margin-bottom: 30px;
+}
+.login-area .top-log .login-box form a {float:right;display:inline-block;cursor: pointer;font-family: Inter;font-size: 12px;color: #0862A3 !important;cursor: pointer;font-weight: 500;}
+.login-area .top-log .login-box form .group  {display: inline-block;float: left;color: #212529;font-size: 12px;line-height: 1;position: relative;font-family: 'Inter';}
+.login-area .top-log .login-box input[type="name"],
+.login-area .top-log .login-box input[type="email"],
+.login-area .top-log .login-box input[type="password"],
+.login-area .top-log .login-box input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 8px 8px;
+    font-size: 12px;
+}
+.login-area .top-log .login-box input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+}
+.login-area .top-log .login-box input[type="button"] {
+    transition: .4s;
+    background: #0862a3;
+    color: white;
+    border: 1px solid #0862a3;
+    border-radius: 4px;
+    width: 100%;
+    padding: 6px 8px;
+    margin-top: 10px;
+}
+.login-area .top-log .login-box .info-login {}
+.login-area .top-log .login-box .info-login h2 {}
+.login-area .top-log .login-box .info-login ul {}
+.login-area .top-log .login-box .info-login ul li {}
+.login-area .top-log .login-box .info-login ul li a {}
+.login-area .top-log .login-box .bottom-log {}
+.login-area .top-log .login-box .bottom-log p {}
+.login-area .bottom-log {padding: 35px 20px 60px 30px;background:#fbfbfb;border-top:1px solid #d8d8d8;}
+.login-area .bottom-log p {width:100%;text-align:center;font-size: 12px;}
+
+.login-area .bottom-log {}
+.login-area .bottom-log p {}
+
+.login-area .info-login {}
+.login-area .info-login ul li:last-child {border-right:0;}
+.login-area .info-login h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    font-family: 'Inter';
+    color: #656565;
+    font-weight: 500;
+}
+.login-area .info-login ul {
+    width: 100%;
+    list-style: none;
+    /* float: left; */
+    text-align: center;
+    margin: 15px 0 30px 0;
+}
+.login-area .info-login ul li {
+    display: inline-block;
+    padding: 1px 10px;
+    border-right: 1.4px solid #0862a3;
+    line-height: 1;
+}
+.login-area .info-login ul li a {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    color: #0862A3 !important;
+}
+.login-area .top-log .login-box input[type="button"]:hover {opacity:.7;transition:.2s}
