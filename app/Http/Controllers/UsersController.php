@@ -17,7 +17,7 @@ class UsersController extends Controller
         return 'silence is the gold';
     }
 
-    public function users(Request $request, $type = null, $perpage = 25, $order_by = 'id', $order = 'desc')
+    public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc')
     {
         return User::where('user_type', $type)
             ->orderBy($order_by, $order)
@@ -26,6 +26,25 @@ class UsersController extends Controller
 
     public function createUser(Request $request)
     {
+        // Setup the validator
+        $rules = array(
+            'email'         => 'required|email|unique:users|max:255',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Validate the input and return correct response
+        if ($validator->fails())
+        {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ), 400); // 400 being the HTTP code for an invalid request.
+        }
+
         if(!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
                 ->update($request->all());

@@ -205,8 +205,12 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    this.clearForm();
-                    this.fetchUsers();
+                    if(data.success == 'false') {
+                        alert('the email is already taken or name is empty');
+                    } else {
+                        this.clearForm();
+                        this.fetchUsers();
+                    }
                 })
                 .catch(err => console.log(err));
         },
@@ -216,6 +220,7 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
+                    alert(data.message);
                     this.fetchUsers();
                 })
                 .catch(err => console.log(err));

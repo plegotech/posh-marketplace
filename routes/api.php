@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}', 'CompaniesController@companies');
+Route::post('/company', 'CompaniesController@createCompany');
+Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
+
 Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}', 'UsersController@users');
 Route::post('/user', 'UsersController@createUser');
 Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');

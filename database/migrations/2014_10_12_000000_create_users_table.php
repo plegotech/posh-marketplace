@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->enum('user_type', ['user', 'seller', 'vendor', 'admin'])->default('user');
             $table->enum('verified', ['yes', 'no'])->default('no');
+            $table->timestamp('last_login')->useCurrent();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
