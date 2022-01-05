@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 public/img/vendor-logos
+public/img/seller-logos
 /.idea
 .env
 .env.backup
