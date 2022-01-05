@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/vender-registration', function () {
-    return view('habib.vender_registor');
+    return view('habib.vendor_registor');
 });
 
 Route::get('/{any}', function () {

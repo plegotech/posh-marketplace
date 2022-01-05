@@ -1097,6 +1097,18 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     color: #0862A3 !important;
 }
 .login-area .top-log .login-box input[type="button"]:hover {opacity:.7;transition:.2s}
+div#dropdownMenuButton {
+    float: left;
+    border: 0;
+    color: white;
+    border-radius: 0;
+    width: auto;
+    margin: 0;
+    margin-left: 20px;
+}
+.dropdown.foruser-pmarket {
+    float: left;
+}
 /*registration form styles*/
 select#inputState {
     -webkit-appearance: none;
