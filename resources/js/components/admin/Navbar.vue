@@ -15,11 +15,17 @@
                 </li>
                 <li>
                     <img src="/img/profile.png" class="profile" alt="">
-                    <select name="" id="">
-                        <option value="John Doe" selected>John Doe</option>
-                        <option value="">John JJ</option>
-                        <option value="">John KK</option>
-                    </select>
+                    
+                    <div class="dropdown foruser-pmarket">
+                        <div class="userlogined dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            John Doe
+                        </div>
+                        <div class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                        </div>
                 </li>
             </ul>
         </div>
