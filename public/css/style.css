@@ -136,6 +136,34 @@ a:hover{ text-decoration: none; }
     padding: 10px 20px;
     position: relative;
 }
+.vdp-datepicker.datepicker.hasDatepicker .vdp-datepicker__calendar {
+    width: 100%!important;
+}
+ul#__BVID__16__BV_tab_controls_ .nav-link.active {
+    font-weight: 700;
+    color: #000;
+}
+ul#__BVID__16__BV_tab_controls_ .nav-link {
+    color: rgb(0 0 0 / 50%);
+    font-weight: 500;
+}
+ul#__BVID__16__BV_tab_controls_ {
+    border-bottom: 1px solid #3300FF;
+	padding-bottom: 2px;
+}
+li.nav-item .nav-link.active {
+    position: relative;
+}
+ul#__BVID__16__BV_tab_controls_ .nav-link.active:before {
+    background: #0862A3;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 4px;
+    bottom: -1px;
+    left: 0;
+    border-radius: 4px 4px 0 0;
+}
 .header  li>a>.label {
     position: absolute;
     top: 9px;
@@ -612,7 +640,11 @@ i.sb-menu-icon:before {
 .main .body .tabs ul {
     background: white;
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1px;
+}
+li.nav-item a.nav-link {
+    border-bottom: 1px solid #333;
 }
 .main .body .tabs .ui-state-active {background:white;border: 1px solid #1162a9;border-bottom: 0px;}
 .main .pending-vend .tabs ul li.ui-state-active {
@@ -623,7 +655,8 @@ i.sb-menu-icon:before {
     background: white;
     font-family: 'Inter';
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #333333;
 }
 .main .body .tabs ul li.active {}
 .main .body .tabs .ui-state-active a {color: #0862a3;font-family: 'Inter';font-weight: 600;}
@@ -631,11 +664,45 @@ i.sb-menu-icon:before {
     width: 100%;
     font-family: 'Inter';
 }
+.dropdown.cst-slct img {
+    width: 16px;
+    position: relative;
+    left: 50%;
+    transform: translatex(-50%);
+    cursor: pointer;
+}
+.main .body h2 {
+   
+    padding-left: 15px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+    color: #3D3D3D;
+    margin: 14px 0;
+    margin-top: 35px;
+}
+.dropdown.cst-slct.show ul.dropdown-menu.show {
+    min-width: 100px!important;
+    right: 17px!important;
+    left: initial!important;
+    font-weight: normal;
+}
+span.sort-ad {
+    display: flex;
+    align-items: center;
+}
+.top-newOrder thead tr th {
+    vertical-align: middle;
+    border-color: transparent;
+	position: relative;
+}
 .main .body .tabs table tbody {}
 .main .body .tabs table tbody tr:nth-child(2n+2) {background: #F9F9F9;}
 .main .body .tabs table tbody tr td {
     padding: 7px 5px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .top-prodMain {
     padding: 20px;
@@ -651,6 +718,10 @@ i.sb-menu-icon:before {
 .top-prodMain thead tr  {}
 .top-prodMain thead tr th {
     padding: 15px;
+}
+li.nav-item a.nav-link.active {
+    color: #0862A3!Important;
+	font-weight: 600!important;
 }
 .top-prodMain tbody tr {vertical-align:middle;}
 .top-prodMain tbody tr:nth-child(2n+2) {
@@ -686,6 +757,8 @@ i.sb-menu-icon:before {
 .top-newOrder .foot-table {
     display: flex;
     justify-content: space-between;
+    max-width: 95%;
+    margin: 0 auto;
 }
 .top-newOrder .foot-table .left {}
 .top-newOrder .foot-table .right {}
@@ -700,21 +773,39 @@ i.sb-menu-icon:before {
     width: 18px;
     cursor: pointer;
 }
+ul.list-sidebar li.sub-menu a:hover, ul.list-sidebar li.sub-menu a.router-link-active {
+    background: transparent;
+}
+li.sub-menu ul li a:hover {
+    color: #0862A3;
+	font-weight:600;
+}
 .top-newOrder .foot-table .right img:hover {transition:.2s;opacity:.7}
 .top-newOrder .foot-table .right img.next-itm {}
 .top-newOrder .foot-table .right img.prev-itm {}
 .cst-slct {
     position: relative;
 }
+.top-newOrder thead tr th:first-child,.top-newOrder tbody tr td:first-child {
+    padding-left: 20px!important;
+}
+.top-newOrder thead tr th:last-child,.top-newOrder tbody tr td:last-child {
+    padding-right: 20px!important;
+}
 .cst-slct img {}
 .cst-slct ul {list-style: none;position: absolute;right: 0;background: #FDFCFC;box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);top: 20px;display: none;z-index: 22;}
 .cst-slct ul li {
     padding: 6px 10px;
 }
+ul.dropdown-menu.show {
+    display: block!important;
+}
 .cst-slct ul li:hover {
     background: #EAF6FF;
     cursor: pointer;
     transition: .1s;
+    color: #000;
+    font-weight: bold;
 }
 aside ul li:hover ul {background:none}
 button.primary {background: #0862a3;color:white;}
@@ -736,13 +827,14 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .main .pending-vend .top-newOrder table tbody tr td {
     padding: 20px 5px;
+    border-color: transparent;
 }
 .pending-vend .top-newOrder table thead tr {}
 .pending-vend .top-newOrder table thead tr td {}
 
 .pending-vend .search-box {
     width: 100%;
-    max-width: 250px;
+    max-width: 350px;
     float: right;
     position: relative;
 }
@@ -751,15 +843,16 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .pending-vend .search-box form img.search-icon {
     position: absolute;
-    left: 10px;
+    left: 20px;
     width: 15px;
-    top: 10px;
+    top: 50%;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 .pending-vend .search-box form img {}
 .pending-vend .search-box form img.close-icon {
     position: absolute;
-    right: 10px;
+    right: 20px;
     width: 10px;
     top: 18px;
     transform: translatey(-50%);
@@ -769,7 +862,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     width: 100%;
     border-radius: 20px;
     border: 1px solid #dfdfdf;
-    padding: 7px 30px;
+    padding: 7px 40px;
     background: #EDEDF0;
     color: black;
 }

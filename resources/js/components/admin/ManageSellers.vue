@@ -18,8 +18,8 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Company <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Vendor Name <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col"><span class="sort-ad">Company <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Vendor Name <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Email Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">City & State</th>
@@ -58,13 +58,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -96,13 +95,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -134,13 +132,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -172,13 +169,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -210,13 +206,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -248,13 +243,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -286,13 +280,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>
@@ -324,13 +317,12 @@
                                             09:58 PM</span>
                             </td>
                             <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>Edit</li>
-                                        <li>Inactive</li>
-                                    </ul>
-                                </div>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
 
                             </td>
                         </tr>

@@ -67,8 +67,18 @@
                     <table class="table">
                         <thead>
                         <tr>
+<<<<<<< HEAD
+<<<<<<< HEAD
                             <th scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img class="shuffle" src="/img/shuffle.png"></th>
                             <th scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name <img class="shuffle" src="/img/shuffle.png"></th>
+=======
+                            <th scope="col"><span class="sort-ad">Company <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Vendor Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+>>>>>>> 31c914a (updated ui styls)
+=======
+                            <th scope="col"><span class="sort-ad">Company <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Vendor Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+>>>>>>> 21c45d746f07b9fbdd77683e22ac85b0c25b59bc
                             <th scope="col">Email Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">City & State</th>
@@ -79,13 +89,132 @@
                         </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                         <tr v-for="company in companies" v-bind="company.id">
+=======
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe1.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe2.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+>>>>>>> 31c914a (updated ui styls)
                             <td>
                                 <img :src="'/img/vendor-logos/'+ company.logo" alt="">
                                 <span>{{ company.name }}</span>
                             </td>
                             <td>
+<<<<<<< HEAD
                                 <span>{{ company.first_name }} {{ company.last_name }}</span>
+=======
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td<div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe3.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe4.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+>>>>>>> 31c914a (updated ui styls)
                             </td>
                             <td>
                                 <span>{{ company.email }}</span>
@@ -107,6 +236,8 @@
                                             09:58 PM</span>
                             </td>
                             <td>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                 <button class="cst-slct">
                                     <img src="/img/more.png" class="more-opt" alt="">
                                     <ul class="more-opts">
@@ -114,6 +245,167 @@
                                         <li @click="markInactive(company.user_id)">Inactive</li>
                                     </ul>
                                 </button>
+=======
+=======
+>>>>>>> 21c45d746f07b9fbdd77683e22ac85b0c25b59bc
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe5.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe6.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                               <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe7.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/img/nike-shoe8.png" alt="">
+                                <span>NIKE</span>
+                            </td>
+                            <td>
+                                <span>Stevan Kolman</span>
+                            </td>
+                            <td>
+                                <span>dvm@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>630-3542-2342</span>
+                            </td>
+                            <td>
+                                <span>Chicago, Illinois</span>
+                            </td>
+                            <td>
+                                <span>$100</span>
+                            </td>
+                            <td>
+                                <span>$0.00</span>
+                            </td>
+                            <td>
+                                          <span>Oct 01, 2021
+                                            09:58 PM</span>
+                            </td>
+                            <td>
+                                <div class="dropdown cst-slct">  
+									<img src="/img/more.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li>Edit</li> <li>Inactive</li>
+									  </ul>
+									</div>
+<<<<<<< HEAD
+>>>>>>> 31c914a (updated ui styls)
+=======
+>>>>>>> 21c45d746f07b9fbdd77683e22ac85b0c25b59bc
 
                             </td>
                         </tr>
