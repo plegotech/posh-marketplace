@@ -659,8 +659,27 @@ i.sb-menu-icon:before {
     width: 100%;
     font-family: 'Inter';
 }
+.dropdown.cst-slct img {
+    width: 16px;
+    position: relative;
+    left: 50%;
+    transform: translatex(-50%);
+    cursor: pointer;
+}
+.dropdown.cst-slct.show ul.dropdown-menu.show {
+    min-width: 100px!important;
+    right: 17px!important;
+    left: initial!important;
+    font-weight: normal;
+}
+span.sort-ad {
+    display: flex;
+    align-items: center;
+}
 .top-newOrder thead tr th {
     vertical-align: middle;
+    border-color: transparent;
+	position: relative;
 }
 .main .body .tabs table tbody {}
 .main .body .tabs table tbody tr:nth-child(2n+2) {background: #F9F9F9;}
@@ -717,6 +736,8 @@ i.sb-menu-icon:before {
 .top-newOrder .foot-table {
     display: flex;
     justify-content: space-between;
+    max-width: 95%;
+    margin: 0 auto;
 }
 .top-newOrder .foot-table .left {}
 .top-newOrder .foot-table .right {}
@@ -731,21 +752,39 @@ i.sb-menu-icon:before {
     width: 18px;
     cursor: pointer;
 }
+ul.list-sidebar li.sub-menu a:hover, ul.list-sidebar li.sub-menu a.router-link-active {
+    background: transparent;
+}
+li.sub-menu ul li a:hover {
+    color: #0862A3;
+	font-weight:600;
+}
 .top-newOrder .foot-table .right img:hover {transition:.2s;opacity:.7}
 .top-newOrder .foot-table .right img.next-itm {}
 .top-newOrder .foot-table .right img.prev-itm {}
 .cst-slct {
     position: relative;
 }
+.top-newOrder thead tr th:first-child,.top-newOrder tbody tr td:first-child {
+    padding-left: 20px!important;
+}
+.top-newOrder thead tr th:last-child,.top-newOrder tbody tr td:last-child {
+    padding-right: 20px!important;
+}
 .cst-slct img {}
 .cst-slct ul {list-style: none;position: absolute;right: 0;background: #FDFCFC;box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);top: 20px;display: none;z-index: 22;}
 .cst-slct ul li {
     padding: 6px 10px;
 }
+ul.dropdown-menu.show {
+    display: block!important;
+}
 .cst-slct ul li:hover {
     background: #EAF6FF;
     cursor: pointer;
     transition: .1s;
+    color: #000;
+    font-weight: bold;
 }
 aside ul li:hover ul {background:none}
 button.primary {background: #0862a3;color:white;}
@@ -767,6 +806,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .main .pending-vend .top-newOrder table tbody tr td {
     padding: 20px 5px;
+    border-color: transparent;
 }
 .pending-vend .top-newOrder table thead tr {}
 .pending-vend .top-newOrder table thead tr td {}
@@ -791,7 +831,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .pending-vend .search-box form img {}
 .pending-vend .search-box form img.close-icon {
     position: absolute;
-    right: 10px;
+    right: 20px;
     width: 10px;
     top: 18px;
     transform: translatey(-50%);
@@ -801,7 +841,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     width: 100%;
     border-radius: 20px;
     border: 1px solid #dfdfdf;
-    padding: 7px 30px;
+    padding: 7px 40px;
     background: #EDEDF0;
     color: black;
 }
