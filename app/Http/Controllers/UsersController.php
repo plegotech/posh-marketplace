@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class UsersController extends Controller
 {
@@ -15,6 +17,25 @@ class UsersController extends Controller
     public function index()
     {
         return 'silence is the gold';
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+
+        if (Auth::attempt($request->only('email', 'password'))){
+            return response()->json(Auth::user(), 200);
+        }
+        throw ValidationException::withMessages([
+            'email' =>['The provided credentials are incorect.']
+        ]);
+    }
+    public function logout()
+    {
+        Auth::logout();
     }
 
     public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc')

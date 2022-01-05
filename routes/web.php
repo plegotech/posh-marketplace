@@ -17,12 +17,18 @@ Route::get('/admin/{any}', function () {
     return view('dashboards.admin');
 })->where('any', '.*');
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-Route::get('/demo', function () {
-    return view('auth.loginMarkup');
-});
+Route::get('/logout', 'UsersController@logout');
 
 Auth::routes();
+
+Route::get('/', function () {
+    return view('full_screen');
+});
+
+Route::get('/{any}', function () {
+    return view('full_screen');
+})->where('any', '.*');
+
+Route::get('/login', function () {
+    return view('full_screen');
+});
