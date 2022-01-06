@@ -21,12 +21,12 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
     return true;
 });
 
-Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}', 'CompaniesController@companies');
+Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}/{status?}', 'CompaniesController@companies');
 Route::post('/company', 'CompaniesController@createCompany');
 Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
 
 Route::post('/login', 'UsersController@login');
-Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}', 'UsersController@users');
+Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}/{status?}', 'UsersController@users');
 Route::post('/user', 'UsersController@createUser');
 Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');
 

@@ -22,10 +22,10 @@ class CompaniesController extends Controller
         return 'silence is the gold';
     }
 
-    public function companies($type, $perpage = 25, $order_by = 'id', $order = 'desc')
+    public function companies($type, $perpage = 25, $order_by = 'id', $order = 'desc', $status = 0)
     {
         $companies = new Companies();
-        $companies = $companies->getCompaniesByUserType($type, $perpage, $order_by, $order);
+        $companies = $companies->getCompaniesByUserType($type, $perpage, $order_by, $order, $status);
 
         return response()->json($companies);
     }
@@ -81,16 +81,16 @@ class CompaniesController extends Controller
 
     public function toggleActivation($company_id)
     {
-        $status = Companies::where('id', $company_id)->pluck('verified');
+        $status = Companies::where('id', $company_id)->pluck('status');
 
-        if($status[0] == 'yes') {
-            $status = 'no';
-        } else {
-            $status = 'yes';
+        if($status[0] == 'approved') {
+            $status = 'pending';
+        } else if($status[0] == 'pending') {
+            $status = 'approved';
         }
 
         Companies::where('id', $company_id)
-            ->update(['verified' => $status]);
+            ->update(['status' => $status]);
 
         return response()->json(['message' => 'company status was updated successfully.']);
     }

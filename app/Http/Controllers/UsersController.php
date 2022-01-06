@@ -38,11 +38,18 @@ class UsersController extends Controller
         Auth::logout();
     }
 
-    public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc')
+    public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc', $status = null)
     {
-        return User::where('user_type', $type)
-            ->orderBy($order_by, $order)
+        $users = User::where('user_type', $type);
+
+        if (!empty($status)) {
+            $users = $users->where('status', $status);
+        }
+
+        $users = $users->orderBy($order_by, $order)
             ->paginate($perpage);
+
+        return $users;
     }
 
     public function createUser(Request $request)
@@ -77,16 +84,16 @@ class UsersController extends Controller
 
     public function toggleActivation($user_id)
     {
-        $status = User::where('id', $user_id)->pluck('verified');
+        $status = User::where('id', $user_id)->pluck('status');
 
-        if($status[0] == 'yes') {
-            $status = 'no';
+        if($status[0] == 'pending') {
+            $status = 'approved';
         } else {
-            $status = 'yes';
+            $status = 'pending';
         }
 
         User::where('id', $user_id)
-            ->update(['verified' => $status]);
+            ->update(['status' => $status]);
 
         return response()->json(['message' => 'user status was updated successfully.']);
     }

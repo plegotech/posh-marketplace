@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->enum('user_type', ['user', 'seller', 'vendor', 'admin'])->default('user');
-            $table->enum('verified', ['yes', 'no'])->default('no');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamp('last_login')->useCurrent();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -116,7 +116,7 @@ class UsersTableSeeder extends seeder
         ];
 
         $user_type = ['user', 'seller', 'vendor', 'admin'];
-        $verified = ['yes', 'no'];
+        $status = ['pending', 'approved', 'rejected'];
 
         for($u = 0; $u < 1000; $u++) {
             $first_name = $firstname[array_rand($firstname)];
@@ -126,8 +126,8 @@ class UsersTableSeeder extends seeder
                 'first_name'    => $first_name,
                 'last_name'     => $last_name,
                 'user_type'     => $user_type[array_rand($user_type)],
-                'verified'      => $verified[array_rand($verified)],
-                'email'         => $first_name . $u . $last_name . '@yopmail.com',
+                'status'        => $status[array_rand($status)],
+                'email'         => strtolower($first_name) . $u . '@yopmail.com',
                 'password'      => Hash::make(strtolower($first_name))
             ];
             User::insert($insert);

@@ -39,9 +39,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select class="form-control" v-model="user.verified">
-                                        <option value="yes">YES</option>
-                                        <option value="no">NO</option>
+                                    <select class="form-control" v-model="user.status">
+                                        <option value="approved">Approved</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="rejected">Rejected</option>
                                     </select>
                                 </div>
                                 <button @click="addUser()" class="btn btn-light btn-block">Save</button>
@@ -82,7 +83,7 @@
                                         <span><span>{{ user.phone }}</span></span>
                                     </td>
                                     <td>
-                                        <span><span style="text-transform: uppercase">{{ user.verified }}</span></span>
+                                        <span><span style="text-transform: uppercase">{{ user.status }}</span></span>
                                     </td>
                                     <td>
                                         <button class="cst-slct">
@@ -153,7 +154,7 @@ export default {
                 phone: '',
                 email: '',
                 user_type: '',
-                verified: '',
+                status: '',
             }
         }
     },
@@ -212,7 +213,7 @@ export default {
             this.user.phone = user.phone;
             this.user.email = user.email;
             this.user.user_type = user.user_type;
-            this.user.verified = user.verified;
+            this.user.status = user.status;
         },
 
         addUser(user) {
@@ -254,7 +255,7 @@ export default {
             this.user.phone = '';
             this.user.email = '';
             this.user.user_type = '';
-            this.user.verified = '';
+            this.user.status = '';
             closeAllModals();
         }
     }
