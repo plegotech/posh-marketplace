@@ -672,7 +672,7 @@ li.nav-item a.nav-link {
     cursor: pointer;
 }
 .main .body h2 {
-   
+
     padding-left: 15px;
     font-family: Inter;
     font-style: normal;
@@ -1128,7 +1128,7 @@ button.primary.rsv-bx {
     text-align: center;
 }
 .bg-primary-posh-m:after {
-    background: url(img/E-payment.png);
+    background: url(/img/E-payment.png);
     content: "";
     height: 250px;
     width: 170px;
@@ -1138,7 +1138,7 @@ button.primary.rsv-bx {
     background-size: contain;
 }
 .bg-primary-posh-m:before {
-    background: url(img/Shopping.png);
+    background: url(/img/Shopping.png);
     content: "";
     height: 207px;
     width: 285px;

@@ -81,6 +81,7 @@ function closeAllModals() {
 
     // get modal backdrops
     const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
+    document.body.className = document.body.className.replace("modal-open","");
 
     // remove every modal backdrop
     for(let i=0; i<modalsBackdrops.length; i++) {
