@@ -79,10 +79,10 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img class="shuffle"
+                                    <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img class="shuffle"
                                                                                                        src="/img/shuffle.png">
                                     </th>
-                                    <th scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name <img
+                                    <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name <img
                                         class="shuffle" src="/img/shuffle.png"></th>
                                     <th scope="col">Email Address</th>
                                     <th scope="col">Phone</th>

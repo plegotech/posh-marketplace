@@ -1108,6 +1108,7 @@ div#dropdownMenuButton {
 }
 .dropdown.foruser-pmarket {
     float: left;
+    cursor: pointer;
 }
 #preloader-pageloader {
     position: fixed;
@@ -1181,6 +1182,9 @@ div#dropdownMenuButton {
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+th.shuffle-bx {
+    cursor: pointer;
 }
 /*registration form styles*/
 select#inputState {
