@@ -28,7 +28,9 @@ Route::get('/', function () {
 Route::get('/vender-registration', function () {
     return view('habib.vendor_registor');
 });
-
+Route::get('/page-loading', function () {
+    return view('habib.page_loader');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
