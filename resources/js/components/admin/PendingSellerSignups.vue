@@ -23,10 +23,10 @@
                                         <table class="table" id="pvs-tab">
                                             <thead>
                                             <tr>
-                                                <th scope="col"><span class="sort-ad">First Name <img class="shuffle"
+                                                <th class="shuffle-bx" scope="col"><span class="sort-ad">First Name <img class="shuffle"
                                                                                                       src="/img/shuffle.png"></span>
                                                 </th>
-                                                <th scope="col"><span class="sort-ad">Last Name <img class="shuffle"
+                                                <th class="shuffle-bx" scope="col"><span class="sort-ad">Last Name <img class="shuffle"
                                                                                                      src="/img/shuffle.png"></span>
                                                 </th>
                                                 <th scope="col">Address</th>
@@ -157,10 +157,10 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th scope="col"><span class="sort-ad">First Name <img class="shuffle"
+                                                <th class="shuffle-bx" scope="col"><span class="sort-ad">First Name <img class="shuffle"
                                                                                                       src="/img/shuffle.png"></span>
                                                 </th>
-                                                <th scope="col"><span class="sort-ad">Last Name <img class="shuffle"
+                                                <th class="shuffle-bx" scope="col"><span class="sort-ad">Last Name <img class="shuffle"
                                                                                                      src="/img/shuffle.png"></span>
                                                 </th>
                                                 <th scope="col">Address</th>

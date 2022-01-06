@@ -57,11 +57,11 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th scope="col" @click="fetchUsers(0, 0, 'first_name')">First Name <img
+                                    <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'first_name')">First Name <img
                                         class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col" @click="fetchUsers(0, 0, 'last_name')">Last Name <img
+                                    <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'last_name')">Last Name <img
                                         class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col" @click="fetchUsers(0, 0, 'email')">Email Address <img
+                                    <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'email')">Email Address <img
                                         class="shuffle" src="/img/shuffle.png"></th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Status</th>

@@ -1,3 +1,9 @@
+
+<div class="clearfix">
+  <div class="spinner-border float-right" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse"
