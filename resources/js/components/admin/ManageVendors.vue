@@ -8,58 +8,82 @@
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                      aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+                        <div class="modal-content p-4">
                             <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
                                  alt="">
                             <form ref="form">
+                            <div class="row">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Company Name</label>
                                     <input type="text" v-model="company.name" class="form-control"
                                            placeholder="Company Name">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>First Name</label>
                                     <input type="text" v-model="company.first_name" class="form-control"
                                            placeholder="First Name">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Last Name</label>
                                     <input type="text" v-model="company.last_name" class="form-control"
                                            placeholder="Last Name">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" v-model="company.email" class="form-control"
                                            placeholder="Email">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input type="text" v-model="company.phone" class="form-control" placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Subscription Fee</label>
                                     <input type="number" v-model="company.subscription_fee" class="form-control"
                                            placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Address</label>
                                     <input type="text" v-model="company.address" class="form-control"
                                            placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>City</label>
                                     <input type="text" v-model="company.city" class="form-control" placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>State</label>
                                     <input type="text" v-model="company.state" class="form-control" placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Country</label>
                                     <input type="text" v-model="company.country" class="form-control"
                                            placeholder="Phone">
                                 </div>
+                                </div>
+                                 <div class="col-sm-12">
                                 <button @click="addCompany()" class="btn btn-light btn-block">Save</button>
+                                </div>
+                                </div>
                             </form>
                         </div>
                     </div>
