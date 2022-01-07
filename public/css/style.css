@@ -228,6 +228,7 @@ nav ul li a {
 nav ul a img {
     width: 100%;
 }
+nav ul li.br-listing-t {border-right: 1px solid #8b9fad;}
 nav ul li:first-child {border-right: 1px solid #8b9fad;}
 nav ul li img.notify {
     width: 20px;
@@ -1262,7 +1263,6 @@ a.link-b-b {
     font-size: 16px;
 }
 .box-shadow-wbg thead {
-    background: #F2F2F2;
     padding: 10px;
 }
 .box-shadow-wbg thead tr img.shuffle {
@@ -1275,6 +1275,12 @@ a.link-b-b {
     vertical-align: middle;
     border-color: transparent;
     position: relative;
+}
+span.blue-txt {
+    color: #3E66FB;
+}
+tr.ifpending-bx {
+    background: #f9fafa;
 }
 .box-shadow-wbg h2.title-b-inside {
     width: 100%;
@@ -1328,5 +1334,72 @@ a.link-b-b {
 }
 .sec-box {
     display: flex;
+}
+ul.topnav-user li:last-child {
+    border-left: 1px solid #8b9fad;
+    padding: 0 30px;
+    margin-left: 20px;
+}
+ul.topnav-user li:first-child {
+    border-right: 0px;
+}
+ul.topnav-user {
+    margin-bottom: 0;
+}
+a.navbar-brand {
+    padding-left: 22px;
+}
+span.comleted-txt {
+    border: 1px solid #3CC13B;
+    border-radius: 4px;
+    padding: 0px 4px;
+    color: #3CC13B;
+    font-weight: 500;
+}
+span.pendig-txt {
+    border: 1px solid #F3BB1C;
+    border-radius: 4px;
+    padding: 0px 4px;
+    color: #F3BB1C;
+    font-weight: 500;
+}
+ul.topnav-user li {
+    padding: 0 15px;
+}
+i.manage-products:before {
+    background: url(/img/menu-icons/manage-products-icon.png);
+}
+.router-link-active i.manage-products:before {
+    background: url(/img/menu-icons/manage-products-icon-active.png);
+}
+i.upload-product:before {
+    background: url(/img/menu-icons/upload-product.png);
+}
+.router-link-active i.upload-product:before {
+    background: url(/img/menu-icons/upload-product-active.png);
+}
+i.billing-icon:before {
+    background: url(/img/menu-icons/billing-icon.png);
+}
+.router-link-active i.billing-icon:before {
+    background: url(/img/menu-icons/billing-icon-active.png);
+}
+i.product-history:before {
+    background: url(/img/menu-icons/product-history-icon.png);
+}
+.router-link-active i.product-history:before {
+    background: url(/img/menu-icons/product-history-icon-active.png);
+}
+i.shipping-icon:before {
+    background: url(/img/menu-icons/shipping-icon.png);
+}
+.router-link-active i.shipping-icon:before {
+    background: url(/img/menu-icons/shipping-icon-active.png);
+}
+i.my-profile:before {
+    background: url(/img/menu-icons/my-profile-icon.png);
+}
+.router-link-active i.my-profile:before {
+    background: url(/img/menu-icons/my-profile-icon-active.png);
 }
 /*END:: dashboard-vendor*/
