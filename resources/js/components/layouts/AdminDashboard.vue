@@ -28,14 +28,14 @@
                     </li>
                     <li>
                         <router-link to="/admin/pending-vendor-signups">
-                            <span class="pending-number-bx">23</span> <i
+                            <span class="pending-number-bx">{{ pending_vendors }}</span> <i
                             class="sb-menu-icon pending-vendor-signups"></i>
                             <span class="nav-label">Pending Vendor Signups</span>
                         </router-link>
                     </li>
                     <li>
                         <router-link to="/admin/pending-seller-signups">
-                            <span class="pending-number-bx">23</span> <i
+                            <span class="pending-number-bx">{{ pending_sellers }}</span> <i
                             class="sb-menu-icon pending-seller-signups"></i>
                             <span class="nav-label">Pending Seller Signups</span>
                         </router-link>
@@ -152,7 +152,9 @@ export default {
     name: "dashboard-layout",
     data() {
         return {
-            user: this.$store.state.auth.user
+            user: this.$store.state.auth.user,
+            pending_sellers: 0,
+            pending_vendors: 0
         }
     },
     created() {
@@ -169,6 +171,17 @@ export default {
                 this.signOut()
                 this.$router.push({name: "login"})
             })
+        },
+        adminDashboard() {
+            fetch('/api/admin-data')
+                .then(res => res.json())
+                .then(res => {
+
+                    this.pending_sellers = res.pending_sellers;
+                    this.pending_vendors = res.pending_vendors;
+
+                })
+                .catch(err => console.log(err));
         }
     }
 }

@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
     return true;
 });
 
+Route::get('/admin-data', 'AdminController@adminData');
+
 Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}',
     'CompaniesController@companies');
 Route::post('/company', 'CompaniesController@createCompany');
