@@ -19,7 +19,6 @@ const Router = new VueRouter(routes);
 
 Router.beforeEach((to, from, next) => {
     document.title = to.meta.title
-    next()
     if(to.meta.middleware=="guest"){
         if(store.state.auth.authenticated) {
             switch (state.auth.user.user_type) {

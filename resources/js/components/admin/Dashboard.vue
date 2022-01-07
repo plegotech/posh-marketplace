@@ -1,31 +1,43 @@
 <template>
-    <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="datepicker-d">
-                    <datepicker placeholder="From" class="datepicker hasDatepicker"></datepicker>
-                    <i class="fa fa-calendar-check" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="datepicker-d">
-                    <datepicker placeholder="To" class="datepicker hasDatepicker"></datepicker>
-                    <i class="fa fa-calendar-check calendar"></i>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <select name="" id="">
-                    <option value="">
-                    </option>
-                    <option value="" selected="">Current Year</option>
 
-                </select>
-            </div>
-            <div class="col-sm-2 offset-sm-2">
-                <button>CLEAR ALL</button>
-            </div>
-        </div>
+    <div class="wrapper">
+        <Sidebar/>
+        <div class="body">
+            <Navbar/>
+            <div class="container-fluid">
+<div class="alert-time">
+    <b-alert
+      :show="dismissCountDown"
+      dismissible
+      variant="success"
+      @dismissed="dismissCountDown=0"
+      @dismiss-count-down="countDownChanged"
+    >
+      This alert will dismiss after {{ dismissCountDown }} seconds...
+    </b-alert>
+    <!--<b-button @click="showAlert" variant="info" class="m-1">
+      Show alert with count-down timer
+    </b-button>-->
+  </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="datepicker-d">
+                            <datepicker placeholder="From" class="datepicker hasDatepicker"></datepicker>
+                            <i class="fa fa-calendar-check" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="datepicker-d">
+                            <datepicker placeholder="To" class="datepicker hasDatepicker"></datepicker>
+                            <i class="fa fa-calendar-check calendar"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <select name="" id="">
+                            <option value="">
+                            </option>
+                            <option value="" selected="">Current Year</option>
 
         <div class="row">
             <h1>Analytics</h1>
@@ -34,9 +46,8 @@
                     <div class="left">
                         <img src="/img/Group_106.png" alt="">
                     </div>
-                    <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                    <div class="col-sm-2 offset-sm-2">
+                        <button @click="showAlert" >CLEAR ALL</button>
                     </div>
                 </div>
             </div>
@@ -87,18 +98,216 @@
             </div>
             <div class="col-sm-5">
 
-                <h1 class="pd-0">Member Section</h1>
-                <div class="box">
-                    <div class="left">
-                        <img src="/img/Group_106.png" alt="">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <h2 style="margin-top:35px">Sales By Categories</h2>
+                        <div>
+                            <b-tabs content-class="mt-3">
+                                <b-tab title="Current Year" active>
+                                    <!-- START:: CURRENT YEAR CONTENT -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Phoenix Entertainment NYC</td>
+                                            <td>$1,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wildly Different</td>
+                                            <td>$432,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tastling NYC | SoFlo</td>
+                                            <td>$235,450</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store</td>
+                                            <td>$333,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Williamson</td>
+                                            <td>$1,234</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Extreme Commerce</td>
+                                            <td>$33,350</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END  :: CURRENT YEAR CONTENT -->
+                                </b-tab>
+                                <b-tab title="Current Month">
+                                    <!-- START:: CURRENT MONTH CONTENT -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Computers</td>
+                                            <td>$1,000,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Beauty &amp; Personal Care</td>
+                                            <td>$545,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Digital Music</td>
+                                            <td>$235,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store</td>
+                                            <td>$33,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Electronics</td>
+                                            <td>$103,250</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Home &amp; Kitchen</td>
+                                            <td>$23,350</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END::   CURRENT MONTH CONTENT -->
+                                </b-tab>
+                                <b-tab title="Current Quarter">
+                                    <!-- START:: CURRENT QUARTER CONTETN -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Architecture</td>
+                                            <td>$1,000,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Personal Care</td>
+                                            <td>$545,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Digital</td>
+                                            <td>$235,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store and other</td>
+                                            <td>$33,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Electronics</td>
+                                            <td>$103,250</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Home &amp; Kitchen</td>
+                                            <td>$23,350</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END ::: CURRENT QUARTER CONTENT -->
+                                </b-tab>
+                            </b-tabs>
+                        </div>
+
                     </div>
-                    <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
-                    </div>
-                    <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                    <div class="col-sm-6">
+                        <h2 style="margin-top:35px">Sales By Categories</h2>
+                        <div>
+                            <b-tabs content-class="mt-3">
+                                <b-tab title="Current Year" active>
+                                    <!-- START:: CURRENT YEAR CONTENT -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Computers</td>
+                                            <td>$1,000,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Beauty &amp; Personal Care</td>
+                                            <td>$545,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Digital Music</td>
+                                            <td>$235,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store</td>
+                                            <td>$33,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Electronics</td>
+                                            <td>$103,250</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Home &amp; Kitchen</td>
+                                            <td>$23,350</td>
+                                        </tr>
+                                        </tbody>
+
+                                    </table>
+                                    <!-- END  :: CURRENT YEAR CONTENT -->
+                                </b-tab>
+                                <b-tab title="Current Month">
+                                    <!-- START:: CURRENT MONTH CONTENT -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Phoenix Entertainment NYC</td>
+                                            <td>$1,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wildly Different</td>
+                                            <td>$432,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tastling NYC | SoFlo</td>
+                                            <td>$235,450</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store</td>
+                                            <td>$333,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Williamson</td>
+                                            <td>$1,234</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Extreme Commerce</td>
+                                            <td>$33,350</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END::   CURRENT MONTH CONTENT -->
+                                </b-tab>
+                                <b-tab title="Current Quarter">
+                                    <!-- START:: CURRENT QUARTER CONTETN -->
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>Architecture</td>
+                                            <td>$1,000,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Personal Care</td>
+                                            <td>$545,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Digital</td>
+                                            <td>$235,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kindle Store and other</td>
+                                            <td>$33,460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Electronics</td>
+                                            <td>$103,250</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Home &amp; Kitchen</td>
+                                            <td>$23,350</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END ::: CURRENT QUARTER CONTENT -->
+                                </b-tab>
+                            </b-tabs>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -530,6 +739,21 @@ import datepicker from 'vuejs-datepicker';
 
 export default {
     name: "dashboard",
+    data() {
+        return {
+            user: this.$store.state.auth.user,
+            dismissSecs: 5,
+            dismissCountDown: 0
+        }
+    },
+    methods: {
+      countDownChanged(dismissCountDown) {
+        this.dismissCountDown = dismissCountDown
+      },
+      showAlert() {
+        this.dismissCountDown = this.dismissSecs
+      }
+    },
     components: {
         datepicker
     }
