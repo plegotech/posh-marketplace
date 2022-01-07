@@ -10,12 +10,20 @@ class Companies extends Model
     protected   $primaryKey     = 'id';
     public      $timestamps     = false;
 
-    public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0)
+    public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0, $search = 0)
     {
         $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone', 'users.email')
         ->where('users.user_type', $type);
 
-        if($status != 0) {
+        if(strlen($search) > 1) {
+            $companies = $companies->where(function ($companies) use($search) {
+            $companies->where('users.first_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('companies.name', 'LIKE', '%'.$search.'%');
+            });
+        }
+
+        if(strlen($status) > 1) {
             $companies = $companies->where('users.status', $status);
         } else {
             $companies = $companies->where('users.status', 'approved');

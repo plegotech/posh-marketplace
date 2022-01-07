@@ -1,90 +1,6 @@
 <template>
     <div class="container-fluid pending-vend">
 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-             aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content p-4">
-                    <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
-                         alt="">
-                    <form ref="form">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Company Name</label>
-                                    <input type="text" v-model="company.name" class="form-control"
-                                           placeholder="Company Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group ">
-                                    <label>First Name</label>
-                                    <input type="text" v-model="company.first_name" class="form-control"
-                                           placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" v-model="company.last_name" class="form-control"
-                                           placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" v-model="company.email" class="form-control"
-                                           placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" v-model="company.phone" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Subscription Fee</label>
-                                    <input type="number" v-model="company.subscription_fee" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" v-model="company.address" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" v-model="company.city" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>State</label>
-                                    <input type="text" v-model="company.state" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <input type="text" v-model="company.country" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <button @click="addCompany()" class="btn btn-light btn-block">Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <div class="row" style="margin-top:20px">
             <div class="col-sm-12">
                 <div>
@@ -93,20 +9,19 @@
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh" class="top-newOrder">
                                 <div class="search-box mb-4">
-                                    <form action="">
-                                        <img src="/img/search-icon.png" class="search-icon" alt="">
-                                        <input type="text" class="search_BX">
-                                        <img src="/img/close-srch.png" class="close-icon" alt="">
-                                    </form>
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX pendingVendorSearch" v-on:keypress="searchTheVendors"
+                                           data-type="pending">
+                                    <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
                                 </div>
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">
                                     <thead>
                                     <tr>
-                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">First Name <img class="shuffle"
+                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'pending')"><span class="sort-ad">First Name <img class="shuffle"
                                                                                                                                                              src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'last_name')"><span class="sort-ad">Last Name <img class="shuffle"
+                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'last_name', 'pending')"><span class="sort-ad">Last Name <img class="shuffle"
                                                                                                                                                            src="/img/shuffle.png"></span>
                                         </th>
                                         <th scope="col">Address</th>
@@ -156,10 +71,8 @@
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <li @click="editCompany(company)" data-toggle="modal"
-                                                        data-target=".bd-example-modal-lg">Edit
-                                                    </li>
-                                                    <li @click="markInactive(company.user_id)">Inactive</li>
+                                                    <li @click="changeUserStatus(company.user_id, 'approved')">Accept</li>
+                                                    <li @click="changeUserStatus(company.user_id, 'rejected')">Reject</li>
                                                 </ul>
                                             </div>
 
@@ -167,9 +80,12 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <div class="foot-table">
+                                <div class="foot-table" v-if="total < 1">
+                                    <p>No results found.</p>
+                                </div>
+                                <div class="foot-table" v-if="total > 0">
                                     <div class="left"><span>Rows Per Page:
-                                            <select @change="fetchCompanies(current_page, $event.target.value)">
+                                            <select @change="fetchCompanies(current_page, $event.target.value, 0, 'pending')">
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="75">75</option>
@@ -179,12 +95,11 @@
                                     <div class="right">
                                         <span>{{ from }}-{{ to }} of {{ total }} Items</span>
                                         <img
-                                            src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
+                                            src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1, 0, 0, 'pending')"
                                             alt="" class="prev-itm">
                                         <img
-                                            src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)" alt="" class="next-itm"></div>
+                                            src="/img/next-arrow.png" @click="fetchCompanies(current_page+1, 0, 0, 'pending')" alt="" class="next-itm"></div>
                                 </div>
-
                                 <!-- END: TABLE   -->
                             </div>
                             <!-- END::: FIRST TAB CONTENT -->
@@ -193,21 +108,20 @@
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="second-pvs-posh" class="top-newOrder">
                                 <div class="search-box mb-4">
-                                    <form action="">
-                                        <img src="/img/search-icon.png" class="search-icon" alt="">
-                                        <input type="text" class="search_BX">
-                                        <img src="/img/close-srch.png" class="close-icon" alt="">
-                                    </form>
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX rejectedVendorSearch" v-on:keypress="searchTheVendors"
+                                           data-type="rejected">
+                                    <img src="/img/close-srch.png" @click="removeRejectedVendorSearch" class="close-icon" alt="">
                                 </div>
                                 <!-- start: TABLE -->
-                                <table class="table">
+                                <table class="table" id="pvs-tab">
                                     <thead>
                                     <tr>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">First Name <img class="shuffle"
-                                                                                                                 src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'rejected')"><span class="sort-ad">First Name <img class="shuffle"
+                                                                                                                                                                        src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Last Name <img class="shuffle"
-                                                                                                                src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'last_name', 'rejected')"><span class="sort-ad">Last Name <img class="shuffle"
+                                                                                                                                                                      src="/img/shuffle.png"></span>
                                         </th>
                                         <th scope="col">Address</th>
                                         <th scope="col">City & State</th>
@@ -216,105 +130,60 @@
                                         <th scope="col">Subscription Fees</th>
                                         <th scope="col">Signed-up Date & Time</th>
                                         <th scope="col">Email Address</th>
-                                        <th scope="col">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr v-for="company in rej_companies" v-bind="company.id">
                                         <td>
-                                            <span>Ricky</span>
+                                            <span>{{ company.first_name }}</span>
                                         </td>
                                         <td>
-                                            <span>Ricky</span>
+                                            <span>{{ company.last_name }}</span>
                                         </td>
                                         <td>
-                                            <span>4949, Forecast Ave</span>
+                                            <span>{{ company.address }}</span>
                                         </td>
                                         <td>
-                                            <span>Chicago, Illinois</span>
+                                            <span>{{ company.city }}, {{ company.state }}</span>
                                         </td>
                                         <td>
-                                            <span>630-3542-2342</span>
+                                            <span>{{ company.phone }}</span>
                                         </td>
                                         <td>
-                                            <span>DELL</span>
+                                            <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>$100</span>
+                                            <span>{{ company.subscription_fee }}</span>
                                         </td>
                                         <td>
-                                              <span>Oct 01, 2021
-                                                09:58 PM</span>
+                                            <span>Oct 01, 2021 09:58 PM</span>
                                         </td>
                                         <td>
-                                            <span>ricky@yahoo.com</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <li>Edit</li>
-                                                    <li>Inactive</li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Ricky</span>
-                                        </td>
-                                        <td>
-                                            <span>Ricky</span>
-                                        </td>
-                                        <td>
-                                            <span>4949, Forecast Ave</span>
-                                        </td>
-                                        <td>
-                                            <span>Chicago, Illinois</span>
-                                        </td>
-                                        <td>
-                                            <span>630-3542-2342</span>
-                                        </td>
-                                        <td>
-                                            <span>DELL</span>
-                                        </td>
-                                        <td>
-                                            <span>$100</span>
-                                        </td>
-                                        <td>
-                                              <span>Oct 01, 2021
-                                                09:58 PM</span>
-                                        </td>
-                                        <td>
-                                            <span>ricky@yahoo.com</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <li>Edit</li>
-                                                    <li>Inactive</li>
-                                                </ul>
-                                            </div>
+                                            <span>{{ company.email }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <div class="foot-table">
-                                    <div class="left"><span>Rows Per Page:
-                                            <select><option value="4" selected="selected">4</option> <option
-                                                value="3">3</option> <option value="2">2</option> <option
-                                                value="1">1</option></select></span></div>
-                                    <div class="right"><span>1-4 of 20 Items</span> <img
-                                        src="/img/prev-arrow.png"
-                                        alt="" class="prev-itm"> <img
-                                        src="/img/next-arrow.png" alt="" class="next-itm"></div>
+                                <div class="foot-table" v-if="rej_total < 1">
+                                    <p>No results found.</p>
                                 </div>
-
+                                <div class="foot-table" v-if="rej_total > 0">
+                                    <div class="left"><span>Rows Per Page:
+                                            <select @change="fetchCompanies(rej_current_page, $event.target.value, 0, 'rejected')">
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="75">75</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                            </span></div>
+                                    <div class="right">
+                                        <span>{{ rej_from }}-{{ rej_to }} of {{ rej_total }} Items</span>
+                                        <img
+                                            src="/img/prev-arrow.png" @click="fetchCompanies(rej_current_page-1, 0, 0, 'rejected')"
+                                            alt="" class="prev-itm">
+                                        <img
+                                            src="/img/next-arrow.png" @click="fetchCompanies(rej_current_page+1, 0, 0, 'rejected')" alt="" class="next-itm"></div>
+                                </div>
                                 <!-- END: TABLE   -->
                             </div>
                             <!-- END::: FIRST TAB CONTENT -->
@@ -334,6 +203,8 @@ export default {
     data() {
         return {
             companies: [],
+            rej_companies: [],
+            search: 0,
             per_page: 0,
             order: 'asc',
             order_by: 0,
@@ -341,6 +212,10 @@ export default {
             from: null,
             total: null,
             current_page: null,
+            rej_to: null,
+            rej_from: null,
+            rej_total: null,
+            rej_current_page: null,
             company: {
                 id: '',
                 user_id: '',
@@ -358,14 +233,12 @@ export default {
             }
         }
     },
-    mounted() {
-        console.log('mounted')
-    },
     created() {
         this.fetchCompanies();
+        this.fetchCompanies(0, 0, 0, 'pending');
     },
     methods: {
-        fetchCompanies(page = 0, per_page = 0, order_by = 0) {
+        fetchCompanies(page = 0, per_page = 0, order_by = 0, type = 'rejected', search = 0) {
             var url = '/api/companies/vendor';
 
             if (per_page > 0 || this.per_page > 0) {
@@ -388,6 +261,24 @@ export default {
                 }
                 url += '/' + this.order_by;
                 url += '/' + this.order;
+            } else {
+                url += '/id';
+                url += '/desc';
+            }
+
+            if(type == 'pending') {
+                url += '/pending';
+            } else {
+                url += '/rejected';
+            }
+
+            var search = search;
+
+            if (search != 0 || this.search != 0) {
+                if (search != 0) {
+                    this.search = search;
+                }
+                url += '/' + this.search;
             }
 
             if (page > 0) {
@@ -397,81 +288,58 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.companies = res.data;
-                    this.to = res.to;
-                    this.from = res.to - res.per_page;
-                    this.total = res.total;
-                    this.current_page = res.to / res.per_page;
-                })
-                .catch(err => console.log(err));
-        },
-
-        editCompany(company) {
-            this.company.id = company.id;
-            this.company.user_id = company.user_id;
-            this.company.first_name = company.first_name;
-            this.company.last_name = company.last_name;
-            this.company.phone = company.phone;
-            this.company.email = company.email;
-            this.company.logo = company.logo;
-            this.company.name = company.name;
-            this.company.subscription_fee = company.subscription_fee;
-            this.company.address = company.address;
-            this.company.city = company.city;
-            this.company.state = company.state;
-            this.company.country = company.country;
-        },
-
-        exportCompanies() {
-            window.open('/api/export-companies/vendor', '_blank').focus()
-        },
-
-        addCompany(company) {
-
-            fetch('/api/company', {
-                method: 'post',
-                body: JSON.stringify(this.company),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success == false) {
-                        alert('the email is already taken or company name is empty');
+                    if(type == 'pending') {
+                        this.companies = res.data;
+                        this.to = res.to;
+                        this.from = res.to - res.per_page;
+                        this.total = res.total;
+                        this.current_page = res.to / res.per_page;
                     } else {
-                        this.clearForm();
-                        this.fetchCompanies();
+                        this.rej_companies = res.data;
+                        this.rej_to = res.to;
+                        this.rej_from = res.to - res.per_page;
+                        this.rej_total = res.total;
+                        this.rej_current_page = res.to / res.per_page;
                     }
                 })
                 .catch(err => console.log(err));
         },
 
-        markInactive(user_id) {
-            var url = '/api/user/toggle-activation/' + user_id;
+        searchTheVendors: function (e) {
+            if (e.keyCode === 13) {
+                var element = e.target;
+                var type = element.getAttribute('data-type');
+
+                if(type == 'pending') {
+                    this.fetchCompanies(0, 0, 0, 'pending', element.value);
+                } else {
+                    this.fetchCompanies(0, 0, 0, 'rejected', element.value);
+                }
+            }
+        },
+
+        removePendingVendorSearch: function () {
+            document.getElementsByClassName('pendingVendorSearch')[0].value = '';
+            this.search = 0;
+            this.fetchCompanies(0, 0, 0, 'pending');
+        },
+
+        removeRejectedVendorSearch: function () {
+            document.getElementsByClassName('rejectedVendorSearch')[0].value = '';
+            this.search = 0;
+            this.fetchCompanies(0, 0, 0, 'rejected');
+        },
+
+        changeUserStatus(user_id, status) {
+            var url = '/api/user/change-status/' + user_id + '/' + status;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     alert(data.message);
                     this.fetchCompanies();
+                    this.fetchCompanies(0, 0, 0, 'pending');
                 })
                 .catch(err => console.log(err));
-        },
-
-        clearForm() {
-            this.company.id = "";
-            this.company.first_name = "";
-            this.company.last_name = "";
-            this.company.phone = "";
-            this.company.email = "";
-            this.company.logo = "";
-            this.company.name = "";
-            this.company.subscription_fee = "";
-            this.company.address = "";
-            this.company.city = "";
-            this.company.state = "";
-            this.company.country = "";
-            closeAllModals();
         }
     }
 }

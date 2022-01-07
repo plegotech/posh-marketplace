@@ -97,4 +97,12 @@ class UsersController extends Controller
 
         return response()->json(['message' => 'user status was updated successfully.']);
     }
+
+    public function changeUserStatus($user_id, $status)
+    {
+        User::where('id', $user_id)
+            ->update(['status' => $status]);
+
+        return response()->json(['message' => 'user status was updated successfully.']);
+    }
 }

@@ -233,7 +233,7 @@ nav ul li img.notify {
     width: 20px;
     padding-top: 5px;
 }
-.pending-vend .search-box form img.close-icon,
+.pending-vend .search-box img.close-icon,
 nav ul li img.profile:hover,
 nav ul li img.notify:hover {transition:.2s;opacity:.7}
 nav ul li img.profile {
@@ -838,10 +838,10 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     float: right;
     position: relative;
 }
-.pending-vend .search-box form {
+.pending-vend .search-box {
     width: 100%;
 }
-.pending-vend .search-box form img.search-icon {
+.pending-vend .search-box img.search-icon {
     position: absolute;
     left: 20px;
     width: 15px;
@@ -849,8 +849,8 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     cursor: pointer;
     transform: translateY(-50%);
 }
-.pending-vend .search-box form img {}
-.pending-vend .search-box form img.close-icon {
+.pending-vend .search-box img {}
+.pending-vend .search-box img.close-icon {
     position: absolute;
     right: 20px;
     width: 10px;
@@ -858,7 +858,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     transform: translatey(-50%);
     cursor: pointer;
 }
-.pending-vend .search-box form input.search_BX {
+.pending-vend .search-box input.search_BX {
     width: 100%;
     border-radius: 20px;
     border: 1px solid #dfdfdf;

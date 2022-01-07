@@ -22,10 +22,10 @@ class CompaniesController extends Controller
         return 'silence is the gold';
     }
 
-    public function companies($type, $perpage = 25, $order_by = 'id', $order = 'desc', $status = 0)
+    public function companies($type, $perpage = 25, $order_by = 'id', $order = 'desc', $status = 0, $search = 0)
     {
         $companies = new Companies();
-        $companies = $companies->getCompaniesByUserType($type, $perpage, $order_by, $order, $status);
+        $companies = $companies->getCompaniesByUserType($type, $perpage, $order_by, $order, $status, $search);
 
         return response()->json($companies);
     }
