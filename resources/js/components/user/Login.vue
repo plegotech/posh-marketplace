@@ -21,7 +21,9 @@
                             </label>
 
                             <router-link to="/admin/dashboard">Forgot Password?</router-link>
-                            <input type="submit" @click="loginUser()" value="LOGIN">
+                            <button type="submit" :disabled="processing" @click="loginUser" class="btn btn-primary btn-block">
+                                {{ processing ? "Please wait" : "Login" }}
+                            </button>
                         </form>
                     </div>
 
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     data() {
         return {
@@ -61,22 +64,30 @@ export default {
                 email: '',
                 password: ''
             },
-            errors: []
+            errors: [],
+            processing:false
         }
     },
     created() {
-        this.checkAuth();
+        // this.checkAuth();
         console.log('Component mounted.')
     },
     methods: {
-        loginUser() {
-            axios.post('/api/login', this.form)
-                .then(() => {
+        ...mapActions({
+            signIn:'auth/login'
+        }),
+        async loginUser() {
+            this.processing = true
+            await axios.get('/sanctum/csrf-cookie')
+            axios.post('/login', this.form)
+                .then(({data}) => {
+                    this.signIn();
                     this.$router.push({name: "Dashboard"});
-                }).catch((error) => {
-                document.getElementsByClassName('invalidLogin')[0].style.display = 'block';
-                // this.errors = error.response.data.errors;
-            })
+                }).catch(({response:{data}})=>{
+                    alert(data.message)
+                }).finally(()=>{
+                    this.processing = false
+                })
         },
         checkAuth() {
             axios.get('/api/athenticated', this.form)

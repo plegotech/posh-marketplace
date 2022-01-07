@@ -537,6 +537,12 @@ import Navbar from './Navbar.vue';
 import Sidebar from './Sidebar.vue';
 
 export default {
+    name: "dashboard",
+    data() {
+        return {
+            user: this.$store.state.auth.user
+        }
+    },
     components: {
         datepicker,
         Navbar,

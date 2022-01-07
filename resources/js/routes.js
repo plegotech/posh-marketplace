@@ -22,7 +22,8 @@ export default {
         /*
          * Routes for the Super Admin
          */
-        { name: 'Dashboard', meta: { title: 'Dashboard' }, path: '/admin/dashboard', component: AdminDashboard },
+        { name: 'Dashboard', meta: { title: 'Dashboard', middleware:"auth" }, path: '/admin/dashboard',
+            component: AdminDashboard },
         { meta: { title: 'Manage Vendors' }, path: '/admin/manage-vendors', component: AdminManageVendors },
         { meta: { title: 'Manage Sellers' }, path: '/admin/manage-sellers', component: AdminManageSellers },
         { meta: { title: 'Pending Vendor Signups' }, path: '/admin/pending-vendor-signups', component: AdminPendingVendorSignups },
@@ -38,7 +39,7 @@ export default {
         /*
          * Non Secure Routes
          */
-        { meta: { title: 'Login' }, path: '/', component: UserLogin },
+        { meta: { title: 'Login', middleware:"guest" }, path: '/', component: UserLogin },
         { meta: { title: 'Login' }, path: '/login', component: UserLogin },
         { meta: { title: 'Vendor Signup' }, path: '/vendor-signup', component: VendorSignup },
         { meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
