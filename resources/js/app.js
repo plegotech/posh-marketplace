@@ -19,14 +19,35 @@ const Router = new VueRouter(routes);
 
 Router.beforeEach((to, from, next) => {
     document.title = to.meta.title
+    next()
     if(to.meta.middleware=="guest"){
-        if(store.state.auth.authenticated){
-            next({name:"dashboard"})
+        if(store.state.auth.authenticated) {
+            switch (state.auth.user.user_type) {
+                case 'admin':
+                    next({name:"dashboard"});
+                    break;
+                case 'vendor':
+                    next({name:"forbidden"});
+                    break;
+                case 'seller':
+                    next({name:"forbidden"});
+                    break;
+            }
         }
         next()
-    }else{
+    } else {
         if(store.state.auth.authenticated){
-            next()
+            switch (state.auth.user.user_type) {
+                case 'admin':
+                    next({name:"dashboard"});
+                    break;
+                case 'vendor':
+                    next({name:"forbidden"});
+                    break;
+                case 'seller':
+                    next({name:"forbidden"});
+                    break;
+            }
         }else{
             next({name:"login"})
         }

@@ -62,7 +62,8 @@ export default {
         return {
             form: {
                 email: '',
-                password: ''
+                password: '',
+                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
             errors: [],
             processing:false
@@ -82,7 +83,7 @@ export default {
             axios.post('/login', this.form)
                 .then(({data}) => {
                     this.signIn();
-                    this.$router.push({name: "Dashboard"});
+                    this.$router.push({name: "dashboard"});
                 }).catch(({response:{data}})=>{
                     alert(data.message)
                 }).finally(()=>{
