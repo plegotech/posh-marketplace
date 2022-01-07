@@ -1,7 +1,7 @@
 $(function () {
-    $(".datepicker").each(function () {
-        $(this).datepicker()
-    })
+    // $(document.body).each(".datepicker", function () {
+    //     $(this).datepicker()
+    // })
 
     // $(".tabs").tabs();
 
@@ -31,19 +31,19 @@ $(document).ready(function () {
         })
     })
 
-    $('.sub-menu').each(function () {
-        $(this).on('click', function () {
-            if ($(this).hasClass('active_')) {
-                $(this).children().children('ul').slideUp();
-                $(this).removeClass('active_');
-                $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-down.png')
-            } else {
-                $(this).children().children('ul').slideDown();
-                $(this).addClass('active_');
-                $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-up.png')
-            }
-        })
-    })
+    // $('.sub-menu').each(function () {
+    //     $(this).on('click', function () {
+    //         if ($(this).hasClass('active_')) {
+    //             $(this).children().children('ul').slideUp();
+    //             $(this).removeClass('active_');
+    //             $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-down.png')
+    //         } else {
+    //             $(this).children().children('ul').slideDown();
+    //             $(this).addClass('active_');
+    //             $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-up.png')
+    //         }
+    //     })
+    // })
 
     $('.pdf-down').on('click', function () {
         $(this).each(function () {
@@ -80,11 +80,23 @@ function closeAllModals() {
     }
 
     // get modal backdrops
-    const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    document.body.className = document.body.className.replace("modal-open","");
+    // const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
+    // document.body.className = document.body.className.replace("modal-open","");
 
     // remove every modal backdrop
     for(let i=0; i<modalsBackdrops.length; i++) {
         document.body.removeChild(modalsBackdrops[i]);
     }
 }
+
+$(document.body).on('click', '.sub-menu' ,function(){
+    if ($(this).hasClass('active_')) {
+        $(this).children().children('ul').slideUp();
+        $(this).removeClass('active_');
+        $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-down.png')
+    } else {
+        $(this).children().children('ul').slideDown();
+        $(this).addClass('active_');
+        $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-up.png')
+    }
+})

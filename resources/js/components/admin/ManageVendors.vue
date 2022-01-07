@@ -140,17 +140,28 @@
                             <td>
                                           <span>Oct 01, 2021
                                             09:58 PM</span>
-                            </td>
-                            <td>
-                                <button class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul class="more-opts">
-                                        <li @click="editCompany(company)" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg">Edit
-                                        </li>
-                                        <li @click="markInactive(company.user_id)">Inactive</li>
-                                    </ul>
-                                </button>
+                                    </td>
+                                    <td>
+                                        <!--<button class="cst-slct">
+                                            <img src="/img/more.png" class="more-opt" alt="">
+                                            <ul class="more-opts">
+                                                <li @click="editCompany(company)" data-toggle="modal"
+                                                    data-target=".bd-example-modal-lg">Edit
+                                                </li>
+                                                <li @click="markInactive(company.user_id)">Inactive</li>
+                                            </ul>
+                                        </button>-->
+
+                                        <div class="dropdown cst-slct">
+                                            <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                <li @click="editCompany(company)" data-toggle="modal"
+                                                    data-target=".bd-example-modal-lg">Edit</li>
+                                                <li @click="markInactive(company.user_id)">Inactive</li>
+                                            </ul>
+                                        </div>
 
                             </td>
                         </tr>
