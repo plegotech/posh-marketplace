@@ -1191,7 +1191,7 @@ select#inputState {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
-    background-image: url(img/down-arrow-Vector.png);
+    background-image: url(/img/down-arrow-Vector.png);
     background-repeat: no-repeat;
     background-position-x: 94%;
     background-position-y: 50%;
@@ -1250,10 +1250,83 @@ a.link-b-b {
     height: 56px!important;
     margin-top: 0;
     background: #fff;
-    border-color: #2D2D2D;
+    border:1px solid #2D2D2D;
 }
 .registration-dvs-form {
     padding-right: 18%;
     margin: 0 auto;
     padding-left: 18%;
 }
+/*START dashboard-vendor*/
+.box-shadow-wbg table.table {
+    font-size: 16px;
+}
+.box-shadow-wbg thead {
+    background: #F2F2F2;
+    padding: 10px;
+}
+.box-shadow-wbg thead tr img.shuffle {
+    width: 12px;
+}
+.box-shadow-wbg thead tr th:first-child, .box-shadow-wbg tbody tr td:first-child {
+    padding-left: 20px!important;
+}
+.box-shadow-wbg thead tr th {
+    vertical-align: middle;
+    border-color: transparent;
+    position: relative;
+}
+.box-shadow-wbg h2.title-b-inside {
+    width: 100%;
+    padding-left: 0px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+    color: #3D3D3D;
+    margin: 14px 0;
+    margin-top: 15px;
+}
+.sec-box:last-child .right-txt {
+    border-right: 0;
+}
+.box-shadow-wbg .sec-box h3 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+    color: #3D3D3D;
+    margin: 14px 0;
+    margin-top: 15px;
+}
+.sec-box span {
+    color: #767676;
+    font-size: 16px;
+}
+.box-shadow-wbg {
+    flex-wrap: nowrap;
+    padding: 20px 30px;
+    background: #FFFFFF;
+    border: 1px solid #F8F8F8;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+.sec-box img {
+    max-width: 100%;
+    width: auto;
+}
+.sidebar ul li.sub-menu.active ul {
+    display: block;
+}
+.right-txt {
+    border-right: 1px solid gainsboro;
+    padding: 0 20px;
+}
+.sec-box {
+    display: flex;
+}
+/*END:: dashboard-vendor*/
