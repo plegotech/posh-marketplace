@@ -215,22 +215,7 @@ export default {
             rej_to: null,
             rej_from: null,
             rej_total: null,
-            rej_current_page: null,
-            company: {
-                id: '',
-                user_id: '',
-                first_name: '',
-                last_name: '',
-                phone: '',
-                email: '',
-                logo: '',
-                name: '',
-                subscription_fee: '',
-                address: '',
-                city: '',
-                state: '',
-                country: '',
-            }
+            rej_current_page: null
         }
     },
     created() {
@@ -291,14 +276,20 @@ export default {
                     if(type == 'pending') {
                         this.companies = res.data;
                         this.to = res.to;
-                        this.from = res.to - res.per_page;
+                        this.from = res.per_page - res.to;
                         this.total = res.total;
+                        if(res.total < res.per_page) {
+                            this.from = 0;
+                        }
                         this.current_page = res.to / res.per_page;
                     } else {
                         this.rej_companies = res.data;
                         this.rej_to = res.to;
-                        this.rej_from = res.to - res.per_page;
+                        this.rej_from = res.per_page - res.to;
                         this.rej_total = res.total;
+                        if(res.total < res.per_page) {
+                            this.rej_from = 0;
+                        }
                         this.rej_current_page = res.to / res.per_page;
                     }
                 })
