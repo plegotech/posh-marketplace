@@ -527,15 +527,11 @@
 
 <script>
 import datepicker from 'vuejs-datepicker';
-import Navbar from './Navbar.vue';
-import Sidebar from './Sidebar.vue';
 
 export default {
     name: "dashboard",
     components: {
-        datepicker,
-        Navbar,
-        Sidebar
+        datepicker
     }
 }
 </script>
