@@ -1319,6 +1319,7 @@ a.link-b-b {
 span.blue-txt {
     color: #3E66FB;
 }
+
 tr.ifpending-bx {
     background: #f9fafa;
 }
@@ -1443,7 +1444,6 @@ i.my-profile:before {
     background: url(/img/menu-icons/my-profile-icon-active.png);
 }
 /*END:: dashboard-vendor*/
-
 .alert-time {
     position: relative;
     margin-top: 20px;
