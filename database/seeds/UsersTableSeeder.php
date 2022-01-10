@@ -128,7 +128,7 @@ class UsersTableSeeder extends seeder
                 'user_type'     => $user_type[array_rand($user_type)],
                 'status'        => $status[array_rand($status)],
                 'email'         => strtolower($first_name) . $u . '@yopmail.com',
-                'password'      => Hash::make(strtolower($first_name))
+                'password'      => Hash::make(strtolower('plego100'))
             ];
             User::insert($insert);
         }
