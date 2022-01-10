@@ -18,39 +18,8 @@ Vue.use(BootstrapVue);
 const Router = new VueRouter(routes);
 
 Router.beforeEach((to, from, next) => {
-    document.title = to.meta.title
-    if(to.meta.middleware=="guest"){
-        if(store.state.auth.authenticated) {
-            switch (state.auth.user.user_type) {
-                case 'admin':
-                    next({name:"dashboard"});
-                    break;
-                case 'vendor':
-                    next({name:"forbidden"});
-                    break;
-                case 'seller':
-                    next({name:"forbidden"});
-                    break;
-            }
-        }
-        next()
-    } else {
-        if(store.state.auth.authenticated){
-            switch (state.auth.user.user_type) {
-                case 'admin':
-                    next({name:"dashboard"});
-                    break;
-                case 'vendor':
-                    next({name:"forbidden"});
-                    break;
-                case 'seller':
-                    next({name:"forbidden"});
-                    break;
-            }
-        }else{
-            next({name:"login"})
-        }
-    }
+    document.title = 'POSH | ' + to.meta.title;
+    next();
 });
 
 const app = new Vue({

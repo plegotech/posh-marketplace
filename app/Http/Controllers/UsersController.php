@@ -36,6 +36,7 @@ class UsersController extends Controller
     public function logout()
     {
         Auth::logout();
+        return 'authOut';
     }
 
     public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc', $status = null)

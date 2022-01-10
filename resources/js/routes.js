@@ -24,7 +24,7 @@ export default {
         /*
          * Routes for the Super Admin
          */
-        { meta: { middleware:"auth" }, path: '/admin', component: AdminDashboardLayout, children: [
+        { name: 'dashboardLayout', meta: { middleware:"auth" }, path: '/admin', component: AdminDashboardLayout, children: [
             { name: 'dashboard', meta: { title: 'Overview' }, path: '/admin/dashboard', component: AdminDashboard },
             { meta: { title: 'Manage Vendors' }, path: '/admin/manage-vendors', component: AdminManageVendors },
             { meta: { title: 'Manage Sellers' }, path: '/admin/manage-sellers', component: AdminManageSellers },
@@ -42,9 +42,9 @@ export default {
         /*
          * Non Secure Routes
          */
-        { name: 'login', meta: { title: 'Login', middleware:"guest" }, path: '/', component: UserLogin },
+        { name: 'login', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
         { meta: { title: 'Login' }, path: '/login', component: UserLogin },
-        { meta: { title: 'Vendor Signup' }, path: '/vendor-signup', component: VendorSignup },
+        { meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
         { meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
         { meta: { title: 'User Signup' }, path: '/user-signup', component: UserSignup },
         { name: 'forbidden', meta: { title: 'Forbidden Access' }, path: '/forbidden', component: ForbiddenAccess }

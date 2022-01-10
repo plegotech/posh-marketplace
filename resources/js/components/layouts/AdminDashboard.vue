@@ -149,7 +149,7 @@
 import {mapActions} from 'vuex'
 
 export default {
-    name: "dashboard-layout",
+    name: "dashboardLayout",
     data() {
         return {
             user: this.$store.state.auth.user,
@@ -170,6 +170,7 @@ export default {
             await axios.post('/logout').then(({data}) => {
                 this.signOut()
                 this.$router.push({name: "login"})
+                // window.location.href = window.location.origin;
             })
         },
         adminDashboard() {

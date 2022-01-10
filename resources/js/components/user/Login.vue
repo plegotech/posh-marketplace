@@ -71,7 +71,6 @@ export default {
     },
     created() {
         // this.checkAuth();
-        console.log('Component mounted.')
     },
     methods: {
         ...mapActions({
@@ -80,10 +79,12 @@ export default {
         async loginUser() {
             this.processing = true
             await axios.get('/sanctum/csrf-cookie')
-            axios.post('/login', this.form)
+            await axios.post('/login', this.form)
                 .then(({data}) => {
                     this.signIn();
-                    this.$router.push({name: "dashboard"});
+                    setTimeout(() => {
+                        this.$router.push({name: "dashboard"});
+                    }, 1500);
                 }).catch(({response:{data}})=>{
                     alert(data.message)
                 }).finally(()=>{
