@@ -10,9 +10,9 @@
             >
                 This alert will dismiss after {{ dismissCountDown }} seconds...
             </b-alert>
-            <!--<b-button @click="showAlert" variant="info" class="m-1">
+            <b-button @click="showAlert" variant="info" class="m-1">
               Show alert with count-down timer
-            </b-button>-->
+            </b-button>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -328,7 +328,7 @@
                         <tr>
                             <th scope="col">Product</th>
                             <th scope="col">Seller Company</th>
-                            <th scope="col">Vender Company</th>
+                            <th scope="col">Vendor Company</th>
                         </tr>
                         </thead>
                         <tbody>
