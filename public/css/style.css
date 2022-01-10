@@ -1280,6 +1280,25 @@ a.link-b-b {
     font-size: 20px;
     font-weight: 600;
 }
+i.num-count-bx {
+    background: #64A8DA;
+    position: absolute;
+    left: 41px;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    top: -10px;
+}
+.box-a-tier button.primary {
+    padding-right: 15px;
+    width: auto;
+    padding-left: 15px;
+}
+
 .form-row.sub-btn-bx {
     max-width: 440px;
     margin: 0 auto;
@@ -1313,6 +1332,7 @@ h1.main-title{font-size: 26px;}
 .box-a-tier {
     background: #F1F1F1;
     border-radius: 20px;
+    position: relative;
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1351,6 +1371,15 @@ button.primary.rsv-bx.mx-424 {
 }
 span.dr-arrow {
     float: right;
+}
+.input-group-append {
+    background: #0862a3;
+}
+.input-group input.form-control {
+    height: 56px!important;
+    margin-top: 0;
+    background: #fff;
+    border: 1px solid #2D2D2D;
 }
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
