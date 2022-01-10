@@ -20,10 +20,14 @@ class AdminController extends Controller
     public function adminData()
     {
         $pending_sellers = User::select(DB::raw('COUNT(id) as pending_sellers'))
-            ->where('user_type', 'seller')->pluck('pending_sellers');
+            ->where('user_type', 'seller')
+            ->where('status', 'pending')
+            ->pluck('pending_sellers');
 
         $pending_vendors = User::select(DB::raw('COUNT(id) as pending_vendors'))
-            ->where('user_type', 'vendor')->pluck('pending_vendors');
+            ->where('user_type', 'vendor')
+            ->where('status', 'pending')
+            ->pluck('pending_vendors');
 
         $return = array(
             'pending_sellers' => $pending_sellers[0],
