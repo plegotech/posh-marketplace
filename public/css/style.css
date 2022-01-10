@@ -1381,6 +1381,23 @@ span.dr-arrow {
     background: #fff;
     border: 1px solid #2D2D2D;
 }
+.input-group-append button.primary {
+    margin-top: 0;
+}
+.select-pro-cat select {
+    width: auto;
+    height: 56px;
+    margin-top: 0;
+    background: #EAEAEA;
+    border: 1px solid #C8C8C8;
+}
+.select-pro-cat input.form-control {
+    background: #fff;
+}
+.select-pro-cat button.primary {
+    font-size: 27px;
+    border: 1px solid #0862a3;
+}
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;

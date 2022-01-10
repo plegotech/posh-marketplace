@@ -21,7 +21,7 @@
                             </label>
 
                             <router-link to="/admin/dashboard">Forgot Password?</router-link>
-                            <button type="submit" :disabled="processing" @click="loginUser" class="btn btn-primary btn-block">
+                            <button type="submit" :disabled="processing" @click="loginUser" class="primary btn-block">
                                 {{ processing ? "Please wait" : "Login" }}
                             </button>
                         </form>

@@ -46,10 +46,21 @@
                 <div class="row mt-5">
                 <div class="col-sm-12 text-center">
                     <h1 class="main-title mb-4">Select Product Categories</h1>
+                    <div class="input-group justify-content-center select-pro-cat">
+                    <select v-model="selected">
+                        <option value="all">All</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                <input type="text" class="form-control" placeholder="Browse Category">
+                <div class="input-group-append">
+                    <button class="primary" type="button"> <i class="fa fa-search"></i></button> </div>
+            </div>
                 </div>                
                 </div>
 
-                <div class="row">
+                <div class="row mt-5">
                 <div class="col-sm-12 text-center">
                     <h1 class="main-title mb-4">Select Template</h1>
                 </div>                
@@ -63,27 +74,15 @@
                     <img src="/img/templae-sample-3.png">
                 </div>
                 </div>
-<style>
-    .has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
-}
-    </style>
-                <div class="row  ">
-                    <div class="col-sm-12"><h2 class="main-title">Grab Your .com</h2></div>
+
+                <div class="row mt-5 ">
+                    <div class="col-sm-12 text-center"><h2 class="main-title">Grab Your .com</h2></div>
                     <div class="col-sm-12">
                     <div class="input-group justify-content-center">
-                <input type="text" class="form-control" placeholder="Search this blog">
+                <input type="text" class="form-control" placeholder="williamson.com">
                 <div class="input-group-append">
                     <button class="primary" type="button">
-                        <i class="fa fa-search"></i>
+                        Search <i class="fa fa-search"></i>
                     </button>
                 </div>
             </div>
