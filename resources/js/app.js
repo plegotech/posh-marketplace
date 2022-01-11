@@ -19,6 +19,13 @@ const Router = new VueRouter(routes);
 
 Router.beforeEach((to, from, next) => {
     document.title = 'POSH | ' + to.meta.title;
+
+    var x = document.getElementsByClassName("navbar-brand");
+    for(var i = 0; i < x.length; i++) {
+        x[i].innerText = to.meta.title;
+        x[i].innerHTML = to.meta.title;
+    }
+
     next();
 });
 

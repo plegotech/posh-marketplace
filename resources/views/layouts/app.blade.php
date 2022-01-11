@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-
+    <div id="ajaxLoader">
+        <div id="loader"></div>
+    </div>
     <div id="app" class="main">
         @yield('content')
     </div>

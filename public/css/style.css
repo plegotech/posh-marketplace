@@ -787,7 +787,7 @@ li.nav-item a.nav-link.active {
     width: initial;
     padding: initial;
     cursor: pointer;
-    
+
 }
 .top-newOrder tbody tr td img.more-opt:hover {transition:.2s;cursor:pointer;opacity:.5}
 .top-newOrder tbody tr td{
@@ -1151,8 +1151,9 @@ div#dropdownMenuButton {
     float: left;
     cursor: pointer;
 }
-#preloader-pageloader {
+#ajaxLoader {
     position: fixed;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -1160,7 +1161,7 @@ div#dropdownMenuButton {
     background: #00000070;
     z-index: 999;
 }
-#preloader-pageloader #loader {
+#ajaxLoader #loader {
     display: block;
     position: relative;
     left: 50%;
@@ -1174,7 +1175,7 @@ div#dropdownMenuButton {
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
-#preloader-pageloader #loader:before {
+#ajaxLoader #loader:before {
     content: "";
     position: absolute;
     top: 5px;
@@ -1187,7 +1188,7 @@ div#dropdownMenuButton {
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
 }
-#preloader-pageloader #loader:after {
+#ajaxLoader #loader:after {
     content: "";
     position: absolute;
     top: 15px;

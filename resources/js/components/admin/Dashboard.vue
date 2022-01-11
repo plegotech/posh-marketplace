@@ -1,19 +1,5 @@
 <template>
     <div class="container-fluid">
-        <div class="alert-time">
-            <b-alert
-                :show="dismissCountDown"
-                dismissible
-                variant="success"
-                @dismissed="dismissCountDown=0"
-                @dismiss-count-down="countDownChanged"
-            >
-                This alert will dismiss after {{ dismissCountDown }} seconds...
-            </b-alert>
-            <b-button @click="showAlert" variant="info" class="m-1">
-              Show alert with count-down timer
-            </b-button>
-        </div>
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
@@ -37,14 +23,14 @@
             </div>
         </div>
         <div class="row">
-            <h1>Analytics</h1> 
+            <h1>Analytics</h1>
             <div class="col-sm-4">
                 <div class="box">
                     <div class="left">
                         <img src="/img/Group_106.png" alt="">
                     </div>
                     <div class="right"><span>Total Gross Sales</span> <h2>$30,250</h2></div>
-                   
+
                 </div>
             </div>
             <div class="col-sm-4">
@@ -533,21 +519,6 @@ import datepicker from 'vuejs-datepicker';
 
 export default {
     name: "dashboard",
-    data() {
-        return {
-            user: this.$store.state.auth.user,
-            dismissSecs: 5,
-            dismissCountDown: 0
-        }
-    },
-    methods: {
-        countDownChanged(dismissCountDown) {
-            this.dismissCountDown = dismissCountDown
-        },
-        showAlert() {
-            this.dismissCountDown = this.dismissSecs
-        }
-    },
     components: {
         datepicker
     }
