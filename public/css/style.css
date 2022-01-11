@@ -1337,6 +1337,7 @@ h1.main-title{font-size: 26px;}
     background: #F1F1F1;
     border-radius: 20px;
     position: relative;
+<<<<<<< HEAD
     height: 170px;
 <<<<<<< HEAD
 =======
@@ -1345,6 +1346,15 @@ h1.main-title{font-size: 26px;}
 >>>>>>> c0173a4 (seller registration 2 styles)
 =======
 >>>>>>> 37a72e3 (fixes admin pages)
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    height: 170px;
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1386,16 +1396,22 @@ span.dr-arrow {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+=======
 <<<<<<< HEAD
-=======
-=======
 >>>>>>> c0173a4 (seller registration 2 styles)
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 .input-group-append {
     background: #0862a3;
 }
 >>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+<<<<<<< HEAD
 =======
 >>>>>>> 37a72e3 (fixes admin pages)
+=======
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 .input-group input.form-control {
     height: 56px!important;
     margin-top: 0;
@@ -1420,6 +1436,11 @@ span.dr-arrow {
     font-size: 27px;
     border: 1px solid #0862a3;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 .box-t-ins {
     display: flex;
     flex-direction: column;
@@ -1432,12 +1453,19 @@ select.form-control.select-opt-BC {
     border-right: 0;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
 =======
 >>>>>>> c0173a4 (seller registration 2 styles)
 =======
 >>>>>>> 37a72e3 (fixes admin pages)
+=======
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
@@ -1593,6 +1621,10 @@ i.my-profile:before {
     padding-right: 15px;
     padding-left: 15px;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 input.form-control.search-si-input {
     background: #F4F4F4;
     border: 2px solid #E7E7E7;
@@ -1720,6 +1752,7 @@ button.primary.search-bc {
     margin-top: 0;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> c0173a4 (seller registration 2 styles)
@@ -1727,6 +1760,11 @@ button.primary.search-bc {
 button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;}
 button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 >>>>>>> 37a72e3 (fixes admin pages)
+=======
+=======
+
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+>>>>>>> 634e28167231001c6e76453bb97013bda15136f3
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;
