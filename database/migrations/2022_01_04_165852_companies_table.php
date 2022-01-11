@@ -14,7 +14,7 @@ class CompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary()->autoIncrement();
             $table->string('logo')->nullable();
             $table->string('name');
             $table->integer('user_id');
