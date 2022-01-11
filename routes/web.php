@@ -28,9 +28,6 @@ Route::get('/', function () {
 Route::get('/page-loading', function () {
     return view('habib.page_loader');
 });
-Route::get('/dashboard-vendor', function () {
-    return view('habib.SellerDashboard');
-});
 Route::get('/seller-registration', function () {
     return view('habib.sellerregistration');
 });
