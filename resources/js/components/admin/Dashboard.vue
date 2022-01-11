@@ -14,13 +14,16 @@
                 </div>
             </div>
             <div class="col-sm-2">
-                    <select v-model="selected">
-                        <option disabled value="">Please select one</option>
+                    <select>
+                        <option disabled value="" selected>Please select one</option>
                         <option>A</option>
                         <option>B</option>
                         <option>C</option>
                     </select>
             </div>
+             <div class="offset-sm-2 col-sm-2">
+                <button class="secondary">CLEAR ALL</button>
+             </div>
         </div>
         <div class="row">
             <h1>Analytics</h1>
@@ -199,7 +202,7 @@
 
             </div>
             <div class="col-sm-6 mt-5">
-                <h2>Sales By Categories</h2>
+                <h2>Top 10 Sellers</h2>
                 <div>
                     <b-tabs content-class="mt-3">
                         <b-tab title="Current Year" active>
