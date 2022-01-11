@@ -1337,7 +1337,10 @@ h1.main-title{font-size: 26px;}
     background: #F1F1F1;
     border-radius: 20px;
     position: relative;
+<<<<<<< HEAD
     height: 170px;
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1377,6 +1380,12 @@ button.primary.rsv-bx.mx-424 {
 span.dr-arrow {
     float: right;
 }
+<<<<<<< HEAD
+=======
+.input-group-append {
+    background: #0862a3;
+}
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
 .input-group input.form-control {
     height: 56px!important;
     margin-top: 0;
@@ -1401,6 +1410,7 @@ span.dr-arrow {
     font-size: 27px;
     border: 1px solid #0862a3;
 }
+<<<<<<< HEAD
 .box-t-ins {
     display: flex;
     flex-direction: column;
@@ -1412,6 +1422,8 @@ select.form-control.select-opt-BC {
     border-radius: 3px 0 0 3px;
     border-right: 0;
 }
+=======
+>>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
