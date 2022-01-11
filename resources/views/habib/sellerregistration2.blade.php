@@ -14,12 +14,19 @@
             <div class="container my-5">
             <div class="tier-box-area">    
                 <div class="row">
+<<<<<<< HEAD
                     <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
+=======
+                    <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</div></div>
+>>>>>>> 0405126 (created seller registration page)
                     </div>
                     <div class="row">
                     <div class="col-sm-4 text-center">
                         <div class="box-a-tier">
+<<<<<<< HEAD
                             <i class="num-count-bx">1</i>
+=======
+>>>>>>> 0405126 (created seller registration page)
                             <h4 class="txt-blue">Free Tier</h4>
                             <p>Only 10 Products</p>
                             <button class="primary">START NOW</button>
@@ -27,7 +34,10 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="box-a-tier">
+<<<<<<< HEAD
                         <i class="num-count-bx">2</i>
+=======
+>>>>>>> 0405126 (created seller registration page)
                             <h4 class="txt-blue">Tier 2</h4>
                             <p>Only 10 Products</p>
                             <button class="primary">START NOW</button>
@@ -35,13 +45,17 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="box-a-tier">
+<<<<<<< HEAD
                         <i class="num-count-bx">3</i>
+=======
+>>>>>>> 0405126 (created seller registration page)
                             <h4 class="txt-blue">Tier 2</h4>
                             <p>Only 10 Products</p>
                             <button class="primary">START NOW</button>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 
                 <div class="row mt-5">
                 <div class="col-sm-12 text-center">
@@ -90,6 +104,8 @@
                 </div>
                 </div>
 
+=======
+>>>>>>> 0405126 (created seller registration page)
                 </div>
             </div>
         </div>

@@ -1332,7 +1332,10 @@ h1.main-title{font-size: 26px;}
 .box-a-tier {
     background: #F1F1F1;
     border-radius: 20px;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 0405126 (created seller registration page)
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1372,6 +1375,7 @@ button.primary.rsv-bx.mx-424 {
 span.dr-arrow {
     float: right;
 }
+<<<<<<< HEAD
 .input-group-append {
     background: #0862a3;
 }
@@ -1398,6 +1402,8 @@ span.dr-arrow {
     font-size: 27px;
     border: 1px solid #0862a3;
 }
+=======
+>>>>>>> 0405126 (created seller registration page)
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
