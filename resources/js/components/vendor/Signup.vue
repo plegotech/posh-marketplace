@@ -58,8 +58,12 @@
                                         <input v-model="vendor.password" placeholder="Password*" class="form-control" type="password">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input v-model="vendor.confirm_password" placeholder="Confirm Password*" class="form-control" type="password">
+                                        <input v-model="vendor.password_confirmation" placeholder="Confirm Password*" class="form-control" type="password">
                                     </div>
+                                </div>
+
+                                <div v-for="error in errors"  class="form-row text-center">
+                                    <p>{{ error[0] }}</p>
                                 </div>
                                 <div class="form-row text-center sub-btn-bx">
                                     <button @click="vendorSignup()" type="button" class="primary rsv-bx"><strong>REGISTER</strong></button>
@@ -81,18 +85,20 @@
 export default {
     data() {
         return {
+            errors:                         null,
             vendor: {
-                first_name:         null,
-                last_name:          null,
-                address:            null,
-                city:               null,
-                state:              null,
-                phone:              null,
-                company:            null,
-                subscription_fee:   null,
-                email:              null,
-                password:           null,
-                confirm_password:   null
+                first_name:                 null,
+                last_name:                  null,
+                address:                    null,
+                city:                       null,
+                state:                      null,
+                phone:                      null,
+                company:                    null,
+                subscription_fee:           null,
+                email:                      null,
+                password:                   null,
+                password_confirmation:      null,
+                _token:                     document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
     },
@@ -101,6 +107,7 @@ export default {
     },
     methods: {
         vendorSignup() {
+
             fetch('/api/vendor', {
                 method: 'post',
                 body: JSON.stringify(this.vendor),
@@ -110,12 +117,17 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'false') {
-                        alert('the email is already taken or name is empty');
+                    if (data.success == 'success') {
+                        alert('Great!');
+                    } else {
+                        this.errors = data.errors;
                     }
                 })
-                .catch(err => console.log(err));
-        }
+                .catch(function (error) {
+                    // this.errors.push(error);
+                    console.log(error);
+                });
+        },
     }
 
 }
