@@ -1280,6 +1280,25 @@ a.link-b-b {
     font-size: 20px;
     font-weight: 600;
 }
+i.num-count-bx {
+    background: #64A8DA;
+    position: absolute;
+    left: 41px;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    top: -10px;
+}
+.box-a-tier button.primary {
+    padding-right: 15px;
+    width: auto;
+    padding-left: 15px;
+}
+
 .form-row.sub-btn-bx {
     max-width: 440px;
     margin: 0 auto;
@@ -1287,17 +1306,124 @@ a.link-b-b {
     flex-direction: column;
 	padding-bottom: 80px
 }
-.registration-dvs-form input, .registration-dvs-form select {
+.form-group input.form-control, .form-group select.form-control {
     height: 56px!important;
     margin-top: 0;
     background: #fff;
-    border:1px solid #2D2D2D;
+    border: 1px solid #2D2D2D;
 }
 .registration-dvs-form {
     padding-right: 18%;
     margin: 0 auto;
     padding-left: 18%;
-}HEAD
+}
+h1.main-title{font-size: 26px;}
+.createAccount-bx {
+    max-width: 758px;
+    margin: 0 auto;
+}
+.sellerReg-opt {
+    text-align: center;
+    background: #D8E0E5;
+    color: #969696;
+    font-weight: bold;
+    padding: 6px 1px 8px 4px
+}
+.box-a-tier {
+    background: #F1F1F1;
+    border-radius: 20px;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    position: relative;
+=======
+>>>>>>> 0405126 (created seller registration page)
+=======
+    position: relative;
+>>>>>>> c063605 (updates)
+=======
+    position: relative;
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
+}
+.sellerReg-opt span {
+    background: #969696;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+    padding: 1px 7px;
+}
+.sellerReg-opt.active {
+    background: #0862A3;
+    color: #fff;
+    }
+.sellerReg-opt.active:first-child:after {
+    content: "";
+    background: #0862a3;
+    width: 20px;
+    height: 38px;
+    position: absolute;
+    right: -19px;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 25px 25px 0;
+    z-index: 9;
+}
+.active span.number-opt-b {
+    color: #0862a3;
+    background: #fff;
+}
+button.primary.rsv-bx.mx-424 {
+    max-width: 424px;
+    margin: 0 auto;
+    line-height: 35px;
+    margin-top: 30px;
+    margin-top: 40px;
+}
+span.dr-arrow {
+    float: right;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c063605 (updates)
+=======
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
+.input-group-append {
+    background: #0862a3;
+}
+.input-group input.form-control {
+    height: 56px!important;
+    margin-top: 0;
+    background: #fff;
+    border: 1px solid #2D2D2D;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+.input-group-append button.primary {
+    margin-top: 0;
+}
+.select-pro-cat select {
+    width: auto;
+    height: 56px;
+    margin-top: 0;
+    background: #EAEAEA;
+    border: 1px solid #C8C8C8;
+}
+.select-pro-cat input.form-control {
+    background: #fff;
+}
+.select-pro-cat button.primary {
+    font-size: 27px;
+    border: 1px solid #0862a3;
+}
+=======
+>>>>>>> 0405126 (created seller registration page)
+=======
+>>>>>>> c063605 (updates)
+=======
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
@@ -1443,6 +1569,7 @@ i.my-profile:before {
 .router-link-active i.my-profile:before {
     background: url(/img/menu-icons/my-profile-icon-active.png);
 }
+
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;

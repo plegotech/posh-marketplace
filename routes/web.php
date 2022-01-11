@@ -34,6 +34,12 @@ Route::get('/page-loading', function () {
 Route::get('/dashboard-vendor', function () {
     return view('habib.SellerDashboard');
 });
+Route::get('/seller-registration', function () {
+    return view('habib.sellerregistration');
+});
+Route::get('/seller-registration-2', function () {
+    return view('habib.sellerregistration2');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
