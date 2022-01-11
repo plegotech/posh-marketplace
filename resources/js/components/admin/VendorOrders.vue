@@ -7,7 +7,7 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder myorder">
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-sm-4">
                             <div class="search-box" style="max-width:100%">
                                 <form action="">
@@ -17,7 +17,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-sm-5 offset-sm-3">
+                        <div class="col-sm-6 offset-sm-2">
                             <div class="row">
                                 <div class="col">
                                     <select>

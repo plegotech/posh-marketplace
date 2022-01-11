@@ -14,185 +14,123 @@
             <div class="container my-5">
             <div class="tier-box-area">    
                 <div class="row">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
-=======
-                    <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</div></div>
->>>>>>> 0405126 (created seller registration page)
-=======
-                    <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
->>>>>>> c063605 (updates)
-=======
-                    <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
                     </div>
-                    <div class="row">
+                    <div class="row px-5">
                     <div class="col-sm-4 text-center">
                         <div class="box-a-tier">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <i class="num-count-bx">1</i>
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
-                            <i class="num-count-bx">1</i>
->>>>>>> c063605 (updates)
-=======
-                            <i class="num-count-bx">1</i>
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
-                            <h4 class="txt-blue">Free Tier</h4>
+                            <div class="box-t-ins">    
+                                <h4 class="txt-blue">Free Tier</h4>
+                                <p>Only 10 Products</p>
+                            </div>
+                            <button class="primary">START NOW</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="box-a-tier box-sha">
+                        <i class="num-count-bx">2</i>
+                        <div class="box-t-ins">    
+                            <h4 class="txt-blue">Tier 2</h4>
                             <p>Only 10 Products</p>
+                        </div>
                             <button class="primary">START NOW</button>
                         </div>
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="box-a-tier">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <i class="num-count-bx">2</i>
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
-                        <i class="num-count-bx">2</i>
->>>>>>> c063605 (updates)
-=======
-                        <i class="num-count-bx">2</i>
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
+                        <i class="num-count-bx">3</i>
+                        <div class="box-t-ins">    
                             <h4 class="txt-blue">Tier 2</h4>
                             <p>Only 10 Products</p>
-                            <button class="primary">START NOW</button>
                         </div>
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        <div class="box-a-tier">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <i class="num-count-bx">3</i>
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
-                        <i class="num-count-bx">3</i>
->>>>>>> c063605 (updates)
-=======
-                        <i class="num-count-bx">3</i>
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
-                            <h4 class="txt-blue">Tier 2</h4>
-                            <p>Only 10 Products</p>
-                            <button class="primary">START NOW</button>
+                            <button class="primary btn-vi-bx">START NOW</button>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
                 
-                <div class="row mt-5">
+                <div class="row mt-5 pt-5 px-5">
                 <div class="col-sm-12 text-center">
                     <h1 class="main-title mb-4">Select Product Categories</h1>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <div class="input-group justify-content-center select-pro-cat">
-                    <select v-model="selected">
-                        <option value="all">All</option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                    </select>
-                <input type="text" class="form-control" placeholder="Browse Category">
-                <div class="input-group-append">
-                    <button class="primary" type="button"> <i class="fa fa-search"></i></button> </div>
-            </div>
-                </div>                
-                </div>
-
-                <div class="row mt-5">
-=======
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
+                    <div class="input-group select-BC mb-5">
+                    <div class="btn-bx-BC">
+                    <select class="form-control select-opt-BC" id="">
+                        <option>All</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        </select>
+                    </div>
+                     <input type="text" class="form-control search-bc-input" placeholder="Browse Category">
+                        <div class="input-group-append">
+                            <button class="primary search-bc" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>                
                 </div>
 
                 <div class="row">
-<<<<<<< HEAD
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
                 <div class="col-sm-12 text-center">
                     <h1 class="main-title mb-4">Select Template</h1>
                 </div>                
                 <div class="col-sm-4">
-                    <img src="/img/templae-sample-1.png">
+                    <img src="/img/templae-sample-1.png" class="img-stemplate">
                 </div>
                 <div class="col-sm-4">
-                    <img src="/img/templae-sample-2.png">
+                    <img src="/img/templae-sample-2.png" class="img-stemplate">
                 </div>
                 <div class="col-sm-4">
-                    <img src="/img/templae-sample-3.png">
+                    <img src="/img/templae-sample-3.png" class="img-stemplate">
                 </div>
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-                <div class="row mt-5 ">
-                    <div class="col-sm-12 text-center"><h2 class="main-title">Grab Your .com</h2></div>
+                <div class="row mt-5 px-5">
+                    <div class="col-sm-12 text-center"><h2 class="main-title mb-4">Grab Your .com</h2></div>
                     <div class="col-sm-12">
-                    <div class="input-group justify-content-center">
-                <input type="text" class="form-control" placeholder="williamson.com">
-                <div class="input-group-append">
-                    <button class="primary" type="button">
-                        Search <i class="fa fa-search"></i>
-=======
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
-<style>
-    .has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
-}
-    </style>
-                <div class="row  ">
-                    <div class="col-sm-12"><h2 class="main-title">Grab Your .com</h2></div>
+                    <div class="input-group justify-content-center select-temp mb-5">
+                     <input type="text" class="form-control search-si-input" placeholder="williamson.com">
+                        <div class="input-group-append">
+                            <button class="primary search-ic" type="button">
+                                Search <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                <div class="row">
                     <div class="col-sm-12">
-                    <div class="input-group justify-content-center">
-                <input type="text" class="form-control" placeholder="Search this blog">
-                <div class="input-group-append">
-                    <button class="primary" type="button">
-                        <i class="fa fa-search"></i>
-<<<<<<< HEAD
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
-                    </button>
-                </div>
-            </div>
+                        <div class="for-domain-message">
+                            <div class="site-al-me"><i class="domain-alert taken-icon"></i> williamson.com<div class="site-do-me">Taken</div></div>
+                            <div class="mess-tdn">This domain name has already been taken.</div>
+                        </div>
                     </div>
                 </div>
+                <div class="row mt-4 mb-5">
+                    <div class="col-sm-12">
+                        <p class="sug-n-title">Suggested Names</p>
+                        <ul class="sug-name-tag ">
+                            <li>williamjoseph</li>
+                            <li>williamjohn</li>
+                            <li>williamsmith</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mb-5 mt-2">
+                    <div class="col-sm-12">
+                        <div class="form-group text-center">
+                            <label><input name="" type="checkbox"> Terms and Conditions</label>
+                        </div>
+                    </div>                    
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <button class="primary btn-caccoutn">CREATE ACCOUNT</button>
+                    </div>
                 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
+                </div>
+                </div>
+                </div>
+
                 </div>
             </div>
         </div>
