@@ -1338,9 +1338,12 @@ h1.main-title{font-size: 26px;}
     border-radius: 20px;
     position: relative;
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 170px;
 =======
 >>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+=======
+>>>>>>> c0173a4 (seller registration 2 styles)
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1381,7 +1384,10 @@ span.dr-arrow {
     float: right;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c0173a4 (seller registration 2 styles)
 .input-group-append {
     background: #0862a3;
 }
@@ -1411,6 +1417,7 @@ span.dr-arrow {
     border: 1px solid #0862a3;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .box-t-ins {
     display: flex;
     flex-direction: column;
@@ -1424,6 +1431,8 @@ select.form-control.select-opt-BC {
 }
 =======
 >>>>>>> c0173a438e7c31ea598e28a0687f4f85a07ce913
+=======
+>>>>>>> c0173a4 (seller registration 2 styles)
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
@@ -1579,6 +1588,7 @@ i.my-profile:before {
     padding-right: 15px;
     padding-left: 15px;
 }
+<<<<<<< HEAD
 input.form-control.search-si-input {
     background: #F4F4F4;
     border: 2px solid #E7E7E7;
@@ -1705,6 +1715,9 @@ button.primary.search-bc {
     border-radius: 0 3px 3px 0;
     margin-top: 0;
 }
+=======
+
+>>>>>>> c0173a4 (seller registration 2 styles)
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;
