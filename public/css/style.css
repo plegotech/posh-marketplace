@@ -1334,12 +1334,16 @@ h1.main-title{font-size: 26px;}
     border-radius: 20px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     position: relative;
 =======
 >>>>>>> 0405126 (created seller registration page)
 =======
     position: relative;
 >>>>>>> c063605 (updates)
+=======
+    position: relative;
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1381,8 +1385,11 @@ span.dr-arrow {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c063605 (updates)
+=======
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
 .input-group-append {
     background: #0862a3;
 }
@@ -1392,6 +1399,7 @@ span.dr-arrow {
     background: #fff;
     border: 1px solid #2D2D2D;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 .input-group-append button.primary {
     margin-top: 0;
@@ -1414,6 +1422,8 @@ span.dr-arrow {
 >>>>>>> 0405126 (created seller registration page)
 =======
 >>>>>>> c063605 (updates)
+=======
+>>>>>>> c063605c6ea2c71491537815b799558af3de46be
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
