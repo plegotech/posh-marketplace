@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Companies;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -84,7 +86,7 @@ class UsersController extends Controller
         return response()->json(['message' => 'user was updated successfully.']);
     }
 
-    public function createVendor(Request $request)
+    public function vendor(Request $request)
     {
         // Setup the validator
         $rules = array(
@@ -97,7 +99,6 @@ class UsersController extends Controller
             'phone'             => 'required|max:17',
             'company'           => 'required',
             'subscription_fee'  => 'required',
-            'company'           => 'required',
             'password'          => 'required|confirmed|max:6'
         );
 
@@ -113,13 +114,38 @@ class UsersController extends Controller
             ), 400); // 400 being the HTTP code for an invalid request.
         }
 
+        $user = array(
+            'first_name'    => $request->input('first_name'),
+            'last_name'     => $request->input('last_name'),
+            'email'         => $request->input('email'),
+            'phone'         => $request->input('phone'),
+            'user_type'     => 'vendor',
+            'status'        => 'pending',
+            'password'      => Hash::make($request->input('password')),
+        );
+
         if(!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
-                ->update($request->all());
+                ->update($user);
         } else {
-            User::create($request->all());
+            $user = User::create($user);
+
+            if((int) $user->id > 0) {
+                $company = array(
+                    'name'                  => $request->input('company'),
+                    'user_id'               => $user->id,
+                    'subscription_fee'      => $request->input('subscription_fee'),
+                    'address'               => $request->input('address'),
+                    'city'                  => $request->input('city'),
+                    'state'                 => $request->input('state'),
+                    'country'               => 'United States'
+                );
+
+                $company = Companies::create($company);
+            }
         }
-        return response()->json(['message' => 'user was updated successfully.']);
+
+        return response()->json(['success' => 'true', 'created' => $user->id, 'company' => $company->id]);
     }
 
     public function toggleActivation($user_id)

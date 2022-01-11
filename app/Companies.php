@@ -10,6 +10,10 @@ class Companies extends Model
     protected   $primaryKey     = 'id';
     public      $timestamps     = false;
 
+    protected $fillable = [
+        'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country'
+    ];
+
     public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0, $search = 0)
     {
         $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone', 'users.email')

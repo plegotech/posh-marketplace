@@ -43,13 +43,13 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input v-model="vendor.phone" placeholder="Phone Number*" class="form-control" type="text">
+                                        <input v-model="vendor.phone" placeholder="Phone Number*" class="form-control" type="tel">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.company" placeholder="Company Name" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input  v-model="vendor.subscription_fee" placeholder="Subscription Fees*" class="form-control" type="text">
+                                        <input type="number" v-model="vendor.subscription_fee" placeholder="Subscription Fees*" class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
@@ -117,8 +117,9 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'success') {
-                        alert('Great!');
+                    if (data.success == 'true') {
+                        alert('account created successfully.');
+                        this.$router.push({name: "login"})
                     } else {
                         this.errors = data.errors;
                     }
