@@ -1333,18 +1333,7 @@ h1.main-title{font-size: 26px;}
 .box-a-tier {
     background: #F1F1F1;
     border-radius: 20px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     position: relative;
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
-    position: relative;
->>>>>>> c063605 (updates)
-=======
-    position: relative;
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
 }
 .sellerReg-opt span {
     background: #969696;
@@ -1384,13 +1373,6 @@ button.primary.rsv-bx.mx-424 {
 span.dr-arrow {
     float: right;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
 .input-group-append {
     background: #0862a3;
 }
@@ -1400,8 +1382,6 @@ span.dr-arrow {
     background: #fff;
     border: 1px solid #2D2D2D;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 .input-group-append button.primary {
     margin-top: 0;
 }
@@ -1419,12 +1399,6 @@ span.dr-arrow {
     font-size: 27px;
     border: 1px solid #0862a3;
 }
-=======
->>>>>>> 0405126 (created seller registration page)
-=======
->>>>>>> c063605 (updates)
-=======
->>>>>>> c063605c6ea2c71491537815b799558af3de46be
 /*START dashboard-vendor*/
 .box-shadow-wbg table.table {
     font-size: 16px;
@@ -1569,6 +1543,12 @@ i.my-profile:before {
 }
 .router-link-active i.my-profile:before {
     background: url(/img/menu-icons/my-profile-icon-active.png);
+}
+.select-temp button.primary {
+    margin-top: 0;
+    border-radius: 0;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 /*END:: dashboard-vendor*/
