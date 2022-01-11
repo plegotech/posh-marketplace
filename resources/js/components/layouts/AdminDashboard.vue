@@ -113,11 +113,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a class="navbar-brand" href="#">Dashboard</a>
-                    <div class="topsearch-bx">
-                        <img src="/img/search-icon.png" alt="" class="search-icon">
-                        <input type="text" data-type="pending" class="topheadSearch">
-                        <img src="/img/close.png" alt="" class="close-icon">
-                    </div>
+                   
                     <ul class="topnav-user">
                         <li>
                             <a href="">
