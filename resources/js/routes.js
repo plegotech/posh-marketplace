@@ -13,7 +13,8 @@ import AdminSellerReports from './components/admin/SellerReports';
 import AdminVendorReports from './components/admin/VendorReports';
 import UserLogin from './components/user/Login';
 import VendorSignup from './components/vendor/Signup';
-import SellerSignup from './components/user/SellerSignup';
+import SellerSignup from './components/seller/Signup';
+import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
 
@@ -43,9 +44,9 @@ export default {
          * Non Secure Routes
          */
         { name: 'login', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
-        { meta: { title: 'Login' }, path: '/login', component: UserLogin },
         { meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
         { meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
+        { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller-signup-final', component: SellerSignupFinal },
         { meta: { title: 'User Signup' }, path: '/user-signup', component: UserSignup },
         { name: 'forbidden', meta: { title: 'Forbidden Access' }, path: '/forbidden', component: ForbiddenAccess }
     ]

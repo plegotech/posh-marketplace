@@ -31,7 +31,9 @@ Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
 Route::post('/login', 'UsersController@login');
 Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}/{status?}', 'UsersController@users');
 Route::post('/user', 'UsersController@createUser');
-Route::post('/vendor', 'UsersController@vendor');
 Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');
 Route::get('/user/change-status/{userid}/{status}', 'UsersController@changeUserStatus');
 
+Route::post('/vendor', 'VendorController@vendor');
+
+Route::post('/seller/{step}', 'SellerController@seller');

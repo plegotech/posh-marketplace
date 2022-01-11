@@ -14,9 +14,11 @@ class CompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id()->primary()->autoIncrement();
+            $table->id();
             $table->string('logo')->nullable();
             $table->string('name');
+            $table->string('licence')->nullable();
+            $table->string('ein_number')->nullable();
             $table->integer('user_id');
             $table->integer('subscription_fee');
             $table->string('address')->nullable();

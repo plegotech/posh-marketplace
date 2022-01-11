@@ -25,19 +25,6 @@ Route::get('/', function () {
     return view('full_screen');
 })->name('login');
 
-Route::get('/page-loading', function () {
-    return view('habib.page_loader');
-});
-Route::get('/seller-registration', function () {
-    return view('habib.sellerregistration');
-});
-Route::get('/seller-registration-2', function () {
-    return view('habib.sellerregistration2');
-});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
-
-Route::get('/login', function () {
-    return view('full_screen');
-});
