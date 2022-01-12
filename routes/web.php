@@ -24,6 +24,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('full_screen');
 })->name('login');
+Route::get('/seller-registration', function () {
+    return view('habib.sellerregistration2');
+});
 
 Route::get('/dashboard-vendor', function () {
     return view('habib.SellerDashboard');

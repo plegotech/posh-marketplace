@@ -84,17 +84,19 @@
                 </div>
             </div>
         </div>
-
+<div class="top-newOrder myorder">
         <div class="row">
-            <div class="col-sm-2 offset-sm-7">
-                <button class="primary" @click="exportCompanies()">Export</button>
-            </div>
-            <div class="col-sm-3 pending-vend">
-                <div class="search-box mb-4">
-                    <img src="/img/search-icon.png" class="search-icon" alt="">
-                    <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
-                    <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
+            <div class="col-sm-4 pl-35">
+                <div class="search-box-top" style="max-width:100%">
+                   <form action="">
+                        <img src="/img/search-icon.png" class="search-icon" alt="">
+                        <input type="text" class="search_BX">
+                        <img src="/img/close-srch.png" class="close-icon" alt="">
+                    </form>
                 </div>
+            </div>
+            <div class="col-sm-2 offset-sm-6 pr-35">
+                <button class="primary mt-0" @click="exportCompanies()">Export</button>
             </div>
         </div>
 
@@ -191,6 +193,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

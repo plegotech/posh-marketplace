@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row selectTemplate">
                         <div class="col-sm-12 text-center">
                             <h1 class="main-title mb-4">Select Template</h1>
                         </div>

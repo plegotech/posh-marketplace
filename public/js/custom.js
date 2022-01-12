@@ -14,7 +14,11 @@ $(function () {
 });
 
 $(document).ready(function () {
-
+        $(".img-stemplate").click(function () {
+            $(".img-stemplate").removeClass("active");
+            $(this).addClass("active");
+        });
+    
     $('.button-left').click(function () {
         $('.sidebar').toggleClass('fliph');
     });
