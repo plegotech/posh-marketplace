@@ -84,93 +84,92 @@
                 </div>
             </div>
         </div>
-<div class="top-newOrder myorder">
-        <div class="row">
-            <div class="col-sm-4 pl-35">
-                <div class="search-box-top" style="max-width:100%">
-                   <form action="">
+        <div class="top-newOrder myorder">
+            <div class="row">
+                <div class="col-sm-4 pl-35">
+                    <div class="search-box-top" style="max-width:100%">
                         <img src="/img/search-icon.png" class="search-icon" alt="">
-                        <input type="text" class="search_BX">
-                        <img src="/img/close-srch.png" class="close-icon" alt="">
-                    </form>
+                        <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
+                        <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-2 offset-sm-6 pr-35">
+                    <button class="primary mt-0" @click="exportCompanies()">Export</button>
                 </div>
             </div>
-            <div class="col-sm-2 offset-sm-6 pr-35">
-                <button class="primary mt-0" @click="exportCompanies()">Export</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="top-newOrder">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img
-                                class="shuffle"
-                                src="/img/shuffle.png">
-                            </th>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name
-                                <img
-                                    class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Email Address</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">City & State</th>
-                            <th scope="col">Subscription</th>
-                            <th scope="col">Total Gross</th>
-                            <th scope="col">Last Login</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="company in companies" v-bind="company.id">
-                            <td>
-                                <img :src="'/img/vendor-logos/'+ company.logo" alt="">
-                                <span>{{ company.name }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.first_name }} {{ company.last_name }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.email }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.phone }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.city }}, {{ company.state }}</span>
-                            </td>
-                            <td>
-                                <span>${{ company.subscription_fee }}</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                <span>{{ company.login_time }}</span>
-                            </td>
-                            <td>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="top-newOrder">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img
+                                    class="shuffle"
+                                    src="/img/shuffle.png">
+                                </th>
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor
+                                    Name
+                                    <img
+                                        class="shuffle" src="/img/shuffle.png"></th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">City & State</th>
+                                <th scope="col">Subscription</th>
+                                <th scope="col">Total Gross</th>
+                                <th scope="col">Last Login</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="company in companies" v-bind="company.id">
+                                <td>
+                                    <img :src="'/img/vendor-logos/'+ company.logo" alt="">
+                                    <span>{{ company.name }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.first_name }} {{ company.last_name }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.email }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.phone }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.city }}, {{ company.state }}</span>
+                                </td>
+                                <td>
+                                    <span>${{ company.subscription_fee }}</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.login_time }}</span>
+                                </td>
+                                <td>
 
-                                <div class="dropdown cst-slct">
-                                    <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                         data-toggle="dropdown" aria-haspopup="true"
-                                         aria-expanded="false">
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li @click="editCompany(company)" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg">Edit
-                                        </li>
-                                        <li @click="markInactive(company.user_id)">Inactive</li>
-                                    </ul>
-                                </div>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="editCompany(company)" data-toggle="modal"
+                                                data-target=".bd-example-modal-lg">Edit
+                                            </li>
+                                            <li @click="markInactive(company.user_id)">Inactive</li>
+                                        </ul>
+                                    </div>
 
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="foot-table" v-if="total < 1">
-                        <p>No records found.</p>
-                    </div>
-                    <div class="foot-table" v-if="total > 0">
-                        <div class="left">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="foot-table" v-if="total < 1">
+                            <p>No records found.</p>
+                        </div>
+                        <div class="foot-table" v-if="total > 0">
+                            <div class="left">
                                     <span>Rows Per Page:
                                         <select @change="fetchCompanies(current_page, $event.target.value)">
                                             <option value="25">25</option>
@@ -179,19 +178,19 @@
                                             <option value="100">100</option>
                                         </select>
                                     </span>
-                        </div>
-                        <div class="right">
-                            <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                            <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
-                                 class="prev-itm" alt="">
-                            <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
-                                 class="next-itm" alt="">
+                            </div>
+                            <div class="right">
+                                <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
+                                     class="prev-itm" alt="">
+                                <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
+                                     class="next-itm" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     </div>
 
@@ -225,7 +224,7 @@ export default {
                 city: '',
                 state: '',
                 country: '',
-                _token:                     document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
     },
