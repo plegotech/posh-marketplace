@@ -660,7 +660,6 @@ i.sb-menu-icon:before {
 .main .body .tabs ul {
     background: white;
     border: 0px;
-<<<<<<< HEAD
     padding-bottom: 1px;
     border-bottom: 1px solid #656565;
 }
@@ -671,12 +670,6 @@ i.sb-menu-icon:before {
     padding-bottom: 2px;
 }
 .tabs-section-bx .nav-link.active:before {
-=======
-    border-bottom: 1px solid #3300FF;
-    padding-bottom: 2px;
-}
-.nav-link.active:before {
->>>>>>> b1c76c7533012a8e0c5cfc6a9da7caa263635c99
     background: #0862a3;
     content: "";
     position: absolute;
