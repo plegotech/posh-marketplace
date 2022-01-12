@@ -660,10 +660,16 @@ i.sb-menu-icon:before {
 .main .body .tabs ul {
     background: white;
     border: 0px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #656565;
+}
+.main .body .tabs-section-bx .tabs ul {
+    background: white;
+    border: 0px;
     border-bottom: 1px solid #3300FF;
     padding-bottom: 2px;
 }
-.nav-link.active:before {
+.tabs-section-bx .nav-link.active:before {
     background: #0862a3;
     content: "";
     position: absolute;
@@ -1305,9 +1311,9 @@ i.num-count-bx {
     top: -17px;
 }
 .box-a-tier button.primary {
-    padding-right: 15px;
+    padding-right: 30px;
     width: auto;
-    padding-left: 15px;
+    padding-left: 30px;
     position: absolute;
     bottom: -12px;
     left: 50%;
@@ -1589,7 +1595,7 @@ input.form-control.search-si-input {
     padding-left: 25px;
 }
 button.primary.search-ic {
-    font-size: 22px;
+    font-size: 18px;
 }
 .for-domain-message {
     max-width: 430px;
@@ -1641,6 +1647,15 @@ i.domain-alert:before {
 }
 i.domain-alert.taken-icon:before {
     background: url(/img/taken-icon.png);
+}
+i.domain-alert.available-icon:before {
+    content: "\f058";
+    font-family: 'Font Awesome 5 Free';
+    width: auto;
+    height: auto;
+    font-size: 27px;
+    color: green;
+    font-style: normal;
 }
 .box-t-ins h4 {
     font-weight: bold;

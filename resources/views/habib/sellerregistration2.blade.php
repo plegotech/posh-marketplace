@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+
 @section('content')
+
 <div id="" class="">
     <div class="seller-registration">
         <div class="container-fluid">
@@ -62,6 +64,7 @@
                         <option>5</option>
                         </select>
                     </div>
+
                      <input type="text" class="form-control search-bc-input" placeholder="Browse Category">
                         <div class="input-group-append">
                             <button class="primary search-bc" type="button">
@@ -71,7 +74,6 @@
                     </div>
                 </div>                
                 </div>
-
                 <div class="row">
                 <div class="col-sm-12 text-center">
                     <h1 class="main-title mb-4">Select Template</h1>
@@ -136,8 +138,5 @@
         </div>
     </div>
 </div>
-
-
-
 
 @endsection

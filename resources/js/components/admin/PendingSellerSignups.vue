@@ -3,7 +3,7 @@
 
         <div class="row" style="margin-top:20px">
             <div class="col-sm-12">
-                <div>
+                <div class="tabs-section-bx">
                     <b-tabs content-class="mt-3">
                         <b-tab title="Pending Vendors" active>
                             <!-- START: FIRST TAB CONTENT -->
