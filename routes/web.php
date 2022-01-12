@@ -34,6 +34,15 @@ Route::get('/seller-dashboard', function () {
 Route::get('/seller-manage-products', function () {
     return view('habib.SellerManageProducts');
 });
+Route::get('/vendor-dashboard', function () {
+    return view('habib.vendorDashboard');
+});
+Route::get('/vendor-manage-products', function () {
+    return view('habib.vendorManageProducts');
+});
+Route::get('/vendor-upload-products', function () {
+    return view('habib.vendorUploadProducts');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');

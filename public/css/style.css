@@ -1824,6 +1824,32 @@ span.invalidLogin.alert.alert-danger {
     margin-bottom: 12px;
     display: block;
 }
+.form-outline-ft input.form-control-label {
+    border: 1px solid #6D6D6D;
+    color: #4B4B4B;
+    font-weight: 500;
+}
+.form-outline-ft {
+    position: relative;
+}
+.form-control-label:focus~.form-label {
+    transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
+}
+.form-outline-ft label.form-label {
+    position: absolute;
+    top: 0;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left: 0.75rem;
+    padding-top: 0.37rem;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: all .2s ease-out;
+    color: rgba(0,0,0,.6);
+    margin-bottom: 0;
+}
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;
