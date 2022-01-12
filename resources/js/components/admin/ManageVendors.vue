@@ -87,9 +87,12 @@
 <div class="top-newOrder myorder">
         <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div class="col-sm-2 offset-sm-7">
                 <button class="primary" @click="exportCompanies()">Export</button>
 =======
+=======
+>>>>>>> b1c76c7533012a8e0c5cfc6a9da7caa263635c99
             <div class="col-sm-4 pl-35">
                 <div class="search-box-top" style="max-width:100%">
                    <form action="">
@@ -101,6 +104,7 @@
             </div>
             <div class="col-sm-2 offset-sm-6 pr-35">
                 <button class="primary mt-0" @click="exportCompanies()">Export</button>
+<<<<<<< HEAD
 >>>>>>> f6d6e70 (updates)
             </div>
             <div class="col-sm-3 pending-vend">
@@ -109,6 +113,8 @@
                     <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
                     <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
                 </div>
+=======
+>>>>>>> b1c76c7533012a8e0c5cfc6a9da7caa263635c99
             </div>
         </div>
 
