@@ -42,12 +42,23 @@ class UsersController extends Controller
         return '0';
     }
 
-    public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc', $status = null)
+    public function users($type = null, $perpage = 25, $order_by = 'id', $order = 'desc', $status = null, $search = 0)
     {
         $users = User::where('user_type', $type);
 
         if (!empty($status)) {
             $users = $users->where('status', $status);
+        }
+
+        if ($search != 0) {
+            $users = $users->where('first', 'LIKE', $status);
+        }
+
+        if(strlen($search) > 1) {
+            $users = $users->where(function ($users) use($search) {
+                $users->where('users.first_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('users.last_name', 'LIKE', '%'.$search.'%');
+            });
         }
 
         $users = $users->orderBy($order_by, $order)

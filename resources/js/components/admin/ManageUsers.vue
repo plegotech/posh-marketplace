@@ -46,10 +46,19 @@
                 </div>
             </div>
         </div>
+
         <div class="row" style="margin-top:20px">
             <div class="col-sm-12">
 
                 <div class="top-newOrder">
+
+                    <div class="pending-vend">
+                        <div class="search-box mb-4">
+                            <img src="/img/search-icon.png" class="search-icon" alt="">
+                            <input type="text" class="search_BX fetchUsersSearch" v-on:keypress="fetchUsersSearch">
+                            <img src="/img/close-srch.png" @click="fetchUsersSearchClear" class="close-icon" alt="">
+                        </div>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -128,6 +137,7 @@ export default {
     data() {
         return {
             users: [],
+            search: 0,
             per_page: 0,
             order: 'asc',
             order_by: 0,
@@ -153,7 +163,8 @@ export default {
         this.fetchUsers();
     },
     methods: {
-        fetchUsers(page = 0, per_page = 0, order_by = 0) {
+        fetchUsers(page = 0, per_page = 0, order_by = 0, search = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
             var url = '/api/users/user';
 
             if (per_page > 0 || this.per_page > 0) {
@@ -176,6 +187,20 @@ export default {
                 }
                 url += '/' + this.order_by;
                 url += '/' + this.order;
+            } else {
+                url += '/id';
+                url += '/desc';
+            }
+
+            url += '/approved';
+
+            var search = search;
+
+            if (search != 0 || this.search != 0) {
+                if (search != 0) {
+                    this.search = search;
+                }
+                url += '/' + this.search;
             }
 
             if (page > 0) {
@@ -190,8 +215,22 @@ export default {
                     this.from = res.from;
                     this.total = res.total;
                     this.current_page = res.to / res.per_page;
+                    document.getElementById('ajaxLoader').style.display = 'none';
                 })
                 .catch(err => console.log(err));
+        },
+
+        fetchUsersSearchClear: function () {
+            document.getElementsByClassName('fetchUsersSearch')[0].value = '';
+            this.search = 0;
+            this.fetchUsers(0, 0, 0);
+        },
+
+        fetchUsersSearch: function (e) {
+            if (e.keyCode === 13) {
+                var element = e.target;
+                this.fetchUsers(0, 0, 0, element.value);
+            }
         },
 
         editUser(user) {
