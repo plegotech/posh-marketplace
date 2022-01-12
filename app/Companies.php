@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Companies extends Model
 {
@@ -15,8 +16,11 @@ class Companies extends Model
     ];
 
     public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0, $search = 0)
-    {
-        $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone', 'users.email')
+    {   // Oct 01, 2021 09:58 PM
+        $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone'
+            , 'users.email',
+            DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'")
+        )
         ->where('users.user_type', $type);
 
         if(strlen($search) > 1) {

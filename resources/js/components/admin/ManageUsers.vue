@@ -187,7 +187,7 @@ export default {
                 .then(res => {
                     this.users = res.data;
                     this.to = res.to;
-                    this.from = res.to - res.per_page;
+                    this.from = res.from;
                     this.total = res.total;
                     this.current_page = res.to / res.per_page;
                 })

@@ -86,8 +86,15 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-2 offset-sm-10">
+            <div class="col-sm-2 offset-sm-7">
                 <button class="primary" @click="exportCompanies()">Export</button>
+            </div>
+            <div class="col-sm-3 pending-vend">
+                <div class="search-box mb-4">
+                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                    <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
+                    <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
+                </div>
             </div>
         </div>
 
@@ -95,15 +102,16 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder">
-
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img class="shuffle"
-                                                                                                                  src="/img/shuffle.png">
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img
+                                class="shuffle"
+                                src="/img/shuffle.png">
                             </th>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name <img
-                                class="shuffle" src="/img/shuffle.png"></th>
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Vendor Name
+                                <img
+                                    class="shuffle" src="/img/shuffle.png"></th>
                             <th scope="col">Email Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">City & State</th>
@@ -138,36 +146,30 @@
                                 <span>$0.00</span>
                             </td>
                             <td>
-                                          <span>Oct 01, 2021
-                                            09:58 PM</span>
-                                    </td>
-                                    <td>
-                                        <!--<button class="cst-slct">
-                                            <img src="/img/more.png" class="more-opt" alt="">
-                                            <ul class="more-opts">
-                                                <li @click="editCompany(company)" data-toggle="modal"
-                                                    data-target=".bd-example-modal-lg">Edit
-                                                </li>
-                                                <li @click="markInactive(company.user_id)">Inactive</li>
-                                            </ul>
-                                        </button>-->
+                                <span>{{ company.login_time }}</span>
+                            </td>
+                            <td>
 
-                                        <div class="dropdown cst-slct">
-                                            <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li @click="editCompany(company)" data-toggle="modal"
-                                                    data-target=".bd-example-modal-lg">Edit</li>
-                                                <li @click="markInactive(company.user_id)">Inactive</li>
-                                            </ul>
-                                        </div>
+                                <div class="dropdown cst-slct">
+                                    <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                         data-toggle="dropdown" aria-haspopup="true"
+                                         aria-expanded="false">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li @click="editCompany(company)" data-toggle="modal"
+                                            data-target=".bd-example-modal-lg">Edit
+                                        </li>
+                                        <li @click="markInactive(company.user_id)">Inactive</li>
+                                    </ul>
+                                </div>
 
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                    <div class="foot-table">
+                    <div class="foot-table" v-if="total < 1">
+                        <p>No records found.</p>
+                    </div>
+                    <div class="foot-table" v-if="total > 0">
                         <div class="left">
                                     <span>Rows Per Page:
                                         <select @change="fetchCompanies(current_page, $event.target.value)">
@@ -197,6 +199,7 @@
 export default {
     data() {
         return {
+            search: 0,
             companies: [],
             per_page: 0,
             order: 'asc',
@@ -219,6 +222,7 @@ export default {
                 city: '',
                 state: '',
                 country: '',
+                _token:                     document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
     },
@@ -229,7 +233,8 @@ export default {
         this.fetchCompanies();
     },
     methods: {
-        fetchCompanies(page = 0, per_page = 0, order_by = 0) {
+        fetchCompanies(page = 0, per_page = 0, order_by = 0, search = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
             var url = '/api/companies/vendor';
 
             if (per_page > 0 || this.per_page > 0) {
@@ -252,6 +257,20 @@ export default {
                 }
                 url += '/' + this.order_by;
                 url += '/' + this.order;
+            } else {
+                url += '/id';
+                url += '/desc';
+            }
+
+            url += '/approved';
+
+            var search = search;
+
+            if (search != 0 || this.search != 0) {
+                if (search != 0) {
+                    this.search = search;
+                }
+                url += '/' + this.search;
             }
 
             if (page > 0) {
@@ -263,11 +282,28 @@ export default {
                 .then(res => {
                     this.companies = res.data;
                     this.to = res.to;
-                    this.from = res.to - res.per_page;
+                    this.from = res.from;
                     this.total = res.total;
                     this.current_page = res.to / res.per_page;
+                    document.getElementById('ajaxLoader').style.display = 'none';
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+
+        fetchCompaniesSearchClear: function () {
+            document.getElementsByClassName('fetchCompaniesSearch')[0].value = '';
+            this.search = 0;
+            this.fetchCompanies(0, 0, 0);
+        },
+
+        fetchCompaniesSearch: function (e) {
+            if (e.keyCode === 13) {
+                var element = e.target;
+                this.fetchCompanies(0, 0, 0, element.value);
+            }
         },
 
         editCompany(company) {
@@ -303,10 +339,9 @@ export default {
                 .then(data => {
                     if (data.success == false) {
                         alert('the email is already taken or company name is empty');
-                    } else {
-                        this.clearForm();
-                        this.fetchCompanies();
                     }
+                    this.clearForm();
+                    this.fetchCompanies();
                 })
                 .catch(err => console.log(err));
         },

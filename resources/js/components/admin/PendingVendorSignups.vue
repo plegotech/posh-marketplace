@@ -276,7 +276,7 @@ export default {
                     if(type == 'pending') {
                         this.companies = res.data;
                         this.to = res.to;
-                        this.from = res.per_page - res.to;
+                        this.from = res.from;
                         this.total = res.total;
                         if(res.total < res.per_page) {
                             this.from = 0;
