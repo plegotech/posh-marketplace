@@ -108,6 +108,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a class="navbar-brand" href="#">Dashboard</a>
+<<<<<<< HEAD
+=======
+                   
+>>>>>>> b1c76c7 (updates fixes)
                     <ul class="topnav-user">
                         <li>
                             <a href="">

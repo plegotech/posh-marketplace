@@ -660,8 +660,18 @@ i.sb-menu-icon:before {
 .main .body .tabs ul {
     background: white;
     border: 0px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 1px;
+    border-bottom: 1px solid #3300FF;
+    padding-bottom: 2px;
+}
+.nav-link.active:before {
+    background: #0862a3;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    border-radius: 4px 4px 0 0;
 }
 li.nav-item a.nav-link {
     border-bottom: 1px solid #333;
@@ -1700,6 +1710,41 @@ button.primary.search-bc {
 }
 button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;}
 button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
+.search-box-top  {
+    width: 100%;
+    float: right;
+    position: relative;
+}
+.search-box-top input.search_BX {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #dfdfdf;
+    padding: 7px 40px;
+    background: #EDEDF0;
+    color: black;
+}
+.search-box-top img.close-icon {
+    position: absolute;
+    right: 20px;
+    width: 10px;
+    top: 18px;
+    transform: translatey(-50%);
+    cursor: pointer;
+}
+.search-box-top img.search-icon {
+    position: absolute;
+    left: 20px;
+    width: 15px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+.pl-35 {
+    padding-left: 35px;
+}
+.pr-35 {
+    padding-right: 35px;
+}
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;
