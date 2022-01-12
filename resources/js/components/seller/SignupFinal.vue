@@ -16,33 +16,33 @@
                     </div>
                     <div class="row px-5">
                         <div class="col-sm-4 text-center">
-                            <div class="box-a-tier">
+                            <div id="tier_free" class="box-a-tier">
                                 <i class="num-count-bx">1</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Free Tier</h4>
                                     <p>Only 10 Products</p>
                                 </div>
-                                <button class="primary">SELECT</button>
+                                <button class="primary" @click="changeTierSelection('tier_free')">SELECT</button>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center">
-                            <div class="box-a-tier box-sha">
+                            <div id="tier_two" class="box-a-tier box-sha">
                                 <i class="num-count-bx">2</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 10 Products</p>
+                                    <p>Only 50 Products</p>
                                 </div>
-                                <button class="primary">SELECT</button>
+                                <button class="primary" @click="changeTierSelection('tier_two')">SELECT</button>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center">
-                            <div class="box-a-tier">
+                            <div id="tier_three" class="box-a-tier">
                                 <i class="num-count-bx">3</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 10 Products</p>
+                                    <p>Only 200 Products</p>
                                 </div>
-                                <button class="primary btn-vi-bx">SELECT</button>
+                                <button class="primary btn-vi-bx" @click="changeTierSelection('tier_three')">SELECT</button>
                             </div>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                             <h1 class="main-title mb-4">Select Product Categories</h1>
                             <div class="input-group select-BC mb-5">
                                 <div class="btn-bx-BC">
-                                    <select class="form-control select-opt-BC" id="">
-                                        <option value="">All</option>
+                                    <select v-model="seller.primary_category" class="form-control select-opt-BC">
+                                        <option value="" selected>All</option>
                                         <option value="Components">Components</option>
                                         <option value="Computer Systems">Computer Systems</option>
                                         <option value="Electronics">Electronics</option>
@@ -66,7 +66,7 @@
                                         <option value="Health & Sports">Health & Sports</option>
                                     </select>
                                 </div>
-                                <input type="text" class="form-control search-bc-input"
+                                <input type="text" v-model="seller.sub_categories" class="form-control search-bc-input"
                                        placeholder="Browse Category">
                                 <div class="input-group-append">
                                     <button class="primary search-bc" type="button">
@@ -82,13 +82,16 @@
                             <h1 class="main-title mb-4">Select Template</h1>
                         </div>
                         <div class="col-sm-4">
-                            <img src="/img/templae-sample-1.png" class="img-stemplate">
+                            <img id="template_01" src="/img/templae-sample-1.png" class="img-stemplate"
+                            @click="changeTemplateSelection('template_01')">
                         </div>
                         <div class="col-sm-4">
-                            <img src="/img/templae-sample-2.png" class="img-stemplate">
+                            <img id="template_02" src="/img/templae-sample-2.png" class="img-stemplate"
+                            @click="changeTemplateSelection('template_02')">
                         </div>
                         <div class="col-sm-4">
-                            <img src="/img/templae-sample-3.png" class="img-stemplate">
+                            <img id="template_03" src="/img/templae-sample-3.png" class="img-stemplate"
+                            @click="changeTemplateSelection('template_03')">
                         </div>
                     </div>
 
@@ -142,14 +145,50 @@
 
             </div>
         </div>
+        <input id="selected_tier" type="hidden" v-model="seller.tier" value="" />
+        <input id="selected_template" type="hidden" v-model="seller.site_template" value="" />
     </div>
-
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            seller: {
+                tier: null,
+                primary_category: null,
+                sub_categories: null,
+                site_template: null,
+                domain: null
+            }
+        }
+    },
     mounted() {
         console.log('Component mounted.')
+    },
+    methods: {
+        changeTierSelection(type) {
+            var tiers = document.getElementsByClassName('box-a-tier');
+
+            for(var i = 0; i < tiers.length; i++) {
+                tiers[i].classList.remove('box-sha');
+            }
+
+            var selected_tier = document.getElementById(type);
+            selected_tier.classList.add('box-sha');
+            document.getElementById('selected_tier').value = type;
+        },
+        changeTemplateSelection(type) {
+            var tiers = document.getElementsByClassName('img-stemplate');
+
+            for(var i = 0; i < tiers.length; i++) {
+                tiers[i].classList.remove('active');
+            }
+
+            var selected_tier = document.getElementById(type);
+            selected_tier.classList.add('active');
+            document.getElementById('selected_template').value = type;
+        }
     }
 }
 </script>

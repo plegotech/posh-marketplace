@@ -7,48 +7,49 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder payment_Hist">
-                
-                <div class="row">
-                    <div class="col-sm-3">
-                        <select name="" id="">
-                            <option value="" selected>Electronic Accessories</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                        </select>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <select>
+                                <option value="" selected>Electronic Accessories</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="" id="">
+                                <option value="" selected>Airpods</option>
+                                <option value="Janruary">Janruary</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                        <div class="search-box mb-4 col-sm-3 offset-sm-3">
+                            <img src="/img/search-icon.png" class="search-icon" alt="">
+                            <input style="float:left" type="text" class="search_BX pendingVendorSearch"
+                                   v-on:keypress="searchTheVendors"
+                                   data-type="pending">
+                            <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
+                        </div>
                     </div>
-                    <div class="col-sm-3">
-                        <select name="" id="">
-                            <option value="" selected>Airpods</option>
-                            <option value="Janruary">Janruary</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="mini-head">Results</p>
+                        </div>
                     </div>
-                    <div class="search-box mb-4 col-sm-3 offset-sm-3">
-                        <img src="/img/search-icon.png" class="search-icon" alt="">
-                        <input style="float:left" type="text" class="search_BX pendingVendorSearch" v-on:keypress="searchTheVendors"
-                                data-type="pending">
-                        <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p class="mini-head">Results</p>
-                    </div>
-                </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -67,7 +68,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>
@@ -80,7 +81,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>
@@ -93,7 +94,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>
@@ -106,7 +107,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>
@@ -119,7 +120,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>
@@ -132,7 +133,7 @@
                             </td>
                             <td>
                                             <span>
-                                                <img class="pdf-down" id="pdf-down" src="/img/pdf.png" alt="">
+                                                <img class="pdf-down" src="/img/pdf.png" alt="">
                                             </span>
                             </td>
                         </tr>

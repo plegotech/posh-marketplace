@@ -45,8 +45,8 @@ export default {
 
         // Seller Dashboard
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
-            { name: 'myOrders', meta: { title: 'My Orders' }, path: '/seller/myorders', component: SellerMyOrders },
-            { name: 'vendorProducts', meta: { title: 'Vendor Products' }, path: '/seller/vendorproducts', component: VendorProductsSeller }
+            { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/my-orders', component: SellerMyOrders },
+            { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller }
         ]},
 
         /*

@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <ul class="list-sidebar bg-white">
-                    
+
                     <li>
                         <router-link to="/seller/myorders">
                             <i class="sb-menu-icon orders"></i>
@@ -69,17 +69,14 @@
 import {mapActions} from 'vuex'
 
 export default {
-    name: "dashboardLayout",
+    name: "sellerLayout",
     data() {
         return {
-            user: this.$store.state.auth.user,
-            pending_sellers: 0,
-            pending_vendors: 0
+            user: this.$store.state.auth.user
         }
     },
     created() {
-        this.adminDashboardIterate();
-        if(this.user.user_type != 'admin') {
+        if(this.user.user_type != 'seller') {
             this.$router.push({name: "forbidden"});
         }
     },
@@ -91,21 +88,7 @@ export default {
             await axios.post('/logout').then(({data}) => {
                 this.signOut()
                 this.$router.push({name: "login"})
-                // window.location.href = window.location.origin;
             })
-        },
-        adminDashboardIterate() {
-            this.adminDashboard();
-            setInterval(this.adminDashboard, 60000);
-        },
-        adminDashboard() {
-            fetch('/api/admin-data')
-                .then(res => res.json())
-                .then(res => {
-                    this.pending_sellers = res.pending_sellers;
-                    this.pending_vendors = res.pending_vendors;
-                })
-                .catch(err => console.log(err));
         }
     }
 }
