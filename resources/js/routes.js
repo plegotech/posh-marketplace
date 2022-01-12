@@ -17,6 +17,9 @@ import SellerSignup from './components/seller/Signup';
 import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
+import SellerDashboardLayout from './components/layouts/SellerDashboard';
+import SellerMyOrders from './components/seller/MyOrders';
+import VendorProductsSeller from  './components/seller/VendorProducts';
 
 export default {
     mode: 'history',
@@ -38,6 +41,12 @@ export default {
             { meta: { title: 'Payment History' }, path: '/admin/payment-history', component: AdminPaymentHistory },
             { meta: { title: 'Seller Reports' }, path: '/admin/seller-reports', component: AdminSellerReports },
             { meta: { title: 'Vendor Reports' }, path: '/admin/vendor-reports', component: AdminVendorReports },
+        ]},
+
+        // Seller Dashboard
+        { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
+            { name: 'myOrders', meta: { title: 'My Orders' }, path: '/seller/myorders', component: SellerMyOrders },
+            { name: 'vendorProducts', meta: { title: 'Vendor Products' }, path: '/seller/vendorproducts', component: VendorProductsSeller }
         ]},
 
         /*
