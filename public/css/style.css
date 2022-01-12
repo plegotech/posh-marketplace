@@ -882,7 +882,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     background: #f2f2f2;
 }
 .main .pending-vend .top-newOrder table tbody tr td {
-    padding: 20px 5px;
+    padding: 20px 10px;
     border-color: transparent;
 }
 .pending-vend .top-newOrder table thead tr {}
@@ -1036,8 +1036,9 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     background:#FBF3F3;}
 
 .export_item {position: absolute;cursor: pointer;right: 25px;top: 55px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 12px;color: #0862A3 !important;}
-.shipped {color:#3CC13B !important;font-weight:bold;font-family: Inter;}
-.pending {color:#F3BB1C !important;font-weight:bold;font-family: Inter;}
+.shipped {color: #3CC13B !important;font-weight: bold;font-family: Inter;border: 1px solid #3CC13B;padding: 1px 8px;}
+.pending {color:#F3BB1C !important;font-weight:bold;font-family: Inter;border: 1px solid #F3BB1C;padding: 1px 8px;}
+.cancelled {color:#c44646 !important;font-weight:bold;font-family: Inter;border: 1px solid #c44646;padding: 1px 8px;}
 
 
 
@@ -1834,3 +1835,23 @@ input.topheadSearch {
     opacity: 0.5;
     display: none;
 }
+
+.comp-seller-myorders .search-box {float:left !important}
+
+.comp-seller-myorders hr {
+    float: left;
+    width: 100%;
+    margin-top: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+.seller-vendor-prod {}
+.seller-vendor-prod .mini-head {}
+.seller-vendor-prod hr {}
+.seller-vendor-prod .payment_Hist {}
+.seller-vendor-prod .payment_Hist select {
+    margin: 0;
+}
+.seller-vendor-prod .payment_Hist select option {}
+.seller-vendor-prod .search-box {/* max-width: 100%; *//* margin:0; */padding: 0;}
+.seller-vendor-prod {}
+.seller-vendor-prod {}
