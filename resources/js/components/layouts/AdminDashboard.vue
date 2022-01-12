@@ -125,9 +125,7 @@
                                 <div class="dropdown-menu dropdown-menu dropdown-menu-right"
                                      aria-labelledby="dropdownMenuButton">
                                     <a href="javascript:void(0)" @click="logout" class="dropdown-item">
-                                        <router-link to="/logout">
-                                            Logout
-                                        </router-link>
+                                        Logout
                                     </a>
                                 </div>
                             </div>

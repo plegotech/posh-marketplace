@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -36,5 +40,30 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    public function login(Request $request)
+    {
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+
+        $user = User::where('email', $email)
+            ->where('status', 'approved')->first();
+
+        if (empty($user)) {
+            return \Response::json(array('error' => 'The email or password incorrect. or your account is not approved.'), 400);
+        }
+
+        if (Hash::check($password, $user->password)) {
+            User::where('id', $user->id)
+                ->update(['last_login'  => Carbon::now()]);
+
+            Auth::loginUsingId($user->id);
+
+            return \Response::json(array('error' => 'The email or password incorrect. or your account is not approved.'), 204);
+        }
+
+        return \Response::json(array('error' => 'The email or password incorrect. or your account is not approved.'), 400);
     }
 }

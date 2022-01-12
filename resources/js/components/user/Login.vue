@@ -13,8 +13,7 @@
                         <form>
                             <input type="email" v-model="form.email" placeholder="Email Address*">
                             <input type="password" v-model="form.password" placeholder="Password*">
-                            <span class="invalidLogin alert alert-danger"
-                                  style="display: none">Invalid login details</span>
+                            <span v-if="error != 0" class="invalidLogin alert alert-danger">{{ this.error }}</span>
                             <label class="group">
                                 <input type="checkbox">
                                 Stay Signed In
@@ -31,13 +30,10 @@
                         <h2>New to Posh Market?</h2>
                         <ul>
                             <li>
-                                <router-link to="/">Vendor Signup</router-link>
+                                <router-link :to="{ name: 'vendor-signup' }">Vendor Signup</router-link>
                             </li>
                             <li>
-                                <router-link to="/">Seller Signup</router-link>
-                            </li>
-                            <li>
-                                <router-link to="/">User Signup</router-link>
+                                <router-link :to="{ name: 'seller-signup' }">Seller Signup</router-link>
                             </li>
                         </ul>
                     </div>
@@ -48,7 +44,7 @@
         <div class="container-fluid bottom-log">
             <div class="row">
                 <div class="col-sm-12">
-                    <p>Copyright © 2021 Posh Market, Inc. All rights reserved.</p>
+                    <p>Copyright © {{ new Date().getFullYear() }} Posh Market, Inc. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -65,7 +61,7 @@ export default {
                 password: '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            errors: [],
+            error: 0,
             processing:false
         }
     },
@@ -85,10 +81,11 @@ export default {
                     setTimeout(() => {
                         this.$router.push({name: "dashboard"});
                     }, 1500);
+                    this.error = data.error;
                 }).catch(({response:{data}})=>{
-                    alert(data.message)
+                    this.error = data.error;
                 }).finally(()=>{
-                    this.processing = false
+                    this.processing = false;
                 })
         },
         checkAuth() {
@@ -96,7 +93,7 @@ export default {
                 .then(() => {
                     this.$router.push({name: "Dashboard"});
                 }).catch((error) => {
-                this.errors = error.response.data.errors;
+                this.error = error.response.data.errors;
             })
         },
     }
