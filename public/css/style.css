@@ -1818,6 +1818,12 @@ ul.pagination.bottm-pagination li.page-item a {
     color: #797979;
     font-weight: 700;
 }
+span.invalidLogin.alert.alert-danger {
+    font-size: 11px;
+    padding: 1px 10px;
+    margin-bottom: 12px;
+    display: block;
+}
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;
