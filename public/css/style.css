@@ -1761,6 +1761,63 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .pr-35 {
     padding-right: 35px;
 }
+.products-listing-bxx {
+    border: 1px solid #D0D0D0;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+.price-title-b h3 {
+    color: #000;
+    font-size: 30px;
+}
+.price-btn-bx {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+.btn-st {
+    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+}
+.btn-green {
+    background: #08A333;
+}
+.btn-st.btn-red {
+    background: #A32408;
+}
+p.plx-title {
+    font-size: 17px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.btn-st.btn-blue {
+    background: #0862A3;
+}
+.btn-st {
+    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.pb-btn-list {
+    display: flex;
+}
+ul.pagination.bottm-pagination li.page-item a {
+    color: #797979;
+    font-weight: 700;
+}
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;

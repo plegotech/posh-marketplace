@@ -28,10 +28,12 @@ Route::get('/seller-registration', function () {
     return view('habib.sellerregistration2');
 });
 
-Route::get('/dashboard-vendor', function () {
+Route::get('/seller-dashboard', function () {
     return view('habib.SellerDashboard');
 });
-
+Route::get('/seller-manage-products', function () {
+    return view('habib.SellerManageProducts');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
