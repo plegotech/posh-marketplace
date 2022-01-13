@@ -54,6 +54,10 @@
                     <div class="form-group col-md-6">
                         <input v-model="seller.password_confirmation" name="Confirm Password" placeholder="Confirm Password*" class="form-control" type="password">
                     </div>
+
+                    <div v-for="error in errors"  class="form-row text-center">
+                        <p>{{ error[0] }}</p>
+                    </div>
                     <div class="form-row text-center col-sm-12">
                         <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>NEXT </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
                     </div>
