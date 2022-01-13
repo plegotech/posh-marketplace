@@ -1824,16 +1824,26 @@ span.invalidLogin.alert.alert-danger {
     margin-bottom: 12px;
     display: block;
 }
-.form-outline-ft input.form-control-label {
+.form-outline-ft .form-control-label {
     border: 1px solid #6D6D6D;
     color: #4B4B4B;
     font-weight: 500;
+    height: 50px;
+    width: 100%;
+}
+p.input-tip-bx {
+    color: #9D9D9D;
+    font-size: 14px;
 }
 .form-outline-ft {
     position: relative;
+    margin-bottom: 35px;
 }
-.form-control-label:focus~.form-label {
+.form-control-label:focus+.form-label,.form-control-label:valid+.form-label {
     transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
+    background: #fff;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .form-outline-ft label.form-label {
     position: absolute;
