@@ -53,90 +53,73 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">View Report</th>
+                            <th scope="col">Product Id</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col" style="width:40%" class="center"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>$23,135.99</span>
-                            </td>
-                            <td>
-                                            <span>
-                                                <img class="pdf-down" src="/img/pdf.png" alt="">
-                                            </span>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                                <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                                <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="foot-table">
@@ -156,6 +139,80 @@
                             <img src="/img/next-arrow.png" class="next-itm" alt="">
                         </div>
                     </div>
+
+                    
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product Id</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col" style="width:40%" class="center"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                                <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                                <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                </td>
+                                <td>
+                                    <span>Apple Airpod Second Generation</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        $249.00
+                                    </span>
+                                </td>
+                                <td class="center">                             
+                                    <label class="chk-td-cont">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
