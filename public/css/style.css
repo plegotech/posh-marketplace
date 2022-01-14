@@ -879,7 +879,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .pending-vend .top-newOrder {}
 .pending-vend .top-newOrder table {}
 .pending-vend .top-newOrder table tbody tr:nth-child(2n+2) {
-    background: #f2f2f2!important;
+    background: #f9f9f9!important;
 }
 .main .pending-vend .top-newOrder table tbody tr td {
     padding: 20px 10px;
@@ -1531,17 +1531,24 @@ a.navbar-brand {
     padding-left: 22px;
 }
 span.comleted-txt {
-    border: 1px solid #3CC13B;
+    border: 1px solid #ceefce;
     border-radius: 4px;
     padding: 0px 4px;
     color: #3CC13B;
     font-weight: 500;
 }
 span.pendig-txt {
-    border: 1px solid #F3BB1C;
+    border: 1px solid #fceec6;
     border-radius: 4px;
     padding: 0px 4px;
     color: #F3BB1C;
+    font-weight: 500;
+}
+span.cancelled-txt {
+    border: 1px solid #efcece;
+    border-radius: 4px;
+    padding: 0px 4px;
+    color: #C13B3B;
     font-weight: 500;
 }
 ul.topnav-user li {
@@ -1770,6 +1777,7 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .price-title-b h3 {
     color: #000;
     font-size: 30px;
+    font-weight: bold;
 }
 .price-btn-bx {
     display: flex;
@@ -1799,7 +1807,7 @@ p.plx-title {
     background: #0862A3;
 }
 .btn-st {
-    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     padding-right: 15px;
     padding-left: 15px;
     text-align: center;
@@ -1896,8 +1904,7 @@ p.input-tip-bx {
 }
 .form-outline-ft {
     position: relative;
-    margin-bottom: 35px;
-}
+    }
 /*.form-outline-ft input:focus ~ .form-label
 ,.form-outline-ft input:not(:focus):valid ~ .form-label {
     transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
@@ -1930,13 +1937,13 @@ p.input-tip-bx {
 }
 select.select-custom-point {
     -webkit-appearance: none;
-    height: 50px!important;
     -moz-appearance: none;
     background: transparent;
     background-image: url(/img/down-arrow-Vector.png);
     background-repeat: no-repeat;
-    background-position-x: 98%;
+    background-position-x: 100%;
     background-position-y: 50%;
+    padding-right: 30px;
 }
 table.tablebg-inpro {
     background: #F8F8F8;
@@ -1993,7 +2000,7 @@ ul.order-proces-listing li:before {
     transform: translateX(-50%);
 }
 .opar-bx {
-    margin-top: 10%;
+    margin-top: 15%;
 }
 ul.order-proces-listing li:nth-child(even) span {
     position: absolute;
@@ -2024,6 +2031,105 @@ ul.order-proces-listing li.active:before, ul.order-proces-listing li.active:afte
     border-bottom: 2px solid #E8E8E8;
     padding-bottom: 15px;
 }
+ul.pagination.bottm-pagination li a {
+    border: 2px solid #797979;
+    margin-right: 7px;
+    border-radius: 4px;
+}
+ul.pagination.bottm-pagination .page-item.inactive .page-link {
+    z-index: 3;
+    background-color: #c8cfd5;
+    border-color: #c8cfd5;
+    color: #808080;
+}
+ul.pagination.bottm-pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #1642A0;
+    background-color: transparent;
+    border-color: #1642A0;
+}
+.btn-box-shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+span.last-point-active {
+    font-weight: bold;
+    color: #0862A3;
+}
+/* START:: progressbar steps design */
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+   }
+  
+   .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 5px solid #ccc;
+    width: 100%;
+    top: 10px;
+    left: -50%;
+    z-index: 2;
+}
+.stepper-item.active .step-counter {
+    background: #0862a3;
+}
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 5px solid #ccc;
+    width: 100%;
+    top: 10px;
+    left: 50%;
+    z-index: 2;
+}  
+.stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+}  
+  .stepper-item.active {
+    font-weight: bold;
+    color: #0862A3;
+  }
+  .stepper-item:nth-child(odd) .step-name {
+    position: absolute;
+    top: -32px;
+}
+  .stepper-item.completed .step-counter {
+    background-color:#0862A3;
+  }  
+  .stepper-item.completed::after {
+    border-color: #0862A3;
+    z-index: 3;
+}  
+.stepper-item:first-child::before {
+    width: 32%;
+    left: 15px;
+}
+.stepper-item:last-child::after {
+    width: 32%;
+    right: 15px;
+}
+.stepper-item.completed:before {
+    border-color: #0862a3;
+}
+/* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;

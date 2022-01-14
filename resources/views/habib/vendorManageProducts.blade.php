@@ -1,48 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        // Draw the chart and set the chart values
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
-            ]);
-            // Optional; add a title and set the width and height of the chart
-            var options = {'title':'', 'width':300, 'height':200};
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-        }
-    </script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Expenses'],
-                ['2013',  1000,      400],
-                ['2014',  1170,      460],
-                ['2015',  660,       1120],
-                ['2016',  1030,      540]
-            ]);
-            var options = {
-                title: 'Company Performance',
-                hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-                vAxis: {minValue: 0}
-            };
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-    </script>
         <div class="wrapper">
                 <aside>
                     <div class="sidebar left ">
@@ -167,7 +125,7 @@
                 <div class="container-fluid pending-vend">
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-sm-12">
-                            <div class="top-newOrder myorder">
+                            <div class="top-newOrder myorder mb-4">
                             <div class="row mb-4">
                                 <div class="col-sm-4">
                                     <div class="search-box" style="max-width:100%">
@@ -178,31 +136,31 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 offset-sm-2">
-                                    <div class="row">
-                                        <div class="col">
-                                            <select name="" id="">
+                                <div class="col-sm-7 offset-sm-1">
+                                    <div class="row justify-content-end">
+                                        <div class="w-auto mr-3">
+                                            <select class="select-custom-point" name="" id="">
                                                 <option value="" selected>Sort By</option>
                                                 <option value="">Name</option>
                                                 <option value="">Number</option>
                                             </select>
                                         </div>
-                                        <div class="col">
-                                            <select name="" id="">
+                                        <div class="w-auto mr-3">
+                                            <select class="select-custom-point" name="" id="">
                                                 <option value="" selected>Category</option>
                                                 <option value="">one</option>
                                                 <option value="">two</option>
                                             </select>
                                         </div>
-                                        <div class="col">
-                                            <select name="" id="">
+                                        <div class="w-auto mr-3">
+                                            <select class="select-custom-point" name="" id="">
                                                 <option value="" selected>Sub Category</option>
                                                 <option value="">one</option>
                                                 <option value="">two</option>
                                             </select>
                                         </div>
-                                        <div class="col">
-                                            <select name="" id="">
+                                        <div class="w-auto mr-3">
+                                            <select class="select-custom-point" name="" id="">
                                                 <option value="" selected>All</option>
                                                 <option value="">one</option>
                                                 <option value="">two</option>
@@ -213,7 +171,12 @@
                             </div>
                 
                     <!-- START:: Products listing -->
-                    <div class="row">
+                    <div class="row justify-content-end">
+                        <div class="col-sm-2 mb-4 ">
+                            <button class="primary btn-box-shadow"><i class="fas fa-cloud-upload-alt mr-2"></i><strong>UPLOAD</strong></button>
+                        </div>
+                        </div>
+                        <div class="row">
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
                                 <div class="">
@@ -378,21 +341,21 @@
                         </div>
                     </div>
                     <!-- END  :: Products listing -->
-                    <div class="row">
+                    <div class="row my-5">
                         <div class="col-sm-12 d-flex justify-content-center">
-                        <div aria-label="Page navigation example">
+                        <div aria-label="Page navigation paginate-bx">
                             <ul class="pagination bottm-pagination">
-                                <li class="page-item">
+                                <li class="page-item inactive">
                                 <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
+                                    <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
                                 </a>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&#8603;</span>
+                                    <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 </li>
                             </ul>

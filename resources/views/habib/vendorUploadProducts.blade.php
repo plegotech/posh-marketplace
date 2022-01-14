@@ -125,37 +125,37 @@
                 <div class="container-fluid pending-vend">
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-sm-12">
-                        <div class="top-newOrder myorder">
+                        <div class="top-newOrder myorder mb-4">
                             <div class="row mb-4 up-main-bx">
                                <div class="col-sm-6">
                                    <div class="up-main-bx-1">
-                                    <div class="form-outline-ft" >
+                                    <div class="form-outline-ft mb-5" >
                                         <input type="text" class="form-control-label" required>
                                             <label class="form-label" for="form11">Product Name</label>
                                             <p class="input-tip-bx">Do not exceed 20 characters when entering the product name.</p>
                                     </div>
-                                    <div class="form-outline-ft" >
+                                    <div class="form-outline-ft mb-5" >
                                         <input type="text" class="form-control-label" required>
                                             <label class="form-label" for="form11">Price</label>
                                     </div>
-                                    <div class="form-outline-ft" >
+                                    <div class="form-outline-ft mb-5" >
                                         <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
-                                        <select class="form-control select-custom-point" id="">
+                                        <select class="form-control-label select-custom-point" id="">
                                             <option>Electronic Accessories</option>
                                             <option>Electronic</option>
                                             <option>Accessories</option>
                                         </select>
                                         <span class="form-label" for="form11">Category</span>
                                     </div>
-                                    <div class="form-outline-ft" >
-                                        <select class="form-control select-custom-point" id="">
+                                    <div class="form-outline-ft mb-5" >
+                                        <select class="form-control-label select-custom-point" id="">
                                             <option>Apple</option>
                                             <option>Electronic</option>
                                             <option>Accessories</option>
                                         </select>
                                             <span class="form-label" for="form11">Brand</span>
                                     </div>
-                                    <div class="form-outline-ft" >
+                                    <div class="form-outline-ft mb-5" >
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                         <textarea class="form-control-label" rows="6"></textarea>    
                                         <p class="input-tip-bx">Do not exceed 20 characters when entering the product name.</p>
@@ -173,8 +173,13 @@
                                             <p class="img-title-up">Upload Image</p>
                                         </div>
                                     </div>
-                                    <div class="">
-
+                                    <div class="form-outline-ft mt-5 mb-3" >
+                                        <select class="form-control-label select-custom-point" id="">
+                                            <option>10/11/2021</option>
+                                            <option>Electronic</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                            <span class="form-label" for="form11">Product Date</span>
                                     </div>
                                     <div class="">
                                         <button class="primary">SAVE PRODUCT</button>

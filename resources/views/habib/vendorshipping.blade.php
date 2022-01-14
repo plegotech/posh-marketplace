@@ -147,17 +147,17 @@
                                     <tr>
                                         <th class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Product <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery</span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Tracking Id <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Tracking No. <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Date <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Pricing</th>
-                                        <th scope="col">Delivery Status</th>
-                                        <th scope="col">Payment</th>
-                                        <th scope="col">Shipping Detail</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Zip</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -166,28 +166,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                            <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -195,28 +195,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -224,28 +224,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -253,28 +253,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                            <span class="pendig-txt">Pending</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -282,28 +282,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                            <span class="pendig-txt">Pending</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -311,28 +311,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -340,28 +340,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -369,28 +369,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -398,28 +398,28 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
                                     <tr >
@@ -427,60 +427,31 @@
                                             <span>AKN 1250</span>
                                         </td>
                                         <td>
-                                            <span>Nike Shoes</span>
+                                            <span>DHL</span>
                                         </td>
                                         <td>
-                                            <span>MRP0043456</span>
-                                        </td>
-                                        <td>
-                                            <span>06/25/2021</span>
-                                        </td>
-                                        <td>
-                                            <span>3</span>
-                                        </td>
-                                        <td>
-                                            <span>$540</span>
-                                        </td>
-                                        <td>
-                                        <span class="comleted-txt">Completed</span>
-                                        </td>
-                                        <td>
-                                            <span>Credit Card</span>
-                                        </td>
-                                        <td>
-                                            <span >Chicago</span>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>
-                                            <span>AKN 1250</span>
-                                        </td>
-                                        <td>
-                                            <span>Nike Shoes</span>
-                                        </td>
-                                        <td>
-                                            <span>MRP0043456</span>
+                                            <span>PR1824QO700</span>
                                         </td>
                                         <td>
                                             <span>06/25/2021</span>
                                         </td>
                                         <td>
-                                            <span>3</span>
+                                            <span>4949,, Forest Ave</span>
                                         </td>
                                         <td>
-                                            <span>$540</span>
+                                            <span>USA</span>
                                         </td>
                                         <td>
-                                        <span class="comleted-txt">Completed</span>
+                                            <span>Chicago</span>
                                         </td>
                                         <td>
-                                            <span>Credit Card</span>
+                                            <span>630-541-7292</span>
                                         </td>
                                         <td>
-                                            <span >Chicago</span>
+                                            <span>60131</span>
                                         </td>
                                     </tr>
-                                    
+                                   
                                     </tbody>
                                 </table>
                                 <div class="foot-table" >

@@ -125,10 +125,10 @@
                 <div class="container-fluid pending-vend">
                     <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-12">
-                        <div class="top-newOrder">
+                        <div class="top-newOrder mb-4">
                             <div class="row justify-content-end pr-35">
                             <div class="col-sm-2">
-                                <select name="" id="">
+                                <select name="" id="" class="select-custom-point">
                                     <option value="" selected="selected">Choose Year</option> 
                                     <option value="2021">2021</option> 
                                     <option value="2020">2020</option> 
@@ -137,7 +137,7 @@
                                     <option value="2017">2017</option>
                                 </select>
                             </div> <div class="col-sm-2">
-                                <select name="" id="">
+                                <select name="" id="" class="select-custom-point">
                                     <option value="" selected="selected">Choose Month</option>
                                      <option value="Janruary">Janruary</option> 
                                      <option value="February">February</option> 

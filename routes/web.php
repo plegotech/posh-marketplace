@@ -52,6 +52,12 @@ Route::get('/vendor-all-orders', function () {
 Route::get('/billing-vendor-side', function () {
     return view('habib.billingvendorside');
 });
+Route::get('/vendor-product-history', function () {
+    return view('habib.vendorproducthistory');
+});
+Route::get('/vendor-shipping', function () {
+    return view('habib.vendorshipping');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
