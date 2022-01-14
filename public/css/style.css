@@ -879,7 +879,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .pending-vend .top-newOrder {}
 .pending-vend .top-newOrder table {}
 .pending-vend .top-newOrder table tbody tr:nth-child(2n+2) {
-    background: #f2f2f2;
+    background: #f9f9f9!important;
 }
 .main .pending-vend .top-newOrder table tbody tr td {
     padding: 20px 10px;
@@ -1531,17 +1531,24 @@ a.navbar-brand {
     padding-left: 22px;
 }
 span.comleted-txt {
-    border: 1px solid #3CC13B;
+    border: 1px solid #ceefce;
     border-radius: 4px;
     padding: 0px 4px;
     color: #3CC13B;
     font-weight: 500;
 }
 span.pendig-txt {
-    border: 1px solid #F3BB1C;
+    border: 1px solid #fceec6;
     border-radius: 4px;
     padding: 0px 4px;
     color: #F3BB1C;
+    font-weight: 500;
+}
+span.cancelled-txt {
+    border: 1px solid #efcece;
+    border-radius: 4px;
+    padding: 0px 4px;
+    color: #C13B3B;
     font-weight: 500;
 }
 ul.topnav-user li {
@@ -1770,6 +1777,7 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .price-title-b h3 {
     color: #000;
     font-size: 30px;
+    font-weight: bold;
 }
 .price-btn-bx {
     display: flex;
@@ -1799,7 +1807,7 @@ p.plx-title {
     background: #0862A3;
 }
 .btn-st {
-    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     padding-right: 15px;
     padding-left: 15px;
     text-align: center;
@@ -1815,7 +1823,7 @@ p.plx-title {
     display: flex;
 }
 ul.pagination.bottm-pagination li.page-item a {
-    color: #797979;
+    color: hsl(0, 0%, 47%);
     font-weight: 700;
 }
 span.invalidLogin.alert.alert-danger {
@@ -1824,18 +1832,92 @@ span.invalidLogin.alert.alert-danger {
     margin-bottom: 12px;
     display: block;
 }
-.form-outline-ft input.form-control-label {
+.form-outline-ft .form-control-label {
     border: 1px solid #6D6D6D;
     color: #4B4B4B;
     font-weight: 500;
+    width: 100%;
+}
+.up-main-bx-2 {
+    max-width: 306px;
+    margin: 0 auto;
+}
+.up-main-bx-1 {
+    margin-left: 35px;
+}
+ul.topnav-user li {
+    position: relative;
+}
+.img-fluid.img-upload-vup {
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+}
+.upload-image-vup {
+    position: relative;
+}
+p.img-title-up {
+    padding: 10px;
+    background: #00000080;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+p.downl-csv {
+    color: #0862A3;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.up-main-bx {
+    max-width: 970px;
+}
+span.numberof-ma {
+    background: #FF5454;
+    height: 20px;
+    width: 20px;
+    color: #fff;
+    font-weight: 500;
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 20px;
+    right: 2px;
+}
+img.img-ut-vup {
+    width: 30px;
+}
+img.help-tag-righ {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: -36px;
+}
+p.input-tip-bx {
+    color: #9D9D9D;
+    font-size: 14px;
 }
 .form-outline-ft {
     position: relative;
-}
-.form-control-label:focus~.form-label {
+    }
+/*.form-outline-ft input:focus ~ .form-label
+,.form-outline-ft input:not(:focus):valid ~ .form-label {
     transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
-}
-.form-outline-ft label.form-label {
+    background: #fff;
+    padding-right: 10px;
+    padding-left: 10px;
+}*/
+.form-outline-ft .form-label {
+    transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
+    background: #fff;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
     position: absolute;
     top: 0;
     max-width: 90%;
@@ -1850,6 +1932,204 @@ span.invalidLogin.alert.alert-danger {
     color: rgba(0,0,0,.6);
     margin-bottom: 0;
 }
+.form-outline-ft input.form-control-label, .form-outline-ft select.form-control-label {
+    height: 50px;
+}
+select.select-custom-point {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url(/img/down-arrow-Vector.png);
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    padding-right: 30px;
+}
+table.tablebg-inpro {
+    background: #F8F8F8;
+    width: 100%;
+    border-bottom: 1px solid #C4C4C4;
+    color: #000;
+}
+table.tablebg-inpro tbody tr {
+    border-bottom: 1px solid #C4C4C4;
+}
+.inpro-order-detail table.tablebg-inpro tbody tr:nth-child(2n+2) {
+    background: transparent!important;
+}
+span.track-btn {
+    background: #F8F8F8;
+    border: 1px solid #BEBEBE;
+    border-radius: 5px;
+    padding: 1px 15px;
+    cursor: pointer;
+}
+.order-progress-ar {
+    float: left;
+    width: 100%;
+}
+ul.order-proces-listing {
+    list-style: none;
+}
+ul.order-proces-listing {
+    list-style: none;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+table.tablebg-inpro tbody tr td:last-child {
+    font-weight: 500;
+}
+ul.order-proces-listing li {
+    position: relative;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+ul.order-proces-listing li:before {
+    content: "";
+    background: #C4C4C4;
+    width: 22px;
+    height: 22px;
+    top: 28px;
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.opar-bx {
+    margin-top: 15%;
+}
+ul.order-proces-listing li:nth-child(even) span {
+    position: absolute;
+    bottom: -55px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+table.tablebg-inpro tbody tr:last-child {
+    border-color: transparent;
+}
+ul.order-proces-listing li:after {
+    content: "";
+    background: #c4c4c4;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    top: 36px;
+}
+ul.order-proces-listing li.active:before, ul.order-proces-listing li.active:after {
+    background: #0862A3;
+}
+.inpro-order-detail {
+    padding: 20px;
+}
+.border-b-txt {
+    border-bottom: 2px solid #E8E8E8;
+    padding-bottom: 15px;
+}
+ul.pagination.bottm-pagination li a {
+    border: 2px solid #797979;
+    margin-right: 7px;
+    border-radius: 4px;
+}
+ul.pagination.bottm-pagination .page-item.inactive .page-link {
+    z-index: 3;
+    background-color: #c8cfd5;
+    border-color: #c8cfd5;
+    color: #808080;
+}
+ul.pagination.bottm-pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #1642A0;
+    background-color: transparent;
+    border-color: #1642A0;
+}
+.btn-box-shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+span.last-point-active {
+    font-weight: bold;
+    color: #0862A3;
+}
+/* START:: progressbar steps design */
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+   }
+  
+   .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 5px solid #ccc;
+    width: 100%;
+    top: 10px;
+    left: -50%;
+    z-index: 2;
+}
+.stepper-item.active .step-counter {
+    background: #0862a3;
+}
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 5px solid #ccc;
+    width: 100%;
+    top: 10px;
+    left: 50%;
+    z-index: 2;
+}  
+.stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+}  
+  .stepper-item.active {
+    font-weight: bold;
+    color: #0862A3;
+  }
+  .stepper-item:nth-child(odd) .step-name {
+    position: absolute;
+    top: -32px;
+}
+  .stepper-item.completed .step-counter {
+    background-color:#0862A3;
+  }  
+  .stepper-item.completed::after {
+    border-color: #0862A3;
+    z-index: 3;
+}  
+.stepper-item:first-child::before {
+    width: 32%;
+    left: 15px;
+}
+.stepper-item:last-child::after {
+    width: 32%;
+    right: 15px;
+}
+.stepper-item.completed:before {
+    border-color: #0862a3;
+}
+/* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
 .alert-time {
     position: relative;

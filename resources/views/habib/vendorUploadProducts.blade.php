@@ -1,49 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        // Draw the chart and set the chart values
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
-            ]);
-            // Optional; add a title and set the width and height of the chart
-            var options = {'title':'', 'width':300, 'height':200};
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-        }
-    </script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Expenses'],
-                ['2013',  1000,      400],
-                ['2014',  1170,      460],
-                ['2015',  660,       1120],
-                ['2016',  1030,      540]
-            ]);
-            var options = {
-                title: 'Company Performance',
-                hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-                vAxis: {minValue: 0}
-            };
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-    </script>
-        <div class="wrapper">
+            <div class="wrapper">
                 <aside>
                     <div class="sidebar left ">
                         <div class="user-panel">
@@ -139,7 +97,7 @@
                             <ul class="topnav-user">
                                 <li>
                                     <a href="">
-                                        <img src="/img/mail-icon.png" class="notify" alt="">
+                                        <img src="/img/mail-icon.png" class="notify" alt=""><span class="numberof-ma">3</span>
                                     </a>
                                 </li>
                                 <li>
@@ -167,14 +125,70 @@
                 <div class="container-fluid pending-vend">
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-sm-12">
-                        <div class="top-newOrder myorder">
-                            <div class="row mb-4">
-                               <div class="col-sm-4">
-                                    <div class="form-outline-ft" >
-                                        <input type="text" id="form11" class="form-control-label">
-                                        <label class="form-label" for="form11">Product Name</label>
+                        <div class="top-newOrder myorder mb-4">
+                            <div class="row mb-4 up-main-bx">
+                               <div class="col-sm-6">
+                                   <div class="up-main-bx-1">
+                                    <div class="form-outline-ft mb-5" >
+                                        <input type="text" class="form-control-label" required>
+                                            <label class="form-label" for="form11">Product Name</label>
+                                            <p class="input-tip-bx">Do not exceed 20 characters when entering the product name.</p>
                                     </div>
-                               </div>     
+                                    <div class="form-outline-ft mb-5" >
+                                        <input type="text" class="form-control-label" required>
+                                            <label class="form-label" for="form11">Price</label>
+                                    </div>
+                                    <div class="form-outline-ft mb-5" >
+                                        <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
+                                        <select class="form-control-label select-custom-point" id="">
+                                            <option>Electronic Accessories</option>
+                                            <option>Electronic</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                        <span class="form-label" for="form11">Category</span>
+                                    </div>
+                                    <div class="form-outline-ft mb-5" >
+                                        <select class="form-control-label select-custom-point" id="">
+                                            <option>Apple</option>
+                                            <option>Electronic</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                            <span class="form-label" for="form11">Brand</span>
+                                    </div>
+                                    <div class="form-outline-ft mb-5" >
+                                    <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
+                                        <textarea class="form-control-label" rows="6"></textarea>    
+                                        <p class="input-tip-bx">Do not exceed 20 characters when entering the product name.</p>
+                                    </div>
+                               </div>    
+                            </div>
+                               <div class="col-sm-6"> 
+                               <div class="up-main-bx-2">
+                                    <div class="uploadimage-vup">
+                                        <div class="upload-title-vup">
+                                            <p>Product Image <img src="/img/help-icon.png" class="img-ut-vup" width="30" height="30"></p>
+                                        </div>
+                                        <div class="upload-image-vup">
+                                            <img src="/img/img-upload-product.jpg" class="img-fluid img-upload-vup">
+                                            <p class="img-title-up">Upload Image</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-outline-ft mt-5 mb-3" >
+                                        <select class="form-control-label select-custom-point" id="">
+                                            <option>10/11/2021</option>
+                                            <option>Electronic</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                            <span class="form-label" for="form11">Product Date</span>
+                                    </div>
+                                    <div class="">
+                                        <button class="primary">SAVE PRODUCT</button>
+                                        <button class="primary">UPLOAD CSV</button>
+                                        <button class="primary">CANCEL PRODUCT</button>
+                                        <p class="downl-csv">Download CSV Template</p>
+                                    </div>
+                                </div>
+                                </div>
                             </div>                           
                         </div>
                 

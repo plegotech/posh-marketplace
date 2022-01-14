@@ -1,0 +1,304 @@
+@extends('layouts.app')
+
+@section('content')
+            <div class="wrapper">
+                <aside>
+                    <div class="sidebar left ">
+                        <div class="user-panel">
+                            <div class="sidebar-header">
+                                <h3>Posh Market</h3>
+                            </div>
+                        </div>
+                        <ul class="list-sidebar bg-white">
+                            <li>
+                                <router-link to="/admin/dashboard">
+                                    <i class="sb-menu-icon overview-icon"></i>
+                                    <span class="nav-label">Overview</span>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/admin/manage-vendors">
+                                    <i class="sb-menu-icon manage-products"></i>
+                                    <span class="nav-label">Manage Products</span>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/admin/manage-sellers">
+                                    <i class="sb-menu-icon upload-product"></i>
+                                    <span class="nav-label">Upload Product</span>
+                                </router-link>
+                            </li>
+
+
+
+                            <li class="sub-menu">
+                                <a href="#">
+                                    <i class="sb-menu-icon orders"></i>
+                                    <span class="nav-label">My Orders <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
+                                                                              alt=""></i> </span>
+                                    <ul>
+                                        <li>
+                                            <router-link to="/admin/seller-orders">
+                                                Pending Orders
+                                            </router-link>
+                                        </li>
+                                        <li>
+                                            <router-link to="/admin/vendor-orders">
+                                                In-Progress Orders
+                                            </router-link>
+                                        </li>
+                                        <li>
+                                            <router-link to="/admin/vendor-orders">
+                                                All Orders
+                                            </router-link>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+                            <li>
+                                <router-link to="/admin/payment-details">
+                                    <i class="sb-menu-icon billing-icon"></i>
+                                    <span class="nav-label">Billing</span>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/admin/payment-details">
+                                    <i class="sb-menu-icon product-history"></i>
+                                    <span class="nav-label">Product History</span>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/admin/payment-history">
+                                    <i class="sb-menu-icon shipping-icon"></i>
+                                    <span class="nav-label">Shipping</span>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/admin/payment-history">
+                                    <i class="sb-menu-icon my-profile"></i>
+                                    <span class="nav-label">My Profile</span>
+                                </router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+
+            <div class="body">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarTogglerDemo01"
+                                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                            <a class="navbar-brand" href="#">Dashboard</a>
+                            <ul class="topnav-user">
+                                <li>
+                                    <a href="">
+                                        <img src="/img/mail-icon.png" class="notify" alt=""><span class="numberof-ma">3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="/img/notification-bell.png" class="notify" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <img src="/img/profile.png" class="profile" alt="">
+
+                                    <div class="dropdown foruser-pmarket">
+                                        <div class="userlogined dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            John Doe
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                <div class="container-fluid pending-vend">
+                    <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-12">
+                        <div class="top-newOrder mb-4">
+                            <div class="row">
+                            <div class="col-sm-5">
+                                <div class="inpro-order-detail">
+                                    <table class="tablebg-inpro">
+                                        <tr>
+                                            <td>Order Id:</td><td>ANK 1250</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Order Date:</td><td>09/29/2021</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ship Date:</td><td>10/06/2021</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping Address:</td><td>10/06/2021</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrier:</td><td>US Postal Service</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrier Tracking Number:</td><td>US Postal Service</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="search-box mb-4">
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX pendingVendorSearch">
+                                    <img src="/img/close-srch.png" class="close-icon" alt="">
+                                </div>
+                                
+                                <div class="order-progress-ar">
+                                    <div class="opar-bx">
+                                        <!-- start:: -->
+                                <div class="stepper-wrapper">
+                                    <div class="stepper-item completed">
+                                        <div class="step-counter"></div>
+                                        <div class="step-name">Received</div>
+                                    </div>
+                                    <div class="stepper-item completed">
+                                        <div class="step-counter"></div>
+                                        <div class="step-name">At Depot</div>
+                                    </div>
+                                    <div class="stepper-item active">
+                                        <div class="step-counter"></div>
+                                        <div class="step-name">In Transit</div>
+                                    </div>
+                                    <div class="stepper-item">
+                                        <div class="step-counter"></div>
+                                        <div class="step-name">Out For Delivery</div>
+                                    </div>
+                                    <div class="stepper-item">
+                                        <div class="step-counter"></div>
+                                        <div class="step-name">Delivered</div>
+                                    </div>
+                                    </div>
+                                <!-- end :::  -->
+                                        <!-- <ul class="order-proces-listing">
+                                            <li class="active"><span>Received</span></span></li>
+                                            <li class="active"><span>At Depot</span></li>
+                                            <li class="active"><span class="last-point-active">In Transit</span></li>
+                                            <li><span>Out For Delivery</span></li>
+                                            <li><span>Delivered</span></li>
+                                        </ul> -->
+                                    </div>
+                                </div>
+                            </div>              
+
+                        <div class="col-sm-12">
+                            <!-- START: FIRST TAB CONTENT -->
+                            <div id="first-pvs-posh" class="top-newOrder">
+                            <h1 class=" border-b-txt">Pending Orders</h1>
+                                <!-- start: TABLE -->
+                                <table class="table" id="pvs-tab">
+                                    <thead>
+                                    <tr>
+                                        <th class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
+                                        </th>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle" src="/img/shuffle.png"></span>
+                                        </th>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span>
+                                        </th>
+                                        <th scope="col">Shipping Details</th>
+                                        <th scope="col">Delivery Status</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr >
+                                        <td>
+                                        <img src="/img/nike-shoe1.png" alt="">
+                                            <span>AKN 1250</span>
+                                        </td>
+                                        <td>
+                                            <span>Stevan Kolman</span>
+                                        </td>
+                                        <td>
+                                            <span>06/25/2021</span>
+                                        </td>
+                                        <td>
+                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
+                                        </td>
+                                        <td>
+                                            <span class="pendig-txt">Pending</span>
+                                        </td>
+                                        <td>
+                                            <span class="track-btn">Track</span>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                        <img src="/img/nike-shoe1.png" alt="">
+                                            <span>AKN 1250</span>
+                                        </td>
+                                        <td>
+                                            <span>Stevan Kolman</span>
+                                        </td>
+                                        <td>
+                                            <span>06/25/2021</span>
+                                        </td>
+                                        <td>
+                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
+                                        </td>
+                                        <td>
+                                            <span class="pendig-txt">Pending</span>
+                                        </td>
+                                        <td>
+                                            <span class="track-btn">Track</span>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                        <img src="/img/nike-shoe1.png" alt="">
+                                            <span>AKN 1250</span>
+                                        </td>
+                                        <td>
+                                            <span>Stevan Kolman</span>
+                                        </td>
+                                        <td>
+                                            <span>06/25/2021</span>
+                                        </td>
+                                        <td>
+                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
+                                        </td>
+                                        <td>
+                                            <span class="pendig-txt">Pending</span>
+                                        </td>
+                                        <td>
+                                            <span class="track-btn">Track</span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="foot-table" >
+                                    <div class="left"><span>Rows Per Page:
+                                            <select >
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="75">75</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                            </span></div>
+                                            <div class="right"><span>1-25 of 81 Items</span> <img src="/img/prev-arrow.png" alt="" class="prev-itm"> <img src="/img/next-arrow.png" alt="" class="next-itm"></div>
+                                <!-- END: TABLE   -->
+                            </div>
+                            <!-- END::: FIRST TAB CONTENT -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                       
+@endsection
