@@ -43,6 +43,15 @@ Route::get('/vendor-manage-products', function () {
 Route::get('/vendor-upload-products', function () {
     return view('habib.vendorUploadProducts');
 });
+Route::get('/vendor-Orders-in-progress', function () {
+    return view('habib.vendororderinprogress');
+});
+Route::get('/vendor-all-orders', function () {
+    return view('habib.vendorallorders');
+});
+Route::get('/billing-vendor-side', function () {
+    return view('habib.billingvendorside');
+});
 Route::get('/{any}', function () {
     return view('full_screen');
 })->where('any', '.*');
