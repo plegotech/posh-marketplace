@@ -15,10 +15,10 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#">
+                        <router-link :to="{ name: 'seller-manage-products'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">Manage Products</span>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <router-link :to="{ name: 'seller-order'}">
@@ -33,10 +33,10 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#">
+                        <router-link :to="{ name: 'seller-billing'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">Billing</span>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <a href="#">

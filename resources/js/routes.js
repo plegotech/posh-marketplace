@@ -21,6 +21,8 @@ import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerDashboard from './components/seller/Dashboard';
 import SellerMyOrders from './components/seller/MyOrders';
 import VendorProductsSeller from  './components/seller/VendorProducts';
+import SellerManageProducts from  './components/seller/ManageProducts';
+import SellerBilling from  './components/seller/Billing';
 
 export default {
     mode: 'history',
@@ -47,6 +49,8 @@ export default {
         // Seller Dashboard
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
             { name: 'seller-dashboard', meta: { title: 'Dashboard' }, path: '/seller/dashboard', component: SellerDashboard },
+            { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: SellerManageProducts },
+            { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/my-orders', component: SellerMyOrders },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller }
         ]},
