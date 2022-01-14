@@ -39,22 +39,22 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#">
+                        <router-link :to="{ name: 'seller-manage-website'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">Manage Website</span>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
-                        <a href="#">
+                        <router-link :to="{ name: 'seller-sales'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">My Sales</span>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
-                        <a href="#">
+                        <router-link :to="{ name: 'seller-profile'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">My Profile</span>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </div>

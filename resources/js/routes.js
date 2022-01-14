@@ -19,10 +19,13 @@ import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerDashboard from './components/seller/Dashboard';
-import SellerMyOrders from './components/seller/MyOrders';
+import SellerOrders from './components/seller/MyOrders';
 import VendorProductsSeller from  './components/seller/VendorProducts';
 import SellerManageProducts from  './components/seller/ManageProducts';
 import SellerBilling from  './components/seller/Billing';
+import SellerManageWebsite from  './components/seller/ManageWebsite';
+import SellerSales from  './components/seller/MySales';
+import SellerProfile from  './components/seller/MyProfile';
 
 export default {
     mode: 'history',
@@ -50,9 +53,12 @@ export default {
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
             { name: 'seller-dashboard', meta: { title: 'Dashboard' }, path: '/seller/dashboard', component: SellerDashboard },
             { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: SellerManageProducts },
+            { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
+            { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
-            { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/my-orders', component: SellerMyOrders },
-            { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller }
+            { name: 'seller-manage-website', meta: { title: 'Manage Website' }, path: '/seller/manage-website', component: SellerManageWebsite },
+            { name: 'seller-sales', meta: { title: 'Sales' }, path: '/seller/sales', component: SellerSales },
+            { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: SellerProfile }
         ]},
 
         /*

@@ -642,6 +642,7 @@ i.sb-menu-icon:before {
     width: 100%;
     padding: 6px 8px;
     cursor: pointer;
+    font-family: Inter;
 }
 .main button:hover {transition:.4s;background:#0862a3;color:white;border:1px solid #0862a3}
 .main .body .row {
@@ -2216,6 +2217,16 @@ input.topheadSearch {
 .seller-vendor-prod {}
 .seller-vendor-prod .mini-head {}
 .seller-vendor-prod hr {}
+.seller-vendor-prod table {}
+.seller-vendor-prod table thead {}
+.seller-vendor-prod table tbody {}
+.seller-vendor-prod table tr {
+    text-align: left !important;
+}
+.seller-vendor-prod table tr th.center, 
+.seller-vendor-prod table tr td.center {text-align:center !important;position: relative;} 
+.seller-vendor-prod table tr td {}
+.seller-vendor-prod table td img {}
 .seller-vendor-prod .payment_Hist {}
 .seller-vendor-prod .payment_Hist select {
     margin: 0;
@@ -2224,3 +2235,336 @@ input.topheadSearch {
 .seller-vendor-prod .search-box {/* max-width: 100%; *//* margin:0; */padding: 0;}
 .seller-vendor-prod {}
 .seller-vendor-prod {}
+
+
+
+.chk-td-cont {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    left: calc(50% - 60px);
+    top: -7px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .chk-td-cont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .chk-td-cont:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .chk-td-cont input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .chk-td-cont input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .chk-td-cont .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+  /* Seperate Integrated CSS */
+
+
+  /* Starts here for manage-websites */
+  .manage-websites {}
+  .manage-websites a.box-selection {
+    width: 100%;
+    float: left;
+    text-align: center;
+    background: #FCFCFC;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px 5px;
+    height: 180px;
+    margin-bottom: 25px;
+}
+  .manage-websites a.box-selection:hover {opacity:.8;transition:.2s;cursor:pointer}
+  .manage-websites a.box-selection img {width: 50%;margin-top: 8px;}
+  .manage-websites a.box-selection h1 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+.sellerMySales {}
+.sellerMySales .top-newOrder thead tr th:first-child {
+    width: 20%;
+}
+.sellerMySales .top-newOrder thead tr th {
+    width: 10%;
+}
+.sellerMySales .top-newOrder tbody tr td span img {
+    float: left;
+    position: relative;
+    top: -10px;
+    margin-right: 10px;
+}
+.sellerMySales .top-newOrder tbody tr td span.txt-cont {
+    position:relative;top:10px
+}
+.sellerMySales .top-newOrder tbody tr td span.txt-cont span {
+    padding-right: 40px;
+    display: block;
+}
+body .main .sellerMySales .top-newOrder tbody tr td {padding:10px 10px;}
+.sellerMySales {}
+.graphs {}
+.graphs .left {
+    position: relative;
+}
+.graphs .left span {
+    color: #818181;
+}
+.graphs .left h1 {
+    margin: 10px 0;
+    margin-top: 4px;
+}
+.graphs .left i {
+    position: absolute;
+    bottom: 0;
+    line-height: 1;
+    left: 18px;
+}
+body .main .body .graphs .left i img {
+    width: 18px;
+    float: left;
+    position: relative;
+    top: 5px;
+}
+.graphs .left i.red {
+    color: #d93d3d;
+    font-style: initial;
+    font-weight: 500;
+}
+.graphs .left i.green {
+    color: #6cb241;
+    font-style: initial;
+    font-weight: 500;
+}
+.graphs {}
+.graphs .right {
+    height: 90px !important;
+}
+.graphs .right img {
+    width: 100%;
+    float: right;
+}
+
+.prof-area {
+    float: left;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #F8F8F8;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.prof-area .user-prof {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-family: Inter;
+}
+.prof-area .user-prof img {
+    width: 100px;
+}
+.prof-area .user-prof h1 {
+    margin: 0;
+    margin-top: 15px;
+    color: #0862A3;
+    padding: 0;
+    font-size: 22px;
+}
+.prof-area .user-prof span {
+    display: block;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+.prof-area .user-desc {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+}
+.prof-area .user-desc tbody {}
+.prof-area .user-desc td:nth-child(2n) {font-weight:bold}
+.prof-area .user-desc tr {
+}
+.prof-area .user-desc td {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+.prof-area .edit:hover {background:initial;color:initial;opacity:.6;border:1px solid #c6c6c6}
+.prof-area .add-new:hover {opacity:.8;border:1px solid #0862a3}
+.prof-area .edit {
+    font-weight: bold;
+    padding: 6px;
+    margin: 0;
+    font-family: Inter;
+}
+.prof-area .edit img {
+    width: 16px;
+    margin-right: 3px;
+    top: -2px;
+    position: relative;
+}
+.prof-area .sm-wd {max-width:100px;float: right;margin-right: 10px;}
+.prof-area .add-new {
+    font-weight: bold;
+    padding: 6px;
+    background: #0862A3;
+    color: white;
+    margin: 0;
+    max-width: 110px;
+    float: right;
+    font-family: Inter;
+}
+.prof-area .add-new img {
+    width: 16px;
+    margin-right: 3px;
+    top: -2px;
+    position: relative;}
+.prof-area h1.mini-head {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    color: #0862A3;
+    padding: 0;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.prof-area .comp-addr {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+}
+.prof-area .comp-addr tr {}
+.prof-area .comp-addr td {
+    border-bottom: 30px solid white;
+}
+.prof-area .comp-addr h2 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1;
+}
+.prof-area .comp-addr span {
+    font-weight: bold;
+    font-family: Inter;
+}
+.prof-area form {}
+.prof-area form .form-group {}
+.prof-area form .form-group input {
+    border: 1.5px solid rgb(119 119 119 / 60%);
+    color: rgba(0, 0, 0, 0.6);
+    padding: 10px 6px;
+    font-family: Inter;
+}
+.prof-area form .form-group input::placeholder {color: rgba(0, 0, 0, 0.6);}
+
+.indep-btn {margin-bottom: 30px;padding:20px}
+.indep-btn .edit:hover {background:initial;color:initial;opacity:.6;border:1px solid #c6c6c6}
+.indep-btn .add-new:hover {opacity:.8;border:1px solid #0862a3}
+.indep-btn .edit {
+    font-weight: bold;
+    padding: 6px;
+    margin: 0;
+    font-family: Inter;
+}
+.indep-btn .edit img {
+    width: 16px;
+    margin-right: 3px;
+    top: -2px;
+    position: relative;
+}
+.indep-btn .sm-wd {max-width:100px;float: right;}
+.indep-btn .add-new {
+    font-weight: bold;
+    padding: 6px;
+    background: #0862A3;
+    color: white;
+    margin: 0;
+    margin-right: 10px;
+    max-width: 110px;
+    float: right;
+    font-family: Inter;
+}
+.indep-btn .add-new img {
+    width: 16px;
+    margin-right: 3px;
+    top: -2px;
+    position: relative;}
+
+
+
