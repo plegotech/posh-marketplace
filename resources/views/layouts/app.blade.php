@@ -36,6 +36,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
 
     <script type="text/javascript">

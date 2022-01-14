@@ -18,6 +18,7 @@ import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
+import SellerDashboard from './components/seller/Dashboard';
 import SellerMyOrders from './components/seller/MyOrders';
 import VendorProductsSeller from  './components/seller/VendorProducts';
 
@@ -45,6 +46,7 @@ export default {
 
         // Seller Dashboard
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
+            { name: 'seller-dashboard', meta: { title: 'Dashboard' }, path: '/seller/dashboard', component: SellerDashboard },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/my-orders', component: SellerMyOrders },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller }
         ]},

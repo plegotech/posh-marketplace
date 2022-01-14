@@ -8,58 +8,59 @@
                     </div>
                 </div>
                 <ul class="list-sidebar bg-white">
-
                     <li>
-                        <router-link to="/seller/myorders">
+                        <router-link :to="{ name: 'seller-dashboard'}">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">Dashboard</span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">Manage Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: 'seller-order'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">My Orders</span>
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/seller/vendorproducts">
+                        <router-link :to="{ name: 'seller-vendor-products'}">
                             <i class="sb-menu-icon manage-vendors"></i>
                             <span class="nav-label">Vendor Products</span>
                         </router-link>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">Billing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">Manage Website</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">My Sales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">My Profile</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </aside>
         <div class="body">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarTogglerDemo01"
-                        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Dashboard</a>
-                    <ul class="topnav-user">
-                        <li>
-                            <a href="">
-                                <img src="/img/notification-bell.png" class="notify" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <img src="/img/profile.png" class="profile" alt="">
-
-                            <div class="dropdown foruser-pmarket">
-                                <div class="userlogined dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
-                                     aria-haspopup="true" aria-expanded="false">
-                                    {{ user.first_name }} {{ user.last_name }}
-                                </div>
-                                <div class="dropdown-menu dropdown-menu dropdown-menu-right"
-                                     aria-labelledby="dropdownMenuButton">
-                                    <a href="javascript:void(0)" @click="logout" class="dropdown-item">
-                                        <router-link to="/logout">
-                                            Logout
-                                        </router-link>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <Navbar :first_name="user.first_name" :last_name="user.last_name"/>
             <router-view></router-view>
         </div>
     </div>
@@ -67,8 +68,12 @@
 
 <script>
 import {mapActions} from 'vuex'
+import Navbar from '../Navbar'
 
 export default {
+    components : {
+        'Navbar': Navbar
+    },
     name: "sellerLayout",
     data() {
         return {
