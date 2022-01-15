@@ -879,7 +879,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .pending-vend .top-newOrder {}
 .pending-vend .top-newOrder table {}
-.pending-vend .top-newOrder table tbody tr:nth-child(2n+2) {
+.top-newOrder table tbody tr:nth-child(2n+2) {
     background: #f9f9f9!important;
 }
 .main .pending-vend .top-newOrder table tbody tr td {
@@ -1288,7 +1288,7 @@ button.primary.rsv-bx {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100%;
+    height: 100vh;
 }
 .bg-primary-posh-m {
     background-color: #0862A3;
@@ -1566,6 +1566,12 @@ i.upload-product:before {
 }
 .router-link-active i.upload-product:before {
     background: url(/img/menu-icons/upload-product-active.png);
+}
+i.track-order-icon:before {
+    background: url(/img/menu-icons/track-order-icon.png);
+}
+.router-link-active i.track-order-icon:before {
+    background: url(/img/menu-icons/track-order-icon-active.png);
 }
 i.billing-icon:before {
     background: url(/img/menu-icons/billing-icon.png);
@@ -2129,6 +2135,9 @@ span.last-point-active {
 }
 .stepper-item.completed:before {
     border-color: #0862a3;
+}
+.top-newOrder table.table td {
+    border-color: transparent;
 }
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
