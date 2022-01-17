@@ -67,6 +67,7 @@ class VendorController extends Controller
                 $company = array(
                     'name'                  => $request->input('company'),
                     'user_id'               => $user->id,
+                    'subscription_fee'      => 0,
                     'address'               => $request->input('address'),
                     'city'                  => $request->input('city'),
                     'state'                 => $request->input('state'),
