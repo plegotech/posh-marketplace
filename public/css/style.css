@@ -2218,8 +2218,8 @@ input.topheadSearch {
     top: 0;
     left: 0;
     right: 0;
+    position: fixed;
     bottom: 0;
-    position: absolute;
 }
 .modal-backdrop.show {
     opacity: 0.5;
@@ -2588,3 +2588,24 @@ body .main .body .graphs .left i img {
 
 
 
+
+
+.cstm-modal {}
+.cstm-modal .form-group {
+    margin-bottom: 5px;
+}
+input:focus,button:focus,textarea:focus,select:focus {outline:none !important;border-color: inherit !important;-webkit-box-shadow: none !important;box-shadow: none !important;}
+.cstm-modal .form-group button {background: #0862a3;color: white;width: 120px;}
+body .cstm-modal input.form-control,
+body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;height: initial !important;padding: 8px 10px;border-radius: 0;border: 1px solid #d1d1d1;}
+.cstm-modal label {text-align: right !important;display: block;margin: 0;padding: 8px 0;}
+.cstm-modal input[type="submit"]{}
+.cstm-modal .modal-content {background: #f8f8f8 !important;padding: 50px 100px !important;/* max-height: 900px; */overflow-y: auto;/* height: 100%; */}
+.cstm-modal .cancel-popup:hover {transition:.2s;opacity:.7;}
+.cstm-modal .cancel-popup {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    top: 10px;
+    cursor: pointer;
+}
