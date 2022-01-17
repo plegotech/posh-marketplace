@@ -45,6 +45,7 @@ export default {
         async logout() {
             await axios.post('/logout').then(({data}) => {
                 this.signOut()
+                axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
                 this.$router.push({name: "login"})
             })
         }
