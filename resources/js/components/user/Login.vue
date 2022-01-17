@@ -78,6 +78,7 @@ export default {
             await axios.get('/sanctum/csrf-cookie')
             await axios.post('/login', this.form)
                 .then(({data}) => {
+                    axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
                     this.signIn();
                     setTimeout(() => {
                         switch (this.$store.state.auth.user.user_type) {

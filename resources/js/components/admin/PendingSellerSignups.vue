@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="tabs-section-bx">
                     <b-tabs content-class="mt-3">
-                        <b-tab title="Pending Vendors" active>
+                        <b-tab title="Pending Sellers" active>
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh" class="top-newOrder">
                                 <div class="search-box mb-4">
@@ -104,7 +104,7 @@
                             </div>
                             <!-- END::: FIRST TAB CONTENT -->
                         </b-tab>
-                        <b-tab title="Rejected Vendors">
+                        <b-tab title="Rejected Sellers">
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="second-pvs-posh" class="top-newOrder">
                                 <div class="search-box mb-4">

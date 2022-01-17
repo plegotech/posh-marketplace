@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUserType($user_id)
+    {
+        $result = $this->where('id', $user_id)
+            ->get()->pluck('user_type');
+
+        return $result[0];
+    }
 }

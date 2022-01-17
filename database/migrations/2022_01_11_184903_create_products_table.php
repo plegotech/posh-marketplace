@@ -16,9 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('featured_image')->nullable();
             $table->json('images')->nullable();
             $table->string('sku')->unique()->nullable();
             $table->string('description')->nullable();
+            $table->enum('status', ['active', 'archived', 'deleted'])->default('active');
             $table->integer('vendor_id');
             $table->json('categories')->nullable();
             $table->float('net_price');

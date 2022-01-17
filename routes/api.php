@@ -37,3 +37,6 @@ Route::get('/user/change-status/{userid}/{status}', 'UsersController@changeUserS
 Route::post('/vendor', 'VendorController@vendor');
 
 Route::post('/seller/{step}', 'SellerController@seller');
+
+Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}', 'ProductController@fetch');
+Route::get('/product/remove/{product?}', 'ProductController@remove');

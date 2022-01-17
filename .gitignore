@@ -5,6 +5,7 @@
 /vendor
 public/img/vendor-logos
 public/img/seller-logos
+public/img/product-images
 /.idea
 .env
 .env.backup

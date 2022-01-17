@@ -83,9 +83,11 @@ class ProductsTableSeeder extends seeder
 
             $insert = [
                 'name'          => $product,
+                'featured_image'=> $image,
                 'images'        => json_encode($product_images),
                 'sku'           => 'DUM - '. rand(10, 99) . $u,
                 'description'   => '<h3>some description</h3><p>about the product is here.</p>',
+                'status'        => 'active',
                 'vendor_id'     => $vendor_id,
                 'net_price'     => rand(100, 100),
                 'sale_price'    => rand(100, 100),

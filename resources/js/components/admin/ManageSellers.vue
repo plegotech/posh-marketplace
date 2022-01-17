@@ -8,7 +8,7 @@
                     <img src="/img/cancel.png" class="cancel-popup" alt="">
                     <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
                          alt="">
-                         
+
                     <form ref="form">
                         <div class="row">
                             <div class="col-sm-4">
@@ -315,7 +315,6 @@ export default {
                     this.from = res.from;
                     this.total = res.total;
                     this.current_page = res.to / res.per_page;
-                    document.getElementById('ajaxLoader').style.display = 'none';
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
