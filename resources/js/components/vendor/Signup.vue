@@ -71,7 +71,9 @@
                                 <div class="form-row text-center sub-btn-bx">
                                     <button @click="vendorSignup()" type="button" class="primary rsv-bx"><strong>REGISTER</strong></button>
                                     <p class="mt-3 mb-1">Already Have an account?</p>
-                                    <a href="/" class="link-b-b"><strong>Sign-In</strong></a>
+                                    <span class="link-b-b">
+                                        <router-link to="/"><strong>Sign-In</strong></router-link>
+                                    </span>
                                 </div>
                             </form>
                         </div>
