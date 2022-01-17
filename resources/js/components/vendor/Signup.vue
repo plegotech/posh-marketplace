@@ -33,7 +33,10 @@
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.city" placeholder="City*" class="form-control" type="text">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                     <div class="form-group col-md-6">
+                                        <input v-model="vendor.state" placeholder="State*" class="form-control" type="text">
+                                    </div>
+                                   <!-- <div class="form-group col-md-6">
                                         <select v-model="vendor.state" class="form-control">
                                             <option selected>State*</option>
                                             <option> New Buyer</option>
@@ -41,7 +44,7 @@
                                             <option> Complaint</option>
                                             <option> Feedback</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.phone" placeholder="Phone Number*" class="form-control" type="tel">
                                     </div>
@@ -68,7 +71,7 @@
                                 <div class="form-row text-center sub-btn-bx">
                                     <button @click="vendorSignup()" type="button" class="primary rsv-bx"><strong>REGISTER</strong></button>
                                     <p class="mt-3 mb-1">Already Have an account?</p>
-                                    <a href="" class="link-b-b"><strong>Sign-In</strong></a>
+                                    <a href="/" class="link-b-b"><strong>Sign-In</strong></a>
                                 </div>
                             </form>
                         </div>
