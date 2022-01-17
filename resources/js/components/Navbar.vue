@@ -24,9 +24,7 @@
                         <div class="dropdown-menu dropdown-menu dropdown-menu-right"
                              aria-labelledby="dropdownMenuButton">
                             <a href="javascript:void(0)" @click="logout" class="dropdown-item">
-                                <router-link to="/logout">
-                                    Logout
-                                </router-link>
+                                Logout
                             </a>
                         </div>
                     </div>
@@ -37,7 +35,19 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
-    props: ['first_name', 'last_name']
+    props: ['first_name', 'last_name'],
+    methods: {
+        ...mapActions({
+            signOut: "auth/logout"
+        }),
+        async logout() {
+            await axios.post('/logout').then(({data}) => {
+                this.signOut()
+                this.$router.push({name: "login"})
+            })
+        }
+    }
 }
 </script>

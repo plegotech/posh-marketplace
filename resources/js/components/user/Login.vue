@@ -79,7 +79,16 @@ export default {
                 .then(({data}) => {
                     this.signIn();
                     setTimeout(() => {
-                        this.$router.push({name: "dashboard"});
+                        switch (this.$store.state.auth.user.user_type) {
+                            case "admin":
+                                    this.$router.push({name: "dashboard"});
+                                break;
+                            case "seller":
+                                    this.$router.push({name: "seller-dashboard"});
+                                break;
+                            case "vendor":
+                                break;
+                        }
                     }, 1500);
                     this.error = data.error;
                 }).catch(({response:{data}})=>{
