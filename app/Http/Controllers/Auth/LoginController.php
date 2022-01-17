@@ -52,7 +52,7 @@ class LoginController extends Controller
             ->where('status', 'approved')->first();
 
         if (empty($user)) {
-            return \Response::json(array('error' => 'The email or password incorrect. or your account is not approved.'), 400);
+            return \Response::json(array('message' => 'The email or password incorrect. or your account is not approved.'), 400);
         }
 
         if (Hash::check($password, $user->password)) {
@@ -61,9 +61,9 @@ class LoginController extends Controller
 
             Auth::loginUsingId($user->id);
 
-            return \Response::json(array('error' => 0), 204);
+            return \Response::json(array('message' => 0), 204);
         }
 
-        return \Response::json(array('error' => 'The email or password incorrect. or your account is not approved.'), 400);
+        return \Response::json(array('message' => 'The email or password incorrect. or your account is not approved.'), 400);
     }
 }

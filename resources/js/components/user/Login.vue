@@ -61,15 +61,13 @@ export default {
         return {
             form: {
                 email: '',
-                password: '',
-                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                password: ''
+                // ,
+                // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
             error: 0,
             processing:false
         }
-    },
-    created() {
-        // this.checkAuth();
     },
     methods: {
         ...mapActions({
@@ -94,20 +92,11 @@ export default {
                                 break;
                         }
                     }, 1500);
-                    this.error = data.error;
                 }).catch(({response:{data}})=>{
-                    this.error = data.error;
+                    this.error = data.message;
                 }).finally(()=>{
                     this.processing = false;
                 })
-        },
-        checkAuth() {
-            axios.get('/api/athenticated', this.form)
-                .then(() => {
-                    this.$router.push({name: "Dashboard"});
-                }).catch((error) => {
-                this.error = error.response.data.errors;
-            })
         },
     }
 }
