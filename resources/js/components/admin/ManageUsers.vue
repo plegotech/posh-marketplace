@@ -1,47 +1,90 @@
 <template>
     <div class="container-fluid pending-vend">
 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+        <div class="modal fade bd-example-modal-lg cstm-modal" tabindex="-1" role="dialog"
              aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
+                    <img src="/img/cancel.png" class="cancel-popup" alt="">
                     <form ref="form">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" v-model="user.first_name" class="form-control"
-                                   placeholder="First Name">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" v-model="user.first_name" class="form-control"
+                                        placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" v-model="user.last_name" class="form-control"
+                                    placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="email" v-model="user.email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" v-model="user.phone" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>User Type</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <select class="form-control" v-model="user.user_type">
+                                        <option value="user">User</option>
+                                        <option value="seller">Seller</option>
+                                        <option value="vendor">Vendor</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <select class="form-control" v-model="user.status">
+                                        <option value="approved">Approved</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="rejected">Rejected</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="offset-sm-4 col-sm-8">
+                                <div class="form-group">
+                                    <button @click="addUser()" class="btn btn-light btn-block">Save</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" v-model="user.last_name" class="form-control"
-                                   placeholder="Last Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" v-model="user.email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" v-model="user.phone" class="form-control" placeholder="Phone">
-                        </div>
-                        <div class="form-group">
-                            <label>User Type</label>
-                            <select class="form-control" v-model="user.user_type">
-                                <option value="user">User</option>
-                                <option value="seller">Seller</option>
-                                <option value="vendor">Vendor</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Status</label>
-                            <select class="form-control" v-model="user.status">
-                                <option value="approved">Approved</option>
-                                <option value="pending">Pending</option>
-                                <option value="rejected">Rejected</option>
-                            </select>
-                        </div>
-                        <button @click="addUser()" class="btn btn-light btn-block">Save</button>
                     </form>
                 </div>
             </div>
@@ -91,15 +134,17 @@
                                 <span><span style="text-transform: uppercase">{{ user.status }}</span></span>
                             </td>
                             <td>
-                                <button class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul class="more-opts">
+                                <div class="dropdown cst-slct">
+                                    <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                         <li @click="editUser(user)" data-toggle="modal"
                                             data-target=".bd-example-modal-lg">Edit
                                         </li>
                                         <li @click="markInactive(user.id)">Inactive</li>
                                     </ul>
-                                </button>
+                                </div>
 
                             </td>
                         </tr>

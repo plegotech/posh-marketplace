@@ -99,3 +99,6 @@ $(document.body).on('click', '.sub-menu' ,function(){
         $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-up.png')
     }
 })
+$(document.body).on('click', '.cancel-popup' ,function(){
+    $('.cstm-modal').removeClass('show');
+})
