@@ -32,7 +32,6 @@ class VendorController extends Controller
             'state'             => 'required',
             'phone'             => 'required|max:17',
             'company'           => 'required',
-            'subscription_fee'  => 'required',
             'password'          => 'required|confirmed|min:8|max:8'
         );
 
