@@ -28,7 +28,6 @@
                                         <th scope="col">City & State</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Company</th>
-                                        <th scope="col">Subscription Fees</th>
                                         <th scope="col">Signed-up Date & Time</th>
                                         <th scope="col">Email Address</th>
                                         <th scope="col">Actions</th>
@@ -53,9 +52,6 @@
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
-                                        </td>
-                                        <td>
-                                            <span>{{ company.subscription_fee }}</span>
                                         </td>
                                         <td>
                                             <span>Oct 01, 2021 09:58 PM</span>
@@ -127,7 +123,6 @@
                                         <th scope="col">City & State</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Company</th>
-                                        <th scope="col">Subscription Fees</th>
                                         <th scope="col">Signed-up Date & Time</th>
                                         <th scope="col">Email Address</th>
                                     </tr>
@@ -151,9 +146,6 @@
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
-                                        </td>
-                                        <td>
-                                            <span>{{ company.subscription_fee }}</span>
                                         </td>
                                         <td>
                                             <span>Oct 01, 2021 09:58 PM</span>

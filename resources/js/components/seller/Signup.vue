@@ -7,7 +7,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
-                <div class="col-sm-6 sellerReg-opt"><span class="number-opt-b">1</span> Store Details</div>
+                <div class="col-sm-6 sellerReg-opt"><span class="number-opt-b">2</span> Store Details</div>
             </div>
             <div class="createAccount-bx my-5">
                 <div class="form-row">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <select v-model="seller.gender" class="form-control">
-                            <option value="" selected>Gender*</option>
+                            <option value="Gender" selected>Gender*</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
