@@ -122,6 +122,7 @@
                             </ul>
                         </div>
                     </nav>
+
                 <div class="container-fluid pending-vend">
                     <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-12">
@@ -135,8 +136,8 @@
                                     <input type="text" class="search_BX pendingVendorSearch">
                                     <img src="/img/close-srch.png" class="close-icon" alt="">
                                 </div>
-                                
-                            </div>              
+
+                            </div>
 
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
@@ -451,7 +452,7 @@
                                             <span>60131</span>
                                         </td>
                                     </tr>
-                                   
+
                                     </tbody>
                                 </table>
                                 <div class="foot-table" >
@@ -474,5 +475,5 @@
             </div>
         </div>
     </div>
-                       
+
 @endsection

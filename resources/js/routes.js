@@ -17,6 +17,9 @@ import SellerSignup from './components/seller/Signup';
 import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
+import UserProfile from  './components/user/MyProfile';
+
+
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerDashboard from './components/seller/Dashboard';
 import SellerOrders from './components/seller/MyOrders';
@@ -25,7 +28,16 @@ import SellerManageProducts from  './components/seller/ManageProducts';
 import SellerBilling from  './components/seller/Billing';
 import SellerManageWebsite from  './components/seller/ManageWebsite';
 import SellerSales from  './components/seller/MySales';
-import SellerProfile from  './components/seller/MyProfile';
+
+
+import VendorDashboardLayout from './components/layouts/VendorDashboard';
+import VendorDashboard from './components/vendor/Dashboard';
+import VendorManageProducts from  './components/vendor/ManageProduct';
+import VendorUploadProducts from  './components/vendor/UploadProducts';
+import VendorOrdersPending from  './components/vendor/PendingOrders';
+import VendorOrdersInProgress from  './components/vendor/OrdersInProgress';
+import VendorBilling from  './components/vendor/Billing';
+import VendorShipping from  './components/vendor/Shipping';
 
 export default {
     mode: 'history',
@@ -51,14 +63,26 @@ export default {
 
         // Seller Dashboard
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
-            { name: 'seller-dashboard', meta: { title: 'Dashboard' }, path: '/seller/dashboard', component: SellerDashboard },
+            { name: 'seller-dashboard', meta: { title: 'Overview' }, path: '/seller/dashboard', component: SellerDashboard },
             { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: SellerManageProducts },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
             { name: 'seller-manage-website', meta: { title: 'Manage Website' }, path: '/seller/manage-website', component: SellerManageWebsite },
             { name: 'seller-sales', meta: { title: 'Sales' }, path: '/seller/sales', component: SellerSales },
-            { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: SellerProfile }
+            { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: UserProfile }
+        ]},
+
+        // Vendor Dashboard
+        { name: 'vendorLayout', meta: { middleware:"auth" }, path: '/vendor', component: VendorDashboardLayout, children: [
+            { name: 'vendor-dashboard', meta: { title: 'Overview' }, path: '/vendor/dashboard', component: VendorDashboard },
+            { name: 'vendor-manage-products', meta: { title: 'Manage Products' }, path: '/vendor/manage/products', component: VendorManageProducts },
+            { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
+            { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products', component: VendorUploadProducts },
+            { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
+            { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
+            { name: 'vendor-shipping', meta: { title: 'Shipping' }, path: '/vendor/shipping', component: VendorShipping },
+            { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile }
         ]},
 
         /*

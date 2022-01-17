@@ -90,6 +90,7 @@ export default {
                                     this.$router.push({name: "seller-dashboard"});
                                 break;
                             case "vendor":
+                                    this.$router.push({name: "vendor-dashboard"});
                                 break;
                         }
                     }, 1500);
