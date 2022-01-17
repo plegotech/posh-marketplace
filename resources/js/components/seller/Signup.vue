@@ -7,7 +7,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
-                <div class="col-sm-6 sellerReg-opt"><span class="number-opt-b">1</span> Personal Details</div>
+                <div class="col-sm-6 sellerReg-opt"><span class="number-opt-b">1</span> Store Details</div>
             </div>
             <div class="createAccount-bx my-5">
                 <div class="form-row">
