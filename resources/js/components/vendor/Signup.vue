@@ -48,10 +48,10 @@
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.company" placeholder="Company Name" class="form-control" type="text">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <!-- <div class="form-group col-md-6">
                                         <input type="number" v-model="vendor.subscription_fee" placeholder="Subscription Fees*" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
+                                    </div>-->
+                                    <div class="form-group col-md-12">
                                         <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
                                     </div>
                                     <div class="form-group col-md-6">

@@ -12,7 +12,7 @@
                         <h1>Sign-In</h1>
                         <form>
                             <input type="email" v-model="form.email" placeholder="Email Address*">
-                            <input type="password" v-model="form.password" placeholder="Password*">
+                            <span class="eye-icon-pass"><input type="password" v-model="form.password" placeholder="Password*"><i class="fas fa-eye"></i></span>
                             <span v-if="error != 0" class="invalidLogin alert alert-danger">{{ this.error }}</span>
                             <label class="group">
                                 <input type="checkbox">
@@ -35,6 +35,9 @@
                             <li>
                                 <router-link :to="{ name: 'seller-signup' }">Seller Signup</router-link>
                             </li>
+                            <li>
+                                <router-link to="/">User Signup</router-link>
+                             </li>
                         </ul>
                     </div>
 

@@ -15,10 +15,10 @@
             </div>
             <div class="col-sm-2">
                     <select>
-                        <option disabled value="" selected>Please select one</option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
+                        <option disabled value="" selected>Current Year</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
                     </select>
             </div>
              <div class="offset-sm-2 col-sm-2">

@@ -2062,6 +2062,17 @@ span.last-point-active {
     font-weight: bold;
     color: #0862A3;
 }
+span.eye-icon-pass {
+    position: relative;
+}
+.eye-icon-pass i.fas.fa-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adabab;
+    cursor: pointer;
+}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;
