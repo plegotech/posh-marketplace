@@ -14,8 +14,12 @@ import AdminVendorReports from './components/admin/VendorReports';
 
 
 import UserLogin from './components/user/Login';
+import SellerLogin from './components/user/LoginSeller';
+import VendorLogin from './components/user/LoginVendor';
 import VendorSignup from './components/vendor/Signup';
 import SellerSignup from './components/seller/Signup';
+import SellerSignupTier from './components/seller/SignupTier';
+import SellerSignupDomain from './components/seller/SignupDomainInfo';
 import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
@@ -39,6 +43,7 @@ import VendorOrdersPending from  './components/vendor/PendingOrders';
 import VendorOrdersInProgress from  './components/vendor/OrdersInProgress';
 import VendorBilling from  './components/vendor/Billing';
 import VendorShipping from  './components/vendor/Shipping';
+import VendorEditProducts from  './components/vendor/EditProducts';
 
 export default {
     mode: 'history',
@@ -83,15 +88,20 @@ export default {
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
             { name: 'vendor-shipping', meta: { title: 'Shipping' }, path: '/vendor/shipping', component: VendorShipping },
-            { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile }
+            { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile },
+            { name: 'vendor-edit-products', meta: { title: 'Edit Products' }, path: '/vendor/edit/products', component: VendorEditProducts }
         ]},
 
         /*
          * Non Secure Routes
          */
         { name: 'login', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
+        { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
+        { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
         { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
+        { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/signup-tier', component: SellerSignupTier },
+        { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller-signup-domain', component: SellerSignupDomain },
         { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller-signup-final', component: SellerSignupFinal },
         { meta: { title: 'User Signup' }, path: '/user-signup', component: UserSignup },
         { name: 'forbidden', meta: { title: 'Forbidden Access' }, path: '/forbidden', component: ForbiddenAccess }

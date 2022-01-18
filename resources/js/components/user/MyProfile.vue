@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="prof-area">
+        <div class="prof-area" style="display:none">
             <div class="row">
                 <div class="col-sm-9">
                     <h1 class="mini-head">Add Bank Details</h1>
@@ -135,7 +135,7 @@
                     CANCEL
                 </button>
                 <button class="add-new">
-                    SUBMIT
+                    SAVE
                 </button>
             </div>
         </div>
