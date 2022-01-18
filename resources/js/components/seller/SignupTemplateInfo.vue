@@ -6,8 +6,10 @@
                 <div class="col-sm-12"><h1 class="main-title text-center my-2">Create Account</h1></div>
             </div>
             <div class="row">
-                <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
-                <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">2</span> Store Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">2</span> Tier Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">3</span> Domain Information</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">4</span> Choose Template</div>
             </div>
             <div class="container my-5">
                 <div class="tier-box-area">

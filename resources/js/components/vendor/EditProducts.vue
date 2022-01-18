@@ -7,13 +7,13 @@
                         <div class="col-sm-6">
                             <div class="up-main-bx-1">
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" class="form-control-label" required>
+                                    <input type="text" value="Apple Airpod" class="form-control-label" required>
                                     <label class="form-label">Product Name</label>
                                     <p class="input-tip-bx">Do not exceed 20 characters when entering the
                                         product name.</p>
                                 </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" class="form-control-label" required>
+                                    <input type="text" value="$200" class="form-control-label" required>
                                     <label class="form-label">Price</label>
                                 </div>
                                 <div class="form-outline-ft mb-5">
@@ -36,8 +36,7 @@
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <textarea class="form-control-label" rows="6"></textarea>
-                                    <p class="input-tip-bx">Do not exceed 20 characters when entering the
-                                        product name.</p>
+                                    <p class="input-tip-bx">Do not exceed 100 characters when entering the product description.</p>
                                 </div>
                             </div>
                         </div>
@@ -63,9 +62,9 @@
                                 </div>
                                 <div>
                                     <button class="primary">SAVE PRODUCT</button>
-                                    <!-- <button class="primary">UPLOAD CSV</button>-->
-                                    <button class="primary">CANCEL PRODUCT</button>
-                                   <!-- <p class="downl-csv">Download CSV Template</p> -->
+                                    <button class="primary">UPLOAD MULTIPLE PRODUCTS</button>
+                                    <button class="primary">REMOVE PRODUCT</button>
+                                    <p class="downl-csv">DOWNLOAD SAMPLE TEMPLATE</p>
                                 </div>
                             </div>
                         </div>

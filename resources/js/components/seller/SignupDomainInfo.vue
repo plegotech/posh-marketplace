@@ -6,95 +6,19 @@
                 <div class="col-sm-12"><h1 class="main-title text-center my-2">Create Account</h1></div>
             </div>
             <div class="row">
-                <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
-                <div class="col-sm-6 sellerReg-opt active"><span class="number-opt-b">2</span> Store Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">1</span> Personal Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">2</span> Tier Details</div>
+                <div class="col-sm-3 sellerReg-opt active"><span class="number-opt-b">3</span> Domain Information</div>
+                <div class="col-sm-3 sellerReg-opt "><span class="number-opt-b">4</span> Choose Template</div>
             </div>
             <div class="container my-5">
                 <div class="tier-box-area">
-                    <div class="row">
-                        <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
-                    </div>
-                    <div class="row px-5">
-                        <div class="col-sm-4 text-center">
-                            <div id="tier_free" class="box-a-tier">
-                                <i class="num-count-bx">1</i>
-                                <div class="box-t-ins">
-                                    <h4 class="txt-blue">Free Tier</h4>
-                                    <p>Only 10 Products</p>
-                                </div>
-                                <button class="primary" @click="changeTierSelection('tier_free')">SELECT</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <div id="tier_two" class="box-a-tier box-sha">
-                                <i class="num-count-bx">2</i>
-                                <div class="box-t-ins">
-                                    <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 50 Products</p>
-                                </div>
-                                <button class="primary" @click="changeTierSelection('tier_two')">SELECT</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <div id="tier_three" class="box-a-tier">
-                                <i class="num-count-bx">3</i>
-                                <div class="box-t-ins">
-                                    <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 200 Products</p>
-                                </div>
-                                <button class="primary btn-vi-bx" @click="changeTierSelection('tier_three')">SELECT</button>
-                            </div>
-                        </div>
-                    </div>
+                   
+                   
 
-                    <div class="row mt-5 pt-5 px-5">
-                        <div class="col-sm-12 text-center">
-                            <h1 class="main-title mb-4">Select Product Categories</h1>
-                            <div class="input-group select-BC mb-5">
-                                <div class="btn-bx-BC">
-                                    <select v-model="seller.primary_category" class="form-control select-opt-BC">
-                                        <option value="" selected>All</option>
-                                        <option value="Components">Components</option>
-                                        <option value="Computer Systems">Computer Systems</option>
-                                        <option value="Electronics">Electronics</option>
-                                        <option value="Gaming">Gaming</option>
-                                        <option value="Networking">Networking</option>
-                                        <option value="Office Solutions">Office Solutions</option>
-                                        <option value="Software Services">Software Services</option>
-                                        <option value="Automotives">Automotives</option>
-                                        <option value="Home & Tools">Home & Tools</option>
-                                        <option value="Health & Sports">Health & Sports</option>
-                                    </select>
-                                </div>
-                                <input type="text" v-model="seller.sub_categories" class="form-control search-bc-input"
-                                       placeholder="Browse Category">
-                                <div class="input-group-append">
-                                    <button class="primary search-bc" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
 
-                    <div class="row selectTemplate">
-                        <div class="col-sm-12 text-center">
-                            <h1 class="main-title mb-4">Select Template</h1>
-                        </div>
-                        <div class="col-sm-4">
-                            <img id="template_01" src="/img/templae-sample-1.png" class="img-stemplate"
-                            @click="changeTemplateSelection('template_01')">
-                        </div>
-                        <div class="col-sm-4">
-                            <img id="template_02" src="/img/templae-sample-2.png" class="img-stemplate"
-                            @click="changeTemplateSelection('template_02')">
-                        </div>
-                        <div class="col-sm-4">
-                            <img id="template_03" src="/img/templae-sample-3.png" class="img-stemplate"
-                            @click="changeTemplateSelection('template_03')">
-                        </div>
-                    </div>
-
+                    
                     <div class="row mt-5 px-5">
                         <div class="col-sm-12 text-center"><h2 class="main-title mb-4">Grab Your .com</h2></div>
                         <div class="col-sm-12">
@@ -117,27 +41,50 @@
                                         <div class="mess-tdn">This domain name has already been taken.</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-4 mb-5">
                                 <div class="col-sm-12">
-                                    <p class="sug-n-title">Suggested Names</p>
-                                    <ul class="sug-name-tag ">
-                                        <li>williamjoseph</li>
-                                        <li>williamjohn</li>
-                                        <li>williamsmith</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row mb-5 mt-2">
-                                <div class="col-sm-12">
-                                    <div class="form-group text-center">
-                                        <label><input name="" type="checkbox"> Terms and Conditions</label>
+                                <div class=""><h5>How about one of these?</h5></div>
+                                    <div class="sug-domain-list">
+                                        <div class="list-box-domain">
+                                            <div class="sugBoxes">
+                                                <div class="sug-d-box">poshlegal.com</div>
+                                                <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
+                                            </div>
+                                            <div class="sug-backt">
+                                            <svg aria-hidden="true" width="48" height="48" focusable="false" viewBox="0 0 60 60" fill="#000000" xmlns="http://www.w3.org/2000/svg"><path d="M38.8 18.5877H33.216V24.2856H30.384V18.5877H24.8V15.6979H30.384V10H33.216V15.6979H38.8V18.5877Z"></path><path d="M38.3655 44.8572C38.857 44.8572 39.3375 45.008 39.7461 45.2905C40.1548 45.5731 40.4733 45.9747 40.6614 46.4445C40.8495 46.9144 40.8987 47.4314 40.8028 47.9302C40.7069 48.429 40.4703 48.8872 40.1227 49.2468C39.7752 49.6065 39.3324 49.8514 38.8503 49.9506C38.3683 50.0498 37.8686 49.9989 37.4145 49.8043C36.9604 49.6096 36.5723 49.28 36.2993 48.8572C36.0262 48.4343 35.8805 47.9372 35.8805 47.4286C35.8805 47.0909 35.9447 46.7565 36.0696 46.4445C36.1945 46.1326 36.3776 45.8491 36.6083 45.6103C36.8391 45.3715 37.113 45.1821 37.4145 45.0529C37.716 44.9237 38.0392 44.8572 38.3655 44.8572ZM25.388 50C26.0471 50 26.6792 49.7291 27.1452 49.2468C27.6112 48.7646 27.8731 48.1106 27.8731 47.4286C27.8731 46.7466 27.6112 46.0925 27.1452 45.6103C26.6792 45.1281 26.0471 44.8572 25.388 44.8572C24.7501 44.8846 24.1477 45.1688 23.7093 45.6492C23.2709 46.1295 23.0311 46.768 23.041 47.4286C23.0242 47.7588 23.0724 48.0891 23.1827 48.3995C23.2929 48.7099 23.4629 48.9939 23.6823 49.2343C23.9018 49.4747 24.1661 49.6666 24.4593 49.7982C24.7525 49.9298 25.0684 49.9984 25.388 50V50ZM40.5486 42.8572H23.1854L19.0436 24.2858H16V21.4287H21.2399L22.8328 28.5715H44L40.5486 42.8572ZM25.3817 40H38.3914L40.4623 31.4287H23.4705L25.3817 40Z"></path></svg>
+                                            </div>
+                                        </div>
+                                        <div class="list-box-domain">
+                                            <div class="sugBoxes">
+                                                <div class="sug-d-box">poshseo.com</div>
+                                                <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
+                                            </div>
+                                            <div class="sug-backt">
+                                            <svg aria-hidden="true" width="48" height="48" focusable="false" viewBox="0 0 60 60" fill="#000000" xmlns="http://www.w3.org/2000/svg"><path d="M38.8 18.5877H33.216V24.2856H30.384V18.5877H24.8V15.6979H30.384V10H33.216V15.6979H38.8V18.5877Z"></path><path d="M38.3655 44.8572C38.857 44.8572 39.3375 45.008 39.7461 45.2905C40.1548 45.5731 40.4733 45.9747 40.6614 46.4445C40.8495 46.9144 40.8987 47.4314 40.8028 47.9302C40.7069 48.429 40.4703 48.8872 40.1227 49.2468C39.7752 49.6065 39.3324 49.8514 38.8503 49.9506C38.3683 50.0498 37.8686 49.9989 37.4145 49.8043C36.9604 49.6096 36.5723 49.28 36.2993 48.8572C36.0262 48.4343 35.8805 47.9372 35.8805 47.4286C35.8805 47.0909 35.9447 46.7565 36.0696 46.4445C36.1945 46.1326 36.3776 45.8491 36.6083 45.6103C36.8391 45.3715 37.113 45.1821 37.4145 45.0529C37.716 44.9237 38.0392 44.8572 38.3655 44.8572ZM25.388 50C26.0471 50 26.6792 49.7291 27.1452 49.2468C27.6112 48.7646 27.8731 48.1106 27.8731 47.4286C27.8731 46.7466 27.6112 46.0925 27.1452 45.6103C26.6792 45.1281 26.0471 44.8572 25.388 44.8572C24.7501 44.8846 24.1477 45.1688 23.7093 45.6492C23.2709 46.1295 23.0311 46.768 23.041 47.4286C23.0242 47.7588 23.0724 48.0891 23.1827 48.3995C23.2929 48.7099 23.4629 48.9939 23.6823 49.2343C23.9018 49.4747 24.1661 49.6666 24.4593 49.7982C24.7525 49.9298 25.0684 49.9984 25.388 50V50ZM40.5486 42.8572H23.1854L19.0436 24.2858H16V21.4287H21.2399L22.8328 28.5715H44L40.5486 42.8572ZM25.3817 40H38.3914L40.4623 31.4287H23.4705L25.3817 40Z"></path></svg>
+                                            </div>
+                                        </div>
+                                        <div class="list-box-domain">
+                                            <div class="sugBoxes">
+                                                <div class="sug-d-box">poshneed.com</div>
+                                                <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
+                                            </div>
+                                            <div class="sug-backt">
+                                            <svg aria-hidden="true" width="48" height="48" focusable="false" viewBox="0 0 60 60" fill="#000000" xmlns="http://www.w3.org/2000/svg"><path d="M38.8 18.5877H33.216V24.2856H30.384V18.5877H24.8V15.6979H30.384V10H33.216V15.6979H38.8V18.5877Z"></path><path d="M38.3655 44.8572C38.857 44.8572 39.3375 45.008 39.7461 45.2905C40.1548 45.5731 40.4733 45.9747 40.6614 46.4445C40.8495 46.9144 40.8987 47.4314 40.8028 47.9302C40.7069 48.429 40.4703 48.8872 40.1227 49.2468C39.7752 49.6065 39.3324 49.8514 38.8503 49.9506C38.3683 50.0498 37.8686 49.9989 37.4145 49.8043C36.9604 49.6096 36.5723 49.28 36.2993 48.8572C36.0262 48.4343 35.8805 47.9372 35.8805 47.4286C35.8805 47.0909 35.9447 46.7565 36.0696 46.4445C36.1945 46.1326 36.3776 45.8491 36.6083 45.6103C36.8391 45.3715 37.113 45.1821 37.4145 45.0529C37.716 44.9237 38.0392 44.8572 38.3655 44.8572ZM25.388 50C26.0471 50 26.6792 49.7291 27.1452 49.2468C27.6112 48.7646 27.8731 48.1106 27.8731 47.4286C27.8731 46.7466 27.6112 46.0925 27.1452 45.6103C26.6792 45.1281 26.0471 44.8572 25.388 44.8572C24.7501 44.8846 24.1477 45.1688 23.7093 45.6492C23.2709 46.1295 23.0311 46.768 23.041 47.4286C23.0242 47.7588 23.0724 48.0891 23.1827 48.3995C23.2929 48.7099 23.4629 48.9939 23.6823 49.2343C23.9018 49.4747 24.1661 49.6666 24.4593 49.7982C24.7525 49.9298 25.0684 49.9984 25.388 50V50ZM40.5486 42.8572H23.1854L19.0436 24.2858H16V21.4287H21.2399L22.8328 28.5715H44L40.5486 42.8572ZM25.3817 40H38.3914L40.4623 31.4287H23.4705L25.3817 40Z"></path></svg>
+                                            </div>
+                                        </div>
+                                        <div class="list-box-domain">
+                                            <div class="sugBoxes">
+                                                <div class="sug-d-box">poshsolution.com</div>
+                                                <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
+                                            </div>
+                                            <div class="sug-backt">
+                                            <svg aria-hidden="true" width="48" height="48" focusable="false" viewBox="0 0 60 60" fill="#000000" xmlns="http://www.w3.org/2000/svg"><path d="M38.8 18.5877H33.216V24.2856H30.384V18.5877H24.8V15.6979H30.384V10H33.216V15.6979H38.8V18.5877Z"></path><path d="M38.3655 44.8572C38.857 44.8572 39.3375 45.008 39.7461 45.2905C40.1548 45.5731 40.4733 45.9747 40.6614 46.4445C40.8495 46.9144 40.8987 47.4314 40.8028 47.9302C40.7069 48.429 40.4703 48.8872 40.1227 49.2468C39.7752 49.6065 39.3324 49.8514 38.8503 49.9506C38.3683 50.0498 37.8686 49.9989 37.4145 49.8043C36.9604 49.6096 36.5723 49.28 36.2993 48.8572C36.0262 48.4343 35.8805 47.9372 35.8805 47.4286C35.8805 47.0909 35.9447 46.7565 36.0696 46.4445C36.1945 46.1326 36.3776 45.8491 36.6083 45.6103C36.8391 45.3715 37.113 45.1821 37.4145 45.0529C37.716 44.9237 38.0392 44.8572 38.3655 44.8572ZM25.388 50C26.0471 50 26.6792 49.7291 27.1452 49.2468C27.6112 48.7646 27.8731 48.1106 27.8731 47.4286C27.8731 46.7466 27.6112 46.0925 27.1452 45.6103C26.6792 45.1281 26.0471 44.8572 25.388 44.8572C24.7501 44.8846 24.1477 45.1688 23.7093 45.6492C23.2709 46.1295 23.0311 46.768 23.041 47.4286C23.0242 47.7588 23.0724 48.0891 23.1827 48.3995C23.2929 48.7099 23.4629 48.9939 23.6823 49.2343C23.9018 49.4747 24.1661 49.6666 24.4593 49.7982C24.7525 49.9298 25.0684 49.9984 25.388 50V50ZM40.5486 42.8572H23.1854L19.0436 24.2858H16V21.4287H21.2399L22.8328 28.5715H44L40.5486 42.8572ZM25.3817 40H38.3914L40.4623 31.4287H23.4705L25.3817 40Z"></path></svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 d-flex justify-content-center">
-                                    <button class="primary btn-caccoutn">CREATE ACCOUNT</button>
-                                </div>
                             </div>
+                            
+                            
 
                         </div>
                     </div>

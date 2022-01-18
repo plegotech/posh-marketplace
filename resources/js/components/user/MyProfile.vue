@@ -135,7 +135,7 @@
                     CANCEL
                 </button>
                 <button class="add-new">
-                    SUBMIT
+                    SAVE
                 </button>
             </div>
         </div>
