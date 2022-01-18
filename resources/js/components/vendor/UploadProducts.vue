@@ -54,11 +54,10 @@
                                     </div>
                                 </div>
                                 <div class="form-outline-ft mt-5 mb-3">
-                                    <select class="form-control-label select-custom-point">
-                                        <option>10/11/2021</option>
-                                        <option>Electronic</option>
-                                        <option>Accessories</option>
-                                    </select>
+                                    <div class="datepicker-d">
+                                        <datepicker placeholder="To" class="datepicker hasDatepicker"></datepicker>
+                                        <i class="fa fa-calendar-check calendar"></i>
+                                    </div>
                                     <span class="form-label">Product Date</span>
                                 </div>
                                 <div>
