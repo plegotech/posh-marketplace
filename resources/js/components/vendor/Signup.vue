@@ -36,6 +36,14 @@
                                      <div class="form-group col-md-6">
                                         <input v-model="vendor.state" placeholder="State*" class="form-control" type="text">
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <select v-model="vendor.gender " class="form-control">
+                                            <option selected>Gender*</option>
+                                            <option> Male</option>
+                                            <option> Female</option>
+                                            <option> Other</option>
+                                        </select>
+                                    </div>
                                    <!-- <div class="form-group col-md-6">
                                         <select v-model="vendor.state" class="form-control">
                                             <option selected>State*</option>
@@ -53,8 +61,8 @@
                                     </div>
                                     <!-- <div class="form-group col-md-6">
                                         <input type="number" v-model="vendor.subscription_fee" placeholder="Subscription Fees*" class="form-control">
-                                    </div>-->
-                                    <div class="form-group col-md-12">
+                                    </div>-->                                    
+                                    <div class="form-group col-md-6">
                                         <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
                                     </div>
                                     <div class="form-group col-md-6">
