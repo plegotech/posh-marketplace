@@ -16,6 +16,7 @@ class CreateSellerProductsTable extends Migration
         Schema::create('seller_products', function (Blueprint $table) {
             $table->integer('seller_id');
             $table->integer('product_id');
+            $table->enum('status', ['active', 'archived', 'deleted'])->default('active');
             $table->primary(['seller_id', 'product_id']);
             $table->timestamps();
         });

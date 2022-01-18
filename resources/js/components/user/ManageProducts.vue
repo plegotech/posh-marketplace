@@ -2,7 +2,7 @@
     <div class="container-fluid pending-vend">
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
-                <div v-if="total > 0" class="top-newOrder myorder">
+                <div class="top-newOrder myorder">
                     <div class="row mb-4">
                         <div class="col-sm-4">
                             <div class="search-box" style="max-width:100%">
@@ -14,39 +14,53 @@
                         <div class="col-sm-6 offset-sm-2">
                             <div class="row">
                                 <div class="col">
-                                    <select>
+                                    <select class="sort_by" @change="fetchProducts()">
                                         <option value="" selected>Sort By</option>
-                                        <option value="">Name</option>
-                                        <option value="">Number</option>
+                                        <option value="name">Name</option>
+                                        <option value="net_price">Price</option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <select>
+                                    <select class="parentCategory" @change="updateSubCategories()">
                                         <option value="" selected>Category</option>
-                                        <option value="">one</option>
-                                        <option value="">two</option>
+                                        <option v-for="(category, index) in parent_categories"
+                                        :value="index">
+                                            {{ index }}
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <select>
+                                    <select class="subCategory" @change="fetchProducts()">
                                         <option value="" selected>Sub Category</option>
-                                        <option value="">one</option>
-                                        <option value="">two</option>
+                                        <option v-for="(category, index) in sub_categories"
+                                        :value="category">
+                                            {{ category }}
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <select>
+                                    <select class="status" @change="fetchProducts()">
                                         <option value="" selected>All</option>
-                                        <option value="">one</option>
-                                        <option value="">two</option>
+                                        <option value="active">Active</option>
+                                        <option value="archived">Archived</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div v-if="user.user_type == 'vendor'" class="row justify-content-end">
+                        <div class="col-sm-2 mb-4 ">
+                            <button class="primary btn-box-shadow"><i
+                                class="fas fa-cloud-upload-alt mr-2"></i><strong>
+                                <router-link :to="{ name: 'vendor-upload-products'}">
+                                UPLOAD
+                                </router-link>
+                            </strong></button>
+                        </div>
+                    </div>
                     <!-- START:: Products listing -->
-                    <div class="row">
+                    <div v-if="total > 0" class="row">
                         <div v-for="product in products" class="col-sm-4">
                             <div class="products-listing-bxx">
                                 <div class="">
@@ -67,7 +81,7 @@
                         </div>
                     </div>
                     <!-- END  :: Products listing -->
-                    <div class="row">
+                    <div v-if="total > 0" class="row">
                         <div class="col-sm-12 d-flex justify-content-center">
                             <div aria-label="Page navigation example">
                                 <ul class="pagination bottm-pagination">
@@ -92,9 +106,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div v-if="total < 1">
-                    <p>No records found</p>
+                    <div v-if="total < 1">
+                        <p>No records found</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,6 +121,8 @@
 
         data() {
             return {
+                parent_categories: null,
+                sub_categories: null,
                 search: 0,
                 total: 0,
                 current_page: 0,
@@ -127,11 +143,44 @@
 
         created() {
             this.fetchProducts();
+            this.parent_categories = SITE_CATEGORIES;
         },
 
         methods: {
-            fetchProducts(page = 0, order_by = 0, search = 0) {
+            updateSubCategories() {
+                var parent = document.getElementsByClassName('parentCategory');
+
+                if(typeof parent[0] !== 'undefined') {
+                    parent = parent[0].value;
+                    this.sub_categories = SITE_CATEGORIES[parent];
+                }
+                this.fetchProducts();
+            },
+            fetchProducts(page = 0, search = 0) {
                 document.getElementById('ajaxLoader').style.display = 'block';
+
+                var sort_by         = document.getElementsByClassName('sort_by');
+                var status          = document.getElementsByClassName('status');
+                var parent          = document.getElementsByClassName('parentCategory');
+                var sub_category    = document.getElementsByClassName('subCategory');
+
+                if(typeof parent[0] !== 'undefined') {
+                    parent = parent[0].value;
+                }
+
+                if(typeof sub_category[0] !== 'undefined') {
+                    sub_category = sub_category[0].value;
+                }
+
+                var order_by = 0;
+                if(typeof sort_by[0] !== 'undefined') {
+                    order_by = sort_by[0].value;
+                }
+
+                if(typeof status[0] !== 'undefined') {
+                    status = status[0].value;
+                }
+
                 var url = '/api/products/' + this.user.id;
 
                 if (order_by != 0 || this.order_by > 0) {
@@ -157,6 +206,20 @@
                         this.search = search;
                     }
                     url += '/' + this.search;
+                } else {
+                    url += '/0';
+                }
+
+                if (status.length != 0) {
+                    url += '/' + status;
+                }
+
+                if (parent.length > 1) {
+                    url += '/' + parent;
+                }
+
+                if (sub_category.length > 1) {
+                    url += '/' + sub_category;
                 }
 
                 if (page > 0) {
@@ -199,13 +262,13 @@
             fetchProductsSearchClear: function () {
                 document.getElementsByClassName('fetchProductsSearch')[0].value = '';
                 this.search = 0;
-                this.fetchProducts(0, 0, 0);
+                this.fetchProducts(0,0);
             },
 
             fetchProductsSearch: function (e) {
                 if (e.keyCode === 13) {
                     var element = e.target;
-                    this.fetchProducts(0, 0, element.value);
+                    this.fetchProducts(0, element.value);
                 }
             },
         }

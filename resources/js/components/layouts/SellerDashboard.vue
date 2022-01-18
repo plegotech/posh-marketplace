@@ -9,7 +9,7 @@
                 </div>
                 <ul class="list-sidebar bg-white">
                     <li>
-                        <router-link :to="{ name: 'seller-dashboard'}">
+                        <router-link :to="{ name: 'vendor-upload-products'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">Dashboard</span>
                         </router-link>

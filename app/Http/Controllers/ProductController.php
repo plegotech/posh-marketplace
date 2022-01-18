@@ -22,7 +22,8 @@ class ProductController extends Controller
         return 'silence is the gold';
     }
 
-    public function fetch($user = 0, $order_by = 'id', $order = 'desc', $search = 0)
+    public function fetch($user = 0, $order_by = 'id', $order = 'desc', $search = 0, $status = 0
+    ,$category = 0, $sub_category = 0)
     {
         $products = new Product();
 
@@ -39,14 +40,25 @@ class ProductController extends Controller
 
         }
 
-        $products = $products->where('status', 'active');
+        $products = $products->where('products.status', 'active');
 
-        if(strlen($search) > 0) {
+        if($search != "0") {
             $products = $products->where('name', 'LIKE', '%'.$search.'%');
         }
 
+        if($category != "0") {
+            $products = $products->where('categories', 'LIKE', '%'.$category.'%');
+        }
+
+        if($sub_category != "0") {
+            $products = $products->where('categories', 'LIKE', '%'.$sub_category.'%');
+        }
+
+        if($status != "0") {
+            $products = $products->where('seller_products.status', $status);
+        }
+
         $products = $products->orderBy($order_by, $order)
-//        ->toSql();
         ->paginate(18);
 
         return response()->json($products);

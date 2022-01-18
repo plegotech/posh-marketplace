@@ -11,6 +11,8 @@ import AdminPaymentDetails from './components/admin/PaymentDetails';
 import AdminPaymentHistory from './components/admin/PaymentHistory';
 import AdminSellerReports from './components/admin/SellerReports';
 import AdminVendorReports from './components/admin/VendorReports';
+
+
 import UserLogin from './components/user/Login';
 import VendorSignup from './components/vendor/Signup';
 import SellerSignup from './components/seller/Signup';
@@ -18,13 +20,13 @@ import SellerSignupFinal from './components/seller/SignupFinal';
 import UserSignup from './components/user/UserSignup';
 import ForbiddenAccess from './components/user/ForbiddenAccess';
 import UserProfile from  './components/user/MyProfile';
+import ManageProducts from  './components/user/ManageProducts';
 
 
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerDashboard from './components/seller/Dashboard';
 import SellerOrders from './components/seller/MyOrders';
 import VendorProductsSeller from  './components/seller/VendorProducts';
-import SellerManageProducts from  './components/seller/ManageProducts';
 import SellerBilling from  './components/seller/Billing';
 import SellerManageWebsite from  './components/seller/ManageWebsite';
 import SellerSales from  './components/seller/MySales';
@@ -32,7 +34,6 @@ import SellerSales from  './components/seller/MySales';
 
 import VendorDashboardLayout from './components/layouts/VendorDashboard';
 import VendorDashboard from './components/vendor/Dashboard';
-import VendorManageProducts from  './components/vendor/ManageProduct';
 import VendorUploadProducts from  './components/vendor/UploadProducts';
 import VendorOrdersPending from  './components/vendor/PendingOrders';
 import VendorOrdersInProgress from  './components/vendor/OrdersInProgress';
@@ -64,7 +65,7 @@ export default {
         // Seller Dashboard
         { name: 'sellerLayout', meta: { middleware:"auth" }, path: '/seller', component: SellerDashboardLayout, children: [
             { name: 'seller-dashboard', meta: { title: 'Overview' }, path: '/seller/dashboard', component: SellerDashboard },
-            { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: SellerManageProducts },
+            { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: ManageProducts },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
@@ -76,7 +77,7 @@ export default {
         // Vendor Dashboard
         { name: 'vendorLayout', meta: { middleware:"auth" }, path: '/vendor', component: VendorDashboardLayout, children: [
             { name: 'vendor-dashboard', meta: { title: 'Overview' }, path: '/vendor/dashboard', component: VendorDashboard },
-            { name: 'vendor-manage-products', meta: { title: 'Manage Products' }, path: '/vendor/manage/products', component: VendorManageProducts },
+            { name: 'vendor-manage-products', meta: { title: 'Manage Products' }, path: '/vendor/manage/products', component: ManageProducts },
             { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products', component: VendorUploadProducts },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
