@@ -15,7 +15,7 @@
                 <div class="tier-box-area">
                     <div class="row selectTemplate">
                         <div class="col-sm-12 text-center">
-                            <h1 class="main-title mb-4">Select Template</h1>
+                           <div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div> <h1 class="main-title mb-4">Select Template</h1>
                         </div>
                         <div class="col-sm-4">
                             <img id="template_01" src="/img/templae-sample-1.png" class="img-stemplate"
@@ -29,11 +29,13 @@
                             <img id="template_03" src="/img/templae-sample-3.png" class="img-stemplate"
                             @click="changeTemplateSelection('template_03')">
                         </div>
-                    </div>
-
-                    
+                    </div> 
+                    <div class="row justify-content-center my-4">
+                    <div class="col-sm-3 text-center">
+                        <button type="button" class="primary rsv-bx"><strong>REGISTER</strong></button>
+                    </div>    
+                    </div>               
                 </div>
-
             </div>
         </div>
         <input id="selected_tier" type="hidden" v-model="seller.tier" value="" />

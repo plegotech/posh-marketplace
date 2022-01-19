@@ -14,7 +14,7 @@
             <div class="container my-5">
                 <div class="tier-box-area">
                     <div class="row">
-                        <div class="col-12 text-center"><h1 class="main-title mb-4">Select Tier</h1></div>
+                        <div class="col-12 text-center"><div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div><h1 class="main-title mb-4">Select Tier</h1></div>
                     </div>
                     <div class="row px-5">
                         <div class="col-sm-4 text-center">
@@ -22,7 +22,11 @@
                                 <i class="num-count-bx">1</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Free Tier</h4>
-                                    <p>Only 10 Products</p>
+                                    <ul> 
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                    </ul>
                                 </div>
                                 <button class="primary" @click="changeTierSelection('tier_free')">SELECT</button>
                             </div>
@@ -32,7 +36,11 @@
                                 <i class="num-count-bx">2</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 50 Products</p>
+                                    <ul> 
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                    </ul>
                                 </div>
                                 <button class="primary" @click="changeTierSelection('tier_two')">SELECT</button>
                             </div>
@@ -42,11 +50,18 @@
                                 <i class="num-count-bx">3</i>
                                 <div class="box-t-ins">
                                     <h4 class="txt-blue">Tier 2</h4>
-                                    <p>Only 200 Products</p>
+                                    <ul> 
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                        <li>Lorem Ipsum</li>
+                                    </ul>
                                 </div>
                                 <button class="primary btn-vi-bx" @click="changeTierSelection('tier_three')">SELECT</button>
                             </div>
                         </div>
+                        <div class="my-5 form-row text-center col-sm-12">
+                        <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>NEXT </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
+                    </div>
                     </div>
 
                     

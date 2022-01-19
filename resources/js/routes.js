@@ -13,7 +13,8 @@ import AdminSellerReports from './components/admin/SellerReports';
 import AdminVendorReports from './components/admin/VendorReports';
 
 
-import UserLogin from './components/user/Login';
+import UserLogin from './components/user/LoginUser';
+import AdminLogin from './components/user/LoginAdmin';
 import SellerLogin from './components/user/LoginSeller';
 import VendorLogin from './components/user/LoginVendor';
 import VendorSignup from './components/vendor/Signup';
@@ -41,6 +42,7 @@ import VendorDashboard from './components/vendor/Dashboard';
 import VendorUploadProducts from  './components/vendor/UploadProducts';
 import VendorOrdersPending from  './components/vendor/PendingOrders';
 import VendorOrdersInProgress from  './components/vendor/OrdersInProgress';
+import VendorOrders from './components/vendor/MyOrders';
 import VendorBilling from  './components/vendor/Billing';
 import VendorShipping from  './components/vendor/Shipping';
 import VendorEditProducts from  './components/vendor/EditProducts';
@@ -87,6 +89,7 @@ export default {
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products', component: VendorUploadProducts },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
+            { name: 'vendor-all-orders', meta: { title: 'All Orders' }, path: '/vendor/orders/all-orders', component: VendorOrders },
             { name: 'vendor-shipping', meta: { title: 'Shipping' }, path: '/vendor/shipping', component: VendorShipping },
             { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile },
             { name: 'vendor-edit-products', meta: { title: 'Edit Products' }, path: '/vendor/edit/products', component: VendorEditProducts }
@@ -95,7 +98,9 @@ export default {
         /*
          * Non Secure Routes
          */
-        { name: 'login', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
+        
+        { name: 'login-seller', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
+        { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
