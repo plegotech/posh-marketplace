@@ -50,13 +50,13 @@
                             <p class="mini-head">Results</p>
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table vendorProduct">
                         <thead>
                         <tr>
                             <th scope="col">Product Id</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>
-                            <th scope="col" style="width:40%" class="center"></th>
+                            <th scope="col" class="center"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -122,32 +122,19 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="foot-table">
-                        <div class="left">
-                                    <span>Rows Per Page:
-                                        <select>
-                                            <option value="4" selected>4</option>
-                                            <option value="3">3</option>
-                                            <option value="2">2</option>
-                                            <option value="1">1</option>
-                                        </select>
-                                    </span>
-                        </div>
-                        <div class="right">
-                            <span>1-4 of 20 Items</span>
-                            <img src="/img/prev-arrow.png" class="prev-itm" alt="">
-                            <img src="/img/next-arrow.png" class="next-itm" alt="">
-                        </div>
-                    </div>
+                    
 
                     
-                    <table class="table">
+                    <div class="my-product">
+                        <h2>My Products <span>(3 of 20 chosen)</span></h2>
+                    </div>
+                    <table class="table vendorProduct">
                         <thead>
                         <tr>
                             <th scope="col">Product Id</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>
-                            <th scope="col" style="width:40%" class="center"></th>
+                            <th scope="col" class="center"></th>
                         </tr>
                         </thead>
                         <tbody>
