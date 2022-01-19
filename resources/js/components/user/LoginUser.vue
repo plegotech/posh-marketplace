@@ -27,7 +27,6 @@
                     </div>
 
                     <div class="info-login">
-<<<<<<< HEAD:resources/js/components/user/Login.vue
                         <h2>New to Posh Market? 
                             
                             <span id="signInOpt">Sign In</span>
@@ -37,14 +36,6 @@
                                 <li>User Signup</li>
                             </ul>
                         </h2>
-=======
-                        <h2>Don't have account yet?</h2>
-                        <ul>                           
-                            <li>
-                                <router-link :to="{ name: 'user-signup' }">User Signup</router-link>
-                            </li>                           
-                        </ul>
->>>>>>> ac2ef67 (added pages and updates):resources/js/components/user/LoginUser.vue
                     </div>
 
                 </div>
