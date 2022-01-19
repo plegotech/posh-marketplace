@@ -666,7 +666,6 @@ i.sb-menu-icon:before {
 }
 .main .body .tabs-section-bx .tabs ul {
     background: white;
-    border: 1px solid #0862a3;
     padding-bottom: 2px;
 }
 .tabs-section-bx .nav-link.active:before {
@@ -1086,6 +1085,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .login-area .top-log .login-box form a {float:right;display:inline-block;cursor: pointer;font-family: Inter;font-size: 12px;color: #0862A3 !important;cursor: pointer;font-weight: 500;}
 .login-area .top-log .login-box form .group  {display: inline-block;float: left;color: #212529;font-size: 12px;line-height: 1;position: relative;font-family: 'Inter';}
 .login-area .top-log .login-box input[type="name"],
+.login-area .top-log .login-box input[type="text"],
 .login-area .top-log .login-box input[type="email"],
 .login-area .top-log .login-box input[type="password"],
 .login-area .top-log .login-box input[type="number"] {
@@ -1117,7 +1117,19 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .login-area .top-log .login-box .info-login ul li a {}
 .login-area .top-log .login-box .bottom-log {}
 .login-area .top-log .login-box .bottom-log p {}
-.login-area .bottom-log {padding: 35px 20px 60px 30px;background:#fbfbfb;border-top:1px solid #d8d8d8;}
+.login-area .bottom-log {
+    padding: 35px 20px 60px 30px;
+    background: #fbfbfb;
+    border-top: 1px solid #d8d8d8;
+    position: fixed;
+    bottom: 0;
+    height:25%;
+}
+@media(min-width:1600px){
+    .login-area .bottom-log {
+    height:35%
+    }
+}
 .login-area .bottom-log p {width:100%;text-align:center;font-size: 12px;}
 
 .login-area .bottom-log {}
@@ -1132,6 +1144,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     font-family: 'Inter';
     color: #656565;
     font-weight: 500;
+    position: relative;
 }
 .login-area .info-login ul {
     width: 100%;
@@ -1140,6 +1153,14 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     text-align: center;
     margin: 15px 0 30px 0;
 }
+.login-area .info-login .signInOpt li {
+    padding: 15px 10px;
+    width: 100%;
+    border: 0;
+    background: white;
+    font-size:12px;
+}
+.login-area .info-login .signInOpt li:hover {font-weight:bold;background:#ecf6ff;color:#496fa7;cursor:pointer;transition:.2s}
 .login-area .info-login ul li {
     display: inline-block;
     padding: 1px 10px;
@@ -2083,7 +2104,8 @@ span.last-point-active {
 span.eye-icon-pass {
     position: relative;
 }
-.eye-icon-pass i.fas.fa-eye {
+.eye-icon-pass i.fas.fa-eye,
+.eye-icon-pass i.fas.fa-eye-slash {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -2679,3 +2701,22 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     top: 10px;
     cursor: pointer;
 }
+#signInOpt {
+    padding: 10px;
+    font-weight: bold;
+    color: #4b64a8;
+    margin-left:10px;
+}
+#signInOpt:hover {background:#e6ebf9;cursor:pointer;transition:.1s}
+.login-area .info-login .signInOpt {
+    display:none;
+    position: absolute;
+    width: 160px;
+    top: 20px;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1px 1px 4px 1px #dbdbdb;
+    z-index: 1;
+}
+.signInOpt ul {}

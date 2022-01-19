@@ -104,3 +104,44 @@ $(document.body).on('click', '.sub-menu' ,function(){
 $(document.body).on('click', '.cancel-popup' ,function(){
     $('.cstm-modal').removeClass('show');
 })
+
+$(document.body).on('click', '#signInOpt' ,function(){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+        $('.signInOpt').hide();
+    }
+    else {
+        $(this).addClass('active');
+        $('.signInOpt').show();
+    }
+})
+$(document.body).on('click', '.signInOpt li' ,function(){
+    $('.signInOpt').hide();
+    var li_value = $(this).text();
+    $('#signInOpt').removeClass('active').text(li_value);
+
+})
+$(document.body).on('mouseup', function(e) 
+{
+    var container = $('.signInOpt');
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.hide();
+        $('#signInOpt').removeClass('active');
+    }
+});
+
+$(document.body).on('click', '.eye-icon-pass i', function(){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+        $(this).siblings('input').attr('type', 'password');
+        $(this).removeClass('fa-eye').addClass('fa-eye-slash');
+    }
+    else {
+        $(this).addClass('active');
+        $(this).siblings('input').attr('type', 'text');
+        $(this).removeClass('fa-eye-slash').addClass('fa-eye');
+    }
+})
