@@ -781,7 +781,15 @@ li.nav-item a.nav-link.active {
 }
 .top-newOrder tbody {}
 .top-newOrder thead tr  {}
-.top-newOrder thead tr th {}
+.vendorProduct thead tr th:first-child {
+    width: 260px;
+}
+.vendorProduct thead tr th:nth-child(2n){
+    width: 250px;
+}
+.vendorProduct thead tr th {
+    padding: 10px 0;
+}
 .top-newOrder tbody tr {}
 .top-newOrder tbody tr td button {
     margin-top: initial;
@@ -876,7 +884,8 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     border: 0;
 }
 .pending-vend .top-newOrder {}
-.pending-vend .top-newOrder table {}
+.pending-vend .top-newOrder table {
+}
 .top-newOrder table tbody tr:nth-child(2n+2) {
     background: #f9f9f9!important;
 }
@@ -2327,7 +2336,14 @@ input.topheadSearch {
     border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 .seller-vendor-prod {}
-.seller-vendor-prod .mini-head {}
+.seller-vendor-prod .mini-head {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #969696;
+    font-weight: 500;
+    font-family: 'Inter';
+    margin-top: 10px;
+}
 .seller-vendor-prod hr {}
 .seller-vendor-prod table {}
 .seller-vendor-prod table thead {}
@@ -2720,3 +2736,26 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     z-index: 1;
 }
 .signInOpt ul {}
+.vendorProduct {}
+.vendorProduct thead {}
+.vendorProduct thead tr {}
+.vendorProduct thead tr td {}
+.vendorProduct tbody tr {
+}
+.vendorProduct tbody tr td {
+    padding: 2px !important;
+    font-weight: bold;
+}
+.my-product {}
+.main .my-product h2 {
+    font-size: 14px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #2f4556;
+    font-weight: bold;
+    font-family: 'Inter';
+}
+.my-product h2 span {
+    font-weight: 300;
+}
+.mini-head {}
