@@ -13,14 +13,8 @@
             </div>
             <div class="container my-5">
                 <div class="tier-box-area">
-                   
-                   
-
-                   
-
-                    
-                    <div class="row mt-5 px-5">
-                        <div class="col-sm-12 text-center"><h2 class="main-title mb-4">Grab Your .com</h2></div>
+                 <div class="row mt-5 px-5">
+                        <div class="col-sm-12 text-center"><div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div><h2 class="main-title mb-4">Grab Your .com</h2></div>
                         <div class="col-sm-12">
                             <div class="input-group justify-content-center select-temp mb-5">
                                 <input type="text" class="form-control search-si-input"
@@ -46,7 +40,7 @@
                                     <div class="sug-domain-list">
                                         <div class="list-box-domain">
                                             <div class="sugBoxes">
-                                                <div class="sug-d-box">poshlegal.com</div>
+                                                <div class="sug-d-box">williamsonpk.com</div>
                                                 <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
                                             </div>
                                             <div class="sug-backt">
@@ -55,7 +49,7 @@
                                         </div>
                                         <div class="list-box-domain">
                                             <div class="sugBoxes">
-                                                <div class="sug-d-box">poshseo.com</div>
+                                                <div class="sug-d-box">williamsonstore.com</div>
                                                 <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
                                             </div>
                                             <div class="sug-backt">
@@ -64,7 +58,7 @@
                                         </div>
                                         <div class="list-box-domain">
                                             <div class="sugBoxes">
-                                                <div class="sug-d-box">poshneed.com</div>
+                                                <div class="sug-d-box">williamsonn.com</div>
                                                 <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
                                             </div>
                                             <div class="sug-backt">
@@ -73,7 +67,7 @@
                                         </div>
                                         <div class="list-box-domain">
                                             <div class="sugBoxes">
-                                                <div class="sug-d-box">poshsolution.com</div>
+                                                <div class="sug-d-box">williamsonshop.com</div>
                                                 <div class="sug-d-box-2"><span class="oldPrice-domain">₨2,399</span> <span class="newPrice-domain">₨760</span><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="We offer a lower first-year price to help you get up and running online. After the first year, your domain will renew at the standard ₨2,399/yr."></i><br><span class="firstYear">for the first year</span></div>
                                             </div>
                                             <div class="sug-backt">
@@ -82,11 +76,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            
-
+                            </div> 
                         </div>
+                         <div class="form-row text-center col-sm-12 my-5">
+                        <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>NEXT </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
+                    </div>
                     </div>
                 </div>
 

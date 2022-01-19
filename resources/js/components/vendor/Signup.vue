@@ -37,7 +37,7 @@
                                         <input v-model="vendor.state" placeholder="State*" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <select v-model="vendor.gender " class="form-control">
+                                        <select class="form-control">
                                             <option selected>Gender*</option>
                                             <option> Male</option>
                                             <option> Female</option>

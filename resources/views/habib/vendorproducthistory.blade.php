@@ -126,18 +126,51 @@
                     <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-12">
                         <div class="top-newOrder mb-4">
-                            <div class="row">
-                            <div class="col-sm-5">
-                            </div>
-                            <div class="col-sm-7">
-                                <div class="search-box mr-4">
-                                    <img src="/img/search-icon.png" class="search-icon" alt="">
-                                    <input type="text" class="search_BX pendingVendorSearch">
-                                    <img src="/img/close-srch.png" class="close-icon" alt="">
-                                </div>
-                                
-                            </div>              
 
+                            <div class="row mb-4 px-4">
+                        <div class="col-sm-5">
+                            <div class="search-box mt-3" style="max-width:100%">
+                                <form action="">
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX">
+                                    <img src="/img/close-srch.png" class="close-icon" alt="">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 ">
+                            <div class="row justify-content-end">
+                                <div class="w-auto mr-3">
+                                    <select class="select-custom-point" name="" id="">
+                                        <option value="" selected>Sort By</option>
+                                        <option value="">Name</option>
+                                        <option value="">Number</option>
+                                    </select>
+                                </div>
+                                <div class="w-auto mr-3">
+                                    <select class="select-custom-point" name="" id="">
+                                        <option value="" selected>Category</option>
+                                        <option value="">one</option>
+                                        <option value="">two</option>
+                                    </select>
+                                </div>
+                                <div class="w-auto mr-3">
+                                    <select class="select-custom-point" name="" id="">
+                                        <option value="" selected>Sub Category</option>
+                                        <option value="">one</option>
+                                        <option value="">two</option>
+                                    </select>
+                                </div>
+                                <div class="w-auto mr-3">
+                                    <select class="select-custom-point" name="" id="">
+                                        <option value="" selected>All</option>
+                                        <option value="">one</option>
+                                        <option value="">two</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                    <div class="row">
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh" class="top-newOrder">
