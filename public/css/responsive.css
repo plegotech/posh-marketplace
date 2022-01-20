@@ -14,6 +14,7 @@
     }
 }
 @media only screen and (max-width: 1024px) {
+<<<<<<< HEAD
     .pendingvendor-sign {
         overflow-x: auto;
         width: 100%;
@@ -54,6 +55,11 @@
     .pr-35 {
         padding-right: 35px!important;
     }
+=======
+
+}
+@media (min-width: 992px){
+>>>>>>> cac94f8 (fixes for responsive vendor screens)
     .main .body {
         width: calc(100% - 220px);
     }
@@ -62,6 +68,7 @@
 }
 }
 @media only screen and (max-width: 991px) {
+<<<<<<< HEAD
     .vendorOrder-bx- {
         overflow-x: auto;
     }
@@ -74,6 +81,8 @@
     .top-newOrder {
         overflow-x: auto;
     }
+=======
+>>>>>>> cac94f8 (fixes for responsive vendor screens)
     .pending-vend .top-newOrder {
         overflow-x: auto;
     }
@@ -107,6 +116,7 @@
         margin-top: 0;
     }
 }
+<<<<<<< HEAD
 @media only screen and (max-width: 768px) {
     .top-newOrder.myorder .search-box-top {
         margin-bottom: 15px;
@@ -118,6 +128,9 @@
         font-weight: 500;
         font-size: 11px;
     }
+=======
+@media only screen and (max-width: 600px) {
+>>>>>>> cac94f8 (fixes for responsive vendor screens)
     .up-main-bx .up-main-bx-1 {
         margin-left: 0;
         padding-right: 55px;
