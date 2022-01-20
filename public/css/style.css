@@ -551,7 +551,7 @@ i.sb-menu-icon:before {
 .sidebar li a i {
     padding-right: 5px;
 }
-.main .body {height: 100%;width: calc(100% - 220px);float: right;background:#F8F8F8;overflow: auto;}
+.main .body {height: 100%;float: right;background:#F8F8F8;overflow: auto;}
 .main .body nav {
     background:#0862A3;
     border-radius: 31px 0 0 0;
@@ -1556,6 +1556,7 @@ tr.ifpending-bx {
 .sec-box img {
     max-width: 100%;
     width: auto;
+    height: auto;
 }
 .sidebar ul li.sub-menu.active ul {
     display: block;
@@ -1577,6 +1578,7 @@ ul.topnav-user li:first-child {
 }
 ul.topnav-user {
     margin-bottom: 0;
+    margin-top: 7px;
 }
 a.navbar-brand {
     padding-left: 22px;
@@ -1975,6 +1977,11 @@ p.input-tip-bx {
     padding-right: 10px;
     padding-left: 10px;
 }*/
+div#navbarTogglerDemo01 {
+    display: flex !important;
+    flex-basis: auto;
+    width: 100%;
+}
 .form-outline-ft .form-label {
     transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
     background: #fff;
@@ -2631,6 +2638,8 @@ body .main .body .graphs .left i img {
     padding: 6px;
     margin: 0;
     font-family: Inter;
+    max-width: 170px;
+    float: right;
 }
 .prof-area .edit img {
     width: 16px;

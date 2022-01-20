@@ -1,10 +1,17 @@
 <template>
     <div class="wrapper">
-        <aside>
+        <div class="navbar-expand-lg">
+        <aside class="collapse navbar-collapse" id="navbarTogglerSidebar">
             <div class="sidebar left ">
                 <div class="user-panel">
-                    <div class="sidebar-header">
+                    <div class="sidebar-header navbar-dark">
                         <h3>Posh Market</h3>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <img src="/img/close.png" alt="" class="closetag-menu">
+                            <!-- <span class="navbar-toggler-icon"></span> -->
+                        </button>
                     </div>
                 </div>
                 <ul class="list-sidebar bg-white">
@@ -77,6 +84,7 @@
                 </ul>
             </div>
         </aside>
+    </div>
         <div class="body">
             <Navbar :first_name="user.first_name" :last_name="user.last_name"/>
             <router-view></router-view>
