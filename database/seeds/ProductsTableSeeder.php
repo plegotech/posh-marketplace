@@ -69,8 +69,6 @@ class ProductsTableSeeder extends seeder
             ->where('email', 'like', '%@yopmail.com%')
             ->get()->pluck('id');
 
-        $categories = json_encode(array('computers', 'dell', 'inspiron'));
-
         $product_images = ['logo_1.png', 'logo_2.png'];
 
         for($u = 0; $u < 2000; $u++) {
@@ -82,16 +80,17 @@ class ProductsTableSeeder extends seeder
             array_unshift($product_images, $image);
 
             $insert = [
-                'name'          => $product,
-                'featured_image'=> $image,
-                'images'        => json_encode($product_images),
-                'sku'           => 'DUM - '. rand(10, 99) . $u,
-                'description'   => '<h3>some description</h3><p>about the product is here.</p>',
-                'status'        => 'active',
-                'vendor_id'     => $vendor_id,
-                'net_price'     => rand(100, 100),
-                'sale_price'    => rand(100, 100),
-                'categories'    => $categories
+                'name'                  => $product,
+                'featured_image'        => $image,
+                'images'                => json_encode($product_images),
+                'sku'                   => 'DUM - '. rand(10, 99) . $u,
+                'description'           => '<h3>some description</h3><p>about the product is here.</p>',
+                'status'                => 'active',
+                'vendor_id'             => $vendor_id,
+                'net_price'             => rand(100, 100),
+                'sale_price'            => rand(100, 100),
+                'parent_category'       => 'computers',
+                'sub_category'          => 'dell',
             ];
 
             array_shift($product_images);

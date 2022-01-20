@@ -40,3 +40,4 @@ Route::post('/seller/{step}', 'SellerController@seller');
 
 Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
 Route::get('/product/remove/{product?}', 'ProductController@remove');
+Route::post('/product', 'ProductController@create');

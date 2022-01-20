@@ -56,5 +56,19 @@ return [
             'Skin Care',
             'Medical Supplies'
         ),
+    ),
+    'brands' => array(
+        'Apple',
+        'Google',
+        'Microsoft',
+        'Toyota',
+        'IBM',
+        'Samsung',
+        'Amazon',
+        'Mercedes-Benz',
+        'BMW',
+        'Intel',
+        'Nike',
+        'Honda'
     )
 ];

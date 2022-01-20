@@ -11,7 +11,7 @@ class Product extends Model
     public      $timestamps     = false;
 
     protected $fillable = [
-        'images', 'name', 'sku', 'description', 'vendor_id', 'categories', 'net_price',
+        'images', 'name', 'brand', 'sku', 'description', 'vendor_id', 'categories', 'net_price',
         'sale_price', 'created_at', 'updated_at'
     ];
 }

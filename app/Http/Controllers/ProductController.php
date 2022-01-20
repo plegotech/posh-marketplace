@@ -69,4 +69,33 @@ class ProductController extends Controller
         return Product::where('id', $product)
             ->update(['status' => 'deleted']);
     }
+
+    public function create(Request $request)
+    {
+        // Setup the validator
+        $rules = array(
+            'name'              => 'required|max:255',
+            'price'             => 'required',
+            'parent_category'   => 'required',
+            'brand'             => 'required',
+            'description'       => 'required',
+            'vendor_id'         => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Validate the input and return correct response
+        if ($validator->fails())
+        {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ), 400); // 400 being the HTTP code for an invalid request.
+        }
+
+        $product = Companies::create($request->all());
+
+        return response()->json(['success' => 'true', 'created' => $product->id]);
+    }
 }

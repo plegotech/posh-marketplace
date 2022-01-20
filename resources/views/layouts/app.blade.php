@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script>
         var SITE_CATEGORIES = JSON.parse('<?php echo json_encode(\Config::get('constants.categories')); ?>');
+        var SITE_BRANDS = JSON.parse('<?php echo json_encode(\Config::get('constants.brands')); ?>');
     </script>
 </head>
 <body>
