@@ -189,11 +189,4 @@
         max-width: 100%;
         width: auto;
     }
-    .sec-box {
-        display: block;
-        text-align: center;
-    }
-}
-@media only screen and (max-width: 400px) {
-
 }
