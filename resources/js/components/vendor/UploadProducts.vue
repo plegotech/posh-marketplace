@@ -8,12 +8,13 @@
                             <div class="up-main-bx-1">
                                 <div class="form-outline-ft mb-5">
                                     <input v-model="product.name" type="text" placeholder="Apple Airpod" class="form-control-label" required>
+                                    <input id="vendor_id" v-model="product.vendor_id" type="hidden">
                                     <label class="form-label">Product Name</label>
                                     <p class="input-tip-bx">Do not exceed 20 characters when entering the
                                         product name.</p>
                                 </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input v-model="product.price" type="number" placeholder="200" class="form-control-label" required>
+                                    <input v-model="product.net_price" type="number" placeholder="200" class="form-control-label" required>
                                     <label class="form-label">Price</label>
                                 </div>
                                 <div class="form-outline-ft mb-5">
@@ -57,9 +58,9 @@
                                         {{ processing ? "PLEASE WAIT..." : "SAVE PRODUCT" }}
                                     </button>
 
-                                    <div v-for="error in errors"  class="form-row text-center">
-                                        <p>{{ error[0] }}</p>
-                                    </div>
+                                    <span v-for="error in errors" class="validationError">
+                                        {{ error[0] }}
+                                    </span>
 
                                     <button class="primary">UPLOAD MULTIPLE PRODUCTS</button>
                                     <button class="primary">REMOVE PRODUCT</button>
@@ -81,10 +82,12 @@ export default {
             parent_categories:      null,
             processing:             false,
             errors:                 null,
-            brands: null,
+            user:                   this.$store.state.auth.user,
+            brands:                 null,
             product: {
                 name:                   null,
                 net_price:              null,
+                vendor_id:              null,
                 parent_category:        null,
                 brand:                  null,
                 description:            null,
@@ -96,6 +99,7 @@ export default {
     created() {
         this.parent_categories  = SITE_CATEGORIES;
         this.brands             = SITE_BRANDS;
+        this.product.vendor_id    = this.user.id;
     },
 
     methods: {

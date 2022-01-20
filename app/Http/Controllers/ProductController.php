@@ -75,7 +75,7 @@ class ProductController extends Controller
         // Setup the validator
         $rules = array(
             'name'              => 'required|max:255',
-            'price'             => 'required',
+            'net_price'         => 'numeric|min:0.01|required',
             'parent_category'   => 'required',
             'brand'             => 'required',
             'description'       => 'required',
@@ -94,7 +94,7 @@ class ProductController extends Controller
             ), 400); // 400 being the HTTP code for an invalid request.
         }
 
-        $product = Companies::create($request->all());
+        $product = Product::create($request->all());
 
         return response()->json(['success' => 'true', 'created' => $product->id]);
     }
