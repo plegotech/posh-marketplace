@@ -76,6 +76,7 @@ class ProductController extends Controller
         $rules = array(
             'name'              => 'required|max:255',
             'net_price'         => 'numeric|min:0.01|required',
+            'featured_image'    => 'required|mimes:jpg,jpeg,png|max:2048',
             'parent_category'   => 'required',
             'brand'             => 'required',
             'description'       => 'required',
@@ -93,6 +94,10 @@ class ProductController extends Controller
 
             ), 400); // 400 being the HTTP code for an invalid request.
         }
+
+        $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
+        $destination = base_path() . '/public/img/product-images';
+        $request->file('featured_image')->move($destination, $photo);
 
         $product = Product::create($request->all());
 

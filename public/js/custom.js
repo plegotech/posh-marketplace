@@ -54,19 +54,19 @@ $(document).ready(function () {
 
 });
 
-document.addEventListener('click', function (event) {
-
-    // Don't follow the link
-    event.preventDefault();
-    // If the clicked element doesn't have the right selector, bail
-    if (event.target.matches('.cst-slct')) {
-        var options = event.target.getElementsByClassName('more-opts')[0];
-        options.style.display = 'block'
-    };
-
-    return;
-
-}, false);
+// document.addEventListener('click', function (event) {
+//
+//     // Don't follow the link
+//     event.preventDefault();
+//     // If the clicked element doesn't have the right selector, bail
+//     if (event.target.matches('.cst-slct')) {
+//         var options = event.target.getElementsByClassName('more-opts')[0];
+//         options.style.display = 'block'
+//     };
+//
+//     return;
+//
+// }, false);
 
 function closeAllModals() {
 
@@ -121,12 +121,12 @@ $(document.body).on('click', '.signInOpt li' ,function(){
     $('#signInOpt').removeClass('active').text(li_value);
 
 })
-$(document.body).on('mouseup', function(e) 
+$(document.body).on('mouseup', function(e)
 {
     var container = $('.signInOpt');
 
     // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    if (!container.is(e.target) && container.has(e.target).length === 0)
     {
         container.hide();
         $('#signInOpt').removeClass('active');

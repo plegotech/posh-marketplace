@@ -49,6 +49,8 @@
                                                               width="30" height="30"></p>
                                     </div>
                                     <div class="upload-image-vup">
+                                        <input type="file" ref="file" style="display: none" name="featured_image" @change="featuredImage" />
+                                        <button @click="$refs.file.click()">open file dialog</button>
                                         <img src="/img/img-upload-product.jpg" class="img-fluid img-upload-vup">
                                         <p class="img-title-up">Upload Image</p>
                                     </div>
@@ -91,6 +93,7 @@ export default {
                 parent_category:        null,
                 brand:                  null,
                 description:            null,
+                featured_image:         null,
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
@@ -103,30 +106,66 @@ export default {
     },
 
     methods: {
+        featuredImage(e) {
+            console.log('updates');
+            this.product.featured_image = e.target.files[0];
+            console.log(this.product.featured_image);
+            console.log('files');
+        },
         addProduct() {
-            this.processing = true
-            fetch('/api/product', {
-                method: 'post',
-                body: JSON.stringify(this.product),
+            this.processing = true;
+
+            const config = {
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'multipart/form-data'
                 }
-            })
-                .then(res => res.json())
-                .then(data => {
+            }
 
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
-                        this.clearForm();
-                    } else {
-                        this.errors = data.errors;
-                    }
+            let data = new FormData();
+            data.append('name', this.product.name);
+            data.append('net_price', this.product.net_price);
+            data.append('vendor_id', this.product.vendor_id);
+            data.append('parent_category', this.product.parent_category);
+            data.append('description', this.product.description);
+            data.append('brand', this.product.brand);
+            data.append('featured_image', this.product.featured_image);
 
+            axios.post('/product', data, config)
+                .then(function (res) {
+                            if (data.success == 'true') {
+                                alert('product created successfully.');
+                                this.clearForm();
+                            } else {
+                                this.errors = data.errors;
+                            }
                 })
                 .catch(err => console.log(err))
                 .finally(()=>{
                 this.processing = false;
             });
+
+            // fetch('/api/product', {
+            //     method: 'post',
+            //     body: JSON.stringify(this.product),
+            //     headers: {
+            //         'content-type': 'application/json'
+            //     }
+            // })
+            //     .then(res => res.json())
+            //     .then(data => {
+            //
+            //         if (data.success == 'true') {
+            //             alert('product created successfully.');
+            //             this.clearForm();
+            //         } else {
+            //             this.errors = data.errors;
+            //         }
+            //
+            //     })
+            //     .catch(err => console.log(err))
+            //     .finally(()=>{
+            //     this.processing = false;
+            // });
         },
         clearForm() {
             this.product.name = null;

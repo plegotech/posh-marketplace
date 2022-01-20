@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/product', 'ProductController@create');
+
 Route::get('/admin/{any}', function () {
     return view('dashboards.admin');
 })->where('any', '.*');
