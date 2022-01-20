@@ -92,14 +92,17 @@ class ProductController extends Controller
                 'success' => false,
                 'errors' => $validator->getMessageBag()->toArray()
 
-            ), 400); // 400 being the HTTP code for an invalid request.
+            )); // 400 being the HTTP code for an invalid request.
         }
 
         $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
-        $destination = base_path() . '/public/img/product-images';
+        $destination = base_path() . '/public/img/product-images/'. $request->input('vendor_id');
         $request->file('featured_image')->move($destination, $photo);
 
-        $product = Product::create($request->all());
+        $data = $request->all();
+        $data['featured_image'] = $photo;
+
+        $product = Product::create($data);
 
         return response()->json(['success' => 'true', 'created' => $product->id]);
     }

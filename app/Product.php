@@ -12,6 +12,6 @@ class Product extends Model
 
     protected $fillable = [
         'images', 'name', 'brand', 'sku', 'description', 'vendor_id', 'categories', 'net_price',
-        'sale_price', 'created_at', 'updated_at'
+        'sale_price', 'created_at', 'updated_at', 'featured_image'
     ];
 }

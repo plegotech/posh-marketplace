@@ -64,7 +64,7 @@
                         <div v-for="product in products" class="col-sm-4">
                             <div class="products-listing-bxx">
                                 <div class="">
-                                    <img :src="'/img/product-images/'+ product.featured_image" alt="" class="">
+                                    <img :src="'/img/product-images/'+ product.vendor_id + '/' + product.featured_image" alt="" class="">
                                 </div>
                                 <p class="plx-title">{{ product.name }}</p>
                                 <div class="price-btn-bx">

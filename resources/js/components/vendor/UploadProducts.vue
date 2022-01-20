@@ -60,13 +60,13 @@
                                         {{ processing ? "PLEASE WAIT..." : "SAVE PRODUCT" }}
                                     </button>
 
-                                    <span v-for="error in errors" class="validationError">
+                                    <span v-for="(error, index) in errors" class="validationError">
                                         {{ error[0] }}
                                     </span>
 
                                     <button class="primary">UPLOAD MULTIPLE PRODUCTS</button>
                                     <button class="primary">REMOVE PRODUCT</button>
-                                    <p class="downl-csv">DOWNLOAD SAMPLE TEMPLATE</p>
+                                    <a class="downl-csv" target="_blank" download href="/files/products-sample.csv">DOWNLOAD SAMPLE TEMPLATE</a>
                                 </div>
                             </div>
                         </div>
@@ -107,13 +107,13 @@ export default {
 
     methods: {
         featuredImage(e) {
-            console.log('updates');
             this.product.featured_image = e.target.files[0];
-            console.log(this.product.featured_image);
-            console.log('files');
         },
         addProduct() {
+            document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
+
+            var object = this;
 
             const config = {
                 headers: {
@@ -132,40 +132,23 @@ export default {
 
             axios.post('/product', data, config)
                 .then(function (res) {
-                            if (data.success == 'true') {
-                                alert('product created successfully.');
-                                this.clearForm();
-                            } else {
-                                this.errors = data.errors;
-                            }
+                    var data = res.data;
+                    if (data.success == 'true') {
+                        alert('product created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
                 })
-                .catch(err => console.log(err))
+                .catch(function (res) {
+                    console.log('--');
+                    console.log(res);
+                    console.log('--');
+                })
                 .finally(()=>{
-                this.processing = false;
-            });
-
-            // fetch('/api/product', {
-            //     method: 'post',
-            //     body: JSON.stringify(this.product),
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     }
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //
-            //         if (data.success == 'true') {
-            //             alert('product created successfully.');
-            //             this.clearForm();
-            //         } else {
-            //             this.errors = data.errors;
-            //         }
-            //
-            //     })
-            //     .catch(err => console.log(err))
-            //     .finally(()=>{
-            //     this.processing = false;
-            // });
+                    this.processing = false;
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
         },
         clearForm() {
             this.product.name = null;
