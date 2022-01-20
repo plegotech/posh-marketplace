@@ -106,4 +106,65 @@ class ProductController extends Controller
 
         return response()->json(['success' => 'true', 'created' => $product->id]);
     }
+
+    private function csvToArray($filename = '', $delimiter = ',', $vendor)
+    {
+        if (!file_exists($filename) || !is_readable($filename))
+            return false;
+
+        $header = null;
+        $data = array();
+        if (($handle = fopen($filename, 'r')) !== false)
+        {
+            while (($row = fgetcsv($handle, 2500, $delimiter)) !== false)
+            {
+                if (!$header) {
+                    $header = $row;
+                    $header[] = 'vendor_id';
+                } else {
+                    $row[] = $vendor;
+                    $data[] = array_combine($header, $row);
+                }
+
+            }
+            fclose($handle);
+        }
+
+        return $data;
+    }
+
+    public function uploadCsv(Request $request)
+    {
+        // Setup the validator
+        $rules = array(
+            'csv_file'  => 'required|mimes:csv,txt|max:2048',
+            'vendor_id' => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Validate the input and return correct response
+        if ($validator->fails())
+        {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            )); // 400 being the HTTP code for an invalid request.
+        }
+
+        $csv = rand(5000, 9999) . $request->file('csv_file')->getClientOriginalName();
+        $destination = base_path() . '/public/files/'. $request->input('vendor_id');
+        $request->file('csv_file')->move($destination, $csv);
+
+        $file = public_path('files/'. $request->input('vendor_id') .'/'.$csv);
+
+        $product_array = $this->csvToArray($file, ',', $request->input('vendor_id'));
+
+        for ($i = 0; $i < count($product_array); $i ++) {
+            Product::firstOrCreate($product_array[$i]);
+        }
+
+        return response()->json(['success' => 'true']);
+    }
 }

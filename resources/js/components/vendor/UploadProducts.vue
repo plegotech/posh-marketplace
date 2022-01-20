@@ -64,7 +64,10 @@
                                         {{ error[0] }}
                                     </span>
 
-                                    <button class="primary">UPLOAD MULTIPLE PRODUCTS</button>
+                                    <input type="file" ref="csv" style="display: none" name="csv_upload" @change="csvUpload" />
+                                    <button class="primary" @click="$refs.csv.click()">
+                                        UPLOAD MULTIPLE PRODUCTS
+                                    </button>
                                     <button class="primary">REMOVE PRODUCT</button>
                                     <a class="downl-csv" target="_blank" download href="/files/products-sample.csv">DOWNLOAD SAMPLE TEMPLATE</a>
                                 </div>
@@ -81,6 +84,7 @@
 export default {
     data() {
         return {
+            csv_file:               null,
             parent_categories:      null,
             processing:             false,
             errors:                 null,
@@ -106,6 +110,44 @@ export default {
     },
 
     methods: {
+        csvUpload(e) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+
+            this.csv_file = e.target.files[0];
+            this.processing = true;
+
+            var object = this;
+
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+
+            let data = new FormData();
+            data.append('csv_file', this.csv_file);
+            data.append('vendor_id', this.product.vendor_id);
+
+            axios.post('/product-csv', data, config)
+                .then(function (res) {
+                    var data = res.data;
+                    if (data.success == 'true') {
+                        alert('product created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log('--');
+                    console.log(res);
+                    console.log('--');
+                })
+                .finally(()=>{
+                    this.processing = false;
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
         featuredImage(e) {
             this.product.featured_image = e.target.files[0];
         },

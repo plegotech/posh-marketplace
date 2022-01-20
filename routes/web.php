@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/product', 'ProductController@create');
+Route::post('/product-csv', 'ProductController@uploadCsv');
 
 Route::get('/admin/{any}', function () {
     return view('dashboards.admin');
