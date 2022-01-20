@@ -1,0 +1,101 @@
+
+@media only screen and (min-width: 1200px) {
+
+}
+@media only screen and (max-width: 1200px) {
+    .box-shadow-wbg .sec-box h3 {
+        margin-top: 5px;
+    }
+    .secBox-img .right-txt {
+        padding: 0 10px;
+    }
+    .sec-box .right-txt {
+        padding-left: 3px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+
+}
+@media (min-width: 992px){
+    .main .body {
+        width: calc(100% - 220px);
+    }
+.navbar-expand-lg .navbar-collapse {
+    align-items: baseline;
+}
+}
+@media only screen and (max-width: 991px) {
+    .pending-vend .top-newOrder {
+        overflow-x: auto;
+    }
+    .box-shadow-wbg {
+        overflow-x: auto;
+    }
+    .navbar-collapse.collapse.show {
+        left: 0;
+    }
+    .navbar-collapse.collapse {
+        left: -440px;
+        transition: 0.5s;
+    }
+    aside#navbarTogglerSidebar {
+        position: absolute;
+        transition: 0.5s;
+        display: block!important;
+    }
+    .sidebar-header.navbar-dark button.navbar-toggler {
+        width: 50px;
+        background: #0862a3;
+        margin-top: 0;
+    }
+    .user-panel .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    nav.navbar.navbar-expand-lg.navbar-dark button.navbar-toggler {
+        width: 44px;
+        background: transparent;
+        margin-top: 0;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .up-main-bx .up-main-bx-1 {
+        margin-left: 0;
+        padding-right: 55px;
+    }
+    .top-newOrder.myorder .search-box {
+        margin-bottom: 30px;
+    }
+    .prof-area.vendor-pro-b1 button.edit {
+        text-align: center;
+        margin: 0 auto;
+        float: inherit;
+        margin-top: 15px;
+    }
+    .prof-area.vendor-pro-b1{text-align: center;}
+    a.navbar-brand {
+        display: none;
+    }
+    .prof-area.vendor-pro-b2 table.comp-addr {
+        margin-top: 15px;
+    }
+    .secBox-img {
+        width: 50%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        height: 54px;
+    }
+    .sec-box img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .sec-box {
+        display: block;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 400px) {
+
+}
