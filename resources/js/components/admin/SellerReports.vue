@@ -68,7 +68,7 @@
             <h1 class="pd-0">Order Report</h1>
             <a class="export_item" style="right:7px">Export CSV</a>
 
-            <div class="seller-ord">
+            <div class="seller-ord sellerReports-bxb">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="box-seller bg-green">

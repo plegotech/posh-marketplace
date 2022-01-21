@@ -983,7 +983,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .seller_ord .box-seller {
     display: table;
-    padding: 20px 80px;
+    padding: 20px 30px;
     margin-bottom: 30px;
     width: 100%;
     border-radius: 5px;
@@ -2295,6 +2295,9 @@ select.chooseY-bx {
 }
 .top-newOrder table.table td {
     border-color: transparent;
+}
+.uploadbtn-wid {
+    max-width: 170px;
 }
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/

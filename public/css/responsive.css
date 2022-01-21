@@ -3,6 +3,12 @@
 
 }
 @media only screen and (max-width: 1200px) {
+    .main .body .box .left img {
+        width: 40px;
+    }
+    .main .body h2 {
+        font-size: 20px;
+    }
     .box-shadow-wbg .sec-box h3 {
         margin-top: 5px;
     }
@@ -126,6 +132,10 @@
     }
 }
 @media only screen and (max-width: 768px) {
+    .seller-ord {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
     .top-newOrder.myorder .search-box-top {
         margin-bottom: 15px;
     }
