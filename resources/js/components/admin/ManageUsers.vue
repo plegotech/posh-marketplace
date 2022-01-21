@@ -105,12 +105,12 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'first_name')">First Name <img
-                                class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'last_name')">Last Name <img
-                                class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'email')">Email Address <img
-                                class="shuffle" src="/img/shuffle.png"></th>
+                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'first_name')"><span class="sort-ad">First Name <img
+                                class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'last_name')"><span class="sort-ad">Last Name <img
+                                class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'email')"><span class="sort-ad">Email Address <img
+                                class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
                             <th scope="col">Actions</th>

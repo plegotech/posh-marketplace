@@ -65,8 +65,8 @@
                     <table class="table recent-Orders-table">
                         <thead>
                         <tr>
-                            <th scope="col">Order Id <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Product <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Product <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Tracking Id</th>
                             <th scope="col">Delivery Date</th>
                             <th scope="col">Quantity</th>

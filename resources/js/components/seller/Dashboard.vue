@@ -5,30 +5,30 @@
         <div class="row mt-4">
             <div class="col-sm-12">
                 <div class="box-shadow-wbg">
-                    <div class="d-flex justify-content-between">
+                     <div class="d-flex justify-content-between">
                         <div class="sec-box">
-                            <img src="/img/total-sales-icons.png" width="134" height="80" alt="">
+                            <div class="secBox-img"><img src="/img/total-sales-icons.png" width="134" height="80" alt=""></div>
                             <div class="right-txt">
-                                <span>Seller Orders</span>
+                                <span>Vendor Orders</span>
                                 <h3>3020</h3>
                             </div>
                         </div>
                         <div class="sec-box">
-                            <img src="/img/pending-orders.png" width="124" height="70" alt="">
+                            <div class="secBox-img"><img src="/img/pending-orders.png" width="124" height="70" alt=""></div>
                             <div class="right-txt">
                                 <span>Pending Orders</span>
                                 <h3>30</h3>
                             </div>
                         </div>
                         <div class="sec-box">
-                            <img src="/img/cancel-icon.png" width="101" height="69" alt="">
+                            <div class="secBox-img"><img src="/img/cancel-icon.png" width="101" height="69" alt=""></div>
                             <div class="right-txt">
                                 <span>Cancelled Orders</span>
                                 <h3>10</h3>
                             </div>
                         </div>
                         <div class="sec-box">
-                            <img src="/img/ok-icon.png" width="101" height="69" alt="">
+                            <div class="secBox-img"><img src="/img/ok-icon.png" width="101" height="69" alt=""></div>
                             <div class="right-txt">
                                 <span>Successful Orders</span>
                                 <h3>1500</h3>
@@ -65,8 +65,8 @@
                     <table class="table recent-Orders-table">
                         <thead>
                         <tr>
-                            <th scope="col">Order Id <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th scope="col">Product <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Product <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Tracking Id</th>
                             <th scope="col">Delivery Date</th>
                             <th scope="col">Quantity</th>

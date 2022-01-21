@@ -23,7 +23,7 @@
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-manage-products'}">
-                            <i class="sb-menu-icon orders"></i>
+                            <i class="sb-menu-icon manage-products"></i>
                             <span class="nav-label">Manage Products</span>
                         </router-link>
                     </li>
@@ -41,25 +41,25 @@
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-billing'}">
-                            <i class="sb-menu-icon orders"></i>
+                            <i class="sb-menu-icon billing-icon"></i>
                             <span class="nav-label">Billing</span>
                         </router-link>
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-manage-website'}">
-                            <i class="sb-menu-icon orders"></i>
+                            <i class="sb-menu-icon maintenance-icon"></i>
                             <span class="nav-label">Manage Website</span>
                         </router-link>
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-sales'}">
-                            <i class="sb-menu-icon orders"></i>
+                            <i class="sb-menu-icon manage-sellers"></i>
                             <span class="nav-label">My Sales</span>
                         </router-link>
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-profile'}">
-                            <i class="sb-menu-icon orders"></i>
+                            <i class="sb-menu-icon my-profile"></i>
                             <span class="nav-label">My Profile</span>
                         </router-link>
                     </li>

@@ -55,8 +55,8 @@
                   <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col">Order Id <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col">Product Name <img class="shuffle" src="/img/shuffle.png"></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Product Name <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Delivery Date</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Pricing</th>

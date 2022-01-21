@@ -1558,6 +1558,7 @@ tr.ifpending-bx {
 .sec-box img {
     max-width: 100%;
     width: auto;
+    height: auto;
 }
 .sidebar ul li.sub-menu.active ul {
     display: block;
@@ -1649,6 +1650,18 @@ i.my-profile:before {
 }
 .router-link-active i.my-profile:before {
     background: url(/img/menu-icons/my-profile-icon-active.png);
+}
+i.maintenance-icon:before {
+    background: url(/img/menu-icons/maintenance-icon.png);
+}
+.router-link-active i.maintenance-icon:before {
+    background: url(/img/menu-icons/maintenance-icon-active.png);
+}
+i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers.png);
+}
+.router-link-active i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers-active.png);
 }
 .select-temp button.primary {
     margin-top: 0;

@@ -84,8 +84,8 @@
                             <table class="table">
                                 <thead>
                                   <tr>
-                                    <th scope="col">Product Name <img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Categories <img class="shuffle" src="/img/shuffle.png"></th>
+                                    <th scope="col"><span class="sort-ad">Product Name <img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col"><span class="sort-ad">Categories <img class="shuffle" src="/img/shuffle.png"></span></th>
                                     <th scope="col">Sold</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Earnings</th>

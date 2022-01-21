@@ -374,8 +374,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Order Id <img class="shuffle" src="/img/shuffle.png">
-                            </th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Seller Name</th>
                             <th scope="col">Vendor Company</th>

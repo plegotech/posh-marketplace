@@ -7,7 +7,7 @@
                     <img src="/img/cancel.png" class="cancel-popup" alt="">
                     <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
                          alt="">
-                     <!-- START CONTENT -->
+                     <!-- START CONTENT  -->
                      <div class="row mb-4 up-main-bx">
                         <div class="col-sm-6">
                             <div class="up-main-bx-1">

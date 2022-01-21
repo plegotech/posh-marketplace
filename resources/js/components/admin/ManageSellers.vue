@@ -138,13 +138,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
                                 class="shuffle"
-                                src="/img/shuffle.png">
+                                src="/img/shuffle.png"></span>
                             </th>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Seller Name
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">Seller Name
                                 <img
-                                    class="shuffle" src="/img/shuffle.png"></th>
+                                    class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Email Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">City & State</th>

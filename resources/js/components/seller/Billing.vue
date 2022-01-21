@@ -37,9 +37,9 @@
                             <table class="table">
                                 <thead>
                                   <tr>
-                                    <th scope="col">Order Id<img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Recipient<img class="shuffle" src="/img/shuffle.png"></th>
-                                    <th scope="col">Delivery Date <img class="shuffle" src="/img/shuffle.png"></th>
+                                    <th scope="col"><span class="sort-ad">Order Id<img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col"><span class="sort-ad">Recipient<img class="shuffle" src="/img/shuffle.png"></span></th>
+                                    <th scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span></th>
                                     <th scope="col">Amount</th>
                                     <th scope="col">Payment Method</th>
                                   </tr>
