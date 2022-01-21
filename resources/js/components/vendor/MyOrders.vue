@@ -56,11 +56,11 @@
                                         <th class="shuffle-bx" scope="col"><span class="sort-ad">Tracking Id <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
                                         <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span>
-                                        </th>                                        
+                                        </th>
                                         <th scope="col">Quantity</th>
-                                        <th scope="col">Pricing</th> 
+                                        <th scope="col">Pricing</th>
                                         <th scope="col">Delivery Status</th>
-                                        <th scope="col">Payment</th> 
+                                        <th scope="col">Payment</th>
                                         <th scope="col">Shipping Detail</th>
                                         </tr>
                                     </thead>
@@ -208,7 +208,7 @@ export default {
                     if (type == 'pending') {
                         this.companies = res.data;
                         this.to = res.to;
-                        this.from = res.per_page - res.to;
+                        this.from = res.from;
                         this.total = res.total;
                         if (res.total < res.per_page) {
                             this.from = 0;
@@ -217,7 +217,7 @@ export default {
                     } else {
                         this.rej_companies = res.data;
                         this.rej_to = res.to;
-                        this.rej_from = res.per_page - res.to;
+                        this.rej_from = res.from;
                         this.rej_total = res.total;
                         if (res.total < res.per_page) {
                             this.rej_from = 0;

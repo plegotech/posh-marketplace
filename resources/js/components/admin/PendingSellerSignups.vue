@@ -285,7 +285,7 @@ export default {
                     } else {
                         this.rej_companies = res.data;
                         this.rej_to = res.to;
-                        this.rej_from = res.per_page - res.to;
+                        this.rej_from = res.from;
                         this.rej_total = res.total;
                         if(res.total < res.per_page) {
                             this.rej_from = 0;
