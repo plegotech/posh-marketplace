@@ -21,8 +21,8 @@
                         <option>2022</option>
                     </select>
             </div>
-             <div class="offset-sm-2 col-sm-2">
-                <button class="secondary">CLEAR ALL</button>
+             <div class=" col-sm-4">
+                <button class="secondary float-right">CLEAR ALL</button>
              </div>
         </div>
         <div class="row">

@@ -51,11 +51,8 @@
 
                         </div>
                     </div>
-
-                    <div class="col-sm-1 ">
-
-                    </div>
-                    <table class="table">
+                    <div class="pendingvendor-sign">
+                  <table class="table">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col">Order Id <img class="shuffle" src="/img/shuffle.png"></th>
@@ -449,6 +446,7 @@
                         </tr>
                         </tbody>
                     </table>
+                    </div>
                     <div class="foot-table">
                         <div class="left">
                                     <span>Rows Per Page:

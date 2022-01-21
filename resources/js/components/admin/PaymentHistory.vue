@@ -6,8 +6,8 @@
 
             <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-2">
-                        <select name="" id="">
+                    <div class="col-sm-12">
+                        <select name="" id="" class="chooseY-bx">
                             <option value="" selected>Choose Year</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
@@ -15,9 +15,7 @@
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
                         </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <select name="" id="">
+                        <select name="" id="" class="chooseY-bx">
                             <option value="" selected>Choose Month</option>
                             <option value="Janruary">Janruary</option>
                             <option value="February">February</option>

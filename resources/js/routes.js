@@ -99,7 +99,7 @@ export default {
          * Non Secure Routes
          */
         
-        { name: 'login-seller', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
+        { name: 'login-user', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
         { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },

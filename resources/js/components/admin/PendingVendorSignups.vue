@@ -15,7 +15,8 @@
                                     <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
                                 </div>
                                 <!-- start: TABLE -->
-                                <table class="table" id="pvs-tab">
+                                 <div class="pendingvendor-sign">
+                                <table class="table pss-bxb" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'pending')"><span class="sort-ad">First Name <img class="shuffle"
@@ -79,6 +80,7 @@
                                 <div class="foot-table" v-if="total < 1">
                                     <p>No results found.</p>
                                 </div>
+                             </div>
                                 <div class="foot-table" v-if="total > 0">
                                     <div class="left"><span>Rows Per Page:
                                             <select @change="fetchCompanies(current_page, $event.target.value, 0, 'pending')">
@@ -109,6 +111,7 @@
                                            data-type="rejected">
                                     <img src="/img/close-srch.png" @click="removeRejectedVendorSearch" class="close-icon" alt="">
                                 </div>
+                                <div class="pendingvendor-sign">
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">
                                     <thead>
@@ -156,8 +159,10 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                                
                                 <div class="foot-table" v-if="rej_total < 1">
                                     <p>No results found.</p>
+                                </div>
                                 </div>
                                 <div class="foot-table" v-if="rej_total > 0">
                                     <div class="left"><span>Rows Per Page:
