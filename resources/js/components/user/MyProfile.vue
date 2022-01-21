@@ -4,7 +4,7 @@
 
         <br>
 
-        <div class="prof-area">
+        <div class="prof-area vendor-pro-b1">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="user-prof">
@@ -35,20 +35,20 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="offset-sm-2 col-sm-2">
+                <div class=" col-sm-4">
                     <button class="edit">
                         <img src="/img/edit.png" alt="">EDIT PROFILE
                     </button>
                 </div>
             </div>
         </div>
-        <div class="prof-area">
+        <div class="prof-area vendor-pro-b2">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     <h1 class="mini-head">Company Location</h1>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <button class="add-new">
                         <img src="/img/add.png" alt="">ADD NEW
                     </button>
@@ -56,7 +56,7 @@
                         <img src="/img/edit.png" alt="">EDIT
                     </button>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <table class="comp-addr">
                         <tbody>
                         <tr>
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="prof-area" style="display:none">
+        <div class="prof-area vendor-pro-b3" style="display:none">
             <div class="row">
                 <div class="col-sm-9">
                     <h1 class="mini-head">Add Bank Details</h1>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="row indep-btn">
-            <div class="offset-sm-9 col-sm-3">
+            <div class="offset-sm-6 col-sm-6">
                 <button class="edit sm-wd">
                     CANCEL
                 </button>

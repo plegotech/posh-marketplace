@@ -551,7 +551,7 @@ i.sb-menu-icon:before {
 .sidebar li a i {
     padding-right: 5px;
 }
-.main .body {height: 100%;width: calc(100% - 220px);float: right;background:#F8F8F8;overflow: auto;}
+.main .body {height: 100%;float: right;background:#F8F8F8;overflow: auto;}
 .main .body nav {
     background:#0862A3;
     border-radius: 31px 0 0 0;
@@ -607,13 +607,15 @@ i.sb-menu-icon:before {
 }
 .main .datepicker-d {
     margin-top: 20px;
+    position: relative;
 }
 .main .datepicker-d i {
     position: absolute;
-    right: 25px;
+    right: 14px;
     top: 50%;
     font-size: 18px;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 .main .datepicker-d .datepicker {
     border: 1px solid #5A5B6A;
@@ -981,7 +983,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 }
 .seller_ord .box-seller {
     display: table;
-    padding: 20px 80px;
+    padding: 20px 30px;
     margin-bottom: 30px;
     width: 100%;
     border-radius: 5px;
@@ -1556,6 +1558,7 @@ tr.ifpending-bx {
 .sec-box img {
     max-width: 100%;
     width: auto;
+    height: auto;
 }
 .sidebar ul li.sub-menu.active ul {
     display: block;
@@ -1577,6 +1580,7 @@ ul.topnav-user li:first-child {
 }
 ul.topnav-user {
     margin-bottom: 0;
+    margin-top: 7px;
 }
 a.navbar-brand {
     padding-left: 22px;
@@ -1646,6 +1650,18 @@ i.my-profile:before {
 }
 .router-link-active i.my-profile:before {
     background: url(/img/menu-icons/my-profile-icon-active.png);
+}
+i.maintenance-icon:before {
+    background: url(/img/menu-icons/maintenance-icon.png);
+}
+.router-link-active i.maintenance-icon:before {
+    background: url(/img/menu-icons/maintenance-icon-active.png);
+}
+i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers.png);
+}
+.router-link-active i.manage-sellers:before {
+    background: url(/img/menu-icons/manage-sellers-active.png);
 }
 .select-temp button.primary {
     margin-top: 0;
@@ -1789,7 +1805,7 @@ button.primary.search-bc {
     border-radius: 0 3px 3px 0;
     margin-top: 0;
 }
-button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;}
+button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;max-width: 150px;}
 button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .search-box-top  {
     width: 100%;
@@ -1819,12 +1835,6 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
     top: 50%;
     cursor: pointer;
     transform: translateY(-50%);
-}
-.pl-35 {
-    padding-left: 35px;
-}
-.pr-35 {
-    padding-right: 35px;
 }
 .products-listing-bxx {
     border: 1px solid #D0D0D0;
@@ -1975,6 +1985,11 @@ p.input-tip-bx {
     padding-right: 10px;
     padding-left: 10px;
 }*/
+div#navbarTogglerDemo01 {
+    display: flex !important;
+    flex-basis: auto;
+    width: 100%;
+}
 .form-outline-ft .form-label {
     transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
     background: #fff;
@@ -2208,6 +2223,13 @@ span.newPrice-domain {
     padding: 7px 29px 7px 27px;
     font-size: 14px;
 }
+button.primary.btn-exp-mv.mt-0 {
+    max-width: 160px;
+}
+select.chooseY-bx {
+    max-width: 180px;
+    margin-right: 15px;
+}
 
 /* START:: progressbar steps design */
 .stepper-wrapper {
@@ -2285,6 +2307,9 @@ span.newPrice-domain {
 }
 .top-newOrder table.table td {
     border-color: transparent;
+}
+.uploadbtn-wid {
+    max-width: 170px;
 }
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
@@ -2469,16 +2494,10 @@ input.topheadSearch {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
-
-
-
-
-
-
-
-
-
+  .row.justify-content-center.mix-boxmw{
+      margin: 0 auto;
+      max-width: 780px;
+  }
 
   /* Seperate Integrated CSS */
 
@@ -2493,8 +2512,7 @@ input.topheadSearch {
     border: 1px solid #DBDBDB;
     box-sizing: border-box;
     border-radius: 10px;
-    padding: 20px 5px;
-    height: 180px;
+    padding:30px;
     margin-bottom: 25px;
 }
   .manage-websites a.box-selection:hover {opacity:.8;transition:.2s;cursor:pointer}
@@ -2631,6 +2649,8 @@ body .main .body .graphs .left i img {
     padding: 6px;
     margin: 0;
     font-family: Inter;
+    max-width: 170px;
+    float: right;
 }
 .prof-area .edit img {
     width: 16px;

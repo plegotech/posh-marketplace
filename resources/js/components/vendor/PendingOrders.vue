@@ -15,6 +15,7 @@
                         </div>
                         <hr>
                         <!-- start: TABLE -->
+                        <div class="pendingOrder-bx">
                         <table class="table" id="pvs-tab">
                             <thead>
                             <tr>
@@ -56,6 +57,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
                         </div>

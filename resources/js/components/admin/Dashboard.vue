@@ -21,8 +21,8 @@
                         <option>2022</option>
                     </select>
             </div>
-             <div class="offset-sm-2 col-sm-2">
-                <button class="secondary">CLEAR ALL</button>
+             <div class=" col-sm-4">
+                <button class="secondary float-right">CLEAR ALL</button>
              </div>
         </div>
         <div class="row">
@@ -374,8 +374,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Order Id <img class="shuffle" src="/img/shuffle.png">
-                            </th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Seller Name</th>
                             <th scope="col">Vendor Company</th>

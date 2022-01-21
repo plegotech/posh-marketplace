@@ -10,10 +10,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col">Transaction Id<img class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col">Amount<img class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col">Address <img class="shuffle" src="/img/shuffle.png"></th>
-                            <th class="shuffle-bx" scope="col">Amount Reversed<img class="shuffle" src="/img/shuffle.png"></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Transaction Id<img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Amount<img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Address <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Amount Reversed<img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Currency</th>
                             <th scope="col">Source Type</th>
                             <th scope="col">Seller Name</th>

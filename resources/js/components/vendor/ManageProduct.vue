@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid pending-vend">
         <div class="modal fade viewProducts-modal-lg viewProduct-modal" tabindex="-1" role="dialog"
              aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -6,7 +7,7 @@
                     <img src="/img/cancel.png" class="cancel-popup" alt="">
                     <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
                          alt="">
-                     <!-- START CONTENT -->
+                     <!-- START CONTENT  -->
                      <div class="row mb-4 up-main-bx">
                         <div class="col-sm-6">
                             <div class="up-main-bx-1">
@@ -76,7 +77,7 @@
                 </div>
             </div>
         </div>
-    <div class="container-fluid pending-vend">
+        
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
                 <div class="top-newOrder myorder mb-4">
@@ -90,7 +91,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-sm-7 offset-sm-1">
+                        <div class="col-sm-8">
                             <div class="row justify-content-end">
                                 <div class="w-auto mr-3">
                                     <select class="select-custom-point" name="" id="">
@@ -126,8 +127,8 @@
 
                     <!-- START:: Products listing -->
                     <div class="row justify-content-end">
-                        <div class="col-sm-2 mb-4 ">
-                            <button class="primary btn-box-shadow"><i
+                        <div class="col-auto mb-4 ">
+                            <button class="primary btn-box-shadow uploadbtn-wid"><i
                                 class="fas fa-cloud-upload-alt mr-2"></i><strong>UPLOAD</strong></button>
                         </div>
                     </div>

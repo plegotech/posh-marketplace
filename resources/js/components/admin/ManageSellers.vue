@@ -126,25 +126,25 @@
                     <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
                 </div>
             </div>
-            <div class="col-sm-2 offset-sm-6 pr-35">
-                <button class="primary mt-0" @click="exportCompanies()">Export</button>
+            <div class="col-sm-8 pr-35">
+                <button class="primary btn-exp-mv mt-0 float-right" @click="exportCompanies()">Export</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-12">
 
-                <div class="top-newOrder">
+                <div class="top-newOrder msellers-bx">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')">Company <img
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
                                 class="shuffle"
-                                src="/img/shuffle.png">
+                                src="/img/shuffle.png"></span>
                             </th>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')">Seller Name
+                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">Seller Name
                                 <img
-                                    class="shuffle" src="/img/shuffle.png"></th>
+                                    class="shuffle" src="/img/shuffle.png"></span></th>
                             <th scope="col">Email Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">City & State</th>
