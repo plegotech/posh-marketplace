@@ -5,8 +5,9 @@
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
                     <div class="row justify-content-end pr-35">
-                        <div class="col-sm-2">
-                            <select name="" id="" class="select-custom-point">
+                        <div class="col-sm-12 d-flex justify-content-end">
+                        <div class="select-bx-sho mr-3">
+                            <select name="" id="" class="select-custom-point min-150">
                                 <option value="" selected="selected">Choose Year</option>
                                 <option value="2021">2021</option>
                                 <option value="2020">2020</option>
@@ -14,8 +15,9 @@
                                 <option value="2018">2018</option>
                                 <option value="2017">2017</option>
                             </select>
-                        </div> <div class="col-sm-2">
-                        <select name="" id="" class="select-custom-point">
+                        </div> 
+                        <div class="select-bx-sho">
+                        <select name="" id="" class="select-custom-point min-150">
                             <option value="" selected="selected">Choose Month</option>
                             <option value="Janruary">Janruary</option>
                             <option value="February">February</option>
@@ -32,7 +34,8 @@
                         </select>
                     </div>
                     </div>
-
+                    </div>
+                    <div class="row">
                     <div class="col-sm-12">
                         <!-- START: FIRST TAB CONTENT -->
                         <div id="first-pvs-posh" class="top-newOrder">
@@ -204,6 +207,7 @@
                             </div>
                             <!-- END::: FIRST TAB CONTENT -->
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

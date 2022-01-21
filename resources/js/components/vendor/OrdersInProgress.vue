@@ -4,9 +4,10 @@
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-lg-5 col-12">
                             <div class="inpro-order-detail">
-                                <table class="tablebg-inpro">
+                                <table class=" tablebg-inpro">
+                                    <tbody>
                                     <tr>
                                         <td>Order Id:</td><td>ANK 1250</td>
                                     </tr>
@@ -25,10 +26,11 @@
                                     <tr>
                                         <td>Carrier Tracking Number:</td><td>US Postal Service</td>
                                     </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-lg-7 col-12">
                             <div class="search-box mb-4">
                                 <img src="/img/search-icon.png" class="search-icon" alt="">
                                 <input type="text" class="search_BX pendingVendorSearch">

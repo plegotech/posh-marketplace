@@ -9,6 +9,7 @@
         </button>
             <a class="navbar-brand" href="#">Dashboard</a>
             <ul class="topnav-user">
+                <li><a href=""><img src="/img/mail-icon.png" alt="" class="notify"><span class="numberof-ma">3</span></a></li>
                 <li>
                     <a href="">
                         <img src="/img/notification-bell.png" class="notify" alt="">

@@ -44,11 +44,11 @@
         </div>
         <div class="prof-area vendor-pro-b2">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     <h1 class="mini-head">Company Location</h1>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <button class="add-new">
                         <img src="/img/add.png" alt="">ADD NEW
                     </button>
@@ -56,7 +56,7 @@
                         <img src="/img/edit.png" alt="">EDIT
                     </button>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <table class="comp-addr">
                         <tbody>
                         <tr>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="row indep-btn">
-            <div class="offset-sm-9 col-sm-3">
+            <div class="offset-sm-6 col-sm-6">
                 <button class="edit sm-wd">
                     CANCEL
                 </button>
