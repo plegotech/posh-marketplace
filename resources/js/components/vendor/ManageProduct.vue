@@ -127,8 +127,8 @@
 
                     <!-- START:: Products listing -->
                     <div class="row justify-content-end">
-                        <div class="col-sm-2 mb-4 ">
-                            <button class="primary btn-box-shadow"><i
+                        <div class="col-auto mb-4 ">
+                            <button class="primary btn-box-shadow uploadbtn-wid"><i
                                 class="fas fa-cloud-upload-alt mr-2"></i><strong>UPLOAD</strong></button>
                         </div>
                     </div>
