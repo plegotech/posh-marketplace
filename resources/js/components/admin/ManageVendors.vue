@@ -136,8 +136,8 @@
                         <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
                     </div>
                 </div>
-                <div class="col-sm-2 offset-sm-6 pr-35">
-                    <button class="primary mt-0" @click="exportCompanies()">Export</button>
+                <div class="col-sm-8 pr-35">
+                    <button class="primary btn-exp-mv mt-0 float-right" @click="exportCompanies()">Export</button>
                 </div>
             </div>
             <div class="row">

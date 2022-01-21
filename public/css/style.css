@@ -607,13 +607,15 @@ i.sb-menu-icon:before {
 }
 .main .datepicker-d {
     margin-top: 20px;
+    position: relative;
 }
 .main .datepicker-d i {
     position: absolute;
-    right: 25px;
+    right: 14px;
     top: 50%;
     font-size: 18px;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 .main .datepicker-d .datepicker {
     border: 1px solid #5A5B6A;
@@ -1791,7 +1793,7 @@ button.primary.search-bc {
     border-radius: 0 3px 3px 0;
     margin-top: 0;
 }
-button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;}
+button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;max-width: 150px;}
 button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .search-box-top  {
     width: 100%;
@@ -1821,12 +1823,6 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
     top: 50%;
     cursor: pointer;
     transform: translateY(-50%);
-}
-.pl-35 {
-    padding-left: 35px;
-}
-.pr-35 {
-    padding-right: 35px;
 }
 .products-listing-bxx {
     border: 1px solid #D0D0D0;
@@ -2214,6 +2210,13 @@ span.newPrice-domain {
     pointer-events: none;
     padding: 7px 29px 7px 27px;
     font-size: 14px;
+}
+button.primary.btn-exp-mv.mt-0 {
+    max-width: 160px;
+}
+select.chooseY-bx {
+    max-width: 180px;
+    margin-right: 15px;
 }
 
 /* START:: progressbar steps design */

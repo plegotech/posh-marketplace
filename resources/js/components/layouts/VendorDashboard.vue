@@ -15,19 +15,19 @@
                     </div>
                 </div>
                 <ul class="list-sidebar bg-white">
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-dashboard'}">
                             <i class="sb-menu-icon overview-icon"></i>
                             <span class="nav-label">Overview</span>
                         </router-link>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-manage-products'}">
                             <i class="sb-menu-icon manage-products"></i>
                             <span class="nav-label">Manage Products</span>
                         </router-link>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-upload-products'}">
                             <i class="sb-menu-icon upload-product"></i>
                             <span class="nav-label">Upload Product</span>
@@ -39,17 +39,17 @@
                             <span class="nav-label">My Orders <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
                                                                       alt=""></i> </span>
                             <ul>
-                                <li>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                                     <router-link :to="{ name: 'vendor-orders-pending'}">
                                         Pending Orders
                                     </router-link>
                                 </li>
-                                <li>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                                     <router-link :to="{ name: 'vendor-orders-in-progress'}">
                                         In-Progress Orders
                                     </router-link>
                                 </li>
-                                <li>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                                     <router-link :to="{ name: 'vendor-dashboard'}">
                                         All Orders
                                     </router-link>
@@ -57,25 +57,25 @@
                             </ul>
                         </a>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-billing'}">
                             <i class="sb-menu-icon billing-icon"></i>
                             <span class="nav-label">Billing</span>
                         </router-link>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-dashboard'}">
                             <i class="sb-menu-icon product-history"></i>
                             <span class="nav-label">Product History</span>
                         </router-link>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-shipping'}">
                             <i class="sb-menu-icon shipping-icon"></i>
                             <span class="nav-label">Shipping</span>
                         </router-link>
                     </li>
-                    <li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-profile'}">
                             <i class="sb-menu-icon my-profile"></i>
                             <span class="nav-label">My Profile</span>

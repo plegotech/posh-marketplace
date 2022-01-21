@@ -15,7 +15,8 @@
                                     <img src="/img/close-srch.png" @click="removePendingSellerSearch" class="close-icon" alt="">
                                 </div>
                                 <!-- start: TABLE -->
-                                <table class="table" id="pvs-tab">
+                                <div class="pendingvendor-sign">
+                                <table class="table pss-bxb" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'pending')"><span class="sort-ad">First Name <img class="shuffle"
@@ -83,6 +84,7 @@
                                 <div class="foot-table" v-if="total < 1">
                                     <p>No results found.</p>
                                 </div>
+                                </div>
                                 <div class="foot-table" v-if="total > 0">
                                     <div class="left"><span>Rows Per Page:
                                             <select @change="fetchCompanies(current_page, $event.target.value, 0, 'pending')">
@@ -114,6 +116,7 @@
                                     <img src="/img/close-srch.png" @click="removeRejectedSellerSearch" class="close-icon" alt="">
                                 </div>
                                 <!-- start: TABLE -->
+                                <div class="pendingvendor-sign">
                                 <table class="table" id="pvs-tab">
                                     <thead>
                                     <tr>
@@ -166,6 +169,7 @@
                                 </table>
                                 <div class="foot-table" v-if="rej_total < 1">
                                     <p>No results found.</p>
+                                </div>
                                 </div>
                                 <div class="foot-table" v-if="rej_total > 0">
                                     <div class="left"><span>Rows Per Page:

@@ -51,10 +51,7 @@
 
                         </div>
                     </div>
-
-                    <div class="col-sm-1 ">
-
-                    </div>
+                    <div class="vendorOrder-bx-">
                     <table class="table">
                         <thead>
                         <tr>
@@ -449,6 +446,7 @@
                         </tr>
                         </tbody>
                     </table>
+                    </div>
                     <div class="foot-table">
                         <div class="left">
                                     <span>Rows Per Page:
