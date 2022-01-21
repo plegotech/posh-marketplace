@@ -44,6 +44,11 @@
 
 }
 @media (min-width: 992px){
+    .pendingOrder-bx {
+        overflow-x: auto;
+        display: flex;
+        width: 100%;
+    }
     .top-newOrder.msellers-bx {
         padding-left: 0;
         padding-right: 0;
@@ -62,6 +67,19 @@
 }
 }
 @media only screen and (max-width: 991px) {
+    nav.navbar.navbar-expand-lg.navbar-dark {
+        padding-right: 0;
+    }
+    ul.topnav-user li:last-child {
+        margin-left: 0;
+    }
+    th.shuffle-bx {
+        white-space: nowrap;
+    }
+    div#first-pvs-posh {
+        padding-right: 0;
+        padding-left: 0;
+    }
     .vendorOrder-bx- {
         overflow-x: auto;
     }

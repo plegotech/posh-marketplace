@@ -3,25 +3,25 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
                 <div class="top-newOrder myorder">
-                    <div class="row mb-4">
-                        <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-lg-4 col-12  mb-4">
                             <div class="search-box" style="max-width:100%">
                                 <img src="/img/search-icon.png" class="search-icon" alt="">
                                 <input type="text" class="search_BX fetchProductsSearch" v-on:keypress="fetchProductsSearch">
                                 <img src="/img/close-srch.png" @click="fetchProductsSearchClear" class="close-icon" alt="">
                             </div>
                         </div>
-                        <div class="col-sm-6 offset-sm-2">
-                            <div class="row">
-                                <div class="col">
-                                    <select class="sort_by" @change="fetchProducts()">
+                        <div class="col-lg-8 col-12">
+                            <div class="row justify-content-end">
+                                <div class="w-auto mr-3  mb-4">
+                                    <select class="sort_by select-custom-point" @change="fetchProducts()">
                                         <option value="" selected>Sort By</option>
                                         <option value="name">Name</option>
                                         <option value="net_price">Price</option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <select class="parentCategory" @change="updateSubCategories()">
+                                <div class="w-auto mr-3  mb-4">
+                                    <select class="parentCategory select-custom-point" @change="updateSubCategories()">
                                         <option value="" selected>Category</option>
                                         <option v-for="(category, index) in parent_categories"
                                         :value="index">
@@ -29,8 +29,8 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <select class="subCategory" @change="fetchProducts()">
+                                <div class="w-auto mr-3  mb-4">
+                                    <select class="subCategory select-custom-point" @change="fetchProducts()">
                                         <option value="" selected>Sub Category</option>
                                         <option v-for="(category, index) in sub_categories"
                                         :value="category">
@@ -38,8 +38,8 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <select class="status" @change="fetchProducts()">
+                                <div class="w-auto mr-3  mb-4">
+                                    <select class="status select-custom-point" @change="fetchProducts()">
                                         <option value="" selected>All</option>
                                         <option value="active">Active</option>
                                         <option value="archived">Archived</option>

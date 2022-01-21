@@ -1,4 +1,4 @@
-<template>
+
         <div class="modal fade viewProducts-modal-lg viewProduct-modal" tabindex="-1" role="dialog"
              aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -76,6 +76,7 @@
                 </div>
             </div>
         </div>
+        <template>
     <div class="container-fluid pending-vend">
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
@@ -90,7 +91,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-sm-7 offset-sm-1">
+                        <div class="col-sm-8">
                             <div class="row justify-content-end">
                                 <div class="w-auto mr-3">
                                     <select class="select-custom-point" name="" id="">
