@@ -67,6 +67,7 @@
 }
 }
 @media only screen and (max-width: 991px) {
+<<<<<<< HEAD
     nav.navbar.navbar-expand-lg.navbar-dark {
         padding-right: 0;
     }
@@ -80,6 +81,9 @@
         padding-right: 0;
         padding-left: 0;
     }
+=======
+<<<<<<< HEAD
+>>>>>>> ae03e2e409a3136cd48d770968de0a4c7a858186
     .vendorOrder-bx- {
         overflow-x: auto;
     }
@@ -92,6 +96,8 @@
     .top-newOrder {
         overflow-x: auto;
     }
+=======
+>>>>>>> cac94f81d4c7d60fc910e80120d144b293819c68
     .pending-vend .top-newOrder {
         overflow-x: auto;
     }
@@ -125,6 +131,7 @@
         margin-top: 0;
     }
 }
+<<<<<<< HEAD
 @media only screen and (max-width: 768px) {
     .top-newOrder.myorder .search-box-top {
         margin-bottom: 15px;
@@ -136,6 +143,9 @@
         font-weight: 500;
         font-size: 11px;
     }
+=======
+@media only screen and (max-width: 600px) {
+>>>>>>> cac94f81d4c7d60fc910e80120d144b293819c68
     .up-main-bx .up-main-bx-1 {
         margin-left: 0;
         padding-right: 55px;
