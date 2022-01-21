@@ -19,15 +19,19 @@
                         <table class="table" id="pvs-tab">
                             <thead>
                             <tr>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Order Id <img
+                                <th class="shuffle-bx" scope="col"><span
+                                    @click="fetch(0, 0, 'id')" class="sort-ad">Order Id <img
                                     class="shuffle"
                                     src="/img/shuffle.png"></span>
                                 </th>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Recipient <img
+                                <th class="shuffle-bx" scope="col"><span
+                                    @click="fetch(0, 0, 'first_name')"
+                                    class="sort-ad">Recipient <img
                                     class="shuffle"
                                     src="/img/shuffle.png"></span>
                                 </th>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Order Date <img
+                                <th class="shuffle-bx" scope="col"><span
+                                    @click="fetch(0, 0, 'ordered_at')" class="sort-ad">Order Date <img
                                     class="shuffle"
                                     src="/img/shuffle.png"></span>
                                 </th>
@@ -50,8 +54,8 @@
                                     <span>{{ order.shipping_address }}</span>
                                 </td>
                                 <td>
-                                    <button>Reject</button>
-                                    <button>Accept</button>
+                                    <button @click="updateOrderStatus(order.id, 'rejected')">Reject</button>
+                                    <button @click="updateOrderStatus(order.id, 'approved')">Accept</button>
                                     <button>View</button>
                                 </td>
                             </tr>
@@ -113,6 +117,7 @@ export default {
     },
     methods: {
         fetch(page = 0, per_page = 0, order_by = 0, search = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
             var url = '/api/orders/vendor/'+ this.user.id;
 
             if (per_page > 0 || this.per_page > 0) {
@@ -169,7 +174,10 @@ export default {
                     }
                     this.current_page = res.to / res.per_page;
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
         },
 
         searchVendorPendingOrders: function (e) {
@@ -186,12 +194,12 @@ export default {
             this.fetch();
         },
 
-        changeUserStatus(user_id, status) {
-            var url = '/api/user/change-status/' + user_id + '/' + status;
+        updateOrderStatus(id, status) {
+            var url = '/api/orders/vendor-change-status/' + this.user.id + '/' + id + '/' + status;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message);
+                    alert(data);
                     this.fetch();
                 })
                 .catch(err => console.log(err));

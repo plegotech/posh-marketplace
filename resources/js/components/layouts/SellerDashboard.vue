@@ -16,7 +16,7 @@
                 </div>
                 <ul class="list-sidebar bg-white">
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link :to="{ name: 'vendor-upload-products'}">
+                        <router-link :to="{ name: 'seller-dashboard'}">
                             <i class="sb-menu-icon orders"></i>
                             <span class="nav-label">Dashboard</span>
                         </router-link>

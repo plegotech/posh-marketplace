@@ -33,9 +33,9 @@ class Order extends Model
         }
 
         if(strlen($status) > 1) {
-            $orders = $orders->where('users.status', $status);
+            $orders = $orders->where('order_items.status', $status);
         } else {
-            $orders = $orders->where('users.status', 'approved');
+            $orders = $orders->where('order_items.status', 'approved');
         }
 
         $orders = $orders->where('products.vendor_id', $vendor);
