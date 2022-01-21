@@ -1558,7 +1558,6 @@ tr.ifpending-bx {
 .sec-box img {
     max-width: 100%;
     width: auto;
-    height: auto;
 }
 .sidebar ul li.sub-menu.active ul {
     display: block;
@@ -2482,16 +2481,10 @@ input.topheadSearch {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
-
-
-
-
-
-
-
-
-
+  .row.justify-content-center.mix-boxmw{
+      margin: 0 auto;
+      max-width: 780px;
+  }
 
   /* Seperate Integrated CSS */
 
@@ -2506,8 +2499,7 @@ input.topheadSearch {
     border: 1px solid #DBDBDB;
     box-sizing: border-box;
     border-radius: 10px;
-    padding: 20px 5px;
-    height: 180px;
+    padding:30px;
     margin-bottom: 25px;
 }
   .manage-websites a.box-selection:hover {opacity:.8;transition:.2s;cursor:pointer}
