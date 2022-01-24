@@ -50,7 +50,7 @@
                                     </router-link>
                                 </li>
                                 <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link :to="{ name: 'vendor-dashboard'}">
+                                    <router-link :to="{ name: 'vendor-all-orders'}">
                                         All Orders
                                     </router-link>
                                 </li>

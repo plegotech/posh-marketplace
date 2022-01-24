@@ -16,12 +16,26 @@ class Order extends Model
         'notes', 'created_at', 'updated_at'
     ];
 
+    public function getVendorOrderById($id)
+    {
+        // Oct 01, 2021 09:58 PM
+        $order = $this::select('order_items.id', 'order_items.status as item_status', 'order_items.progress',
+            'order_items.shipping_date', 'orders.shipping_address', 'orders.shipping_method',
+            DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
+        $order = $order->join('order_items', 'order_items.order_id', '=', 'orders.id');
+
+        $order = $order->where('order_items.id', $id)
+        ->first();
+
+        return $order;
+    }
+
 
     public function getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status)
     {   // Oct 01, 2021 09:58 PM
-        $orders = $this::select('orders.*', 'users.first_name', 'users.last_name',
-            DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"))
-            ->where('users.status', $status);
+        $orders = $this::select('order_items.id', 'orders.shipping_address', 'users.first_name', 'users.last_name','products.vendor_id',
+            'order_items.status as item_status', 'order_items.progress',
+            DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
 
         if(strlen($search) > 1) {
             $orders = $orders->where(function ($orders) use($search) {
@@ -34,8 +48,6 @@ class Order extends Model
 
         if(strlen($status) > 1) {
             $orders = $orders->where('order_items.status', $status);
-        } else {
-            $orders = $orders->where('order_items.status', 'approved');
         }
 
         $orders = $orders->where('products.vendor_id', $vendor);
@@ -45,7 +57,9 @@ class Order extends Model
         $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
 
         $orders = $orders->orderBy($order_by, $order)
-            ->groupBy('orders.id');
+            ->groupBy('order_items.id');
+        // Each item is being considered a separate order as sites contain multiple vendors & a buyer is not
+        // restricted to purchase from an specific vendor
 
         if(!empty($per_page)) {
             $orders = $orders->paginate($per_page);

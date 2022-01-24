@@ -4,24 +4,24 @@
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
                     <div class="row">
-                        <div class="col-lg-5 col-12">
+                        <div v-if="single_order != 0" class="col-lg-5 col-12">
                             <div class="inpro-order-detail">
                                 <table class=" tablebg-inpro">
                                     <tbody>
                                     <tr>
-                                        <td>Order Id:</td><td>ANK 1250</td>
+                                        <td>Order Id:</td><td>{{ single_order.id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Order Date:</td><td>09/29/2021</td>
+                                        <td>Order Date:</td><td>{{ single_order.ordered_at }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Ship Date:</td><td>10/06/2021</td>
+                                        <td>Ship Date:</td><td>{{ single_order.shipping_date }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Shipping Address:</td><td>10/06/2021</td>
+                                        <td>Shipping Address:</td><td>{{ single_order.shipping_address }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Carrier:</td><td>US Postal Service</td>
+                                        <td>Carrier:</td><td>{{ single_order.shipping_method }}</td>
                                     </tr>
                                     <tr>
                                         <td>Carrier Tracking Number:</td><td>US Postal Service</td>
@@ -37,39 +37,32 @@
                                 <img src="/img/close-srch.png" class="close-icon" alt="">
                             </div>
 
-                            <div class="order-progress-ar">
+                            <div v-if="single_order != 0" class="order-progress-ar">
                                 <div class="opar-bx">
                                     <!-- start:: -->
                                     <div class="stepper-wrapper">
-                                        <div class="stepper-item completed">
+                                        <div id="received" class="stepper-item">
                                             <div class="step-counter"></div>
                                             <div class="step-name">Received</div>
                                         </div>
-                                        <div class="stepper-item completed">
+                                        <div id="at_depot" class="stepper-item">
                                             <div class="step-counter"></div>
                                             <div class="step-name">At Depot</div>
                                         </div>
-                                        <div class="stepper-item active">
+                                        <div id="in_transit" class="stepper-item">
                                             <div class="step-counter"></div>
                                             <div class="step-name">In Transit</div>
                                         </div>
-                                        <div class="stepper-item">
+                                        <div id="out_for_delivery" class="stepper-item">
                                             <div class="step-counter"></div>
                                             <div class="step-name">Out For Delivery</div>
                                         </div>
-                                        <div class="stepper-item">
+                                        <div id="delivered" class="stepper-item">
                                             <div class="step-counter"></div>
                                             <div class="step-name">Delivered</div>
                                         </div>
                                     </div>
                                     <!-- end :::  -->
-                                    <!-- <ul class="order-proces-listing">
-                                        <li class="active"><span>Received</span></span></li>
-                                        <li class="active"><span>At Depot</span></li>
-                                        <li class="active"><span class="last-point-active">In Transit</span></li>
-                                        <li><span>Out For Delivery</span></li>
-                                        <li><span>Delivered</span></li>
-                                    </ul> -->
                                 </div>
                             </div>
                         </div>
@@ -77,7 +70,7 @@
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh" class="top-newOrder">
-                                <h1 class=" border-b-txt">Pending Orders</h1>
+                                <h1 class=" border-b-txt">In-Progress Orders</h1>
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">
                                     <thead>
@@ -86,7 +79,7 @@
                                         </th>
                                         <th class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Date <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
                                         <th scope="col">Shipping Details</th>
                                         <th scope="col">Delivery Status</th>
@@ -94,81 +87,45 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr >
-                                        <td>
-                                            <img src="/img/nike-shoe1.png" alt="">
-                                            <span>AKN 1250</span>
-                                        </td>
-                                        <td>
-                                            <span>Stevan Kolman</span>
-                                        </td>
-                                        <td>
-                                            <span>06/25/2021</span>
-                                        </td>
-                                        <td>
-                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
-                                        </td>
-                                        <td>
-                                            <span class="pendig-txt">Pending</span>
-                                        </td>
-                                        <td>
-                                            <span class="track-btn">Track</span>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>
-                                            <img src="/img/nike-shoe1.png" alt="">
-                                            <span>AKN 1250</span>
-                                        </td>
-                                        <td>
-                                            <span>Stevan Kolman</span>
-                                        </td>
-                                        <td>
-                                            <span>06/25/2021</span>
-                                        </td>
-                                        <td>
-                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
-                                        </td>
-                                        <td>
-                                            <span class="pendig-txt">Pending</span>
-                                        </td>
-                                        <td>
-                                            <span class="track-btn">Track</span>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>
-                                            <img src="/img/nike-shoe1.png" alt="">
-                                            <span>AKN 1250</span>
-                                        </td>
-                                        <td>
-                                            <span>Stevan Kolman</span>
-                                        </td>
-                                        <td>
-                                            <span>06/25/2021</span>
-                                        </td>
-                                        <td>
-                                            <span>4949 Forest Ave, First FL Downers Grove, IL 60515</span>
-                                        </td>
-                                        <td>
-                                            <span class="pendig-txt">Pending</span>
-                                        </td>
-                                        <td>
-                                            <span class="track-btn">Track</span>
-                                        </td>
-                                    </tr>
+                                        <tr v-for="order in orders">
+                                            <td>
+                                                <span>{{ order.id }}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.first_name }} {{ order.last_name }}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.ordered_at }}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.shipping_address }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="pendig-txt">{{ order.progress }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="track-btn" @click="getVendorOrderById(order.id)">Track</span>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
-                                <div class="foot-table" >
+                                <div class="foot-table" v-if="total < 1">
+                                    <p>No records found.</p>
+                                </div>
+                                <div class="foot-table" v-if="total > 0">
                                     <div class="left"><span>Rows Per Page:
-                                            <select >
+                                            <select
+                                                @change="fetch(current_page, $event.target.value)">
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="75">75</option>
                                                 <option value="100">100</option>
                                             </select>
                                             </span></div>
-                                    <div class="right"><span>1-25 of 81 Items</span> <img src="/img/prev-arrow.png" alt="" class="prev-itm"> <img src="/img/next-arrow.png" alt="" class="next-itm"></div>
+                                    <div class="right">
+                                        <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                        <img src="/img/prev-arrow.png"  @click="fetch(current_page-1)" alt="" class="prev-itm">
+                                        <img src="/img/next-arrow.png" @click="fetch(current_page+1)" alt="" class="next-itm"></div>
                                     <!-- END: TABLE   -->
                                 </div>
                                 <!-- END::: FIRST TAB CONTENT -->
@@ -183,6 +140,112 @@
 
 <script>
 export default {
+    data() {
+        return {
+            user: this.$store.state.auth.user,
+            per_page: 25,
+            order_by: 'id',
+            order: 'desc',
+            search: 0,
+            to: null,
+            from: null,
+            total: null,
+            current_page: null,
+            orders: [],
+            single_order: 0,
+        }
+    },
+    created() {
+        this.fetch();
+    },
+    methods: {
+        getVendorOrderById(id) {
+            const childrens = document.querySelectorAll('.stepper-item');
+            childrens.forEach(function(e) {
+                e.classList.remove('active');
+            });
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/vendor-order/'+ id;
 
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.single_order = res;
+                    let progress = res.progress;
+                    progress = progress.replace(/ /g, "_");
+
+                    setTimeout(function () {
+                        document.getElementById(progress).classList.add('active');
+                    }, 1000);
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+        fetch(page = 0, per_page = 0, order_by = 0, search = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/orders/vendor/'+ this.user.id;
+
+            if (per_page > 0 || this.per_page > 0) {
+                if (per_page > 0) {
+                    this.per_page = per_page;
+                }
+                url += '/' + this.per_page;
+            } else {
+                url += '/25';
+            }
+
+            if (order_by != 0 || this.order_by > 0) {
+                if (order_by != 0) {
+                    this.order_by = order_by;
+                    if (this.order == 'asc') {
+                        this.order = 'desc';
+                    } else {
+                        this.order = 'asc';
+                    }
+                }
+                url += '/' + this.order_by;
+                url += '/' + this.order;
+            } else {
+                url += '/id';
+                url += '/desc';
+            }
+
+            var search = search;
+
+            if (search != 0 || this.search != 0) {
+                if (search != 0) {
+                    this.search = search;
+                }
+                url += '/' + this.search;
+            } else {
+                url += '/0';
+            }
+
+            url += '/approved';
+
+            if (page > 0) {
+                url += '?page=' + page;
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.orders = res.data;
+                    this.to = res.to;
+                    this.from = res.from;
+                    this.total = res.total;
+                    if (res.total < res.per_page) {
+                        this.from = 0;
+                    }
+                    this.current_page = res.to / res.per_page;
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+    }
 }
 </script>

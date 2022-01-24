@@ -195,12 +195,13 @@ export default {
         },
 
         updateOrderStatus(id, status) {
+            var object = this;
             var url = '/api/orders/vendor-change-status/' + this.user.id + '/' + id + '/' + status;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     alert(data);
-                    this.fetch();
+                    object.fetch();
                 })
                 .catch(err => console.log(err));
         }

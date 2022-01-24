@@ -46,6 +46,15 @@ class OrdersController extends Controller
 
     }
 
+    public function getVendorOrderById($id)
+    {
+        $orders = new Order();
+
+        $order = $orders->getVendorOrderById($id);
+
+        return response()->json($order, 201);
+    }
+
     public function fetchAllByVendor($vendor, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
     {
         $orders = new Order();
