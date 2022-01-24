@@ -1528,7 +1528,7 @@ tr.ifpending-bx {
     margin: 14px 0;
     margin-top: 15px;
 }
-.sec-box:last-child .right-txt {
+.sec-box:last-child .secBox-rtxt {
     border-right: 0;
 }
 .box-shadow-wbg .sec-box h3 {
@@ -1563,9 +1563,21 @@ tr.ifpending-bx {
 .sidebar ul li.sub-menu.active ul {
     display: block;
 }
-.right-txt {
-    border-right: 1px solid gainsboro;
-    padding: 0 20px;
+.secBox-rtxt:before {
+    background: #E1E1E1;
+    width: 1px;
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 86%;
+}
+.secBox-rtxt {
+    padding: 0 20px 20px 20px;
+    position: relative;
+}
+.box-shadow-wbg.option-bx-p {
+    padding: 20px 30px 0px 30px;
 }
 .sec-box {
     display: flex;
@@ -2230,7 +2242,39 @@ select.chooseY-bx {
     max-width: 180px;
     margin-right: 15px;
 }
-
+.sec-box:last-child .secBox-rtxt {
+    padding-right: 0;
+}
+table.table.recent-Orders-table thead {
+    border-bottom: 3px solid #f0f2f3;
+}
+table.table.recent-Orders-table {
+    border: 2px solid #f0f2f3;
+    border-radius: 8px;
+    padding-top: 14px!important;
+    margin-top: 12px;
+}
+.stepper-item.active + .stepper-item:before, 
+.stepper-item.active + .stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item +.stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item:after
+ {
+    border-bottom: 5px solid #ccc!important;
+}
+.stepper-item.active + .stepper-item .step-counter, 
+.stepper-item.active + .stepper-item + .stepper-item .step-counter,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item .step-counter, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item .step-counter
+ {
+    background: #ccc;
+}
+.stepper-item.active:after {
+    border-color: #0862a3;
+}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;
@@ -2249,7 +2293,7 @@ select.chooseY-bx {
    .stepper-item::before {
     position: absolute;
     content: "";
-    border-bottom: 5px solid #ccc;
+    border-bottom: 5px solid #0862a3;
     width: 100%;
     top: 10px;
     left: -50%;
@@ -2276,7 +2320,7 @@ select.chooseY-bx {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #ccc;
+    background: #0862a3;
     margin-bottom: 6px;
 }
   .stepper-item.active {
@@ -2287,13 +2331,6 @@ select.chooseY-bx {
     position: absolute;
     top: -32px;
 }
-  .stepper-item.completed .step-counter {
-    background-color:#0862A3;
-  }
-  .stepper-item.completed::after {
-    border-color: #0862A3;
-    z-index: 3;
-}
 .stepper-item:first-child::before {
     width: 32%;
     left: 15px;
@@ -2301,9 +2338,6 @@ select.chooseY-bx {
 .stepper-item:last-child::after {
     width: 32%;
     right: 15px;
-}
-.stepper-item.completed:before {
-    border-color: #0862a3;
 }
 .top-newOrder table.table td {
     border-color: transparent;

@@ -4,11 +4,11 @@
 
         <div class="row mt-4">
             <div class="col-sm-12">
-                <div class="box-shadow-wbg">
-                    <div class="d-flex justify-content-between">
+                <div class="box-shadow-wbg option-bx-p">
+                    <div class="d-flex justify-content-between mobile-d-scroll">
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/total-sales-icons.png" width="134" height="80" alt=""></div>
-                            <div class="right-txt">
+                            <div class="secBox-rtxt">
                                 <span>Vendor Orders</span>
                                 <h3>3020</h3>
                             </div>
@@ -62,7 +62,8 @@
             <div class="col-sm-12">
                 <div class="box-shadow-wbg">
                     <h2 class="title-b-inside">Recent Orders</h2>
-                    <table class="table recent-Orders-table">
+                    <div class="recent_table-bxes">
+                    <table class="table recent-Orders-table mobile-btn-show">
                         <thead>
                         <tr>
                             <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -106,6 +107,12 @@
                                 <span>Chicago</span>
                             </td>
                         </tr>
+                        <div class="tableData-fm">
+                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
+                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
+                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
+                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
+                        </div>
                         <tr>
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
@@ -253,6 +260,7 @@
                         </tr>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
