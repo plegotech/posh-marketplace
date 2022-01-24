@@ -603,7 +603,6 @@ i.sb-menu-icon:before {
     line-height: 1;
     color: #3D3D3D;
     margin: 14px 0;
-    margin-top: 35px;
 }
 .main .datepicker-d {
     margin-top: 20px;
@@ -627,7 +626,6 @@ i.sb-menu-icon:before {
 .main .myorder select {margin-top:0;}
 .main select {
     cursor:pointer;
-    margin-top: 20px;
     border: 1px solid #5A5B6A;
     box-sizing: border-box;
     border-radius: 4px;
@@ -771,8 +769,9 @@ li.nav-item a.nav-link.active {
 
 
 .top-newOrder {
-    padding: 20px;
+    padding: 30px 40px;
     background: white;
+    border-radius: 10px;
 }
 .top-newOrder thead tr img.shuffle {
     width: 12px;
@@ -901,7 +900,6 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .pending-vend .search-box {
     width: 100%;
     max-width: 350px;
-    float: right;
     position: relative;
 }
 .pending-vend .search-box {
@@ -1528,7 +1526,7 @@ tr.ifpending-bx {
     margin: 14px 0;
     margin-top: 15px;
 }
-.sec-box:last-child .right-txt {
+.sec-box:last-child .secBox-rtxt {
     border-right: 0;
 }
 .box-shadow-wbg .sec-box h3 {
@@ -1563,9 +1561,24 @@ tr.ifpending-bx {
 .sidebar ul li.sub-menu.active ul {
     display: block;
 }
-.right-txt {
-    border-right: 1px solid gainsboro;
-    padding: 0 20px;
+.sec-box:last-child .secBox-rtxt:before {
+    background: transparent;
+}
+.secBox-rtxt:before {
+    background: #E1E1E1;
+    width: 1px;
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 86%;
+}
+.secBox-rtxt {
+    padding: 0 20px 20px 20px;
+    position: relative;
+}
+.box-shadow-wbg.option-bx-p {
+    padding: 30px 40px 0px 40px;
 }
 .sec-box {
     display: flex;
@@ -1910,6 +1923,7 @@ span.invalidLogin.alert.alert-danger {
     color: #4B4B4B;
     font-weight: 500;
     width: 100%;
+    padding: 6px 8px;
 }
 .up-main-bx-2 {
     max-width: 306px;
@@ -1928,7 +1942,7 @@ ul.topnav-user li {
 .upload-image-vup {
     position: relative;
 }
-p.img-title-up {
+.upload-image-vup .img-title-up {
     padding: 10px;
     background: #00000080;
     color: #fff;
@@ -1939,6 +1953,7 @@ p.img-title-up {
     margin-bottom: 0;
     width: 100%;
     border-radius: 0 0 10px 10px;
+    left: 0;
 }
 .downl-csv {
     color: #0862A3;
@@ -1946,6 +1961,7 @@ p.img-title-up {
     margin-top: 20px;
     font-weight: bold;
     cursor: pointer;
+    display: block;
 }
 .up-main-bx {
     max-width: 970px;
@@ -2230,7 +2246,46 @@ select.chooseY-bx {
     max-width: 180px;
     margin-right: 15px;
 }
-
+.sec-box:last-child .secBox-rtxt {
+    padding-right: 0;
+}
+table.table.recent-Orders-table thead {
+    border-bottom: 3px solid #f0f2f3;
+}
+table.table.recent-Orders-table {
+    border: 2px solid #f0f2f3;
+    border-radius: 8px;
+    padding-top: 14px!important;
+    margin-top: 12px;
+}
+.stepper-item.active + .stepper-item:before, 
+.stepper-item.active + .stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item +.stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item:after,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item:before, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item:after
+ {
+    border-bottom: 5px solid #ccc!important;
+}
+.stepper-item.active + .stepper-item .step-counter, 
+.stepper-item.active + .stepper-item + .stepper-item .step-counter,
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item .step-counter, 
+.stepper-item.active + .stepper-item + .stepper-item + .stepper-item + .stepper-item .step-counter
+ {
+    background: #ccc;
+}
+.stepper-item.active:after {
+    border-color: #0862a3;
+}
+.tableData-fm {
+    display: none;
+}
+.table th, .table td {position: relative;}
+.Seller_myorders_bx {
+    overflow-x: auto;
+}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;
@@ -2249,7 +2304,7 @@ select.chooseY-bx {
    .stepper-item::before {
     position: absolute;
     content: "";
-    border-bottom: 5px solid #ccc;
+    border-bottom: 5px solid #0862a3;
     width: 100%;
     top: 10px;
     left: -50%;
@@ -2276,7 +2331,7 @@ select.chooseY-bx {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #ccc;
+    background: #0862a3;
     margin-bottom: 6px;
 }
   .stepper-item.active {
@@ -2287,13 +2342,6 @@ select.chooseY-bx {
     position: absolute;
     top: -32px;
 }
-  .stepper-item.completed .step-counter {
-    background-color:#0862A3;
-  }
-  .stepper-item.completed::after {
-    border-color: #0862A3;
-    z-index: 3;
-}
 .stepper-item:first-child::before {
     width: 32%;
     left: 15px;
@@ -2302,14 +2350,14 @@ select.chooseY-bx {
     width: 32%;
     right: 15px;
 }
-.stepper-item.completed:before {
-    border-color: #0862a3;
-}
 .top-newOrder table.table td {
     border-color: transparent;
 }
 .uploadbtn-wid {
     max-width: 170px;
+}
+.container-fluid.pending-vend.sellerMySales {
+    padding-top: 15px;
 }
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
@@ -2390,7 +2438,6 @@ input.topheadSearch {
 .comp-seller-myorders .search-box {float:left !important}
 
 .comp-seller-myorders hr {
-    float: left;
     width: 100%;
     margin-top: 0;
     border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -2598,7 +2645,7 @@ body .main .body .graphs .left i img {
     box-sizing: border-box;
     box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px 40px;
     margin-bottom: 20px;
 }
 .prof-area .user-prof {

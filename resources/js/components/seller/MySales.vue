@@ -1,16 +1,10 @@
 <template>
 
     <div class="container-fluid pending-vend sellerMySales">
-        <div class="row" style="margin-top:20px">
-                    
-                    
-                    
-
-                    <div class="col-sm-12">
-                        
-                        
-                        <div class="row">
-                            <div class="col-sm-3">
+        <div class="row mb-4" >
+            <div class="col-sm-12">
+                 <div class="row">
+                            <div class="col-sm-3 my-3">
                                 <select name="" id="">
                                     <option value="" selected>Choose Year</option>
                                     <option value="2021">2021</option>
@@ -20,7 +14,7 @@
                                     <option value="2017">2017</option>
                                 </select>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 my-3">
                                 <select name="" id="">
                                     <option value="" selected>Choose Month</option>
                                     <option value="Janruary">Janruary</option>
@@ -97,7 +91,6 @@
                                           <span class="txt-cont">
                                             <img src="/img/nike-shoe1.png" alt="">
                                             <span>Nike Air Max Torch 3
-                                                Men’s Running ShoesNike Air Max Torch 3
                                                 Men’s Running Shoes</span></span>
                                       </td>
                                       <td>
@@ -118,7 +111,6 @@
                                             <span class="txt-cont">
                                               <img src="/img/nike-shoe1.png" alt="">
                                               <span>Nike Air Max Torch 3
-                                                  Men’s Running ShoesNike Air Max Torch 3
                                                   Men’s Running Shoes</span></span>
                                         </td>
                                         <td>
@@ -139,7 +131,6 @@
                                             <span class="txt-cont">
                                               <img src="/img/nike-shoe1.png" alt="">
                                               <span>Nike Air Max Torch 3
-                                                  Men’s Running ShoesNike Air Max Torch 3
                                                   Men’s Running Shoes</span></span>
                                         </td>
                                         <td>

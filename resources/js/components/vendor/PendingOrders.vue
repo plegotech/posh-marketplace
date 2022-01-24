@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid pending-vend comp-seller-myorders">
         <!--This is not dynamic, M copied com-panies code.-->
-        <div class="row mt-20">
+        <div class="row mt-4">
             <div class="col-sm-12">
                 <div>
                     <!-- START: FIRST TAB CONTENT -->

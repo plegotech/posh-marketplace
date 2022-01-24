@@ -78,7 +78,7 @@
             </div>
         </div>
         
-        <div class="row" style="margin-top: 20px;">
+        <div class="row mt-4" >
             <div class="col-sm-12">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4">
@@ -92,8 +92,8 @@
                             </div>
                         </div>
                         <div class="col-sm-8">
-                            <div class="row justify-content-end">
-                                <div class="w-auto mr-3">
+                            <div class="row justify-content-lg-end">
+                                <div class="col-md-auto w-auto mr-3">
                                     <select class="select-custom-point" name="" id="">
                                         <option value="" selected>Sort By</option>
                                         <option value="">Name</option>

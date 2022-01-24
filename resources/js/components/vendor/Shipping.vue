@@ -7,7 +7,7 @@
                         <div class="col-sm-5">
                         </div>
                         <div class="col-sm-7">
-                            <div class="search-box mr-4">
+                            <div class="search-box mb-4 float-right">
                                 <img src="/img/search-icon.png" class="search-icon" alt="">
                                 <input type="text" class="search_BX pendingVendorSearch">
                                 <img src="/img/close-srch.png" class="close-icon" alt="">
@@ -17,7 +17,7 @@
 
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
-                            <div id="first-pvs-posh" class="top-newOrder">
+                            <div id="first-pvs-posh" class="">
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">
                                     <thead>
