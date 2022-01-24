@@ -603,7 +603,6 @@ i.sb-menu-icon:before {
     line-height: 1;
     color: #3D3D3D;
     margin: 14px 0;
-    margin-top: 35px;
 }
 .main .datepicker-d {
     margin-top: 20px;
@@ -627,7 +626,6 @@ i.sb-menu-icon:before {
 .main .myorder select {margin-top:0;}
 .main select {
     cursor:pointer;
-    margin-top: 20px;
     border: 1px solid #5A5B6A;
     box-sizing: border-box;
     border-radius: 4px;
@@ -771,8 +769,9 @@ li.nav-item a.nav-link.active {
 
 
 .top-newOrder {
-    padding: 20px;
+    padding: 30px 40px;
     background: white;
+    border-radius: 10px;
 }
 .top-newOrder thead tr img.shuffle {
     width: 12px;
@@ -901,7 +900,6 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .pending-vend .search-box {
     width: 100%;
     max-width: 350px;
-    float: right;
     position: relative;
 }
 .pending-vend .search-box {
@@ -1563,6 +1561,9 @@ tr.ifpending-bx {
 .sidebar ul li.sub-menu.active ul {
     display: block;
 }
+.sec-box:last-child .secBox-rtxt:before {
+    background: transparent;
+}
 .secBox-rtxt:before {
     background: #E1E1E1;
     width: 1px;
@@ -1577,7 +1578,7 @@ tr.ifpending-bx {
     position: relative;
 }
 .box-shadow-wbg.option-bx-p {
-    padding: 20px 30px 0px 30px;
+    padding: 30px 40px 0px 40px;
 }
 .sec-box {
     display: flex;
@@ -1922,6 +1923,7 @@ span.invalidLogin.alert.alert-danger {
     color: #4B4B4B;
     font-weight: 500;
     width: 100%;
+    padding: 6px 8px;
 }
 .up-main-bx-2 {
     max-width: 306px;
@@ -1940,7 +1942,7 @@ ul.topnav-user li {
 .upload-image-vup {
     position: relative;
 }
-p.img-title-up {
+.upload-image-vup .img-title-up {
     padding: 10px;
     background: #00000080;
     color: #fff;
@@ -1951,6 +1953,7 @@ p.img-title-up {
     margin-bottom: 0;
     width: 100%;
     border-radius: 0 0 10px 10px;
+    left: 0;
 }
 .downl-csv {
     color: #0862A3;
@@ -1958,6 +1961,7 @@ p.img-title-up {
     margin-top: 20px;
     font-weight: bold;
     cursor: pointer;
+    display: block;
 }
 .up-main-bx {
     max-width: 970px;
@@ -2275,6 +2279,10 @@ table.table.recent-Orders-table {
 .stepper-item.active:after {
     border-color: #0862a3;
 }
+.tableData-fm {
+    display: none;
+}
+.table th, .table td {position: relative;}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;
@@ -2632,7 +2640,7 @@ body .main .body .graphs .left i img {
     box-sizing: border-box;
     box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px 40px;
     margin-bottom: 20px;
 }
 .prof-area .user-prof {

@@ -15,21 +15,21 @@
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/pending-orders.png" width="124" height="70" alt=""></div>
-                            <div class="right-txt">
+                            <div class="secBox-rtxt">
                                 <span>Pending Orders</span>
                                 <h3>30</h3>
                             </div>
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/cancel-icon.png" width="101" height="69" alt=""></div>
-                            <div class="right-txt">
+                            <div class="secBox-rtxt">
                                 <span>Cancelled Orders</span>
                                 <h3>10</h3>
                             </div>
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/ok-icon.png" width="101" height="69" alt=""></div>
-                            <div class="right-txt">
+                            <div class="secBox-rtxt">
                                 <span>Successful Orders</span>
                                 <h3>1500</h3>
                             </div>

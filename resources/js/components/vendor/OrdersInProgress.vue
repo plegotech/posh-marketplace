@@ -70,7 +70,7 @@
 
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
-                            <div id="first-pvs-posh" class="top-newOrder">
+                            <div id="first-pvs-posh">
                                 <h1 class=" border-b-txt">In-Progress Orders</h1>
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">

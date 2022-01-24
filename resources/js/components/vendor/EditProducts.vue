@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid pending-vend">
-        <div class="row" style="margin-top: 20px;">
+        <div class="row mt-4">
             <div class="col-sm-12">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">

@@ -49,10 +49,9 @@
                                                               width="30" height="30"></p>
                                     </div>
                                     <div class="upload-image-vup">
+                                        <img src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
                                         <input type="file" ref="file" style="display: none" name="featured_image" @change="featuredImage" />
-                                        <button @click="$refs.file.click()">open file dialog</button>
-                                        <img src="/img/img-upload-product.jpg" class="img-fluid img-upload-vup">
-                                        <p class="img-title-up">Upload Image</p>
+                                        <button class="img-title-up" @click="$refs.file.click()">Upload Image</button>
                                     </div>
                                 </div>
                                 <div>

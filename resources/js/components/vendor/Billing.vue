@@ -4,7 +4,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
-                    <div class="row justify-content-end pr-35">
+                    <div class="row justify-content-end">
                         <div class="col-sm-12 d-flex justify-content-end">
                         <div class="select-bx-sho mr-3">
                             <select name="" id="" class="select-custom-point min-150">
@@ -38,7 +38,7 @@
                     <div class="row">
                     <div class="col-sm-12">
                         <!-- START: FIRST TAB CONTENT -->
-                        <div id="first-pvs-posh" class="top-newOrder">
+                        <div id="first-pvs-posh" class="mt-4">
                             <!-- start: TABLE -->
                             <table class="table" id="pvs-tab">
                                 <thead>
