@@ -33,8 +33,9 @@
                         <div class="col-lg-7 col-12">
                             <div class="search-box mb-4">
                                 <img src="/img/search-icon.png" class="search-icon" alt="">
-                                <input type="text" class="search_BX pendingVendorSearch">
-                                <img src="/img/close-srch.png" class="close-icon" alt="">
+                                <input type="text" class="search_BX"
+                                       v-on:keypress="searchObjects">
+                                <img src="/img/close-srch.png" @click="removeSearch" class="close-icon" alt="">
                             </div>
 
                             <div v-if="single_order != 0" class="order-progress-ar">
@@ -245,6 +246,19 @@ export default {
                 .finally(function () {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
+        },
+
+        searchObjects: function (e) {
+            if (e.keyCode === 13) {
+                var element = e.target;
+                this.fetch(0, 0, 0, element.value);
+            }
+        },
+
+        removeSearch: function () {
+            document.getElementsByClassName('search_BX')[0].value = '';
+            this.search = 0;
+            this.fetch();
         },
     }
 }
