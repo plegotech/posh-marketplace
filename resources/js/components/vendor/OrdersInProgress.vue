@@ -76,11 +76,11 @@
                                 <table class="table" id="pvs-tab">
                                     <thead>
                                     <tr>
-                                        <th class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th @click="fetch(0, 0, 'first_name')" class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
-                                        <th class="shuffle-bx" scope="col"><span class="sort-ad">Date <img class="shuffle" src="/img/shuffle.png"></span>
+                                        <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span class="sort-ad">Date <img class="shuffle" src="/img/shuffle.png"></span>
                                         </th>
                                         <th scope="col">Shipping Details</th>
                                         <th scope="col">Delivery Status</th>

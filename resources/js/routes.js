@@ -42,7 +42,7 @@ import VendorDashboard from './components/vendor/Dashboard';
 import VendorUploadProducts from  './components/vendor/UploadProducts';
 import VendorOrdersPending from  './components/vendor/PendingOrders';
 import VendorOrdersInProgress from  './components/vendor/OrdersInProgress';
-import VendorOrders from './components/vendor/MyOrders';
+import VendorCompletedOrders from './components/vendor/CompletedOrders';
 import VendorBilling from  './components/vendor/Billing';
 import VendorShipping from  './components/vendor/Shipping';
 import VendorEditProducts from  './components/vendor/EditProducts';
@@ -89,7 +89,7 @@ export default {
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products', component: VendorUploadProducts },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
-            { name: 'vendor-all-orders', meta: { title: 'All Orders' }, path: '/vendor/orders/all-orders', component: VendorOrders },
+            { name: 'vendor-all-orders', meta: { title: 'Completed Orders' }, path: '/vendor/orders/completed', component: VendorCompletedOrders },
             { name: 'vendor-shipping', meta: { title: 'Shipping' }, path: '/vendor/shipping', component: VendorShipping },
             { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile },
             { name: 'vendor-edit-products', meta: { title: 'Edit Products' }, path: '/vendor/edit/products', component: VendorEditProducts }
@@ -98,7 +98,7 @@ export default {
         /*
          * Non Secure Routes
          */
-        
+
         { name: 'login-user', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
         { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },

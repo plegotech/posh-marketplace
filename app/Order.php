@@ -33,7 +33,8 @@ class Order extends Model
 
     public function getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status)
     {   // Oct 01, 2021 09:58 PM
-        $orders = $this::select('order_items.id', 'orders.shipping_address', 'users.first_name', 'users.last_name','products.vendor_id',
+        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
+            'users.first_name', 'users.last_name','products.vendor_id', 'order_items.quantity',
             'order_items.status as item_status', 'order_items.progress',
             DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
 
@@ -41,13 +42,19 @@ class Order extends Model
             $orders = $orders->where(function ($orders) use($search) {
                 $orders->where('users.first_name', 'LIKE', '%'.$search.'%')
                     ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('products.name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('products.brand', 'LIKE', '%'.$search.'%')
                     ->orWhere('orders.shipping_address', 'LIKE', '%'.$search.'%')
                     ->orWhere('orders.notes', 'LIKE', '%'.$search.'%');
             });
         }
 
         if(strlen($status) > 1) {
-            $orders = $orders->where('order_items.status', $status);
+            if($status == 'delivered') {
+                $orders = $orders->where('order_items.progress', $status);
+            } else {
+                $orders = $orders->where('order_items.status', $status);
+            }
         }
 
         $orders = $orders->where('products.vendor_id', $vendor);
