@@ -76,6 +76,12 @@
 }
 }
 @media only screen and (max-width: 991px) {
+    .box.graphs .right img {
+        width: 67%;
+    }
+    .seller-tdiv {
+        overflow-x: auto;
+    }
     aside#navbarTogglerSidebar {
         width: auto;
     }
@@ -90,10 +96,6 @@
     }
     th.shuffle-bx {
         white-space: nowrap;
-    }
-    div#first-pvs-posh {
-        padding-right: 0;
-        padding-left: 0;
     }
   .vendorOrder-bx- {
         overflow-x: auto;
@@ -208,9 +210,6 @@
     .up-main-bx .up-main-bx-1 {
         margin-left: 0;
         padding-right: 55px;
-    }
-    .top-newOrder.myorder .search-box {
-        margin-bottom: 30px;
     }
     .prof-area.vendor-pro-b1 button.edit {
         text-align: center;

@@ -2283,6 +2283,9 @@ table.table.recent-Orders-table {
     display: none;
 }
 .table th, .table td {position: relative;}
+.Seller_myorders_bx {
+    overflow-x: auto;
+}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;
@@ -2352,6 +2355,9 @@ table.table.recent-Orders-table {
 }
 .uploadbtn-wid {
     max-width: 170px;
+}
+.container-fluid.pending-vend.sellerMySales {
+    padding-top: 15px;
 }
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
@@ -2432,7 +2438,6 @@ input.topheadSearch {
 .comp-seller-myorders .search-box {float:left !important}
 
 .comp-seller-myorders hr {
-    float: left;
     width: 100%;
     margin-top: 0;
     border-top: 2px solid rgba(0, 0, 0, 0.1);

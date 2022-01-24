@@ -2,14 +2,14 @@
 
     <div class="container-fluid pending-vend seller-vendor-prod">
 
-        <div class="row" style="margin-top:20px">
+        <div class="row mt-4" >
 
             <div class="col-sm-12">
 
                 <div class="top-newOrder payment_Hist">
 
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 mb-4">
                             <select>
                                 <option value="" selected>Electronic Accessories</option>
                                 <option value="2021">2021</option>
@@ -19,7 +19,7 @@
                                 <option value="2017">2017</option>
                             </select>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 mb-4">
                             <select name="" id="">
                                 <option value="" selected>Airpods</option>
                                 <option value="Janruary">Janruary</option>

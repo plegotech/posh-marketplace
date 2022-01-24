@@ -5,7 +5,7 @@
                     <div class="col-sm-12">
                         <div class="top-newOrder">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 mb-4">
                                     <select name="" id="">
                                         <option value="" selected>Choose Year</option>
                                         <option value="2021">2021</option>
@@ -34,6 +34,7 @@
                                 </div>
                             </div>
                             <hr>
+                            <div class="seller-tdiv">
                             <table class="table">
                                 <thead>
                                   <tr>
@@ -302,6 +303,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                             <div class="foot-table">
                                 <div class="left">
                                     <span>Rows Per Page:    

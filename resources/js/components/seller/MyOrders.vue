@@ -6,8 +6,8 @@
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
-                    <div class="row  mb-4">
-                            <div class="col-sm-8">
+                    <div class="row">
+                            <div class="col-sm-8   mb-4">
                                 <div class="search-box">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX pendingVendorSearch"
@@ -16,7 +16,7 @@
                                     <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
                                 </div>
                             </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-2 mb-4">
                                     <select name="" id="" class="mt-0">
                                         <option value="" selected>Choose Year</option>
                                         <option value="2021">2021</option>
@@ -26,7 +26,7 @@
                                         <option value="2017">2017</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-2 mb-4">
                                     <select name="" id="" class="mt-0">
                                         <option value="" selected>Choose Month</option>
                                         <option value="Janruary">Janruary</option>
@@ -46,6 +46,7 @@
                         </div>
                         <hr>
                         <!-- start: TABLE -->
+                        <div class="Seller_myorders_bx">
                         <table class="table" id="pvs-tab">
                             <thead>
                             <tr>
@@ -87,6 +88,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
                         </div>
