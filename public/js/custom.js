@@ -17,8 +17,7 @@ $(function () {
   })
 $(document).ready(function () {
     
-    $(".row-box-s td:nth-child(2)").prepend("<span class='td-title-bx'>Order Id</span>");
-    
+    $(".row-box-s td:nth-child(2)").prepend("<span class='td-title-bx'>Order Id</span>");    
 
     $(".mobile-btn-show tbody tr").addClass("row-box-s");
     $(".mobile-btn-show tbody tr td:nth-child(3)").prepend("<span class='btn-mshow'><i class='fas fa-plus'></i></span>");    

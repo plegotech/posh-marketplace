@@ -6,6 +6,10 @@
                 <div class="top-newOrder mb-4">
                     <div class="row justify-content-end">
                         <div class="col-sm-12 d-flex justify-content-end">
+                            <div class="search-box mb-4 float-right">
+                                <img src="/img/search-icon.png" alt="" class="search-icon">
+                                <input type="text" class="search_BX pendingVendorSearch"> <img src="/img/close-srch.png" alt="" class="close-icon">
+                                </div>
                         <div class="select-bx-sho mr-3">
                             <select name="" id="" class="select-custom-point min-150">
                                 <option value="" selected="selected">Choose Year</option>

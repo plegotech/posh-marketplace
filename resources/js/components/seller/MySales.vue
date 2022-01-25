@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                  <div class="row">
                             <div class="col-sm-3 my-3">
-                                <select name="" id="">
+                                <select name="" id="" class="select-custom-point">
                                     <option value="" selected>Choose Year</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
@@ -15,7 +15,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-3 my-3">
-                                <select name="" id="">
+                                <select name="" id="" class="select-custom-point">
                                     <option value="" selected>Choose Month</option>
                                     <option value="Janruary">Janruary</option>
                                     <option value="February">February</option>

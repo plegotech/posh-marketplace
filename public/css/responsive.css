@@ -1,6 +1,22 @@
 
+@media only screen and (max-width: 1560px) {
+.btn-st {
+    padding-right: 6px;
+    padding-left: 6px;
+}
+}
+@media only screen and (max-width: 1400px) {
+.price-title-b h3 {
+    font-size: 20px;
+}
+.btn-st {
+    font-size: 13px;
+}
+}
 @media only screen and (min-width: 1200px) {
-
+    .pendingvendor-sign {
+        overflow-x: auto;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .main .body .box .left img {
@@ -80,6 +96,12 @@
 }
 }
 @media only screen and (max-width: 991px) {
+    .pendingOrder-bx {
+        overflow-x: auto;
+    }
+    .orders-completed-bx {
+        overflow-x: auto;
+    }
     .box.graphs .right img {
         width: 67%;
     }
@@ -147,6 +169,9 @@
     }
 }
 @media only screen and (max-width: 768px) {
+    .price-title-b h3 {
+        font-size: 23px;
+    }
     tr.row-box-s.divBlockset span.btn-mshow {
         top: 0;
     }
