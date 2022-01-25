@@ -2286,6 +2286,12 @@ table.table.recent-Orders-table {
 .recent_table-bxes {
     overflow-x: auto;
 }
+div#companyEdit input.form-control {
+    border: 1px solid;
+}
+div#companyEdit {
+    margin-bottom: 30px;
+}
 /* START:: progressbar steps design */
 .stepper-wrapper {
     margin-top: auto;

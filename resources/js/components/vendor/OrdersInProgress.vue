@@ -30,13 +30,46 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-7 col-12">
-                            <div class="search-box mb-4">
-                                <img src="/img/search-icon.png" class="search-icon" alt="">
-                                <input type="text" class="search_BX"
-                                       v-on:keypress="searchObjects">
-                                <img src="/img/close-srch.png" @click="removeSearch" class="close-icon" alt="">
+                        </div>
+                            <div class="row">
+                                <div class="col-lg-7 col-12">
+                                    <div class="search-box mb-4">
+                                        <img src="/img/search-icon.png" class="search-icon" alt="">
+                                        <input type="text" class="search_BX"
+                                        v-on:keypress="searchObjects">
+                                        <img src="/img/close-srch.png" @click="removeSearch" class="close-icon" alt="">
+                                        </div>
+                                </div>
+                                <!-- filter -->                            
+                                    <div class="col mb-4">
+                                        <select class="mt-0 select-custom-point">
+                                            <option value="" selected>Choose Year</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                        </select>
+                                    </div>
+                                <div class="col mb-4">
+                                    <select class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Month</option>
+                                        <option value="Janruary">Janruary</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
                             </div>
+                            <!-- end filter -->
 
                             <div v-if="single_order != 0" class="order-progress-ar">
                                 <div class="opar-bx">
@@ -66,8 +99,7 @@
                                     <!-- end :::  -->
                                 </div>
                             </div>
-                        </div>
-
+                        <div class="row">
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh">

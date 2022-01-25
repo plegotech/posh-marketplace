@@ -99,7 +99,7 @@
                     <input type="text" class="form-control"
                            v-model="company_data.zip_code"
                            :placeholder="company_data.zip_code" /><br>
-                    <button @click="updateCompany">Update</button>
+                    <button class="primary" @click="updateCompany">Update</button>
                 </div>
 
                 <div class="col-sm-6">
