@@ -64,7 +64,7 @@
                         </router-link>
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link :to="{ name: 'vendor-dashboard'}">
+                        <router-link :to="{ name: 'vendor-product-history'}">
                             <i class="sb-menu-icon product-history"></i>
                             <span class="nav-label">Product History</span>
                         </router-link>
