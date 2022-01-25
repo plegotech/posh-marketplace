@@ -33,6 +33,7 @@ class CompaniesController extends Controller
     public function updateCompany(Request $request)
     {
         $company = array();
+        $company['zip_code']            = $request->input('zip_code');
         $company['name']                = $request->input('name');
         $company['phone']               = $request->input('phone');
         $company['address']             = $request->input('address');
@@ -117,7 +118,7 @@ class CompaniesController extends Controller
 
     public function getCompanyByUserId($id)
     {
-        return Companies::where('user_id', $id)
-            ->first();
+        return response()->json(Companies::where('user_id', $id)
+            ->first());
     }
 }
