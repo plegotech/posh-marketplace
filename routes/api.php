@@ -26,6 +26,7 @@ Route::get('/admin-data', 'AdminController@adminData');
 Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}',
     'CompaniesController@companies');
 Route::post('/company', 'CompaniesController@createCompany');
+Route::post('/update-company', 'CompaniesController@updateCompany');
 Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
 
 Route::post('/login', 'UsersController@login');

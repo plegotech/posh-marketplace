@@ -30,6 +30,21 @@ class CompaniesController extends Controller
         return response()->json($companies);
     }
 
+    public function updateCompany(Request $request)
+    {
+        $company = array();
+        $company['name']                = $request->input('name');
+        $company['phone']               = $request->input('phone');
+        $company['address']             = $request->input('address');
+        $company['city']                = $request->input('city');
+        $company['state']               = $request->input('state');
+
+        Companies::where('id', $request->input('id'))
+            ->update($company);
+
+        return response()->json(['message' => 'company was updated successfully.']);
+    }
+
     public function createCompany(Request $request)
     {
         if(!empty($request->input('id'))) {

@@ -74,6 +74,7 @@ class UsersController extends Controller
             'email'         => 'required|email|unique:users|max:255',
             'first_name'    => 'required',
             'last_name'     => 'required',
+            'phone'         => 'required',
         );
 
         $validator = Validator::make($request->all(), $rules);
@@ -88,11 +89,14 @@ class UsersController extends Controller
             ), 400); // 400 being the HTTP code for an invalid request.
         }
 
+        $data = $request->all();
+        unset($data['_token']);
+
         if(!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
-                ->update($request->all());
+                ->update($data);
         } else {
-            User::create($request->all());
+            User::create($data);
         }
         return response()->json(['message' => 'user was updated successfully.']);
     }
