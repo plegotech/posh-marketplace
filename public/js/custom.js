@@ -16,6 +16,27 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 $(document).ready(function () {
+    
+    $(".row-box-s td:nth-child(2)").prepend("<span class='td-title-bx'>Order Id</span>");
+    
+
+    $(".mobile-btn-show tbody tr").addClass("row-box-s");
+    $(".mobile-btn-show tbody tr td:nth-child(3)").prepend("<span class='btn-mshow'><i class='fas fa-plus'></i></span>");    
+    $(".btn-mshow").on('click', function () {
+        $(this).find('.fas').toggleClass('active');
+        $('.td-title-bx').remove();        
+        $(this).parents('tr').toggleClass('divBlockset');
+        $("tr.divBlockset td:nth-child(1)").prepend("<span class='td-title-bx'>Order Id</span>");
+        $("tr.divBlockset td:nth-child(2)").prepend("<span class='td-title-bx'>Product</span>");
+        $("tr.divBlockset td:nth-child(3)").prepend("<span class='td-title-bx'>Tracking Id</span>");
+        $("tr.divBlockset td:nth-child(4)").prepend("<span class='td-title-bx'>Delivery Date</span>");
+        $("tr.divBlockset td:nth-child(5)").prepend("<span class='td-title-bx'>Quantity</span>");
+        $("tr.divBlockset td:nth-child(6)").prepend("<span class='td-title-bx'>Pricing</span>");
+        $("tr.divBlockset td:nth-child(7)").prepend("<span class='td-title-bx'>Status</span>");
+        $("tr.divBlockset td:nth-child(8)").prepend("<span class='td-title-bx'>Payment</span>");
+        $("tr.divBlockset td:nth-child(9)").prepend("<span class='td-title-bx'>Shipping Deal</span>");
+      });
+
     $('.button-left').click(function () {
         $('.sidebar').toggleClass('fliph');
     });

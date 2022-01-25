@@ -107,12 +107,6 @@
                                 <span>Chicago</span>
                             </td>
                         </tr>
-                        <div class="tableData-fm">
-                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
-                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
-                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
-                            <div class=""><spn class=""><strong>Order Id</strong></spn><span class="blue-txt">INV - 1001</span></div>
-                        </div>
                         <tr>
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
