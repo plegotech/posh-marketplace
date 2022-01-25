@@ -33,6 +33,7 @@ Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}',
 Route::post('/user', 'UsersController@createUser');
 Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');
 Route::get('/user/change-status/{userid}/{status}', 'UsersController@changeUserStatus');
+Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
 
 Route::post('/vendor', 'VendorController@vendor');
 

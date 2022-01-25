@@ -17,6 +17,7 @@ class CompaniesTable extends Migration
             $table->id();
             $table->string('logo')->nullable();
             $table->string('name');
+            $table->string('phone')->nullable();
             $table->string('licence')->nullable();
             $table->string('ein_number')->nullable();
             $table->integer('user_id');
@@ -25,6 +26,7 @@ class CompaniesTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
+            $table->string('zip_code')->nullable();
             $table->timestamps();
         });
     }

@@ -99,4 +99,10 @@ class CompaniesController extends Controller
     {
         return Excel::download(new CompaniesExport, $type. '-companies.xlsx');
     }
+
+    public function getCompanyByUserId($id)
+    {
+        return Companies::where('user_id', $id)
+            ->first();
+    }
 }
