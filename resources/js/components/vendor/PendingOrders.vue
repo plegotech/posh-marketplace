@@ -6,6 +6,8 @@
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
+                        <div class="row">
+                            <div class="col-sm-12">
                         <div class="search-box mb-4">
                             <img src="/img/search-icon.png" class="search-icon" alt="">
                             <input style="float:left" type="text" class="search_BX vendorPendingOrderSearch"
@@ -14,6 +16,10 @@
                             <img src="/img/close-srch.png" @click="removeVendorPendingOrderSearch" class="close-icon" alt="">
                         </div>
                         <hr>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
                         <!-- start: TABLE -->
                         <div class="pendingOrder-bx">
                         <table class="table" id="pvs-tab">
@@ -61,6 +67,8 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
+                        </div>
                         </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>

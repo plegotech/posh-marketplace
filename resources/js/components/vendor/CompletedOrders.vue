@@ -6,7 +6,7 @@
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
                         <div class="row  mb-4">
-                            <div class="col-sm-8">
+                            <div class="col-sm-12">
                                 <div class="search-box">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
@@ -15,9 +15,9 @@
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
                                 </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
+                                <div class="float-right row">
+                                    <div class="col">
+                                <select class="mt-0 select-custom-point">
                                     <option value="" selected>Choose Year</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
@@ -26,8 +26,8 @@
                                     <option value="2017">2017</option>
                                 </select>
                             </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
+                            <div class="col">
+                                <select class="mt-0 select-custom-point">
                                     <option value="" selected>Choose Month</option>
                                     <option value="Janruary">Janruary</option>
                                     <option value="February">February</option>
@@ -43,9 +43,14 @@
                                     <option value="December">December</option>
                                 </select>
                             </div>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <!-- start: TABLE -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                        <div class="orders-completed-bx">
                         <table class="table" id="pvs-tab">
                             <thead>
                             <tr>
@@ -100,6 +105,9 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
+                    </div>
+                        </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
                         </div>

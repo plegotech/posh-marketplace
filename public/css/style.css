@@ -605,7 +605,7 @@ i.sb-menu-icon:before {
     margin: 14px 0;
 }
 .main .datepicker-d {
-    margin-top: 20px;
+    margin-top: 24px;
     position: relative;
 }
 .main .datepicker-d i {
@@ -2359,6 +2359,10 @@ table.table.recent-Orders-table {
 .container-fluid.pending-vend.sellerMySales {
     padding-top: 15px;
 }
+button.navbar-toggler:hover {
+    background: transparent;
+    border: transparent;
+}
 /* START:: progressbar steps design */
 /*END:: dashboard-vendor*/
 .alert-time {
@@ -2436,7 +2440,7 @@ input.topheadSearch {
 }
 
 .comp-seller-myorders .search-box {float:left !important}
-
+hr { float: left; }
 .comp-seller-myorders hr {
     width: 100%;
     margin-top: 0;
@@ -2498,15 +2502,18 @@ input.topheadSearch {
   }
 
   /* Create a custom checkbox */
-  .checkmark {
+  label.chk-td-cont .checkmark {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
     height: 25px;
     width: 25px;
     background-color: #eee;
+    transform: translateX(-50%);
   }
-
+  .chk-td-cont input:checked ~ .checkmark {
+    background-color: #0862a3;
+}
   /* On mouse-over, add a grey background color */
   .chk-td-cont:hover input ~ .checkmark {
     background-color: #ccc;
@@ -2846,7 +2853,6 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
 }
 .vendorProduct tbody tr td {
     padding: 2px !important;
-    font-weight: bold;
 }
 .my-product {}
 .main .my-product h2 {
