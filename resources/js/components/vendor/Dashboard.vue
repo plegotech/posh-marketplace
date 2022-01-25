@@ -264,6 +264,25 @@
 </template>
 <script>
 export default {
-
+   methods:{
+        getUnits: function() {
+            $(document.body).on('click', function(){
+                var tableHeads = [];
+                var x = $('table thead tr th').each(function(){
+                    var data = $(this).contents();
+                    return data;
+                });
+                var length_col = x.length;
+                for(var i=0;i<=length_col-1;i++){
+                    var push_Arr = $(x[i]).text();
+                    tableHeads.push(push_Arr);
+                }
+                console.log(tableHeads);
+            });
+        }
+    },
+    beforeMount(){
+        this.getUnits()
+    },
 }
 </script>
