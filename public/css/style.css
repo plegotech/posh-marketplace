@@ -2279,11 +2279,11 @@ table.table.recent-Orders-table {
 .stepper-item.active:after {
     border-color: #0862a3;
 }
-.tableData-fm {
-    display: none;
-}
 .table th, .table td {position: relative;}
 .Seller_myorders_bx {
+    overflow-x: auto;
+}
+.recent_table-bxes {
     overflow-x: auto;
 }
 /* START:: progressbar steps design */
