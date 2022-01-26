@@ -4,9 +4,9 @@
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
 
-                    <div class="row mb-4 px-4">
+                    <div class="row mb-4">
                         <div class="col-sm-5">
-                            <div class="search-box mt-3" style="max-width:100%">
+                            <div class="search-box " style="max-width:100%">
                                 <form action="">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input type="text" class="search_BX">
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->
-                            <div id="first-pvs-posh" class="top-newOrder">
+                            <div id="first-pvs-posh" class="mt-2">
                                 <!-- start: TABLE -->
                                 <table class="table" id="pvs-tab">
                                     <thead>
