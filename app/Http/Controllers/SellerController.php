@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Companies;
 use Illuminate\Http\Request;
 use App\User;
+use App\SellerWebsite;
+use App\SellerProduct;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
@@ -93,5 +95,18 @@ class SellerController extends Controller
         } else {
 
         }
+    }
+
+    public function website($seller)
+    {
+        return SellerWebsite::where('seller_id', $seller)
+            ->first();
+    }
+
+    public function sellerProduct(Request $request)
+    {
+        return $count = SellerProduct::where('seller_id', $request->input('seller_id'))
+            ->where('product_id', $request->input('product_id'))
+            ->count();
     }
 }

@@ -47,11 +47,11 @@ class ProductController extends Controller
         }
 
         if($category != "0") {
-            $products = $products->where('categories', 'LIKE', '%'.$category.'%');
+            $products = $products->where('parent_category', 'LIKE', '%'.$category.'%');
         }
 
         if($sub_category != "0") {
-            $products = $products->where('categories', 'LIKE', '%'.$sub_category.'%');
+            $products = $products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
         }
 
         if($status != "0") {

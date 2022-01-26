@@ -29,6 +29,7 @@
     <script>
         var SITE_CATEGORIES = JSON.parse('<?php echo json_encode(\Config::get('constants.categories')); ?>');
         var SITE_BRANDS = JSON.parse('<?php echo json_encode(\Config::get('constants.brands')); ?>');
+        var SELLER_TIERS = JSON.parse('<?php echo json_encode(\Config::get('constants.seller_tiers')); ?>');
     </script>
 </head>
 <body>

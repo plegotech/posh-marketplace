@@ -70,5 +70,10 @@ return [
         'Intel',
         'Nike',
         'Honda'
+    ),
+    'seller_tiers' => array(
+        'tier_free'     => 10,
+        'tier_two'      => 20,
+        'tier_three'    => 50
     )
 ];

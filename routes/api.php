@@ -38,6 +38,7 @@ Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
 
 Route::post('/vendor', 'VendorController@vendor');
 
+Route::post('/seller-product', 'SellerController@sellerProduct');
 Route::post('/seller/{step}', 'SellerController@seller');
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
@@ -48,3 +49,5 @@ Route::get('/orders/vendor-change-status/{vendor_id}/{order_id}/{status}', 'Orde
 Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
 Route::get('/product/remove/{product?}', 'ProductController@remove');
 Route::post('/product', 'ProductController@create');
+
+Route::get('/website/{seller_id}', 'SellerController@website');
