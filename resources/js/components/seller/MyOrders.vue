@@ -1,101 +1,97 @@
 <template>
     <div class="container-fluid pending-vend comp-seller-myorders">
-<!--This is not dynamic, M copied companies code.-->
         <div class="row" style="margin-top:20px">
             <div class="col-sm-12">
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
-                    <div class="row">
-                            <div class="col-sm-8   mb-4">
+                        <div class="row  mb-4">
+                            <div class="col-sm-8">
                                 <div class="search-box">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
-                                    <input style="float:left" type="text" class="search_BX pendingVendorSearch"
-                                        v-on:keypress="searchTheVendors"
-                                        data-type="pending">
-                                    <img src="/img/close-srch.png" @click="removePendingVendorSearch" class="close-icon" alt="">
+                                    <input style="float:left" type="text" class="search_BX"
+                                           v-on:keypress="searchObjects"
+                                           data-type="pending">
+                                    <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
+                                         alt="">
                                 </div>
                             </div>
-                                <div class="col-sm-2 mb-4">
-                                    <select name="" id="" class="mt-0">
-                                        <option value="" selected>Choose Year</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2 mb-4">
-                                    <select name="" id="" class="mt-0">
-                                        <option value="" selected>Choose Month</option>
-                                        <option value="Janruary">Janruary</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="August">August</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
-                                    </select>
-                                </div>
+                            <div class="col-sm-2">
+                                <select class="mt-0">
+                                    <option value="" selected>Choose Year</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select class="mt-0">
+                                    <option value="" selected>Choose Month</option>
+                                    <option value="Janruary">Janruary</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
                         </div>
                         <hr>
                         <!-- start: TABLE -->
-                        <div class="Seller_myorders_bx">
                         <table class="table" id="pvs-tab">
                             <thead>
                             <tr>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Order Id <img
+                                <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
                                     class="shuffle"
                                     src="/img/shuffle.png"></span>
                                 </th>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Recipient <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
+                                <th @click="fetch(0, 0, 'first_name')" class="shuffle-bx" scope="col"><span
+                                    class="sort-ad">Recipient <img class="shuffle"
+                                                                   src="/img/shuffle.png"></span>
                                 </th>
-                                <th class="shuffle-bx" scope="col" @click=""><span class="sort-ad">Delivery Date <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
+                                <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span
+                                    class="sort-ad">Delivery Date <img
+                                    class="shuffle" src="/img/shuffle.png"></span>
                                 </th>
-                                <th scope="col">Shipping Details</th>
+                                <th scope="col">Shipping Detail</th>
                                 <th scope="col">Status</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="company in companies" v-bind="company.id">
+                            <tr v-for="order in orders">
                                 <td>
-                                    <span>{{ company.first_name }}</span>
+                                    <span>{{ order.id }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ company.last_name }}</span>
+                                    <span>{{ order.first_name }} {{ order.last_name }} </span>
                                 </td>
                                 <td>
-                                    <span>{{ company.address }}</span>
+                                    <span>{{ order.ordered_at }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ company.city }}, {{ company.state }}</span>
+                                    <span>{{ order.shipping_address }}</span>
                                 </td>
                                 <td>
-                                    <span><span class="shipped">Shipped</span></span>
-                                    <!--<span><span class="cancelled">Cancelled</span></span>
-                                    <span><span class="pending">Pending</span></span>-->
+                                    <span class="comleted-txt">{{ order.progress }}</span>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
                         </div>
                         <div class="foot-table" v-if="total > 0">
                             <div class="left"><span>Rows Per Page:
                                             <select
-                                                @change="fetchCompanies(current_page, $event.target.value, 0, 'pending')">
+                                                @change="fetch(current_page, $event.target.value)">
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="75">75</option>
@@ -105,10 +101,10 @@
                             <div class="right">
                                 <span>{{ from }}-{{ to }} of {{ total }} Items</span>
                                 <img
-                                    src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1, 0, 0, 'pending')"
+                                    src="/img/prev-arrow.png" @click="fetch(current_page-1)"
                                     alt="" class="prev-itm">
                                 <img
-                                    src="/img/next-arrow.png" @click="fetchCompanies(current_page+1, 0, 0, 'pending')"
+                                    src="/img/next-arrow.png" @click="fetch(current_page+1)"
                                     alt="" class="next-itm"></div>
                         </div>
                         <!-- END: TABLE   -->
@@ -127,8 +123,8 @@
 export default {
     data() {
         return {
-            companies: [],
-            rej_companies: [],
+            user: this.$store.state.auth.user,
+            orders: [],
             search: 0,
             per_page: 0,
             order: 'asc',
@@ -136,20 +132,16 @@ export default {
             to: null,
             from: null,
             total: null,
-            current_page: null,
-            rej_to: null,
-            rej_from: null,
-            rej_total: null,
-            rej_current_page: null
+            current_page: null
         }
     },
     created() {
-        this.fetchCompanies();
-        this.fetchCompanies(0, 0, 0, 'pending');
+        this.fetch();
     },
     methods: {
-        fetchCompanies(page = 0, per_page = 0, order_by = 0, type = 'rejected', search = 0) {
-            var url = '/api/companies/vendor';
+        fetch(page = 0, per_page = 0, order_by = 0, search = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/orders/seller/' + this.user.id;
 
             if (per_page > 0 || this.per_page > 0) {
                 if (per_page > 0) {
@@ -176,12 +168,6 @@ export default {
                 url += '/desc';
             }
 
-            if (type == 'pending') {
-                url += '/pending';
-            } else {
-                url += '/rejected';
-            }
-
             var search = search;
 
             if (search != 0 || this.search != 0) {
@@ -189,7 +175,11 @@ export default {
                     this.search = search;
                 }
                 url += '/' + this.search;
+            } else {
+                url += '/0';
             }
+
+            url += '/0';
 
             if (page > 0) {
                 url += '?page=' + page;
@@ -198,65 +188,33 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    if (type == 'pending') {
-                        this.companies = res.data;
-                        this.to = res.to;
-                        this.from = res.from;
-                        this.total = res.total;
-                        if (res.total < res.per_page) {
-                            this.from = 0;
-                        }
-                        this.current_page = res.to / res.per_page;
-                    } else {
-                        this.rej_companies = res.data;
-                        this.rej_to = res.to;
-                        this.rej_from = res.from;
-                        this.rej_total = res.total;
-                        if (res.total < res.per_page) {
-                            this.rej_from = 0;
-                        }
-                        this.rej_current_page = res.to / res.per_page;
+                    this.orders = res.data;
+                    this.to = res.to;
+                    this.from = res.from;
+                    this.total = res.total;
+                    if (res.total < res.per_page) {
+                        this.from = 0;
                     }
+                    this.current_page = res.to / res.per_page;
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
         },
 
-        searchTheVendors: function (e) {
+        searchObjects: function (e) {
             if (e.keyCode === 13) {
                 var element = e.target;
-                var type = element.getAttribute('data-type');
-
-                if (type == 'pending') {
-                    this.fetchCompanies(0, 0, 0, 'pending', element.value);
-                } else {
-                    this.fetchCompanies(0, 0, 0, 'rejected', element.value);
-                }
+                this.fetch(0, 0, 0, element.value);
             }
         },
 
-        removePendingVendorSearch: function () {
-            document.getElementsByClassName('pendingVendorSearch')[0].value = '';
+        removeSearch: function () {
+            document.getElementsByClassName('search_BX')[0].value = '';
             this.search = 0;
-            this.fetchCompanies(0, 0, 0, 'pending');
+            this.fetch();
         },
-
-        removeRejectedVendorSearch: function () {
-            document.getElementsByClassName('rejectedVendorSearch')[0].value = '';
-            this.search = 0;
-            this.fetchCompanies(0, 0, 0, 'rejected');
-        },
-
-        changeUserStatus(user_id, status) {
-            var url = '/api/user/change-status/' + user_id + '/' + status;
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    alert(data.message);
-                    this.fetchCompanies();
-                    this.fetchCompanies(0, 0, 0, 'pending');
-                })
-                .catch(err => console.log(err));
-        }
     }
 }
 </script>

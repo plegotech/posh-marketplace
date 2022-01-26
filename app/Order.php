@@ -76,4 +76,51 @@ class Order extends Model
         }
         return $orders;
     }
+
+
+    public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status)
+    {   // Oct 01, 2021 09:58 PM
+        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
+            'users.first_name', 'users.last_name','products.vendor_id', 'order_items.quantity',
+            'order_items.status as item_status', 'order_items.progress',
+            DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
+
+        if(strlen($search) > 1) {
+            $orders = $orders->where(function ($orders) use($search) {
+                $orders->where('users.first_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('products.name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('products.brand', 'LIKE', '%'.$search.'%')
+                    ->orWhere('orders.shipping_address', 'LIKE', '%'.$search.'%')
+                    ->orWhere('orders.notes', 'LIKE', '%'.$search.'%');
+            });
+        }
+
+        if(strlen($status) > 1) {
+            if($status == 'delivered') {
+                $orders = $orders->where('order_items.progress', $status);
+            } else {
+                $orders = $orders->where('order_items.status', $status);
+            }
+        }
+
+        $orders = $orders->where('order_items.seller_id', $seller);
+
+        $orders = $orders->join('order_items', 'order_items.order_id', '=', 'orders.id');
+        $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id');
+        $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
+
+        $orders = $orders->orderBy($order_by, $order)
+            ->groupBy('order_items.id');
+        // Each item is being considered a separate order as sites contain multiple vendors & a buyer is not
+        // restricted to purchase from an specific vendor
+
+        if(!empty($per_page)) {
+            $orders = $orders->paginate($per_page);
+        } else {
+            $orders = $orders->take(25000)
+                ->get();
+        }
+        return $orders;
+    }
 }

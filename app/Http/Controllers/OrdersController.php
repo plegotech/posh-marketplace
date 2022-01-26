@@ -63,4 +63,13 @@ class OrdersController extends Controller
 
         return response()->json($orders, 201);
     }
+
+    public function fetchAllBySeller($seller, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
+    {
+        $orders = new Order();
+
+        $orders = $orders->getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status);
+
+        return response()->json($orders, 201);
+    }
 }

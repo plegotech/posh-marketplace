@@ -17,6 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->integer('order_id');
             $table->integer('item_id');
+            $table->integer('seller_id');
             $table->integer('quantity')->default(1);
             $table->timestamp('shipping_date')->nullable();
             $table->timestamp('delivery_date')->nullable();

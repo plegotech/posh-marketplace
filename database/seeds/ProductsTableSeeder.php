@@ -67,6 +67,7 @@ class ProductsTableSeeder extends seeder
 
         $vendor_ids = User::where('user_type', 'vendor')
             ->where('email', 'like', '%@yopmail.com%')
+            ->where('status', 'approved')
             ->get()->pluck('id');
 
         $product_images = ['logo_1.png', 'logo_2.png'];
