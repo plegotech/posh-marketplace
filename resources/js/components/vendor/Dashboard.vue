@@ -63,7 +63,8 @@
                 <div class="box-shadow-wbg">
                     <h2 class="title-b-inside">Recent Orders</h2>
                     <div class="recent_table-bxes">
-                    <table class="table recent-Orders-table mobile-btn-show">
+
+                    <table class="table recent-Orders-table mobile-btn-show" id="vendor_DB">
                         <thead>
                         <tr>
                             <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -109,7 +110,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span class="blue-txt">INV - 1001</span>
+                                <span class="blue-txt">INV - 1002</span>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -138,7 +139,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span class="blue-txt">INV - 1001</span>
+                                <span class="blue-txt">INV - 1003</span>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -167,7 +168,7 @@
                         </tr>
                         <tr class="ifpending-bx">
                             <td>
-                                <span class="blue-txt">INV - 1001</span>
+                                <span class="blue-txt">INV - 1004</span>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -196,7 +197,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span class="blue-txt">INV - 1001</span>
+                                <span class="blue-txt">INV - 1005</span>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -225,7 +226,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span class="blue-txt">INV - 1001</span>
+                                <span class="blue-txt">INV - 1006</span>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -264,29 +265,6 @@
 </template>
 <script>
 export default {
-   methods:{
-        getUnits: function() {
-            //  $(document.body).on('click', function(){
-            $(".btn-mshow-old").on('click', function(){
-                var tableHeads = [];
-                var x = $('table thead tr th').each(function(){
-                    var data = $(this).contents();
-                    return data;
-                });
-                var length_col = x.length;
-                for(var i=0;i<=length_col-1;i++){
-                    var push_Arr = $(x[i]).text();
-                    tableHeads.push(push_Arr);
-                }   
-                // console.log(tableHeads);             
-                $(".row-box-s td:nth-child(1)").prepend((tableHeads[0]));                
-                $(".row-box-s td:nth-child(2)").prepend((tableHeads[1]));
-            });
-        }
-    },
-    beforeMount(){
-        this.getUnits()
-    },
-   
+  
 }
 </script>

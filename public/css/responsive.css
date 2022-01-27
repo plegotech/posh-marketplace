@@ -241,7 +241,7 @@ span.btn-mshow {
     .sec-box:nth-child(2) .secBox-rtxt:before {
         background: transparent;
     }
-     .mobile-btn-show tr td:nth-child(n+4), .mobile-btn-show tr th:nth-child(n+4) {
+     .mobile-btn-show tr td:nth-child(n+2), .mobile-btn-show tr th:nth-child(n+2) {
         display: none;
     }
     table tr td,table tr th{white-space: nowrap;}
@@ -347,6 +347,17 @@ span.btn-mshow {
     .sec-box img {
         max-width: 100%;
         width: auto;
+    }
+    body table tbody tr.set-table {    border: 2px solid #4872ad;border-top:0px}
+    body table tbody tr.set-table td span.title-span {font-weight:500;}
+    body table tbody tr.set-table td {display:table !important;width: 100%;margin: 0px 0px;border: 0px;border-top: 1px solid #e9e9e9;text-align: left;}
+    body table tbody tr.set-table td span {padding-left:20px;margin: 5px 0px;display: block;border: 0px;width:50%;float:left;}
+    body table tbody tr.set-table td:first-child {background:#4872ad;color:white !important;}
+    body table tbody tr.set-table td span.blue-txt {color:white !important;font-weight:500;}
+    body table tbody tr.set-table td:nth-child(2n+2){background:#f4f4f4;}
+    .main .pending-vend .top-newOrder table tbody tr td {
+        padding: 7px 10px;
+        border-color: transparent;
     }
 }
 @media only screen and (max-width: 400px) {
