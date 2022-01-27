@@ -37,22 +37,13 @@
                                         <input v-model="vendor.state" placeholder="State*" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <select class="form-control">
-                                            <option selected>Gender*</option>
-                                            <option> Male</option>
-                                            <option> Female</option>
-                                            <option> Other</option>
+                                        <select v-model="vendor.gender" class="form-control">
+                                            <option value="">Gender*</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
                                         </select>
                                     </div>
-                                   <!-- <div class="form-group col-md-6">
-                                        <select v-model="vendor.state" class="form-control">
-                                            <option selected>State*</option>
-                                            <option> New Buyer</option>
-                                            <option> Auction</option>
-                                            <option> Complaint</option>
-                                            <option> Feedback</option>
-                                        </select>
-                                    </div> -->
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.phone" placeholder="Phone Number*" class="form-control" type="tel">
                                     </div>
@@ -61,7 +52,7 @@
                                     </div>
                                     <!-- <div class="form-group col-md-6">
                                         <input type="number" v-model="vendor.subscription_fee" placeholder="Subscription Fees*" class="form-control">
-                                    </div>-->                                    
+                                    </div>-->
                                     <div class="form-group col-md-6">
                                         <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
                                     </div>
@@ -100,6 +91,7 @@ export default {
         return {
             errors:                         null,
             vendor: {
+                gender:                     null,
                 first_name:                 null,
                 last_name:                  null,
                 address:                    null,
