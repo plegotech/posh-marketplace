@@ -47,6 +47,8 @@
                                 </div>
                             </div>
                             </div>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <!-- start: TABLE -->
