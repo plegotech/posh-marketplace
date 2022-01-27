@@ -105,8 +105,23 @@ class SellerController extends Controller
 
     public function sellerProduct(Request $request)
     {
-        return $count = SellerProduct::where('seller_id', $request->input('seller_id'))
+        $count = SellerProduct::where('seller_id', $request->input('seller_id'))
             ->where('product_id', $request->input('product_id'))
             ->count();
+
+        if($count) {
+            SellerProduct::where('seller_id', $request->input('seller_id'))
+                ->where('product_id', $request->input('product_id'))
+                ->delete();
+
+            return response()->json(array('status' => 'deleted'));
+        } else {
+            SellerProduct::create(array(
+                'seller_id' => $request->input('seller_id'),
+                'product_id' => $request->input('product_id')
+            ));
+
+            return response()->json(array('status' => 'created'));
+        }
     }
 }

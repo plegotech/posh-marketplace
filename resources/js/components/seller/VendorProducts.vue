@@ -53,7 +53,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="product in all_products">
+                            <tr v-for="product in all_products"
+                            :id="'allProduct'+product.id">
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
                                     <span>{{ product.id }}</span>
@@ -67,16 +68,38 @@
                                     </span>
                                 </td>
                                 <td class="center">
-                                    <label class="chk-td-cont">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <i class="fa fa-check-double" @click="toggleSellerProduct(product.id)"></i>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
 
+                    <div v-if="all_total > 0" class="row">
+                        <div class="col-sm-12 d-flex justify-content-center">
+                            <div aria-label="Page navigation example">
+                                <ul class="pagination bottm-pagination">
+                                    <li v-if="all_current_page > 4" @click="fetchAllProducts(all_current_page - 4)" class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li v-if="all_current_page > 3" @click="fetchAllProducts(all_current_page - 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 3 }}</a></li>
+                                    <li v-if="all_current_page > 2" @click="fetchAllProducts(all_current_page - 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 2 }}</a></li>
+                                    <li v-if="all_current_page > 1" @click="fetchAllProducts(all_current_page - 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 1 }}</a></li>
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)"> {{ all_current_page }} </a></li>
+                                    <li v-if="all_last_page > (all_current_page)" @click="fetchAllProducts(all_current_page + 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 1 }}</a></li>
+                                    <li v-if="all_last_page > (all_current_page + 1)" @click="fetchAllProducts(all_current_page + 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 2 }}</a></li>
+                                    <li v-if="all_last_page > (all_current_page + 2)" @click="fetchAllProducts(all_current_page + 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 3 }}</a></li>
+                                    <li v-if="all_last_page > (all_current_page + 3)" @click="fetchAllProducts(all_current_page + 4)" class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true"> &raquo; </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="my-product">
                         <h2>My Products <span>({{ total }} of {{ max_product }} chosen)</span></h2>
@@ -105,10 +128,7 @@
                                     </span>
                                 </td>
                                 <td class="center">
-                                    <label @click="toggleSellerProduct(product.id)" class="chk-td-cont">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
                                 </td>
                             </tr>
                         </tbody>
@@ -150,11 +170,11 @@ export default {
         console.log('Component mounted.')
     },
     created() {
-        this.parent_categories = SITE_CATEGORIES;
-        this.fetchProducts();
-        this.product_check.seller_id = this.user.id;
         this.fetchAllProducts();
+        this.parent_categories = SITE_CATEGORIES;
+        this.product_check.seller_id = this.user.id;
         this.fetchWebsite();
+        this.fetchProducts();
     },
     methods: {
 
@@ -228,6 +248,10 @@ export default {
                 .then(res => {
                     this.products       = res.data;
                     this.total          = res.total;
+                    var productsData = this.products;
+                    productsData.forEach(function (product) {
+                        document.getElementById('allProduct'+product.id).style.display = 'none';
+                    });
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
