@@ -16,6 +16,7 @@
                                          alt="">
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="col-sm-2">
                                 <select class="mt-0">
                                     <option value="" selected>Choose Year</option>
@@ -43,6 +44,35 @@
                                     <option value="December">December</option>
                                 </select>
                             </div>
+=======
+                                <div class="col-sm-2 mb-4">
+                                    <select name="" id="" class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Year</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 mb-4">
+                                    <select name="" id="" class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Month</option>
+                                        <option value="Janruary">Janruary</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                         </div>
                         <hr>
                         <!-- start: TABLE -->

@@ -96,12 +96,15 @@
 }
 }
 @media only screen and (max-width: 991px) {
+<<<<<<< HEAD
     .admin-manage-vend-bx {
         overflow-x: auto;
     }
     .top-prodMain {
         overflow-x: auto;
     }
+=======
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
     .pendingOrder-bx {
         overflow-x: auto;
     }
@@ -180,6 +183,7 @@ span.btn-mshow {
 }
 }
 @media only screen and (max-width: 768px) {
+<<<<<<< HEAD
     .top-newOrder table tbody tr.row-box-s.divBlockset:nth-child(2n+2) {
         background: transparent!important;
     }
@@ -187,6 +191,8 @@ span.btn-mshow {
         padding-top: 5px!important;
         padding-bottom: 5px!important;
     }
+=======
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
     div#first-pvs-posh {
         overflow-x: auto;
     }
@@ -199,11 +205,18 @@ span.btn-mshow {
     tr.row-box-s.divBlockset td {
         border-top: 0px;
     }
+<<<<<<< HEAD
     .table.mobile-btn-show tr th, .table.mobile-btn-show tr td {
         font-size: 11px;
         padding-bottom: 10px!important;
         padding-left: 0.75em!important;
         padding-top: 10px!important;
+=======
+    .mobile-btn-show tr th, .mobile-btn-show tr td {
+        font-size: 11px;
+        padding-bottom: 0;
+        padding-left: 0.75em!important;
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
     }
     .price-title-b h3 {
         font-size: 23px;

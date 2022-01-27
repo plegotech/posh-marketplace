@@ -122,11 +122,15 @@
                     <input type="text" class="form-control"
                            v-model="company_data.zip_code"
                            :placeholder="company_data.zip_code" /><br>
+<<<<<<< HEAD
                            </div>
                             <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateCompany">Update</button>
                     </div>
                     </div>
+=======
+                    <button class="primary" @click="updateCompany">Update</button>
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                 </div>
 
                 <div class="col-sm-6">

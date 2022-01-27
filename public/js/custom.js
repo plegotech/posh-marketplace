@@ -16,6 +16,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 $(document).ready(function () {
+<<<<<<< HEAD
    
     // $(".mobile-btn-show tbody tr").addClass("row-box-s");
     // $(".mobile-btn-show tbody tr td:nth-child(3)").prepend("<span class='btn-mshow'><i class='fas fa-plus'></i></span>");    
@@ -43,6 +44,36 @@ $(document).ready(function () {
     //      $("tr.divBlockset td:nth-child(7)").prepend("<span class='td-title-bx'>"+tableHeads[6]+"</span>");
     //      $("tr.divBlockset td:nth-child(8)").prepend("<span class='td-title-bx'>"+tableHeads[7]+"</span>");
     //      $("tr.divBlockset td:nth-child(9)").prepend("<span class='td-title-bx'>"+tableHeads[8]+"</span>");
+=======
+    
+    $(".row-box-s td:nth-child(2)").prepend("<span class='td-title-bx'>Order Id</span>");    
+    $(".mobile-btn-show tbody tr").addClass("row-box-s");
+    $(".mobile-btn-show tbody tr td:nth-child(3)").prepend("<span class='btn-mshow'><i class='fas fa-plus'></i></span>");    
+    $(".btn-mshow").on('click', function () {
+        $(this).find('.fas').toggleClass('active');
+        $('.td-title-bx').remove();        
+        $(this).parents('tr').toggleClass('divBlockset');
+        var tableHeads = [];
+        var x = $('table thead tr th').each(function(){
+            var data = $(this).contents();
+            return data;
+        });
+        var length_col = x.length;
+        for(var i=0;i<=length_col-1;i++){
+            var push_Arr = $(x[i]).text();
+            tableHeads.push(push_Arr);
+        }   
+        //  console.log(tableHeads);             
+         $("tr.divBlockset td:nth-child(1)").prepend("<span class='td-title-bx'>"+tableHeads[0]+"</span>");
+         $("tr.divBlockset td:nth-child(2)").prepend("<span class='td-title-bx'>"+tableHeads[1]+"</span>");
+         $("tr.divBlockset td:nth-child(3)").prepend("<span class='td-title-bx'>"+tableHeads[2]+"</span>");
+         $("tr.divBlockset td:nth-child(4)").prepend("<span class='td-title-bx'>"+tableHeads[3]+"</span>");
+         $("tr.divBlockset td:nth-child(5)").prepend("<span class='td-title-bx'>"+tableHeads[4]+"</span>");
+         $("tr.divBlockset td:nth-child(6)").prepend("<span class='td-title-bx'>"+tableHeads[5]+"</span>");
+         $("tr.divBlockset td:nth-child(7)").prepend("<span class='td-title-bx'>"+tableHeads[6]+"</span>");
+         $("tr.divBlockset td:nth-child(8)").prepend("<span class='td-title-bx'>"+tableHeads[7]+"</span>");
+         $("tr.divBlockset td:nth-child(9)").prepend("<span class='td-title-bx'>"+tableHeads[8]+"</span>");
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
          
         // $(".row-box-s td:nth-child(1)").prepend("<span >"+(tableHeads[0])+"</span>");                
         // $(".row-box-s td:nth-child(2)").prepend('"<span>'(tableHeads[1])'</span>');
@@ -55,7 +86,11 @@ $(document).ready(function () {
         // $("tr.divBlockset td:nth-child(7)").prepend("<span class='td-title-bx'>Status</span>");
         // $("tr.divBlockset td:nth-child(8)").prepend("<span class='td-title-bx'>Payment</span>");
         // $("tr.divBlockset td:nth-child(9)").prepend("<span class='td-title-bx'>Shipping Deal</span>");
+<<<<<<< HEAD
       //});
+=======
+      });
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
 
     $('.button-left').click(function () {
         $('.sidebar').toggleClass('fliph');

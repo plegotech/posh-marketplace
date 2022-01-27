@@ -2286,12 +2286,20 @@ table.table.recent-Orders-table {
 .recent_table-bxes {
     overflow-x: auto;
 }
+<<<<<<< HEAD
 div#companyEdit input.form-control,div#userProfile input.form-control{
     border: 1px solid;
 }
 div#companyEdit,div#userProfile {
     margin-bottom: 30px;
     max-width: 800px;
+=======
+div#companyEdit input.form-control {
+    border: 1px solid;
+}
+div#companyEdit {
+    margin-bottom: 30px;
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
 }
 /* START:: progressbar steps design */
 .stepper-wrapper {

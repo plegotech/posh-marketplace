@@ -5,9 +5,15 @@
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
+<<<<<<< HEAD
                         <div class="row  ">
                             <div class="col-sm-6">
                                 <div class="search-box mb-4">
+=======
+                        <div class="row  mb-4">
+                            <div class="col-sm-12">
+                                <div class="search-box">
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
                                            v-on:keypress="searchObjects"
@@ -15,10 +21,15 @@
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
                                 </div>
+<<<<<<< HEAD
                                 </div>
                                 <div class="col-sm-6">
                                 <div class="justify-content-end row">
                                     <div class="col-sm-auto col-6 mb-4">
+=======
+                                <div class="float-right row">
+                                    <div class="col">
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                                     <select class="mt-0 select-custom-point">
                                         <option value="" selected>Choose Year</option>
                                         <option value="2021">2021</option>
@@ -28,7 +39,11 @@
                                         <option value="2017">2017</option>
                                     </select>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-sm-auto col-6 mb-4">
+=======
+                                <div class="col">
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                                     <select class="mt-0 select-custom-point">
                                         <option value="" selected>Choose Month</option>
                                         <option value="Janruary">Janruary</option>
@@ -53,7 +68,11 @@
                         <div class="row">
                             <div class="col-sm-12">
                         <div class="orders-completed-bx">
+<<<<<<< HEAD
                         <table class="table span.td-title-bx" id="pvs-tab">
+=======
+                        <table class="table" id="pvs-tab">
+>>>>>>> c948da5b6ec638f1dac58bf169e8fd34d2071665
                             <thead>
                             <tr>
                                 <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle"
