@@ -13,7 +13,7 @@
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 mt-4">
                     <select>
                         <option disabled value="" selected>Current Year</option>
                         <option>2020</option>
@@ -22,7 +22,7 @@
                     </select>
             </div>
              <div class=" col-sm-4">
-                <button class="secondary float-right">CLEAR ALL</button>
+                <button class="secondary float-right  mt-4">CLEAR ALL</button>
              </div>
         </div>
         <div class="row">
@@ -371,7 +371,7 @@
 
                 <div class="top-newOrder">
 
-                    <table class="table">
+                    <table class="table  mobile-btn-show">
                         <thead>
                         <tr>
                             <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>

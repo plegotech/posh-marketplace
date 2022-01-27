@@ -5,9 +5,9 @@
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
-                        <div class="row  mb-4">
-                            <div class="col-sm-8">
-                                <div class="search-box">
+                        <div class="row  ">
+                            <div class="col-sm-6">
+                                <div class="search-box mb-4">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
                                            v-on:keypress="searchObjects"
@@ -15,38 +15,65 @@
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
                                 </div>
+                                </div>
+                                <div class="col-sm-6">
+                                <div class="justify-content-end row">
+                                    <div class="col-sm-auto col-6 mb-4">
+                                    <select class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Year</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-auto col-6 mb-4">
+                                    <select class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Month</option>
+                                        <option value="Janruary">Janruary</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
-                                    <option value="" selected>Choose Year</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                </select>
                             </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
-                                    <option value="" selected>Choose Month</option>
-                                    <option value="Janruary">Janruary</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
-                                </select>
+                                </div>
+                                <div class="col">
+                                    <select class="mt-0 select-custom-point">
+                                        <option value="" selected>Choose Month</option>
+                                        <option value="Janruary">Janruary</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <hr>
                         <!-- start: TABLE -->
-                        <table class="table" id="pvs-tab">
+                        <div class="row">
+                            <div class="col-sm-12">
+                        <div class="orders-completed-bx">
+                        <table class="table span.td-title-bx" id="pvs-tab">
                             <thead>
                             <tr>
                                 <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle"
@@ -100,6 +127,9 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
+                    </div>
+                        </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
                         </div>

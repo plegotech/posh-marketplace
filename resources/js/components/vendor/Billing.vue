@@ -4,8 +4,14 @@
         <div class="row mt-4">
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 d-flex justify-content-end">
+                    <div class="row ">
+                        <div class="col-sm-6 ">
+                            <div class="search-box mb-4 flaot-left">
+                                <img src="/img/search-icon.png" alt="" class="search-icon">
+                                <input type="text" class="search_BX pendingVendorSearch"> <img src="/img/close-srch.png" alt="" class="close-icon">
+                            </div>
+                        </div>
+                        <div class="col">
                         <div class="select-bx-sho mr-3">
                             <select name="" id="" class="select-custom-point min-150">
                                 <option value="" selected="selected">Choose Year</option>
@@ -16,6 +22,8 @@
                                 <option value="2017">2017</option>
                             </select>
                         </div> 
+                        </div>
+                        <div class="col">
                         <div class="select-bx-sho">
                         <select name="" id="" class="select-custom-point min-150">
                             <option value="" selected="selected">Choose Month</option>
@@ -32,15 +40,16 @@
                             <option value="November">November</option>
                             <option value="December">December</option>
                         </select>
+                        </div>
                     </div>
                     </div>
-                    </div>
+                    
                     <div class="row">
                     <div class="col-sm-12">
                         <!-- START: FIRST TAB CONTENT -->
                         <div id="first-pvs-posh" class="mt-4">
                             <!-- start: TABLE -->
-                            <table class="table" id="pvs-tab">
+                            <table class="table  mobile-btn-show" id="pvs-tab">
                                 <thead>
                                 <tr>
                                     <th class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>

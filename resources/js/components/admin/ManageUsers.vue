@@ -102,7 +102,7 @@
                             <img src="/img/close-srch.png" @click="fetchUsersSearchClear" class="close-icon" alt="">
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table mobile-btn-show">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'first_name')"><span class="sort-ad">First Name <img

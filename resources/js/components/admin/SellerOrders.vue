@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="pendingvendor-sign">
-                  <table class="table">
+                  <table class="table mobile-btn-show">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>

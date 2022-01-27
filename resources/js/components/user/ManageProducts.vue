@@ -50,7 +50,7 @@
                     </div>
 
                     <div v-if="user.user_type == 'vendor'" class="row justify-content-md-end">
-                        <div class="col-sm-2 mb-4 ">
+                        <div class="w-auto mb-4  ">
                             <button class="primary btn-box-shadow"><i
                                 class="fas fa-cloud-upload-alt mr-2"></i><strong>
                                 <router-link :to="{ name: 'vendor-upload-products'}">
@@ -61,7 +61,7 @@
                     </div>
                     <!-- START:: Products listing -->
                     <div v-if="total > 0" class="row">
-                        <div v-for="product in products" class="col-sm-4">
+                        <div v-for="product in products" class="col-xl-4 col-lg-6 col-sm-6">
                             <div class="products-listing-bxx">
                                 <div class="">
                                     <img :src="'/img/product-images/'+ product.vendor_id + '/' + product.featured_image" alt="" class="">

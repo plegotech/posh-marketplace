@@ -39,25 +39,36 @@
                 </div>
 
                 <div id="userProfile" class="col-sm-12" style="display: none">
+                <div class="row">
+                <div class="col-sm-6">
                     <label>First Name:</label>
                     <input type="text" class="form-control"
                            v-model="user_data.first_name"
                            :placeholder="user_data.first_name" /><br>
+                </div>
+                <div class="col-sm-6">
                     <label>Last Name:</label>
                     <input type="text" class="form-control"
                            v-model="user_data.last_name"
                            :placeholder="user_data.last_name" /><br>
+                </div>
+                <div class="col-sm-6">
                     <label>Email:</label>
                     <input type="text" class="form-control"
                            v-model="user_data.email"
                            :placeholder="user_data.email" /><br>
+                </div>
+                <div class="col-sm-6">
                     <label>Phone:</label>
                     <input type="text" class="form-control"
                            v-model="user_data.phone"
                            :placeholder="user_data.phone" /><br>
-                    <button @click="updateProfile">Update</button>
                 </div>
-
+                <div class="offset-sm-3 col-sm-6">
+                    <button class="primary" @click="updateProfile">Update</button>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
         <div class="prof-area vendor-pro-b2">
@@ -75,31 +86,47 @@
                 </div>
 
                 <div id="companyEdit" class="col-sm-12" style="display: none">
+                <div class="row">
+                <div class="col-sm-6">
                     <label>Company Name:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.name"
                            :placeholder="company_data.name" /><br>
+                           </div>
+                            <div class="col-sm-6">
                     <label>Phone:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.phone"
                            :placeholder="company_data.phone" /><br>
+                           </div>
+                            <div class="col-sm-6">
                     <label>Address:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.address"
                            :placeholder="company_data.address" /><br>
+                           </div>
+                            <div class="col-sm-6">
                     <label>State:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.state"
                            :placeholder="company_data.state" /><br>
+                           </div>
+                            <div class="col-sm-6">
                     <label>City:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.city"
                            :placeholder="company_data.city" /><br>
+                           </div>
+                            <div class="col-sm-6">
                     <label>Zip Code:</label>
                     <input type="text" class="form-control"
                            v-model="company_data.zip_code"
                            :placeholder="company_data.zip_code" /><br>
-                    <button @click="updateCompany">Update</button>
+                           </div>
+                            <div class="offset-sm-3 col-sm-6">
+                    <button class="primary" @click="updateCompany">Update</button>
+                    </div>
+                    </div>
                 </div>
 
                 <div class="col-sm-6">

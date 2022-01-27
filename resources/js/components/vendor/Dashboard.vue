@@ -266,7 +266,8 @@
 export default {
    methods:{
         getUnits: function() {
-            $(document.body).on('click', function(){
+            //  $(document.body).on('click', function(){
+            $(".btn-mshow-old").on('click', function(){
                 var tableHeads = [];
                 var x = $('table thead tr th').each(function(){
                     var data = $(this).contents();
@@ -276,13 +277,16 @@ export default {
                 for(var i=0;i<=length_col-1;i++){
                     var push_Arr = $(x[i]).text();
                     tableHeads.push(push_Arr);
-                }
-                console.log(tableHeads);
+                }   
+                // console.log(tableHeads);             
+                $(".row-box-s td:nth-child(1)").prepend((tableHeads[0]));                
+                $(".row-box-s td:nth-child(2)").prepend((tableHeads[1]));
             });
         }
     },
     beforeMount(){
         this.getUnits()
     },
+   
 }
 </script>

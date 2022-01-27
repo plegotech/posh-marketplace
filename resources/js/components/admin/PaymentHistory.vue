@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="top-newOrder payment_Hist">
-                    <table class="table">
+                    <table class="table mobile-btn-show">
                         <thead>
                         <tr>
                             <th scope="col">Date</th>

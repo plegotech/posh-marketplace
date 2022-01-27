@@ -129,21 +129,21 @@
         </div>
         <div class="top-newOrder myorder">
             <div class="row">
-                <div class="col-sm-4 pl-35">
-                    <div class="search-box-top" style="max-width:100%">
+                <div class="col-sm-4 ">
+                    <div class="search-box-top mb-4" style="max-width:100%">
                         <img src="/img/search-icon.png" class="search-icon" alt="">
                         <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
                         <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
                     </div>
                 </div>
-                <div class="col-sm-8 pr-35">
+                <div class="col-sm-8 mb-4">
                     <button class="primary btn-exp-mv mt-0 float-right" @click="exportCompanies()">Export</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="top-newOrder">
-                        <table class="table">
+                    <div class="admin-manage-vend-bx">
+                        <table class="table mobile-btn-show">
                             <thead>
                             <tr>
                                 <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img

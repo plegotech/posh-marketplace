@@ -7,7 +7,7 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder">
-                    <table class="table">
+                    <table class="table mobile-btn-show">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Transaction Id<img class="shuffle" src="/img/shuffle.png"></span></th>

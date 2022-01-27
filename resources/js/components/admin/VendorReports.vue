@@ -3,26 +3,26 @@
     <div class="container-fluid seller_ord">
         <div class="row">
             <div class="col-sm-3">
-                <div class="datepicker-d">
+                <div class="datepicker-d mt-4">
                     <input placeholder="From" type="text" class="datepicker">
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="datepicker-d">
+                <div class="datepicker-d mt-4">
                     <input placeholder="To" type="text" class="datepicker">
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <select name="" id="">
+            <div class="col-sm-2 mt-4">
+                <select name="" id="" class="select-custom-point">
                     <option value="">
                     <option value="" selected>Current Year</option>
                     </option>
                 </select>
             </div>
             <div class="col-sm-2 offset-sm-2">
-                <button>CLEAR ALL</button>
+                <button class="mt-4">CLEAR ALL</button>
             </div>
         </div>
         <div class="row">

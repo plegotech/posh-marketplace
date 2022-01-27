@@ -19,7 +19,7 @@
                             <!-- START: FIRST TAB CONTENT -->
                             <div id="first-pvs-posh" class="">
                                 <!-- start: TABLE -->
-                                <table class="table" id="pvs-tab">
+                                <table class="table mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
