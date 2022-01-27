@@ -105,7 +105,7 @@
                             <div id="first-pvs-posh">
                                 <h1 class=" border-b-txt">In-Progress Orders</h1>
                                 <!-- start: TABLE -->
-                                <table class="table" id="pvs-tab">
+                                <table class="table  recent-Orders-table mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
