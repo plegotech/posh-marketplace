@@ -51,7 +51,7 @@
                             <div class="col-sm-12">
                         <!-- start: TABLE -->
                         <div class="pendingOrder-bx">
-                        <table class="table" id="pvs-tab">
+                        <table class="table mobile-btn-show" id="pvs-tab">
                             <thead>
                             <tr>
                                 <th class="shuffle-bx" scope="col"><span

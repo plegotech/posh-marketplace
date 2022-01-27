@@ -63,7 +63,9 @@
                 <div class="box-shadow-wbg">
                     <h2 class="title-b-inside">Recent Orders</h2>
                     <div class="recent_table-bxes">
-                    <table class="table recent-Orders-table">
+                    
+
+                    <table class="table recent-Orders-table mobile-btn-show">
                         <thead>
                         <tr>
                             <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -78,7 +80,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                    <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
                             </td>
@@ -107,7 +109,7 @@
                                 <span>Chicago</span>
                             </td>
                         </tr>
-                        <tr>
+                       <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
                             </td>
@@ -136,7 +138,7 @@
                                 <span>Chicago</span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
                             </td>
@@ -265,6 +267,29 @@
 
 <script>
 export default {
+   methods:{
+        getUnits: function() {
 
+          //  $(document.body).on('click', function(){
+            $('.mobile-btn-show').on('click', function(){
+                var tableHeads = [];
+                var x = $('table thead tr th').each(function(){
+                    var data = $(this).contents();
+                    return data;
+                });
+                var length_col = x.length;
+                for(var i=0;i<=length_col-1;i++){
+                    var push_Arr = $(x[i]).text();
+                    tableHeads.push(push_Arr);
+                }
+                console.log(tableHeads);
+                $("tr.divBlockset td:nth-child(1)").prepend("<span class='td-title-bx'>"+tableHeads[0]+"</span>");
+            });
+        }
+    },
+    beforeMount(){
+        this.getUnits()
+    },
+   
 }
 </script>

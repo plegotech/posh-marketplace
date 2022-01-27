@@ -46,14 +46,7 @@
                         </div>
                         <hr>
                         <!-- start: TABLE -->
-                        <table class="table" id="pvs-tab">
                             <thead>
-                            <tr>
-                                <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
-                                </th>
-                                <th @click="fetch(0, 0, 'first_name')" class="shuffle-bx" scope="col"><span
                                     class="sort-ad">Recipient <img class="shuffle"
                                                                    src="/img/shuffle.png"></span>
                                 </th>

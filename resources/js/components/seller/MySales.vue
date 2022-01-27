@@ -75,7 +75,7 @@
                         
                         <div class="top-newOrder">
                             
-                            <table class="table">
+                            <table class="table mobile-btn-show">
                                 <thead>
                                   <tr>
                                     <th scope="col"><span class="sort-ad">Product Name <img class="shuffle" src="/img/shuffle.png"></span></th>

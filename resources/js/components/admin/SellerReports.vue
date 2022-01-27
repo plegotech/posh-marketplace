@@ -14,7 +14,7 @@
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 mt-4">
                 <select name="" id="">
                     <option value="">
                     <option value="" selected>Current Year</option>
@@ -22,7 +22,7 @@
                 </select>
             </div>
             <div class="col-sm-2 offset-sm-2">
-                <button>CLEAR ALL</button>
+                <button class="mt-4">CLEAR ALL</button>
             </div>
         </div>
         <div class="row">

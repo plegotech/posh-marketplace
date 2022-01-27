@@ -35,7 +35,7 @@
                             </div>
                             <hr>
                             <div class="seller-tdiv">
-                            <table class="table">
+                            <table class="table  mobile-btn-show">
                                 <thead>
                                   <tr>
                                     <th scope="col"><span class="sort-ad">Order Id<img class="shuffle" src="/img/shuffle.png"></span></th>

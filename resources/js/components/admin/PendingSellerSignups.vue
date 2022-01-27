@@ -3,11 +3,12 @@
 
         <div class="row" style="margin-top:20px">
             <div class="col-sm-12">
+            <div class="top-newOrder">
                 <div class="tabs-section-bx">
                     <b-tabs content-class="mt-3">
                         <b-tab title="Pending Sellers" active>
                             <!-- START: FIRST TAB CONTENT -->
-                            <div id="first-pvs-posh" class="top-newOrder">
+                            <div id="first-pvs-posh">
                                 <div class="search-box mb-4">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input type="text" class="search_BX pendingSellerSearch" v-on:keypress="searchTheSellers"
@@ -16,7 +17,7 @@
                                 </div>
                                 <!-- start: TABLE -->
                                 <div class="pendingvendor-sign">
-                                <table class="table pss-bxb" id="pvs-tab">
+                                <table class="table pss-bxb mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'pending')"><span class="sort-ad">First Name <img class="shuffle"
@@ -108,7 +109,7 @@
                         </b-tab>
                         <b-tab title="Rejected Sellers">
                             <!-- START: FIRST TAB CONTENT -->
-                            <div id="second-pvs-posh" class="top-newOrder">
+                            <div id="second-pvs-posh">
                                 <div class="search-box mb-4">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input type="text" class="search_BX rejectedSellerSearch" v-on:keypress="searchTheSellers"
@@ -117,7 +118,7 @@
                                 </div>
                                 <!-- start: TABLE -->
                                 <div class="pendingvendor-sign">
-                                <table class="table" id="pvs-tab">
+                                <table class="table mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'rejected')"><span class="sort-ad">First Name <img class="shuffle"
@@ -195,7 +196,7 @@
                     </b-tabs>
                 </div>
             </div>
-
+</div>
 
         </div>
     </div>

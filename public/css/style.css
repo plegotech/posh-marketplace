@@ -654,7 +654,7 @@ i.sb-menu-icon:before {
     background: #FFFFFF;
     border: 1px solid #F8F8F8;
     box-sizing: border-box;
-    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    /* box-shadow: 0px 8px 22px rgb(0 0 0 / 10%); */
     padding: 15px;
     font-family: 'Inter';
 }
@@ -2286,11 +2286,12 @@ table.table.recent-Orders-table {
 .recent_table-bxes {
     overflow-x: auto;
 }
-div#companyEdit input.form-control {
+div#companyEdit input.form-control,div#userProfile input.form-control{
     border: 1px solid;
 }
-div#companyEdit {
+div#companyEdit,div#userProfile {
     margin-bottom: 30px;
+    max-width: 800px;
 }
 /* START:: progressbar steps design */
 .stepper-wrapper {

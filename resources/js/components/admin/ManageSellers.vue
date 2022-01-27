@@ -135,7 +135,7 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder msellers-bx">
-                    <table class="table">
+                    <table class="table mobile-btn-show">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
