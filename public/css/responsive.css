@@ -1,251 +1,269 @@
 
 @media only screen and (max-width: 1560px) {
-.btn-st {
-    padding-right: 6px;
-    padding-left: 6px;
-}
-}
-@media only screen and (max-width: 1400px) {
-.price-title-b h3 {
-    font-size: 20px;
-}
-.btn-st {
-    font-size: 13px;
-}
-}
-@media only screen and (min-width: 1200px) {
-    .pendingvendor-sign {
-        overflow-x: auto;
+    .btn-st {
+        padding-right: 6px;
+        padding-left: 6px;
     }
-}
-@media only screen and (max-width: 1200px) {
-    .main .body .box .left img {
-        width: 40px;
     }
-    .main .body h2 {
-        font-size: 20px;
-    }
-    .box-shadow-wbg .sec-box h3 {
-        margin-top: 5px;
-    }
-    .secBox-img .right-txt {
-        padding: 0 10px;
-    }
-    .sec-box .secBox-rtxt {
-        padding-left: 3px;
-    }
-}
-@media only screen and (max-width: 1024px) {
-    .up-main-bx-1 {
-        margin-left: 0;
-        margin-right: 14px;
-    }
-    .recent_table-bxes {
-        overflow-x: auto;
-    }
-    .pendingvendor-sign {
-        overflow-x: auto;
-        width: 100%;
-    }
-    .top-newOrder {
-        overflow-x: auto;
-    }
-    .main .body .tabs table tbody tr td {
-        font-size: 12px;
-    }
-    .main .body .tabs ul li a {
-        font-size: 10px;
-        padding-right: 4px;
-        padding-left: 4px;
-    }
-    .main .body .box .right:last-child, .main .body .box .right {
-        padding: 0 6px;
-    }
-    .main .body .box {
-        padding: 5px;
-    }
-    .main .body .box .left img {
-        width: 49px;
-    }
-    .main .body h2 {
-        font-size: 20px;
-    }
-
-}
-@media (min-width: 992px){
-    .pendingOrder-bx {
-        overflow-x: auto;
-        display: flex;
-        width: 100%;
-    }
-    .top-newOrder.msellers-bx {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .pl-35 {
-        padding-left: 35px!important;
-    }
-    .pr-35 {
-        padding-right: 35px!important;
-    }
-    .main .body {
-        width: calc(100% - 220px);
-    }
-.navbar-expand-lg .navbar-collapse {
-    align-items: baseline;
-}
-}
-@media only screen and (max-width: 991px) {
-    .admin-manage-vend-bx {
-        overflow-x: auto;
-    }
-    .top-prodMain {
-        overflow-x: auto;
-    }
-    .pendingOrder-bx {
-        overflow-x: auto;
-    }
-    .orders-completed-bx {
-        overflow-x: auto;
-    }
-    .box.graphs .right img {
-        width: 67%;
-    }
-    .seller-tdiv {
-        overflow-x: auto;
-    }
-    aside#navbarTogglerSidebar {
-        width: auto;
-    }
-    .secBox-img {
-        width: 33%;
-    }
-    nav.navbar.navbar-expand-lg.navbar-dark {
-        padding-right: 0;
-    }
-    ul.topnav-user li:last-child {
-        margin-left: 0;
-    }
-    th.shuffle-bx {
-        white-space: nowrap;
-    }
-  .vendorOrder-bx- {
-        overflow-x: auto;
-    }
-    .wrapper {
-        display: initial;
-    }
-    .main .body {
-        float: initial;
-    }
-    .top-newOrder {
-        overflow-x: auto;
-    }
-    .pending-vend .top-newOrder {
-        overflow-x: auto;
-    }
-    .box-shadow-wbg {
-        overflow-x: auto;
-        padding: 20px 15px;
-    }
-    .navbar-collapse.collapse.show {
-        left: 0;
-    }
-    .navbar-collapse.collapse {
-        left: -440px;
-        transition: 0.5s;
-    }
-    aside#navbarTogglerSidebar {
-        position: absolute;
-        transition: 0.5s;
-        display: block!important;
-    }
-    .sidebar-header.navbar-dark button.navbar-toggler {
-        width: 35px;
-        margin-top: 0;
-    }
-    .user-panel .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-    }
-    nav.navbar.navbar-expand-lg.navbar-dark button.navbar-toggler {
-        width: 44px;
-        background: transparent;
-        margin-top: 0;
-    }
-}
-@media only screen and (min-width: 767px) {
-span.btn-mshow {
-    display: none;
-}
-}
-@media only screen and (max-width: 768px) {
-    .top-newOrder table tbody tr.row-box-s.divBlockset:nth-child(2n+2) {
-        background: transparent!important;
-    }
-    tr.row-box-s.divBlockset td {
-        padding-top: 5px!important;
-        padding-bottom: 5px!important;
-    }
-    div#first-pvs-posh {
-        overflow-x: auto;
-    }
-    .mobile-btn-show tr.divBlockset td:first-child {
-        padding-top: 20px;
-    }
-    .mobile-btn-show tr.divBlockset td:last-child {
-        padding-bottom: 20px;
-    }
-    tr.row-box-s.divBlockset td {
-        border-top: 0px;
-    }
-    .table.mobile-btn-show tr th, .table.mobile-btn-show tr td {
-        font-size: 11px;
-        padding-bottom: 10px!important;
-        padding-left: 0.75em!important;
-        padding-top: 10px!important;
-    }
+    @media only screen and (max-width: 1400px) {
     .price-title-b h3 {
-        font-size: 23px;
+        font-size: 20px;
     }
-    tr.row-box-s.divBlockset span.btn-mshow {
-        top: 0;
+    .btn-st {
+        font-size: 13px;
     }
-    tr.row-box-s.divBlockset {
-        position: relative;
     }
-    tr.row-box-s.divBlockset td:first-child {
-        padding-left: 0.75em!important;
+    @media only screen and (min-width: 1200px) {
+        .pendingvendor-sign {
+            overflow-x: auto;
+        }
     }
-    i.fas.fa-plus.active:before {
-        content: "\f068";
+    @media only screen and (max-width: 1200px) {
+        .main .body .box .left img {
+            width: 40px;
+        }
+        .main .body h2 {
+            font-size: 20px;
+        }
+        .box-shadow-wbg .sec-box h3 {
+            margin-top: 5px;
+        }
+        .secBox-img .right-txt {
+            padding: 0 10px;
+        }
+        .sec-box .secBox-rtxt {
+            padding-left: 3px;
+        }
     }
-    .recent_table-bxes {
-        overflow: hidden;
+    @media only screen and (max-width: 1024px) {
+        .up-main-bx-1 {
+            margin-left: 0;
+            margin-right: 14px;
+        }
+        .recent_table-bxes {
+            overflow-x: auto;
+        }
+        .pendingvendor-sign {
+            overflow-x: auto;
+            width: 100%;
+        }
+        .top-newOrder {
+            overflow-x: auto;
+        }
+        .main .body .tabs table tbody tr td {
+            font-size: 12px;
+        }
+        .main .body .tabs ul li a {
+            font-size: 10px;
+            padding-right: 4px;
+            padding-left: 4px;
+        }
+        .main .body .box .right:last-child, .main .body .box .right {
+            padding: 0 6px;
+        }
+        .main .body .box {
+            padding: 5px;
+        }
+        .main .body .box .left img {
+            width: 49px;
+        }
+        .main .body h2 {
+            font-size: 20px;
+        }
+    
     }
-    span.td-title-bx {
-        font-weight: 700;
-        margin-right: 5px;
+    @media (min-width: 992px){
+        .pendingOrder-bx {
+            overflow-x: auto;
+            display: flex;
+            width: 100%;
+        }
+        .top-newOrder.msellers-bx {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .pl-35 {
+            padding-left: 35px!important;
+        }
+        .pr-35 {
+            padding-right: 35px!important;
+        }
+        .main .body {
+            width: calc(100% - 220px);
+        }
+    .navbar-expand-lg .navbar-collapse {
+        align-items: baseline;
     }
-    .divBlockset td {
-        display: inline-block;
-        position: initial;
-        width: 100%;
     }
-    .mobile-btn-show tr.divBlockset td:nth-child(n+4) {
-        display: block;
+    @media only screen and (max-width: 991px) {
+        .admin-manage-vend-bx {
+            overflow-x: auto;
+        }
+        .top-prodMain {
+            overflow-x: auto;
+        }
+        .pendingOrder-bx {
+            overflow-x: auto;
+        }
+        .orders-completed-bx {
+            overflow-x: auto;
+        }
+        .box.graphs .right img {
+            width: 67%;
+        }
+        .seller-tdiv {
+            overflow-x: auto;
+        }
+        aside#navbarTogglerSidebar {
+            width: auto;
+        }
+        .secBox-img {
+            width: 33%;
+        }
+        nav.navbar.navbar-expand-lg.navbar-dark {
+            padding-right: 0;
+        }
+        ul.topnav-user li:last-child {
+            margin-left: 0;
+        }
+        th.shuffle-bx {
+            white-space: nowrap;
+        }
+      .vendorOrder-bx- {
+            overflow-x: auto;
+        }
+        .wrapper {
+            display: initial;
+        }
+        .main .body {
+            float: initial;
+        }
+        .top-newOrder {
+            overflow-x: auto;
+        }
+        .pending-vend .top-newOrder {
+            overflow-x: auto;
+        }
+        .box-shadow-wbg {
+            overflow-x: auto;
+            padding: 20px 15px;
+        }
+        .navbar-collapse.collapse.show {
+            left: 0;
+        }
+        .navbar-collapse.collapse {
+            left: -440px;
+            transition: 0.5s;
+        }
+        aside#navbarTogglerSidebar {
+            position: absolute;
+            transition: 0.5s;
+            display: block!important;
+        }
+        .sidebar-header.navbar-dark button.navbar-toggler {
+            width: 35px;
+            margin-top: 0;
+        }
+        .user-panel .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+        }
+        nav.navbar.navbar-expand-lg.navbar-dark button.navbar-toggler {
+            width: 44px;
+            background: transparent;
+            margin-top: 0;
+        }
     }
-    .box-shadow-wbg.option-bx-p {
-        padding: 25px 20px 0px 20px;
-    }
-    .sec-box:nth-child(2) .secBox-rtxt:before {
-        background: transparent;
-    }
-     .mobile-btn-show tr td:nth-child(n+2), .mobile-btn-show tr th:nth-child(n+2) {
+    @media only screen and (min-width: 767px) {
+    span.btn-mshow {
         display: none;
     }
-    table tr td,table tr th{white-space: nowrap;}
-    span.btn-mshow {
+    }
+    @media only screen and (max-width: 768px) {
+        .top-newOrder table tbody tr.row-box-s.divBlockset:nth-child(2n+2) {
+            background: transparent!important;
+        }
+        tr.row-box-s.divBlockset td {
+            padding-top: 5px!important;
+            padding-bottom: 5px!important;
+        }
+        div#first-pvs-posh {
+            overflow-x: auto;
+        }
+        .mobile-btn-show tr.divBlockset td:first-child {
+            padding-top: 20px;
+        }
+        .mobile-btn-show tr.divBlockset td:last-child {
+            padding-bottom: 20px;
+        }
+        tr.row-box-s.divBlockset td {
+            border-top: 0px;
+        }
+        .table.mobile-btn-show tr th, .table.mobile-btn-show tr td {
+            font-size: 11px;
+            padding-bottom: 10px!important;
+            padding-left: 0.75em!important;
+            padding-top: 10px!important;
+        }
+        .price-title-b h3 {
+            font-size: 23px;
+        }
+        tr.row-box-s.divBlockset span.btn-mshow {
+            top: 0;
+        }
+        tr.row-box-s.divBlockset {
+            position: relative;
+        }
+        tr.row-box-s.divBlockset td:first-child {
+            padding-left: 0.75em!important;
+        }
+        i.fas.fa-plus.active:before {
+            content: "\f068";
+        }
+        .recent_table-bxes {
+            overflow: hidden;
+        }
+        span.td-title-bx {
+            font-weight: 700;
+            margin-right: 5px;
+        }
+        .divBlockset td {
+            display: inline-block;
+            position: initial;
+            width: 100%;
+        }
+        .mobile-btn-show tr.divBlockset td:nth-child(n+4) {
+            display: block;
+        }
+        .box-shadow-wbg.option-bx-p {
+            padding: 25px 20px 0px 20px;
+        }
+        .sec-box:nth-child(2) .secBox-rtxt:before {
+            background: transparent;
+        }
+         .mobile-btn-show tr td:nth-child(n+2), .mobile-btn-show tr th:nth-child(n+2) {
+            display: none;
+        }
+        table tr td,table tr th{white-space: nowrap;}
+        span.btn-mshow {
+            position: absolute;
+            right: 0px;
+            width: 35px;
+            height: 35px;
+            border: 1px solid #f5f5f5;
+            content: "";
+            font-family: 'Font Awesome 5 Free';
+            text-align: center;
+            color: #6c6868;
+            box-shadow: rgb(0 0 0 / 59%) -8px 2px 15px -11px;
+            background: #fff;
+            z-index: 9;
+            top: 0px;
+            line-height: 35px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+        /* .mobile-btn-show tr td:nth-child(3):before {
         position: absolute;
         right: 0px;
         width: 35px;
@@ -258,111 +276,134 @@ span.btn-mshow {
         box-shadow: rgb(0 0 0 / 59%) -8px 2px 15px -11px;
         background: #fff;
         z-index: 9;
-        top: 0px;
         line-height: 35px;
         font-weight: bolder;
         cursor: pointer;
+        }  */
+        .top-newOrder {
+            padding: 30px 20px;
+        }
+        .mobile-d-scroll .sec-box {
+            display: inline-block;
+            width: 49%;
+            text-align: center;
+        }
+        .d-flex.justify-content-between.mobile-d-scroll {
+            display: block!important;
+        }
+        ul.topnav-user li {
+            padding: 0 5px;
+        }
+        .box-shadow-wbg .sec-box h3 {
+            font-size: 16px;
+        }
+        .sec-box span {
+            font-size: 14px;
+        }
+        .sec-box .secBox-rtxt {
+            padding: 0 20px;
+        }
+        .seller-ord {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .top-newOrder.myorder .search-box-top {
+            margin-bottom: 15px;
+        }
+        .main .body .box {
+            margin-bottom: 15px;
+        }
+        .main .body .box .right span {
+            font-weight: 500;
+            font-size: 11px;
+        }
+        .up-main-bx .up-main-bx-1 {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        img.help-tag-righ {
+            top: -36px;
+            right: 1px;
+        }
+        .prof-area.vendor-pro-b1 button.edit {
+            text-align: center;
+            margin: 0 auto;
+            float: inherit;
+            margin-top: 15px;
+        }
+        .prof-area.vendor-pro-b1{text-align: center;}
+        a.navbar-brand {
+            display: none;
+        }
+        .prof-area.vendor-pro-b2 table.comp-addr {
+            margin-top: 15px;
+        }
+        .secBox-img {
+            width: 39%;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+        .sec-box img {
+            max-width: 100%;
+            width: auto;
+        }
+        body table tbody tr.set-table {border: 2px solid #0862a3;border-top:0px;}
+        body table tbody tr.set-table td span.title-span {font-weight:500;}
+        body table tbody tr.set-table td {display:table !important;width: 100%;margin: 0px 0px;border: 0px;border-top: 1px solid #e9e9e9;text-align: left;}
+        body table tbody tr.set-table td span {padding-left:20px;margin: 5px 0px;display: block;border: 0px;width:50%;float:left;}
+        body table tbody tr.set-table td:first-child {background: #0862a3;color:white !important;}
+        body table tbody tr.set-table td span.blue-txt {color:white !important;font-weight:500;}
+        body table tbody tr.set-table td:nth-child(2n+2){background:#f4f4f4;}
+        .main .pending-vend .top-newOrder table tbody tr td {
+            padding: 7px 10px;
+            border-color: transparent;
+        }
+        .mob-expand {
+            float: right;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #686868;
+            display:block;
+        }
+        body table tbody tr.set-table .mob-expand {display:none !important}
+        .set-table .cst-slct ul {
+            list-style: none;
+            position: relative;
+            right: 0;
+            background: #FDFCFC;
+            box-shadow: 0px 1px 5px rgb(0 0 0 / 25%);
+            top: 20px;
+            display: block;
+            z-index: 2;
+            width: 100%;
+            margin: 0;
+            top: 0;
+            padding: 10px 10px;
+            border: 0;
+            box-shadow: initial !important;
+        }
+        .set-table .cst-slct ul li.edit-mob {
+            background: #212529;
+            color: white;
+            }
+            .set-table .cst-slct ul li.inactive-mob {
+                background: #0862a3;
+                color: white;
+                }
+                .set-table .cst-slct ul li {display: inline-block;padding: 2px 20px;margin-left: 0;text-align: center;}
+                .dropdown.cst-slct img {display: none;}
+                body table tbody tr.set-table td:first-child img {/* display:none */width: 30px;display: inline-block;float: left;position: absolute;right: -18px;bottom: 1px;}
+                .top-newOrder tbody tr td img,
+                .top-prodMain tbody tr td img {
+                    width: 30px;
+                }
+        }
+    @media only screen and (max-width: 400px) {
+        ul.topnav-user li:last-child {
+            padding-right: 14px;
+        }
+        
     }
-    /* .mobile-btn-show tr td:nth-child(3):before {
-    position: absolute;
-    right: 0px;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #f5f5f5;
-    content: "";
-    font-family: 'Font Awesome 5 Free';
-    text-align: center;
-    color: #6c6868;
-    box-shadow: rgb(0 0 0 / 59%) -8px 2px 15px -11px;
-    background: #fff;
-    z-index: 9;
-    line-height: 35px;
-    font-weight: bolder;
-    cursor: pointer;
-    }  */
-    .top-newOrder {
-        padding: 30px 20px;
-    }
-    .mobile-d-scroll .sec-box {
-        display: inline-block;
-        width: 49%;
-        text-align: center;
-    }
-    .d-flex.justify-content-between.mobile-d-scroll {
-        display: block!important;
-    }
-    ul.topnav-user li {
-        padding: 0 5px;
-    }
-    .box-shadow-wbg .sec-box h3 {
-        font-size: 16px;
-    }
-    .sec-box span {
-        font-size: 14px;
-    }
-    .sec-box .secBox-rtxt {
-        padding: 0 20px;
-    }
-    .seller-ord {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    .top-newOrder.myorder .search-box-top {
-        margin-bottom: 15px;
-    }
-    .main .body .box {
-        margin-bottom: 15px;
-    }
-    .main .body .box .right span {
-        font-weight: 500;
-        font-size: 11px;
-    }
-    .up-main-bx .up-main-bx-1 {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    img.help-tag-righ {
-        top: -36px;
-        right: 1px;
-    }
-    .prof-area.vendor-pro-b1 button.edit {
-        text-align: center;
-        margin: 0 auto;
-        float: inherit;
-        margin-top: 15px;
-    }
-    .prof-area.vendor-pro-b1{text-align: center;}
-    a.navbar-brand {
-        display: none;
-    }
-    .prof-area.vendor-pro-b2 table.comp-addr {
-        margin-top: 15px;
-    }
-    .secBox-img {
-        width: 39%;
-        text-align: center;
-        display: block;
-        margin: 0 auto;
-    }
-    .sec-box img {
-        max-width: 100%;
-        width: auto;
-    }
-    body table tbody tr.set-table {    border: 2px solid #4872ad;border-top:0px}
-    body table tbody tr.set-table td span.title-span {font-weight:500;}
-    body table tbody tr.set-table td {display:table !important;width: 100%;margin: 0px 0px;border: 0px;border-top: 1px solid #e9e9e9;text-align: left;}
-    body table tbody tr.set-table td span {padding-left:20px;margin: 5px 0px;display: block;border: 0px;width:50%;float:left;}
-    body table tbody tr.set-table td:first-child {background:#4872ad;color:white !important;}
-    body table tbody tr.set-table td span.blue-txt {color:white !important;font-weight:500;}
-    body table tbody tr.set-table td:nth-child(2n+2){background:#f4f4f4;}
-    .main .pending-vend .top-newOrder table tbody tr td {
-        padding: 7px 10px;
-        border-color: transparent;
-    }
-}
-@media only screen and (max-width: 400px) {
-    ul.topnav-user li:last-child {
-        padding-right: 14px;
-    }
-    
-}

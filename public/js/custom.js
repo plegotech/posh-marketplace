@@ -166,6 +166,8 @@ $(document.body).on('click', '.eye-icon-pass i', function(){
     }
 })
 
+
+
 $(document.body).on('click', 'table', function(){
     if ($(window).width() < 960) {
         var tableId = $(this).attr('id');
@@ -186,6 +188,8 @@ $(document.body).on('click', 'table', function(){
             var intNth = parseInt(i+1);
             var dyn_nth = "nth-child("+intNth+")";
             $('table#'+tableId+' tbody tr.set-table td:'+dyn_nth).prepend("<span class='title-span'>"+$(x[i]).text()+"</span>");
+            console.log($(x[i]).text())
+            // .mob-expand
         }     
     }
 });

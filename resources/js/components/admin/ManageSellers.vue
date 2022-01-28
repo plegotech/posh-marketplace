@@ -117,110 +117,110 @@
                 </div>
             </div>
         </div>
-<div class="top-newOrder myorder">
-        <div class="row">
-            <div class="col-sm-4 pl-35">
-                <div class="search-box-top" style="max-width:100%">
-                    <img src="/img/search-icon.png" class="search-icon" alt="">
-                    <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
-                    <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
-                </div>
-            </div>
-            <div class="col-sm-8 pr-35">
-                <button class="primary btn-exp-mv mt-0 float-right" @click="exportCompanies()">Export</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-
-                <div class="top-newOrder msellers-bx">
-                    <table class="table mobile-btn-show">
-                        <thead>
-                        <tr>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
-                                class="shuffle"
-                                src="/img/shuffle.png"></span>
-                            </th>
-                            <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">Seller Name
-                                <img
-                                    class="shuffle" src="/img/shuffle.png"></span></th>
-                            <th scope="col">Email Address</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">City & State</th>
-                            <th scope="col">Total Gross</th>
-                            <th scope="col">Last Login</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="company in companies" v-bind="company.id">
-                            <td>
-                                <img :src="'/img/vendor-logos/'+ company.logo" alt="">
-                                <span>{{ company.name }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.first_name }} {{ company.last_name }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.email }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.phone }}</span>
-                            </td>
-                            <td>
-                                <span>{{ company.city }}, {{ company.state }}</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                <span>{{ company.login_time }}</span>
-                            </td>
-                            <td>
-
-                                <div class="dropdown cst-slct">
-                                    <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                         data-toggle="dropdown" aria-haspopup="true"
-                                         aria-expanded="false">
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li @click="editCompany(company)" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg">Edit
-                                        </li>
-                                        <li @click="markInactive(company.user_id)">Inactive</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="foot-table" v-if="total < 1">
-                        <p>No records found.</p>
-                    </div>
-                    <div class="foot-table" v-if="total > 0">
-                        <div class="left">
-                                    <span>Rows Per Page:
-                                        <select @change="fetchCompanies(current_page, $event.target.value)">
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="75">75</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </span>
-                        </div>
-                        <div class="right">
-                            <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                            <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
-                                 class="prev-itm" alt="">
-                            <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
-                                 class="next-itm" alt="">
-                        </div>
+        <div class="top-newOrder myorder">
+            <div class="row">
+                <div class="col-sm-4 pl-30">
+                    <div class="search-box-top" style="max-width:100%">
+                        <img src="/img/search-icon.png" class="search-icon" alt="">
+                        <input type="text" class="search_BX fetchCompaniesSearch" v-on:keypress="fetchCompaniesSearch">
+                        <img src="/img/close-srch.png" @click="fetchCompaniesSearchClear" class="close-icon" alt="">
                     </div>
                 </div>
+                <div class="col-sm-8 pr-30">
+                    <button class="primary btn-exp-mv mt-0 float-right" @click="exportCompanies()">Export</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="msellers-bx">
+                        <table class="table recent-Orders-table mobile-btn-show" id="manageSeller_Admin">
+                            <thead>
+                            <tr>
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
+                                    class="shuffle"
+                                    src="/img/shuffle.png"></span>
+                                </th>
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">Seller Name
+                                    <img
+                                        class="shuffle" src="/img/shuffle.png"></span></th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">City & State</th>
+                                <th scope="col">Total Gross</th>
+                                <th scope="col">Last Login</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="company in companies" v-bind="company.id">
+                                <td>
+                                    <img :src="'/img/vendor-logos/'+ company.logo" alt="">
+                                    <span>{{ company.name }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>{{ company.first_name }} {{ company.last_name }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.email }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.phone }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.city }}, {{ company.state }}</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                    <span>{{ company.login_time }}</span>
+                                </td>
+                                <td>
+
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="editCompany(company)" data-toggle="modal"
+                                                data-target=".bd-example-modal-lg" class="edit-mob">Edit
+                                            </li>
+                                            <li @click="markInactive(company.user_id)" class="inactive-mob">Inactive</li>
+                                        </ul>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="foot-table" v-if="total < 1">
+                            <p>No records found.</p>
+                        </div>
+                        <div class="foot-table" v-if="total > 0">
+                            <div class="left">
+                                        <span>Rows Per Page:
+                                            <select @change="fetchCompanies(current_page, $event.target.value)">
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="75">75</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </span>
+                            </div>
+                            <div class="right">
+                                <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
+                                    class="prev-itm" alt="">
+                                <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
+                                    class="next-itm" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
 

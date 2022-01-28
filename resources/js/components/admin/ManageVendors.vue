@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="admin-manage-vend-bx">
-                        <table class="table mobile-btn-show">
+                        <table class="table recent-Orders-table mobile-btn-show">
                             <thead>
                             <tr>
                                 <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
@@ -167,6 +167,7 @@
                                 <td>
                                     <img :src="'/img/vendor-logos/'+ company.logo" alt="">
                                     <span>{{ company.name }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ company.first_name }} {{ company.last_name }}</span>
@@ -194,9 +195,9 @@
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             <li @click="editCompany(company)" data-toggle="modal"
-                                                data-target=".bd-example-modal-lg">Edit
+                                                data-target=".bd-example-modal-lg" class="edit-mob">Edit
                                             </li>
-                                            <li @click="markInactive(company.user_id)">Inactive</li>
+                                            <li @click="markInactive(company.user_id)" class="inactive-mob">Inactive</li>
                                         </ul>
                                     </div>
 

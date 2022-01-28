@@ -769,7 +769,7 @@ li.nav-item a.nav-link.active {
 
 
 .top-newOrder {
-    padding: 30px 40px;
+    padding: 30px 25px;
     background: white;
     border-radius: 10px;
 }
@@ -2874,3 +2874,4 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     font-weight: 300;
 }
 .mini-head {}
+.mob-expand {display:none}

@@ -66,6 +66,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -83,6 +84,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -100,6 +102,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -117,6 +120,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -134,6 +138,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -151,6 +156,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -168,6 +174,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>
@@ -185,6 +192,7 @@
                                 <tr >
                                     <td>
                                         <span>AKN 1250</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
                                         <span>Nike Shoes</span>

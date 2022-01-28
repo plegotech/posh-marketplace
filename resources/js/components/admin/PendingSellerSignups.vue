@@ -17,7 +17,7 @@
                                 </div>
                                 <!-- start: TABLE -->
                                 <div class="pendingvendor-sign">
-                                <table class="table pss-bxb mobile-btn-show" id="pvs-tab">
+                                <table class="table recent-Orders-table pss-bxb mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'pending')"><span class="sort-ad">First Name <img class="shuffle"
@@ -40,6 +40,7 @@
                                     <tr v-for="company in companies" v-bind="company.id">
                                         <td>
                                             <span>{{ company.first_name }}</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>{{ company.last_name }}</span>
@@ -73,8 +74,8 @@
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <li @click="changeUserStatus(company.user_id, 'approved')">Accept</li>
-                                                    <li @click="changeUserStatus(company.user_id, 'rejected')">Reject</li>
+                                                    <li @click="changeUserStatus(company.user_id, 'approved')" class="edit-mob">Accept</li>
+                                                    <li @click="changeUserStatus(company.user_id, 'rejected')" class="inactive-mob">Reject</li>
                                                 </ul>
                                             </div>
 
@@ -118,7 +119,7 @@
                                 </div>
                                 <!-- start: TABLE -->
                                 <div class="pendingvendor-sign">
-                                <table class="table mobile-btn-show" id="pvs-tab">
+                                <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
                                     <thead>
                                     <tr>
                                         <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name', 'rejected')"><span class="sort-ad">First Name <img class="shuffle"
@@ -140,6 +141,7 @@
                                     <tr v-for="company in rej_companies" v-bind="company.id">
                                         <td>
                                             <span>{{ company.first_name }}</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>{{ company.last_name }}</span>

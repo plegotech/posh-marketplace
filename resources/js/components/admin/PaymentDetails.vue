@@ -7,7 +7,7 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder">
-                    <table class="table mobile-btn-show">
+                    <table class="table recent-Orders-table mobile-btn-show" id="PaymentDetail_Admin">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Transaction Id<img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -22,285 +22,134 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                          <span>tr_1JOAGLENS5s<br>
-                                            3fHBS34fs</span>
-                            </td>
-                            <td>
-                                <span>$2,463.53</span>
-                            </td>
-                            <td>
-                                <span>$0.00</span>
-                            </td>
-                            <td>
-                                          <span>Aug 14, 2021<br>
-                                            07:00 AM</span>
-                            </td>
-                            <td>
-                                <span>USD</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>Spreetail</span>
-                            </td>
-                            <td>
-                                <span>+1-641-342-2454</span>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                            <span>tr_1JOAGLENS5s<br>
+                                                3fHBS34fs</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>$2,463.53</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                            <span>Aug 14, 2021<br>
+                                                07:00 AM</span>
+                                </td>
+                                <td>
+                                    <span>USD</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>+1-641-342-2454</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                            <span>tr_1JOAGLENS5s<br>
+                                                3fHBS34fs</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>$2,463.53</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                            <span>Aug 14, 2021<br>
+                                                07:00 AM</span>
+                                </td>
+                                <td>
+                                    <span>USD</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>+1-641-342-2454</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                            <span>tr_1JOAGLENS5s<br>
+                                                3fHBS34fs</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>$2,463.53</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                            <span>Aug 14, 2021<br>
+                                                07:00 AM</span>
+                                </td>
+                                <td>
+                                    <span>USD</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>+1-641-342-2454</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                            <span>tr_1JOAGLENS5s<br>
+                                                3fHBS34fs</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>$2,463.53</span>
+                                </td>
+                                <td>
+                                    <span>$0.00</span>
+                                </td>
+                                <td>
+                                            <span>Aug 14, 2021<br>
+                                                07:00 AM</span>
+                                </td>
+                                <td>
+                                    <span>USD</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>Spreetail</span>
+                                </td>
+                                <td>
+                                    <span>+1-641-342-2454</span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="foot-table">

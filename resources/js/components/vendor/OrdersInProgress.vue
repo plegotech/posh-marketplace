@@ -123,6 +123,7 @@
                                         <tr v-for="order in orders">
                                             <td>
                                                 <span>{{ order.id }}</span>
+                                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                             </td>
                                             <td>
                                                 <span>{{ order.first_name }} {{ order.last_name }}</span>
