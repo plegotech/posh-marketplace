@@ -9,7 +9,7 @@ class Companies extends Model
 {
     protected   $table          = 'companies';
     protected   $primaryKey     = 'id';
-    public      $timestamps     = false;
+    public      $timestamps     = true;
 
     protected $fillable = [
         'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country'

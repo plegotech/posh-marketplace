@@ -106,10 +106,10 @@ export default {
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
-        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
-        { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/signup-tier', component: SellerSignupTier },
-        { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller-signup-domain', component: SellerSignupDomain },
-        { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller-signup-final', component: SellerSignupFinal },
+        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller/signup', component: SellerSignup },
+        { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-tier', component: SellerSignupTier },
+        { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-domain', component: SellerSignupDomain },
+        { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-template', component: SellerSignupFinal },
         { meta: { title: 'User Signup' }, path: '/user-signup', component: UserSignup },
         { name: 'forbidden', meta: { title: 'Forbidden Access' }, path: '/forbidden', component: ForbiddenAccess }
     ]

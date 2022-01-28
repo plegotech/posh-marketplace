@@ -98,6 +98,7 @@ class UsersController extends Controller
         } else {
             User::create($data);
         }
+
         return response()->json(['message' => 'user was updated successfully.']);
     }
 

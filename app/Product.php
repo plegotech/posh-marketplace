@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected   $table          = 'products';
     protected   $primaryKey     = 'id';
-    public      $timestamps     = false;
+    public      $timestamps     = true;
 
     protected $fillable = [
         'images', 'name', 'brand', 'sku', 'description', 'vendor_id', 'categories', 'net_price',

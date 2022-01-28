@@ -9,7 +9,7 @@ class Order extends Model
 {
     protected   $table          = 'orders';
     protected   $primaryKey     = 'id';
-    public      $timestamps     = false;
+    public      $timestamps     = true;
 
     protected $fillable = [
         'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_methods',

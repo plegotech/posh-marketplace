@@ -20,8 +20,8 @@
                         <input v-model="seller.last_name" placeholder="Last Name*" class="form-control" type="text">
                     </div>
                     <div class="form-group col-md-6">
-                        <select class="form-control-label select-custom-point">                        
-                            <option value="Gender" selected>Gender*</option>
+                        <select v-model="seller.gender" class="form-control-label select-custom-point">
+                            <option value="" selected>Gender*</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="female">Other</option>
@@ -34,8 +34,8 @@
                         <input v-model="seller.company" placeholder="Company Name" class="form-control" type="text">
                     </div>
                     <div class="form-group col-md-6">
-                    <div class="custom-file-upload">                    
-                        <input type="file" name="file" class="form-control" >
+                    <div class="custom-file-upload">
+                        <input type="file" ref="business_license" name="file" multiple="multiple" class="form-control" >
                     </div>
                     </div>
                     <div class="form-group col-md-12">
@@ -60,11 +60,13 @@
                         <input v-model="seller.password_confirmation" name="Confirm Password" placeholder="Confirm Password*" class="form-control" type="password">
                     </div>
 
-                    <div v-for="error in errors"  class="form-row text-center">
+                    <div v-for="error in errors"  class="col-md-12 form-row text-center">
                         <p>{{ error[0] }}</p>
                     </div>
                     <div class="form-row text-center col-sm-12">
-                        <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>NEXT </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
+                        <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>
+                          {{ processing ? "PLEASE WAIT..." : "NEXT" }}
+                        </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
                     </div>
                 </div>
             </div>
@@ -78,19 +80,19 @@
 export default {
     data() {
         return {
+            processing:                     false,
             errors:                         null,
             seller: {
                 first_name:                 null,
                 last_name:                  null,
                 gender:                     null,
-                licence:                    null,
+                license:                    null,
                 ein_number:                 null,
                 address:                    null,
                 city:                       null,
                 state:                      null,
                 phone:                      null,
                 company:                    null,
-                subscription_fee:           null,
                 email:                      null,
                 password:                   null,
                 password_confirmation:      null,
@@ -102,7 +104,57 @@ export default {
         console.log('Component mounted.')
     },
     methods: {
+        uploadBusinessLicenses(company_id) {
+            var object = this;
+
+            const config = {
+              headers: {
+                'content-type': 'multipart/form-data'
+              }
+            }
+
+            let data = new FormData();
+            data.append('business_licenses', this.business_licenses);
+
+            for( var i = 0; i < this.$refs.business_license.files.length; i++){
+              let file = this.$refs.business_license.files[i];
+              data.append('license[' + i + ']', file);
+            }
+
+            data.append('company_id', company_id);
+
+            axios.post('/seller/business-licenses', data, config)
+                .then(function (res) {
+                  var data = res.data;
+                  if (data.success == 'true') {
+                    alert('files were uploaded successfully.');
+                    object.$router.push({name: "seller-signup-tier"})
+                  } else {
+                    alert('there was some problem in uploading the files, please contact support.');
+                    object.errors = data.errors;
+                  }
+                })
+                .catch(function (res) {
+                  console.log('--');
+                  console.log(res);
+                  console.log('--');
+                })
+                .finally(()=>{
+                  this.processing = false;
+                  document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
         sellerSignup() {
+
+            this.processing = true;
+            var business_licenses = this.$refs.business_license.files[0];
+
+            if (!business_licenses) {
+                alert('Please upload the business license');
+                return;
+            }
+
+            document.getElementById('ajaxLoader').style.display = 'block';
 
             fetch('/api/seller/0', {
                 method: 'post',
@@ -115,14 +167,17 @@ export default {
                 .then(data => {
                     if (data.success == 'true') {
                         alert('account created successfully.');
-                        this.$router.push({name: "seller-final"})
+                        this.uploadBusinessLicenses(data.company);
                     } else {
                         this.errors = data.errors;
+                        this.processing = false;
                     }
                 })
                 .catch(function (error) {
                     // this.errors.push(error);
                     console.log(error);
+                }).finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
                 });
         },
     }
