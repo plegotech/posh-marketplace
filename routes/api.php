@@ -39,6 +39,7 @@ Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
 Route::post('/vendor', 'VendorController@vendor');
 
 Route::post('/seller-product', 'SellerController@sellerProduct');
+Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}', 'SellerController@soldStatistics');
 Route::post('/seller/{step}', 'SellerController@seller');
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');

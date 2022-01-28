@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Companies;
+use App\OrderItems;
 use Illuminate\Http\Request;
 use App\User;
 use App\SellerWebsite;
 use App\SellerProduct;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
@@ -101,6 +103,27 @@ class SellerController extends Controller
     {
         return SellerWebsite::where('seller_id', $seller)
             ->first();
+    }
+
+    public function soldStatistics($seller_id, $order_by = 'id', $order = 'desc',
+                                   $month = 0, $year = 0, $per_page = 5)
+    {
+        $products = OrderItems::select('products.id', 'order_items.item_id', 'products.name', 'products.parent_category',
+            'products.sub_category', 'products.net_price',
+            DB::raw('SUM(`order_items`.`quantity`) as sold'))
+            ->where('order_items.seller_id', $seller_id)
+            ->where('order_items.progress', 'delivered')
+            ->join('products', 'products.id', '=', 'order_items.item_id')
+            ->orderBy($order_by, $order)
+            ->groupBy('order_items.item_id')
+            ->paginate($per_page);
+
+        $statistics = array();
+
+        return response()->json(array(
+            'products' => $products,
+            'statistic' => $statistics
+        ));
     }
 
     public function sellerProduct(Request $request)
