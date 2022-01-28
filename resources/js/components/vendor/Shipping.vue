@@ -44,6 +44,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -73,6 +74,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -102,6 +104,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -131,6 +134,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -160,6 +164,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -189,6 +194,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -218,6 +224,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -247,6 +254,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -276,6 +284,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>
@@ -305,6 +314,37 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                        </td>
+                                        <td>
+                                            <span>DHL</span>
+                                        </td>
+                                        <td>
+                                            <span>PR1824QO700</span>
+                                        </td>
+                                        <td>
+                                            <span>06/25/2021</span>
+                                        </td>
+                                        <td>
+                                            <span>4949,, Forest Ave</span>
+                                        </td>
+                                        <td>
+                                            <span>USA</span>
+                                        </td>
+                                        <td>
+                                            <span>Chicago</span>
+                                        </td>
+                                        <td>
+                                            <span>630-541-7292</span>
+                                        </td>
+                                        <td>
+                                            <span>60131</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>DHL</span>

@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="vendorOrder-bx-">
-                    <table class="table mobile-btn-show">
+                    <table class="table recent-Orders-table mobile-btn-show" id="vendorOrder_Admin">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -67,383 +67,163 @@
                         </tr>
                         </thead>
                         <tbody>
+                            
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                    <div class="cst-slct">
+                                        <img src="/img/more.png" class="more-opt" alt="">
+                                        <ul>
+                                            <li>View</li>
+                                            <li>Edit</li>
+                                            <li>Delete</li>
+                                        </ul>
+                                    </div>
 
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="shipped">shipped</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                    <div class="cst-slct">
+                                        <img src="/img/more.png" class="more-opt" alt="">
+                                        <ul>
+                                            <li>View</li>
+                                            <li>Edit</li>
+                                            <li>Delete</li>
+                                        </ul>
+                                    </div>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="pending">pending</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                    <div class="cst-slct">
+                                        <img src="/img/more.png" class="more-opt" alt="">
+                                        <ul>
+                                            <li>View</li>
+                                            <li>Edit</li>
+                                            <li>Delete</li>
+                                        </ul>
+                                    </div>
 
-                            </td>
-                        </tr><tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="shipped">shipped</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                    <div class="cst-slct">
+                                        <img src="/img/more.png" class="more-opt" alt="">
+                                        <ul>
+                                            <li>View</li>
+                                            <li>Edit</li>
+                                            <li>Delete</li>
+                                        </ul>
+                                    </div>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="pending">pending</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr><tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="shipped">shipped</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="pending">pending</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr><tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="shipped">shipped</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="pending">pending</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr><tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="shipped">shipped</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoe1.png" alt="">
-                                <span>AKN 1250</span>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>06/25/2021</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$540</span>
-                            </td>
-                            <td>
-                                <span class="pending">pending</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>4949, Forecast Ave</span>
-                            </td>
-                            <td>
-                                <div class="cst-slct">
-                                    <img src="/img/more.png" class="more-opt" alt="">
-                                    <ul>
-                                        <li>View</li>
-                                        <li>Edit</li>
-                                        <li>Delete</li>
-                                    </ul>
-                                </div>
-
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>

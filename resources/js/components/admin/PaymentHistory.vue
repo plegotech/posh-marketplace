@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="top-newOrder payment_Hist">
-                    <table class="table mobile-btn-show">
+                    <table class="table recent-Orders-table mobile-btn-show">
                         <thead>
                         <tr>
                             <th scope="col">Date</th>
@@ -46,6 +46,7 @@
                         <tr>
                             <td>
                                 <span>06/24/2021</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>$23,135.99</span>

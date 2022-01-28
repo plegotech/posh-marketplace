@@ -73,6 +73,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>
@@ -90,6 +91,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>
@@ -107,6 +109,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>
@@ -124,6 +127,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>
@@ -140,7 +144,8 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span>AKN 1250</span>
+                                            <span>AKN 1250</span>   
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>
@@ -158,6 +163,7 @@
                                     <tr>
                                         <td>
                                             <span>AKN 1250</span>
+                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                         </td>
                                         <td>
                                             <span>Stevan Kolman</span>

@@ -25,6 +25,7 @@
                 <button class="secondary float-right  mt-4">CLEAR ALL</button>
              </div>
         </div>
+        <br>
         <div class="row">
             <h1>Analytics</h1>
             <div class="col-sm-4">
@@ -59,7 +60,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <div class="row">
             <div class="col-sm-7">
                 <h1 class="pd-0">Members</h1>
@@ -95,6 +96,7 @@
                 </div>
                 </div>
         </div>
+        <br>
         <div class="row">
 
             <div class="col-sm-6 mt-5">
@@ -307,12 +309,12 @@
 
             </div>
         </div>
-
+        <br>
         <div class="row">
             <h1>Top Products</h1>
             <div class="col-sm-12">
                 <div class="top-prodMain">
-                    <table class="table ">
+                    <table class="table recent-Orders-table mobile-btn-show" id="dashboardTop_Admin">
                         <thead>
                         <tr>
                             <th scope="col">Product</th>
@@ -325,6 +327,7 @@
                             <td>
                                 <img src="/img/nike-shirt.png" alt="">
                                 <span>Nike Shirt</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Fath Textile</span>
@@ -337,6 +340,7 @@
                             <td>
                                 <img src="/img/cotton-shirt.png" alt="">
                                 <span>Cotton Shirt</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Fath Textile</span>
@@ -349,6 +353,7 @@
                             <td>
                                 <img src="/img/nike-shoes.png" alt="">
                                 <span>Nike Shoes</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Fath Textile</span>
@@ -362,7 +367,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <div class="row">
             <h1>
                 New Orders
@@ -371,7 +376,7 @@
 
                 <div class="top-newOrder">
 
-                    <table class="table  mobile-btn-show">
+                    <table class="table recent-Orders-table mobile-btn-show" id="newOrder_Admin">
                         <thead>
                         <tr>
                             <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -388,6 +393,7 @@
                             <td>
                                 <img src="/img/akn-1250.png" alt="">
                                 <span>AKN 1250</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Dell</span>
@@ -412,6 +418,7 @@
                             <td>
                                 <img src="/img/akn-1250-1.png" alt="">
                                 <span>AKN 1250</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Dell</span>
@@ -436,6 +443,7 @@
                             <td>
                                 <img src="/img/akn-1250-2.png" alt="">
                                 <span>AKN 1250</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Dell</span>
@@ -460,6 +468,7 @@
                             <td>
                                 <img src="/img/akn-1250-3.png" alt="">
                                 <span>AKN 1250</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Dell</span>

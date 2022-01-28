@@ -102,7 +102,7 @@
                             <img src="/img/close-srch.png" @click="fetchUsersSearchClear" class="close-icon" alt="">
                         </div>
                     </div>
-                    <table class="table mobile-btn-show">
+                    <table class="table recent-Orders-table mobile-btn-show" id="manageUsers_Admin">
                         <thead>
                         <tr>
                             <th class="shuffle-bx" scope="col" @click="fetchUsers(0, 0, 'first_name')"><span class="sort-ad">First Name <img
@@ -120,18 +120,19 @@
                         <tr v-for="user in users" v-bind:key="user.id">
                             <td>
                                 <span>{{ user.first_name }}</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>{{ user.last_name }}</span>
                             </td>
                             <td>
-                                <span><span>{{ user.email }}</span></span>
+                                <span>{{ user.email }}</span>
                             </td>
                             <td>
-                                <span><span>{{ user.phone }}</span></span>
+                                <span>{{ user.phone }}</span>
                             </td>
                             <td>
-                                <span><span style="text-transform: uppercase">{{ user.status }}</span></span>
+                                <span style="text-transform: uppercase">{{ user.status }}</span>
                             </td>
                             <td>
                                 <div class="dropdown cst-slct">
@@ -140,9 +141,9 @@
                                             aria-expanded="false">
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                         <li @click="editUser(user)" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg">Edit
+                                            data-target=".bd-example-modal-lg" class="edit-mob">Edit
                                         </li>
-                                        <li @click="markInactive(user.id)">Inactive</li>
+                                        <li @click="markInactive(user.id)" class="inactive-mob">Inactive</li>
                                     </ul>
                                 </div>
 
