@@ -25,6 +25,7 @@
                 <button class="mt-4">CLEAR ALL</button>
             </div>
         </div>
+        <br>
         <div class="row">
             <h1>Product Report</h1>
             <a class="export_item">Export CSV</a>
@@ -62,6 +63,7 @@
                 </div>
             </div>
         </div>
+        <br>
 
         <div style="position:relative">
 

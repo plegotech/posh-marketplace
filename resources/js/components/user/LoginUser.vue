@@ -27,13 +27,12 @@
                     </div>
 
                     <div class="info-login">
-                        <h2>New to Posh Market? 
+                        <h2>New to Posh Market?
                             
                             <span id="signInOpt">Sign In</span>
                             <ul class="signInOpt">
-                                <li>Vendor Signup</li>
-                                <li>Seller Signup</li>
-                                <li>User Signup</li>
+                                <a href="/vendor-login"><li>Vendor Signup</li></a>
+                                <a href="/seller-login"><li>Seller Signup</li></a>
                             </ul>
                         </h2>
                     </div>
