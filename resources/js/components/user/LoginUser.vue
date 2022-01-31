@@ -29,10 +29,10 @@
                     <div class="info-login">
                         <h2>New to Posh Market?
                             
-                            <span id="signInOpt">Sign In</span>
+                            <span id="signInOpt">Sign Up</span>
                             <ul class="signInOpt">
-                                <a href="/vendor-login"><li>Vendor Signup</li></a>
-                                <a href="/seller-login"><li>Seller Signup</li></a>
+                                <li><router-link :to="{ name: 'seller-signup' }">Seller Signup</router-link></li>
+                                <li><router-link :to="{ name: 'vendor-signup' }">Vendor Signup</router-link></li>
                             </ul>
                         </h2>
                     </div>
