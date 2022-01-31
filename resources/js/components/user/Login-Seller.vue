@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="info-login">
-                        <h2>Don't have account yet?t?</h2>
+                        <h2>Don't have account yet?</h2>
                             <ul class="signInOpt">
                                 <router-link :to="{ name: 'vendor-signup' }">Vendor Signup</router-link>
                                 <router-link :to="{ name: 'seller-signup' }">Seller Signup</router-link>
