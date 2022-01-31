@@ -43,7 +43,7 @@
                             <p class="mini-head">Results</p>
                         </div>
                     </div>
-                    <table class="table vendorProduct">
+                    <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod1">
                         <thead>
                         <tr>
                             <th scope="col">Product Id</th>
@@ -58,6 +58,7 @@
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
                                     <span>{{ product.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ product.name }}</span>
@@ -68,7 +69,7 @@
                                     </span>
                                 </td>
                                 <td class="center">
-                                    <i class="fa fa-check-double" @click="toggleSellerProduct(product.id)"></i>
+                                    <input type="checkbox" @click="toggleSellerProduct(product.id)" />
                                 </td>
                             </tr>
                         </tbody>
@@ -104,7 +105,7 @@
                     <div class="my-product">
                         <h2>My Products <span>({{ total }} of {{ max_product }} chosen)</span></h2>
                     </div>
-                    <table class="table vendorProduct">
+                    <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod2">
                         <thead>
                         <tr>
                             <th scope="col">Product Id</th>
@@ -118,6 +119,7 @@
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
                                     <span>{{ product.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ product.name }}</span>

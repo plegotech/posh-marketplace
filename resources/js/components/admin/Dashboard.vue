@@ -13,8 +13,8 @@
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2 mt-4">
-                    <select>
+            <div class="col-sm-2">
+                    <select class="mtc-24">
                         <option disabled value="" selected>Current Year</option>
                         <option>2020</option>
                         <option>2021</option>
@@ -22,7 +22,7 @@
                     </select>
             </div>
              <div class=" col-sm-4">
-                <button class="secondary float-right  mt-4">CLEAR ALL</button>
+                <button class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
              </div>
         </div>
         <br>

@@ -34,6 +34,7 @@
                                 </div>
                             </div>
                             <hr>
+                            <br>
                             <div class="seller-tdiv">
                             <table class="table  mobile-btn-show">
                                 <thead>

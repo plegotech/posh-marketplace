@@ -19,28 +19,28 @@
                         </div>
                         <div class="col-sm-6 offset-sm-2">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <select name="" id="">
                                         <option value="" selected>Sort By</option>
                                         <option value="">Name</option>
                                         <option value="">Number</option>
                                     </select>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <select name="" id="">
                                         <option value="" selected>Category</option>
                                         <option value="">one</option>
                                         <option value="">two</option>
                                     </select>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <select name="" id="">
                                         <option value="" selected>Sub Category</option>
                                         <option value="">one</option>
                                         <option value="">two</option>
                                     </select>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <select name="" id="">
                                         <option value="" selected>All</option>
                                         <option value="">one</option>

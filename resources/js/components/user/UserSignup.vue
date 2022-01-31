@@ -23,17 +23,11 @@
 
         <div class="info-login">
             <h2>New to Posh Market?</h2>
-            <ul>
-                <li>
-                    <router-link to="/">Vendor Signup</router-link>
-                </li>
-                <li>
-                    <router-link to="/">Seller Signup</router-link>
-                </li>
-                <li>
-                    <router-link to="/">User Signup</router-link>
-                </li>
-            </ul>
+            
+                            <ul class="signInOpt">
+                                <a href="/vendor-login"><li>Vendor Signup</li></a>
+                                <a href="/seller-login"><li>Seller Signup</li></a>
+                            </ul>
         </div>
 
     </div>

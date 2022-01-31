@@ -66,17 +66,6 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Subscription Fee</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="number" v-model="company.subscription_fee" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
                                     <label>Address</label>
                                 </div>
                             </div>

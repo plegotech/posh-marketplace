@@ -1043,7 +1043,7 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 .seller_ord .box-seller .red {
     background:#FBF3F3;}
 
-.export_item {position: absolute;cursor: pointer;right: 25px;top: 55px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 12px;color: #0862A3 !important;}
+.export_item {position: absolute;z-index:2;cursor: pointer;right: 25px;top: 25px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 12px;color: #0862A3 !important;}
 .shipped {color: #3CC13B !important;font-weight: bold;font-family: Inter;border: 1px solid #3CC13B;padding: 1px 8px;}
 .pending {color:#F3BB1C !important;font-weight:bold;font-family: Inter;border: 1px solid #F3BB1C;padding: 1px 8px;}
 .cancelled {color:#c44646 !important;font-weight:bold;font-family: Inter;border: 1px solid #c44646;padding: 1px 8px;}
@@ -1143,9 +1143,10 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
 
 .login-area .bottom-log {}
 .login-area .bottom-log p {}
-
+.mtc-24 {    margin-top: 24px;}
 .login-area .info-login {}
 .login-area .info-login ul li:last-child {border-right:0;}
+.login-area .info-login ul a {text-decoration: none;color:inherit;font-family: inherit;font-size:inherit;}
 .login-area .info-login h2 {
     text-align: center;
     margin-top: 40px;
