@@ -194,7 +194,7 @@ export default {
                     if (res.total < res.per_page) {
                         this.from = 0;
                     }
-                    this.current_page = res.to / res.per_page;
+                    this.current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(function () {

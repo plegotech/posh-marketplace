@@ -52,3 +52,4 @@ Route::get('/product/remove/{product?}', 'ProductController@remove');
 Route::post('/product', 'ProductController@create');
 
 Route::get('/website/{seller_id}', 'SellerController@website');
+Route::get('/domain-hosting/domain/{domain?}', 'DomainHostingController@checkDomainAvailability');

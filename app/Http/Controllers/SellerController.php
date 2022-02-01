@@ -185,6 +185,36 @@ class SellerController extends Controller
 
             ), 200);
         }
+
+        if($step == 'domain') {
+            // Setup the validator
+            $rules = array(
+                'domain'    => 'required',
+                'seller_id' => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::where('seller_id', $request->input('seller_id'))
+                ->update(['domain' => $request->input('domain')]);
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to template selection'
+
+            ), 200);
+        }
     }
 
     public function checkPartialStatusOfSellerRegistration($email)
