@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                          <div class="form-row text-center col-sm-12 my-5">
                         <button @click="sellerSignup()" type="button" class="primary rsv-bx mx-424"><strong>NEXT </strong><span class="dr-arrow"><img src="/img/double-right-arrow.png" height="24" width="24" class="img-fluid img-m100"></span></button>
@@ -97,9 +97,6 @@ export default {
         return {
             seller: {
                 tier: null,
-                primary_category: null,
-                sub_categories: null,
-                site_template: null,
                 domain: null
             }
         }

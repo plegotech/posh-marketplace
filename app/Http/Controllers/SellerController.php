@@ -61,6 +61,12 @@ class SellerController extends Controller
         return response()->json(['success' => 'true']);
     }
 
+    private function runSignupStepTwo($request)
+    {
+        SellerWebsite::where('seller_id', $request->input('seller_id'))
+            ->update(['tier' => $request->input('tier')]);
+    }
+
     private function runSignupStepOne($request)
     {
         $user = array(
@@ -97,12 +103,12 @@ class SellerController extends Controller
             }
         }
 
-        return response()->json(['success' => 'true', 'created' => $user->id, 'company' => $company->id]);
+        return response()->json(['success' => 'true', 'user_id' => $user->id, 'company' => $company->id]);
     }
 
     public function seller(Request $request, $step)
     {
-        if ($step == 0) {
+        if ($step == '0') {
             // Setup the validator
             $rules = array(
                 'email' => 'required|email|unique:users|max:255',
@@ -122,6 +128,25 @@ class SellerController extends Controller
 
             // Validate the input and return correct response
             if ($validator->fails()) {
+
+                //If email has any partially registered account
+                $step = $this->checkPartialStatusOfSellerRegistration($request->input('email'));
+
+                if($step) {
+
+                    $seller = User::select('id')
+                    ->where('email', $request->input('email'))
+                    ->where('user_type', 'seller')
+                    ->first();
+
+                    return Response()->json(array(
+                        'user_id'   => $seller->id,
+                        'success'   => 'in-progress',
+                        'step'      => $step
+
+                    ), 200);
+                }
+
                 return Response()->json(array(
                     'success' => false,
                     'errors' => $validator->getMessageBag()->toArray()
@@ -129,9 +154,66 @@ class SellerController extends Controller
                 ), 400); // 400 being the HTTP code for an invalid request.
             }
             return $this->runSignupStepOne($request);
-        } else {
-
         }
+
+        if($step == 'tier') {
+            // Setup the validator
+            $rules = array(
+                'tier'      => 'required',
+                'seller_id' => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::where('seller_id', $request->input('seller_id'))
+                ->update(['tier' => $request->input('tier')]);
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to domain selection'
+
+            ), 200);
+        }
+    }
+
+    public function checkPartialStatusOfSellerRegistration($email)
+    {
+        $seller_record = SellerWebsite::select('seller_website.seller_id', 'seller_website.site_template', 'seller_website.domain')
+            ->where('users.email', $email)
+            ->join('users', 'users.id', '=', 'seller_website.seller_id')
+            ->first();
+
+        if($seller_record) {
+            $steps = $seller_record->toArray();
+            if(strlen($steps['site_template']) > 0) {
+                return 'login';
+            }
+            if(strlen($steps['domain']) > 1) {
+                return 'seller-final';
+            }
+            return 'seller-signup-domain';
+        }
+
+        $seller = User::where('users.email', $email)
+            ->where('users.user_type', 'seller')
+            ->first();
+
+        if($seller) {
+            return 'seller-signup-tier';
+        }
+
+        return false;
     }
 
     public function website($seller)

@@ -128,7 +128,7 @@ export default {
                   var data = res.data;
                   if (data.success == 'true') {
                     alert('files were uploaded successfully.');
-                    object.$router.push({name: "seller-signup-tier"})
+                    object.$router.push({name: "seller-signup-tier", params: { user_id: data.user_id }})
                   } else {
                     alert('there was some problem in uploading the files, please contact support.');
                     object.errors = data.errors;
@@ -147,6 +147,9 @@ export default {
         sellerSignup() {
 
             this.processing = true;
+
+            var object = this;
+
             var business_licenses = this.$refs.business_license.files[0];
 
             if (!business_licenses) {
@@ -168,6 +171,10 @@ export default {
                     if (data.success == 'true') {
                         alert('account created successfully.');
                         this.uploadBusinessLicenses(data.company);
+                    } else if (data.success == 'in-progress') {
+                        alert('There is an account against this email, sending your to the relevant screen to proceed.');
+                        object.$router.push({name: data.step, params: { user_id: data.user_id }})
+                        this.processing = false;
                     } else {
                         this.errors = data.errors;
                         this.processing = false;
