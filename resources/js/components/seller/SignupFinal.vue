@@ -29,17 +29,17 @@
                             <img id="template_03" src="/img/templae-sample-3.png" class="img-stemplate"
                             @click="changeTemplateSelection('template_03')">
                         </div>
-                    </div> 
+                    </div>
                     <div class="row justify-content-center my-4">
                     <div class="col-sm-3 text-center">
-                        <button type="button" class="primary rsv-bx"><strong>REGISTER</strong></button>
-                    </div>    
-                    </div>               
+                        <button @click="sellerStoreTemplate()" type="button" class="primary rsv-bx"><strong>
+                            {{ processing ? "PLEASE WAIT..." : "REGISTER" }}
+                        </strong></button>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <input id="selected_tier" type="hidden" v-model="seller.tier" value="" />
-        <input id="selected_template" type="hidden" v-model="seller.site_template" value="" />
     </div>
 </template>
 
@@ -48,28 +48,43 @@ export default {
     data() {
         return {
             seller: {
-                tier: null,
-                primary_category: null,
-                sub_categories: null,
-                site_template: null,
-                domain: null
+                site_template:  null,
+                seller_id:      null,
+                _token:         document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
     },
-    mounted() {
-        console.log('Component mounted.')
+    created() {
+        this.seller.seller_id =  this.$route.params.user_id;
     },
     methods: {
-        changeTierSelection(type) {
-            var tiers = document.getElementsByClassName('box-a-tier');
-
-            for(var i = 0; i < tiers.length; i++) {
-                tiers[i].classList.remove('box-sha');
-            }
-
-            var selected_tier = document.getElementById(type);
-            selected_tier.classList.add('box-sha');
-            document.getElementById('selected_tier').value = type;
+        async sellerStoreTemplate()
+        {
+            this.processing = true;
+            var object = this;
+            fetch('/api/seller/site_template', {
+                method: 'post',
+                body: JSON.stringify(this.seller),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success == 'true') {
+                        alert('Registration is completed, you will be notified once your account is approved.');
+                        object.$router.push({name: 'login-seller'});
+                    } else {
+                        this.errors = data.errors;
+                    }
+                    this.processing = false;
+                })
+                .catch(function (error) {
+                    // this.errors.push(error);
+                    console.log(error);
+                }).finally(function () {
+                document.getElementById('ajaxLoader').style.display = 'none';
+            });
         },
         changeTemplateSelection(type) {
             var tiers = document.getElementsByClassName('img-stemplate');
@@ -80,7 +95,7 @@ export default {
 
             var selected_tier = document.getElementById(type);
             selected_tier.classList.add('active');
-            document.getElementById('selected_template').value = type;
+            this.seller.site_template = type;
         }
     }
 }

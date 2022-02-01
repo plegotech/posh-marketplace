@@ -175,8 +175,8 @@ class SellerController extends Controller
                 ), 400); // 400 being the HTTP code for an invalid request.
             }
 
-            SellerWebsite::where('seller_id', $request->input('seller_id'))
-                ->update(['tier' => $request->input('tier')]);
+            SellerWebsite::updateOrCreate(array('seller_id' => $request->input('seller_id')),
+                array('tier' => $request->input('tier')));
 
             return Response()->json(array(
                 'user_id'   => $request->input('seller_id'),
@@ -212,6 +212,36 @@ class SellerController extends Controller
                 'user_id'   => $request->input('seller_id'),
                 'success'   => 'true',
                 'message'   => 'Move to template selection'
+
+            ), 200);
+        }
+
+        if($step == 'site_template') {
+            // Setup the validator
+            $rules = array(
+                'site_template'     => 'required',
+                'seller_id'         => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::where('seller_id', $request->input('seller_id'))
+                ->update(['site_template' => $request->input('site_template')]);
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to login'
 
             ), 200);
         }
