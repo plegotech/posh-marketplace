@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <select v-model="seller.gender" class="form-control-label select-custom-point">
-                            <option value="" selected>Gender*</option>
+                            <option disabled :value="null">Gender*</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="female">Other</option>
