@@ -46,7 +46,7 @@
                         </div>
                         <hr>
                         <!-- start: TABLE -->
-                        <table class="table" id="pvs-tab">
+                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
                             <thead>
                                 <tr>
                                 <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
@@ -68,6 +68,7 @@
                             <tr v-for="order in orders">
                                 <td>
                                     <span>{{ order.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ order.first_name }} {{ order.last_name }} </span>
