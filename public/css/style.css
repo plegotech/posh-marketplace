@@ -583,15 +583,17 @@ i.sb-menu-icon:before {
 .main .body .box .right {}
 .main .body .box .right:last-child {border-right:0}
 .main .body .box .right {
-    border-right:1px solid gainsboro;
     text-align: left;
-    /* width: 60%; */
     height: 100%;
-    margin-top: 15px;
+    margin-top: 8px;
     width: 100%;
     padding: 0 20px;
 }
-.main .body .box .right span {font-weight: 500;font-size: 12px;}
+.main .body .box .right span {
+    font-weight: 500;
+    font-size: 14px;
+    color: #767676;
+}
 .main .body h1 {
     float: left;
     width: 100%;
@@ -707,16 +709,13 @@ li.nav-item a.nav-link {
     cursor: pointer;
 }
 .main .body h2 {
-
-    /* padding-left: 15px; */
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
     font-size: 26px;
     line-height: 1;
     color: #3D3D3D;
-    /* margin: 14px 0; */
-    /* margin-top: 35px; */
+    margin-top: 5px;
 }
 .dropdown.cst-slct.show ul.dropdown-menu.show {
     min-width: 100px!important;

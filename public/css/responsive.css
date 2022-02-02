@@ -1,3 +1,11 @@
+@media only screen and (min-width: 1400px) {
+.main .body .box .right {
+    padding-left: 45px;
+}
+.main .body h2 {
+    font-size: 30px;
+}
+}
 
 @media only screen and (max-width: 1560px) {
     .btn-st {

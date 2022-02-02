@@ -56,7 +56,7 @@
                     </div>
                     <div class="right">
                         <span>Total Orders</span>
-                        <h2>$1'500</h2>
+                        <h2>1,500</h2>
                     </div>
                 </div>
             </div>
@@ -67,19 +67,19 @@
                 <h1 class="pd-0">Members</h1>
                 <div class="box">
                     <div class="left">
-                        <img src="/img/Group_106.png" alt="">
+                        <img src="/img/members-icon.png" alt="">
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Vendors</span>
+                        <h2>4,050</h2>
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Sellers</span>
+                        <h2>8,050</h2>
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Users</span>
+                        <h2>408,655</h2>
                     </div>
                 </div>
             </div>
