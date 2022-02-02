@@ -1,4 +1,6 @@
 <template>
+
+        
     <div class="container-fluid pending-vend">
         <div class="row mt-4" >
             <div class="col-sm-12">

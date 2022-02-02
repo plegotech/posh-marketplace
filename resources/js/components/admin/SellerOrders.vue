@@ -99,14 +99,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -138,14 +138,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -177,14 +177,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -216,14 +216,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -255,14 +255,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -294,14 +294,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -333,14 +333,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -372,14 +372,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -411,14 +411,14 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
@@ -450,9 +450,9 @@
                                     <div class="cst-slct">
                                         <img src="/img/more.png" class="more-opt" alt="">
                                         <ul>
-                                            <li>View</li>
-                                            <li>Edit</li>
-                                            <li>Delete</li>
+                                            <li class="view-mob">View</li>
+                                            <li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
 

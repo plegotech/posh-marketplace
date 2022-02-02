@@ -43,40 +43,64 @@
                             <p class="mini-head">Results</p>
                         </div>
                     </div>
-                    <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod1">
-                        <thead>
-                        <tr>
-                            <th scope="col">Product Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col" class="center"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="product in all_products"
-                            :id="'allProduct'+product.id">
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>{{ product.id }}</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>{{ product.name }}</span>
-                                </td>
-                                <td>
-                                    <span>
-                                        ${{ product.net_price }}
-                                    </span>
-                                </td>
-                                <td class="center">
-                                    <input type="checkbox" @click="toggleSellerProduct(product.id)" />
-                                </td>
+                    <div class="table-container"">
+                        <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod1">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="center"></th>
                             </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <tr v-for="product in all_products"
+                                :id="'allProduct'+product.id">
+                                    <td>
+                                        <img src="/img/nike-shoe1.png" alt="">
+                                        <span>{{ product.id }}</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        <span>{{ product.name }}</span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            ${{ product.net_price }}
+                                        </span>
+                                    </td>
+                                    <td class="center">
+                                        <label class="cstm-chkb">
+                                            <input type="checkbox" @click="toggleSellerProduct(product.id)" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="foot-table" v-if="total > 0">
+                                <div class="left"><span>Rows Per Page:
+                                                <select
+                                                    @change="fetch(current_page, $event.target.value)">
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="75">75</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                                </span></div>
+                                <div class="right">
+                                    <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                    <img
+                                        src="/img/prev-arrow.png" @click="fetch(current_page-1)"
+                                        alt="" class="prev-itm">
+                                    <img
+                                        src="/img/next-arrow.png" @click="fetch(current_page+1)"
+                                        alt="" class="next-itm"></div>
+                            </div>
+                        </div>
 
 
-                    <div v-if="all_total > 0" class="row">
+                    <!--<div v-if="all_total > 0" class="row">
                         <div class="col-sm-12 d-flex justify-content-center">
                             <div aria-label="Page navigation example">
                                 <ul class="pagination bottm-pagination">
@@ -100,7 +124,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="my-product">
                         <h2>My Products <span>({{ total }} of {{ max_product }} chosen)</span></h2>
@@ -129,11 +153,12 @@
                                         ${{ product.net_price }}
                                     </span>
                                 </td>
-                                <td class="center">
+                                <td>
                                     <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
                                 </td>
                             </tr>
                         </tbody>
+                        
                     </table>
                 </div>
 

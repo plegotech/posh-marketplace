@@ -36,7 +36,7 @@
                             <hr>
                             <br>
                             <div class="seller-tdiv">
-                            <table class="table  mobile-btn-show">
+                            <table class="table  recent-Orders-table mobile-btn-show">
                                 <thead>
                                   <tr>
                                     <th scope="col"><span class="sort-ad">Order Id<img class="shuffle" src="/img/shuffle.png"></span></th>
@@ -50,6 +50,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -67,6 +68,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -84,6 +86,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -101,6 +104,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -118,6 +122,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -135,6 +140,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -152,6 +158,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -169,6 +176,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
@@ -186,108 +194,7 @@
                                     <tr>
                                       <td>
                                           <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
+                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                       </td>
                                       <td>
                                           <span>Stevan Kolman</span>
