@@ -532,6 +532,16 @@ import datepicker from 'vuejs-datepicker';
 
 export default {
     name: "dashboard",
+    data() {
+        return {
+            total_orders:       null,
+            vendor_request:     null,
+            seller_request:     null,
+            total_vendors:      null,
+            total_sellers:      null,
+            total_users:        null
+        }
+    },
     components: {
         datepicker
     },
@@ -546,9 +556,13 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    console.log('--------------------');
-                    console.log(res);
-                    console.log('--------------------');
+                    this.total_orders       = res.total_orders;
+                    this.vendor_request     = res.vendor_request;
+                    this.vendor_request     = res.vendor_request;
+                    this.seller_request     = res.seller_request;
+                    this.total_vendors      = res.total_vendors;
+                    this.total_sellers      = res.total_sellers;
+                    this.total_users        = res.total_users;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {

@@ -39,8 +39,8 @@ class AdminController extends Controller
 
     public function basiStatistics()
     {
-        //total gross sales
-        //total net sales
+        //total gross sales remaining
+        //total net sales remaining
 
         $users = User::select(
             DB::raw('(select count(*) from order_items where status = "approved") as total_orders'),
@@ -51,7 +51,7 @@ class AdminController extends Controller
             DB::raw('(select count(*) from users where user_type = "user") as total_users')
         )->first()->toArray();
 
-        dd($users);
+        response()->json($users);
 
     }
 
