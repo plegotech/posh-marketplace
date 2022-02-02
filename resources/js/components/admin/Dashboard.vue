@@ -3,26 +3,26 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker placeholder="From" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="first_date" :value="first_date" @closed="basicStatistics()" placeholder="From" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker placeholder="To" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()" placeholder="To" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
             <div class="col-sm-2">
-                <select class="mtc-24">
-                    <option disabled value="" selected>Current Year</option>
-                    <option>2020</option>
-                    <option>2021</option>
-                    <option>2022</option>
+                <select @change="basicStatistics($event.target.value)" class="mtc-24">
+                    <option value="0" selected>Select time period</option>
+                    <option value="year">Current Year</option>
+                    <option value="quarter">Current Quarter</option>
+                    <option value="month">Current Month</option>
                 </select>
             </div>
             <div class=" col-sm-4">
-                <button class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
+                <button @click="clearFiltration()" class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
             </div>
         </div>
         <br>
@@ -34,7 +34,7 @@
                         <img src="/img/Group_106.png" alt="">
                     </div>
                     <div class="right"><span>Total Gross Sales</span>
-                        <h2>$30,250</h2></div>
+                        <h2>${{ gross_sales }}</h2></div>
 
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="right">
                         <span>Total Orders</span>
-                        <h2>1,500</h2>
+                        <h2>{{ total_orders }}</h2>
                     </div>
                 </div>
             </div>
@@ -71,15 +71,15 @@
                     </div>
                     <div class="right">
                         <span>Total Vendors</span>
-                        <h2>4,050</h2>
+                        <h2>{{ total_vendors }}</h2>
                     </div>
                     <div class="right">
                         <span>Total Sellers</span>
-                        <h2>8,050</h2>
+                        <h2>{{ total_sellers }}</h2>
                     </div>
                     <div class="right">
                         <span>Total Users</span>
-                        <h2>408,655</h2>
+                        <h2>{{ total_users }}</h2>
                     </div>
                 </div>
             </div>
@@ -88,11 +88,11 @@
                 <div class="box">
                     <div class="right">
                         <span>Vendor Sign Up Requests</span>
-                        <h2>4,050</h2>
+                        <h2>{{ vendor_request }}</h2>
                     </div>
                     <div class="right">
                         <span>Seller Sign Up Requests</span>
-                        <h2>8,050</h2>
+                        <h2>{{ seller_request }}</h2>
                     </div>
                 </div>
             </div>
@@ -534,10 +534,14 @@ export default {
     name: "dashboard",
     data() {
         return {
+            time_period:        0,
+            gross_sales:        null,
             total_orders:       null,
             vendor_request:     null,
             seller_request:     null,
             total_vendors:      null,
+            first_date:         0,
+            last_date:          0,
             total_sellers:      null,
             total_users:        null
         }
@@ -549,9 +553,41 @@ export default {
         this.basicStatistics();
     },
     methods: {
-        basicStatistics() {
+        clearFiltration() {
+            this.first_date     = 0;
+            this.last_date      = 0;
+            this.time_period    = 0;
+            this.basicStatistics(0);
+        },
+        basicStatistics(time_period = 0) {
+
             document.getElementById('ajaxLoader').style.display = 'block';
             var url = '/api/admin/basic-statistics';
+
+            var time_period = time_period;
+
+            if (time_period != 0 || this.time_period != 0) {
+                if (time_period != 0) {
+                    this.time_period    = time_period;
+                    this.first_date     = 0;
+                    this.last_date      = 0;
+                }
+                url += '/' + this.time_period;
+            } else {
+                url += '/0';
+            }
+
+            if (this.first_date != 0 && this.time_period == 0) {
+                url += '/' + this.first_date;
+            } else {
+                url += '/0';
+            }
+
+            if (this.last_date != 0 && this.time_period == 0) {
+                url += '/' + this.last_date;
+            } else {
+                url += '/0';
+            }
 
             fetch(url)
                 .then(res => res.json())
@@ -563,6 +599,7 @@ export default {
                     this.total_vendors      = res.total_vendors;
                     this.total_sellers      = res.total_sellers;
                     this.total_users        = res.total_users;
+                    this.gross_sales        = res.gross_sales;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {

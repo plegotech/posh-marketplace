@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
 });
 
 Route::get('/admin-data', 'AdminController@adminData');
-Route::get('/admin/basic-statistics', 'AdminController@basiStatistics');
+Route::get('/admin/basic-statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@basicStatistics');
 
 Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}',
     'CompaniesController@companies');
