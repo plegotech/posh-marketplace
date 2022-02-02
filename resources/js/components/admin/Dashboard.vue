@@ -14,16 +14,16 @@
                 </div>
             </div>
             <div class="col-sm-2">
-                    <select class="mtc-24">
-                        <option disabled value="" selected>Current Year</option>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                    </select>
+                <select class="mtc-24">
+                    <option disabled value="" selected>Current Year</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                </select>
             </div>
-             <div class=" col-sm-4">
+            <div class=" col-sm-4">
                 <button class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
-             </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -33,7 +33,8 @@
                     <div class="left">
                         <img src="/img/Group_106.png" alt="">
                     </div>
-                    <div class="right"><span>Total Gross Sales</span> <h2>$30,250</h2></div>
+                    <div class="right"><span>Total Gross Sales</span>
+                        <h2>$30,250</h2></div>
 
                 </div>
             </div>
@@ -94,7 +95,7 @@
                         <h2>8,050</h2>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -379,7 +380,8 @@
                     <table class="table recent-Orders-table mobile-btn-show" id="newOrder_Admin">
                         <thead>
                         <tr>
-                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
+                            </th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Seller Name</th>
                             <th scope="col">Vendor Company</th>
@@ -532,6 +534,39 @@ export default {
     name: "dashboard",
     components: {
         datepicker
+    },
+    created() {
+        this.basicStatistics();
+    },
+    methods: {
+        basicStatistics() {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/admin/basic-statistics';
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('--------------------');
+                    console.log(res);
+                    console.log('--------------------');
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+        salesByCategory() {
+
+        },
+        topTenSellers() {
+
+        },
+        topProducts() {
+
+        },
+        newOrders() {
+
+        }
     }
 }
 </script>

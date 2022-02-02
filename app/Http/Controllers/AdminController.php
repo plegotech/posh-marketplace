@@ -36,4 +36,23 @@ class AdminController extends Controller
 
         return response()->json($return);
     }
+
+    public function basiStatistics()
+    {
+        //total gross sales
+        //total net sales
+
+        $users = User::select(
+            DB::raw('(select count(*) from order_items where status = "approved") as total_orders'),
+            DB::raw('(select count(*) from users where user_type = "vendor" and status = "pending") as vendor_request'),
+            DB::raw('(select count(*) from users where user_type = "seller" and status = "pending") as seller_request'),
+            DB::raw('(select count(*) from users where user_type = "vendor" and status = "approved") as total_vendors'),
+            DB::raw('(select count(*) from users where user_type = "seller" and status = "approved") as total_sellers'),
+            DB::raw('(select count(*) from users where user_type = "user") as total_users')
+        )->first()->toArray();
+
+        dd($users);
+
+    }
+
 }

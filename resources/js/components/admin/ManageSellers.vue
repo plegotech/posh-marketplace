@@ -314,7 +314,7 @@ export default {
                     this.to = res.to;
                     this.from = res.from;
                     this.total = res.total;
-                    this.current_page = res.to / res.per_page;
+                    this.current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
