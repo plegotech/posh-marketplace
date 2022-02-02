@@ -15,7 +15,7 @@
                 <div class="tier-box-area">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div>
+                            <div @click="lastStep()" class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div>
                             <h1 class="main-title mb-4">Select Tier</h1></div>
                     </div>
                     <div class="row px-5">
@@ -93,6 +93,10 @@ export default {
         this.seller.seller_id =  this.$route.params.user_id;
     },
     methods: {
+        lastStep() {
+            this.$router.push({name: 'seller-signup'});
+            this.$router.push({name: 'seller-signup', params: { user_id: this.seller.seller_id }});
+        },
         changeTierSelection(type) {
             let tiers = document.getElementsByClassName('box-a-tier');
 

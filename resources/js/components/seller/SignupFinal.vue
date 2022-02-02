@@ -15,7 +15,10 @@
                 <div class="tier-box-area">
                     <div class="row selectTemplate">
                         <div class="col-sm-12 text-center">
-                           <div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div> <h1 class="main-title mb-4">Select Template</h1>
+                           <div @click="lastStep()" class="back-to-paw">
+                             <i class="fas fa-chevron-left"></i>Back
+                           </div>
+                          <h1 class="main-title mb-4">Select Template</h1>
                         </div>
                         <div class="col-sm-4">
                             <img id="template_01" src="/img/templae-sample-1.png" class="img-stemplate"
@@ -58,6 +61,9 @@ export default {
         this.seller.seller_id =  this.$route.params.user_id;
     },
     methods: {
+        lastStep () {
+            this.$router.push({name: 'seller-signup-domain', params: { user_id: this.seller.seller_id }});
+        },
         async sellerStoreTemplate()
         {
             this.processing = true;

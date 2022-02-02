@@ -15,7 +15,7 @@
                 <div class="tier-box-area">
                     <div class="row mt-5 px-5">
                         <div class="col-sm-12 text-center">
-                            <div class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div>
+                            <div @click="lastStep()" class="back-to-paw"><i class="fas fa-chevron-left"></i>Back</div>
                             <h2 class="main-title mb-4">Grab Your .com</h2></div>
                         <div class="col-sm-12">
 
@@ -119,6 +119,9 @@ export default {
         this.seller.seller_id =  this.$route.params.user_id;
     },
     methods: {
+        lastStep() {
+            this.$router.push({name: 'seller-signup-tier', params: { user_id: this.seller.seller_id }});
+        },
         async sellerStoreDomain()
         {
             this.processing = true;
