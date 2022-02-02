@@ -106,7 +106,7 @@
                     <b-tabs content-class="mt-3">
                         <b-tab title="Current Year" active>
                             <!-- START:: CURRENT YEAR CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Phoenix Entertainment NYC</td>
@@ -138,7 +138,7 @@
                         </b-tab>
                         <b-tab title="Current Month">
                             <!-- START:: CURRENT MONTH CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Computers</td>
@@ -170,7 +170,7 @@
                         </b-tab>
                         <b-tab title="Current Quarter">
                             <!-- START:: CURRENT QUARTER CONTETN -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Architecture</td>
@@ -210,7 +210,7 @@
                     <b-tabs content-class="mt-3">
                         <b-tab title="Current Year" active>
                             <!-- START:: CURRENT YEAR CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Computers</td>
@@ -243,7 +243,7 @@
                         </b-tab>
                         <b-tab title="Current Month">
                             <!-- START:: CURRENT MONTH CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Phoenix Entertainment NYC</td>
@@ -275,7 +275,7 @@
                         </b-tab>
                         <b-tab title="Current Quarter">
                             <!-- START:: CURRENT QUARTER CONTETN -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
                                 <tr>
                                     <td>Architecture</td>

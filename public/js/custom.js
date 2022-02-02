@@ -22,9 +22,14 @@ $(document).ready(function () {
     })
 
     $('.cst-slct ul li').on('click', function () {
-        $(this).each(function () {
-            $(this).parent('ul').hide()
-        })
+        if ($(window).width() < 960) {
+            return false;
+        }
+        else {
+            $(this).each(function () {
+                $(this).parent('ul').hide()
+            })
+        }
     })
 
     
@@ -123,6 +128,7 @@ $(document.body).on('click', 'table', function(){
         
         var headT = $('table#'+tableId+' thead th');
         headT.on('click', function(){
+            alert("clicked!");
             return false;
         })
         var tableHeads = [];
@@ -137,16 +143,23 @@ $(document.body).on('click', 'table', function(){
             var intNth = parseInt(i+1);
             var dyn_nth = "nth-child("+intNth+")";
             $('table#'+tableId+' tbody tr.set-table td:'+dyn_nth).prepend("<span class='title-span'>"+$(x[i]).text()+"</span>");
-            console.log($(x[i]).text())
-            // .mob-expand
         }     
+        
     }
 });
 
+
 $(document.body).on('click', 'tbody tr', function(){
-    if ($(window).width() < 960) {
-        $("table.table.recent-Orders-table tr .title-span").remove();
-        $("table.table.recent-Orders-table tr").removeClass("set-table");
-        $(this).addClass("set-table");
+    
+    var table_Class_1 = $(this).closest('table').attr('class');
+    if(table_Class_1 == "tabsTable"){
+        return false;
+    }
+    else {
+        if ($(window).width() < 960) {
+            $("table.table.recent-Orders-table tr .title-span").remove();
+            $("table.table.recent-Orders-table tr").removeClass("set-table");
+            $(this).addClass("set-table");
+        }
     }
 });
