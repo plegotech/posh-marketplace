@@ -1361,7 +1361,6 @@ i.num-count-bx {
 .form-group input.form-control, .form-group select.form-control {
     height: 56px!important;
     margin-top: 0;
-    background: #fff;
     border: 1px solid #2D2D2D;
 }
 .registration-dvs-form {
@@ -2235,9 +2234,9 @@ span.newPrice-domain {
     position: absolute;
     background: #f4f1f1;
     top: 10px;
-    left: 115px;
+    left: 4px;
     pointer-events: none;
-    padding: 7px 29px 7px 27px;
+    padding: 7px 6px 7px 6px;
     font-size: 14px;
 }
 button.primary.btn-exp-mv.mt-0 {
