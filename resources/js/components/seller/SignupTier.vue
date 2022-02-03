@@ -51,7 +51,7 @@
                             <div id="tier_three" class="box-a-tier">
                                 <i class="num-count-bx">3</i>
                                 <div class="box-t-ins">
-                                    <h4 class="txt-blue">Tier Three</h4>
+                                    <h4 class="txt-blue">Tier 3</h4>
                                     <ul>
                                         <li>Lorem Ipsum</li>
                                         <li>Lorem Ipsum</li>

@@ -4,35 +4,47 @@
         <div class="row" style="margin-top:20px">
                     <div class="col-sm-12">
                         <div class="top-newOrder">
-                            <div class="row">
-                                <div class="col-sm-3 mb-4">
-                                    <select name="" id="" class="select-custom-point">
-                                        <option value="" selected>Choose Year</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3">
-                                    <select name="" id="" class="select-custom-point">
-                                        <option value="" selected>Choose Month</option>
-                                        <option value="Janruary">Janruary</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="August">August</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
-                                    </select>
-                                </div>
+<div class="row ">
+                        <div class="col-sm-6 ">
+                            <div class="search-box mb-4 flaot-left">
+                                <img src="/img/search-icon.png" alt="" class="search-icon">
+                                <input type="text" class="search_BX pendingVendorSearch"> <img src="/img/close-srch.png" alt="" class="close-icon">
                             </div>
+                        </div>
+                        <div class="col">
+                        <div class="select-bx-sho mr-3">
+                            <select name="" id="" class="select-custom-point min-150">
+                                <option value="" selected="selected">Choose Year</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                            </select>
+                        </div> 
+                        </div>
+                        <div class="col">
+                        <div class="select-bx-sho">
+                        <select name="" id="" class="select-custom-point min-150">
+                            <option value="" selected="selected">Choose Month</option>
+                            <option value="Janruary">Janruary</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                        </div>
+                    </div>
+                    </div>
+
+                            
                             <hr>
                             <br>
                             <div class="seller-tdiv">
