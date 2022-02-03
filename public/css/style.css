@@ -708,6 +708,7 @@ li.nav-item a.nav-link {
     transform: translatex(-50%);
     cursor: pointer;
 }
+
 .main .body h2 {
     font-family: Inter;
     font-style: normal;
@@ -2225,6 +2226,12 @@ span.newPrice-domain {
 }
 .custom-file-upload input.form-control {
     padding-top: 11px;
+}
+.custom-file-upload ::-webkit-file-upload-button {
+    background: transparent;
+    color: transparent;
+    padding: 4px 1em;
+    border: transparent;
 }
 .custom-file-upload {
     position: relative;
