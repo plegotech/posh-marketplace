@@ -8,35 +8,16 @@
                         <h1>Posh Marketplace</h1>
                     </div>
 
-                    <div class="login-box">
-                        <h1>Sign-In</h1>
+                    <div class="login-box mb-5">
+                        <h1>Reset Password</h1>
                         <form>
                             <input type="email" v-model="form.email" placeholder="Email Address*">
-                            <span class="eye-icon-pass"><input type="password" v-model="form.password" placeholder="Password*"><i class="fas fa-eye-slash"></i></span>
                             <span v-if="error != 0" class="invalidLogin alert alert-danger">{{ this.error }}</span>
-                            <label class="group">
-                                <input type="checkbox">
-                                Stay Signed In
-                            </label>
-
-                            <router-link to="/admin/dashboard">Forgot Password?</router-link>
                             <button type="submit" :disabled="processing" @click="loginUser" class="primary btn-block">
-                                {{ processing ? "Please wait" : "Login" }}
+                                {{ processing ? "Please wait" : "Request Password" }}
                             </button>
                         </form>
                     </div>
-
-                    <div class="info-login">
-                        <h2>New to Posh Market?
-                            
-                            <span id="signInOpt">Sign Up</span>
-                            <ul class="signInOpt">
-                                <router-link :to="{ name: 'seller-signup' }"><li>Seller Signup</li></router-link>
-                                <router-link :to="{ name: 'vendor-signup' }"><li>Vendor Signup</li></router-link>
-                            </ul>
-                        </h2>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -74,6 +55,7 @@ export default {
             await axios.get('/sanctum/csrf-cookie')
             await axios.post('/login', this.form)
                 .then(({data}) => {
+                    axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
                     this.signIn();
                     setTimeout(() => {
                         switch (this.$store.state.auth.user.user_type) {

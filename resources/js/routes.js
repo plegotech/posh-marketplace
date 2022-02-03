@@ -15,6 +15,7 @@ import AdminVendorReports from './components/admin/VendorReports';
 
 import UserLogin from './components/user/LoginUser';
 import AdminLogin from './components/user/LoginAdmin';
+import ResetPassword from './components/user/ResetPassword';
 import SellerLogin from './components/user/LoginSeller';
 import VendorLogin from './components/user/LoginVendor';
 import VendorSignup from './components/vendor/Signup';
@@ -102,6 +103,7 @@ export default {
          */
 
         { name: 'login-user', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
+        { name: 'reset-password', meta: { title: 'Reset Password', middleware:'guest' }, path: '/reset-password', component: ResetPassword },
         { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
