@@ -38,6 +38,94 @@ class AdminController extends Controller
         return response()->json($return);
     }
 
+    private function topSellers()
+    {
+        $orderItems = new OrderItems();
+
+        $sellers = $orderItems->select('users.id', 'users.first_name', 'users.last_name',
+            DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'))
+            ->join('users', 'users.id', '=', 'order_items.seller_id')
+            ->join('products', 'products.id', '=', 'order_items.item_id');
+
+        $sellers_by_year = $sellers->where('order_items.created_at', 'LIKE', '%'. date('Y') .'%')
+            ->orderBy('total_sold', 'desc')
+            ->limit(10)
+            ->groupBy('users.id')
+            ->get()->toArray();
+
+        $sellers_by_month = $sellers->where('order_items.created_at', 'LIKE', '%'. date('Y-m') .'%')
+            ->orderBy('total_sold', 'desc')
+            ->limit(10)
+            ->groupBy('users.id')
+            ->get()->toArray();
+
+        $current_quarter = ceil(date('n') / 3);
+
+        $sellers_by_quarter = $sellers->whereDate('order_items.created_at', '>=', date('Y-m-d 00:00:00', strtotime(date('Y') . '-' . (($current_quarter * 3) - 2) . '-1')))
+            ->whereDate('order_items.created_at', '<=', date('Y-m-t 23:59:59', strtotime(date('Y') . '-' . (($current_quarter * 3)) . '-1')))
+            ->orderBy('total_sold', 'desc')
+            ->limit(10)
+            ->groupBy('users.id')
+            ->get()->toArray();
+
+        return array(
+            'sellers_by_year'           => $sellers_by_year,
+            'sellers_by_month'          => $sellers_by_month,
+            'sellers_by_quarter'        => $sellers_by_quarter
+        );
+    }
+
+    private function topProducts()
+    {
+        $orderItems = new OrderItems();
+        return $orderItems->select(DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'),
+            'products.id', 'products.name', 'companies.name as company', 'products.brand', 'products.featured_image',
+            'companies.user_id')
+            ->join('products', 'products.id', '=', 'order_items.item_id')
+            ->join('companies', 'companies.user_id', '=', 'products.vendor_id')
+            ->orderBy('total_sold', 'desc')
+            ->limit(10)
+            ->groupBy('products.id')
+            ->get()->toArray();
+    }
+
+    private function salesByCategory()
+    {
+        $orderItems = new OrderItems();
+
+        $orders = $orderItems->select(DB::RAW('COUNT(*) AS order_quanities'), 'products.parent_category',
+            'products.sub_category', DB::RAW('SUM((products.net_price * order_items.quantity)) as total_sold'),
+            'order_items.created_at')
+            ->join('products', 'products.id', '=', 'order_items.id');
+
+        $orders_by_year = $orders->where('order_items.created_at', 'LIKE', '%'. date('Y') .'%')
+            ->orderBy('order_quanities', 'desc')
+            ->limit(10)
+            ->groupBy('products.sub_category')
+            ->get()->toArray();
+
+        $orders_by_month = $orders->where('order_items.created_at', 'LIKE', '%'. date('Y-m') .'%')
+            ->orderBy('order_quanities', 'desc')
+            ->limit(10)
+            ->groupBy('products.sub_category')
+            ->get()->toArray();
+
+        $current_quarter = ceil(date('n') / 3);
+
+        $orders_by_quarter = $orders->whereDate('order_items.created_at', '>=', date('Y-m-d 00:00:00', strtotime(date('Y') . '-' . (($current_quarter * 3) - 2) . '-1')))
+            ->whereDate('order_items.created_at', '<=', date('Y-m-t 23:59:59', strtotime(date('Y') . '-' . (($current_quarter * 3)) . '-1')))
+            ->orderBy('order_quanities', 'desc')
+            ->limit(10)
+            ->groupBy('products.sub_category')
+            ->get()->toArray();
+
+        return array(
+            'orders_by_year'        => $orders_by_year,
+            'orders_by_month'       => $orders_by_month,
+            'orders_by_quarter'     => $orders_by_quarter
+        );
+    }
+
     public function basicStatistics($time_period = 0, $first_date = '0', $last_date = '0')
     {
         //2022-02-16 01:12:51 : Format 16th Feb
@@ -108,8 +196,11 @@ class AdminController extends Controller
         $data = $users;
         $data['gross_sales'] = $gross_sales;
 
-        return response()->json($data);
+        $data = array_merge($data, $this->salesByCategory());
+        $data = array_merge($data, $this->topSellers());
+        $data = array_merge($data, array('top_products' => $this->topProducts()));
 
+        return response()->json($data);
     }
 
 }

@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\OrderItems;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 use App\Companies;
@@ -21,7 +20,11 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return 'silence is the gold';
+        $orders = new Order();
+
+        $orders = $orders->getAllOrders();
+
+        return response()->json($orders, 201);
     }
 
     public function updateVendorOrderStatus($vendor, $order, $status)

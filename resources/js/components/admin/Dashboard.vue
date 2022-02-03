@@ -3,13 +3,16 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker :clear-button="true" v-model="first_date" :value="first_date" @closed="basicStatistics()" placeholder="From" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="first_date" :value="first_date"
+                                @closed="basicStatistics()" placeholder="From"
+                                class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()" placeholder="To" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()"
+                                placeholder="To" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
@@ -108,29 +111,9 @@
                             <!-- START:: CURRENT YEAR CONTENT -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Phoenix Entertainment NYC</td>
-                                    <td>$1,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Wildly Different</td>
-                                    <td>$432,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Tastling NYC | SoFlo</td>
-                                    <td>$235,450</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$333,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Williamson</td>
-                                    <td>$1,234</td>
-                                </tr>
-                                <tr>
-                                    <td>Extreme Commerce</td>
-                                    <td>$33,350</td>
+                                <tr v-for="category in orders_by_year">
+                                    <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                    <td>${{ category.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -140,30 +123,10 @@
                             <!-- START:: CURRENT MONTH CONTENT -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Computers</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Beauty &amp; Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital Music</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
-                                </tr>
+                                    <tr v-for="category in orders_by_month">
+                                        <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                        <td>${{ category.total_sold }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- END::   CURRENT MONTH CONTENT -->
@@ -172,30 +135,10 @@
                             <!-- START:: CURRENT QUARTER CONTETN -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Architecture</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store and other</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
-                                </tr>
+                                    <tr v-for="category in orders_by_quarter">
+                                        <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                        <td>${{ category.total_sold }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- END ::: CURRENT QUARTER CONTENT -->
@@ -212,30 +155,10 @@
                             <!-- START:: CURRENT YEAR CONTENT -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Computers</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Beauty &amp; Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital Music</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
-                                </tr>
+                                    <tr v-for="seller in sellers_by_year">
+                                        <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                        <td>${{ seller.total_sold }}</td>
+                                    </tr>
                                 </tbody>
 
                             </table>
@@ -245,30 +168,10 @@
                             <!-- START:: CURRENT MONTH CONTENT -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Phoenix Entertainment NYC</td>
-                                    <td>$1,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Wildly Different</td>
-                                    <td>$432,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Tastling NYC | SoFlo</td>
-                                    <td>$235,450</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$333,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Williamson</td>
-                                    <td>$1,234</td>
-                                </tr>
-                                <tr>
-                                    <td>Extreme Commerce</td>
-                                    <td>$33,350</td>
-                                </tr>
+                                    <tr v-for="seller in sellers_by_month">
+                                        <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                        <td>${{ seller.total_sold }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- END::   CURRENT MONTH CONTENT -->
@@ -277,30 +180,10 @@
                             <!-- START:: CURRENT QUARTER CONTETN -->
                             <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Architecture</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store and other</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
-                                </tr>
+                                    <tr v-for="seller in sellers_by_quarter">
+                                        <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                        <td>${{ seller.total_sold }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- END ::: CURRENT QUARTER CONTENT -->
@@ -319,50 +202,24 @@
                         <thead>
                         <tr>
                             <th scope="col">Product</th>
-                            <th scope="col">Seller Company</th>
+                            <th scope="col">Brand</th>
                             <th scope="col">Vendor Company</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shirt.png" alt="">
-                                <span>Nike Shirt</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Fath Textile</span>
-                            </td>
-                            <td>
-                                <span>WIldly Different</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/cotton-shirt.png" alt="">
-                                <span>Cotton Shirt</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Fath Textile</span>
-                            </td>
-                            <td>
-                                <span>WIldly Different</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoes.png" alt="">
-                                <span>Nike Shoes</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Fath Textile</span>
-                            </td>
-                            <td>
-                                <span>WIldly Different</span>
-                            </td>
-                        </tr>
+                            <tr v-for="product in top_products">
+                                <td>
+                                    <img  :src="'/img/product-images/' + product.user_id + '/' + product.featured_image"  alt="">
+                                    <span>{{ product.name }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>{{ product.brand }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ product.company }}</span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -534,16 +391,23 @@ export default {
     name: "dashboard",
     data() {
         return {
-            time_period:        0,
-            gross_sales:        null,
-            total_orders:       null,
-            vendor_request:     null,
-            seller_request:     null,
-            total_vendors:      null,
-            first_date:         0,
-            last_date:          0,
-            total_sellers:      null,
-            total_users:        null
+            time_period: 0,
+            gross_sales: null,
+            total_orders: null,
+            vendor_request: null,
+            seller_request: null,
+            total_vendors: null,
+            first_date: 0,
+            last_date: 0,
+            total_sellers: null,
+            orders_by_month: [],
+            orders_by_quarter: [],
+            orders_by_year: [],
+            sellers_by_month: [],
+            sellers_by_quarter: [],
+            sellers_by_year: [],
+            top_products: [],
+            total_users: null
         }
     },
     components: {
@@ -551,12 +415,13 @@ export default {
     },
     created() {
         this.basicStatistics();
+        this.orders();
     },
     methods: {
         clearFiltration() {
-            this.first_date     = 0;
-            this.last_date      = 0;
-            this.time_period    = 0;
+            this.first_date = 0;
+            this.last_date = 0;
+            this.time_period = 0;
             this.basicStatistics(0);
         },
         basicStatistics(time_period = 0) {
@@ -568,9 +433,9 @@ export default {
 
             if (time_period != 0 || this.time_period != 0) {
                 if (time_period != 0) {
-                    this.time_period    = time_period;
-                    this.first_date     = 0;
-                    this.last_date      = 0;
+                    this.time_period = time_period;
+                    this.first_date = 0;
+                    this.last_date = 0;
                 }
                 url += '/' + this.time_period;
             } else {
@@ -592,31 +457,46 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.total_orders       = res.total_orders;
-                    this.vendor_request     = res.vendor_request;
-                    this.vendor_request     = res.vendor_request;
-                    this.seller_request     = res.seller_request;
-                    this.total_vendors      = res.total_vendors;
-                    this.total_sellers      = res.total_sellers;
-                    this.total_users        = res.total_users;
-                    this.gross_sales        = res.gross_sales;
+                    this.total_orders           = res.total_orders;
+                    this.vendor_request         = res.vendor_request;
+                    this.vendor_request         = res.vendor_request;
+                    this.seller_request         = res.seller_request;
+                    this.total_vendors          = res.total_vendors;
+                    this.total_sellers          = res.total_sellers;
+                    this.total_users            = res.total_users;
+                    this.gross_sales            = res.gross_sales;
+                    this.orders_by_year         = res.orders_by_year;
+                    this.orders_by_month        = res.orders_by_month;
+                    this.orders_by_quarter      = res.orders_by_quarter;
+                    this.sellers_by_year        = res.sellers_by_year;
+                    this.sellers_by_month       = res.sellers_by_month;
+                    this.sellers_by_quarter     = res.sellers_by_quarter;
+                    this.top_products           = res.top_products;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
         },
-        salesByCategory() {
+        orders(page = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let url = '/api/orders';
 
-        },
-        topTenSellers() {
+            if (page > 0) {
+                url += '?page=' + page;
+            }
 
-        },
-        topProducts() {
-
-        },
-        newOrders() {
-
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('-----');
+                    console.log(res);
+                    console.log('-----');
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
         }
     }
 }
