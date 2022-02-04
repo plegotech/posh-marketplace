@@ -48,10 +48,13 @@ Route::post('/seller/{step}', 'SellerController@seller');
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 
 Route::prefix('orders')->group(function () {
-    Route::get('/', 'OrdersController@index');
-    Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}', 'OrdersController@fetchAllBySeller');
-    Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}', 'OrdersController@fetchAllByVendor');
-    Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}', 'OrdersController@updateVendorOrderStatus');
+    Route::get('/{per_page}', 'OrdersController@index');
+    Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
+        'OrdersController@fetchAllBySeller');
+    Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
+        'OrdersController@fetchAllByVendor');
+    Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
+        'OrdersController@updateVendorOrderStatus');
 
 });
 

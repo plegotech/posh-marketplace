@@ -18,11 +18,11 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($per_page)
     {
-        $orders = new Order();
+        $orderItems = new OrderItems();
 
-        $orders = $orders->getAllOrders();
+        $orders = $orderItems->getAllOrders($per_page);
 
         return response()->json($orders, 201);
     }
