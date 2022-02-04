@@ -20,19 +20,19 @@
                             </div>
                         </div>
                         <div class="col-sm-6 offset-sm-2">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <select v-model="category" class="parentCategory select-custom-point"
+                            <div class="row justify-content-end">
+                                <div class="w-auto col-6">
+                                    <select class="parentCategory select-custom-point"
                                             @change="updateSubCategories()">
-                                        <option value="" selected>Category</option>
+                                        <option value="sdas" selected>Category</option>
                                         <option v-for="(category, index) in parent_categories"
                                                 :value="index">
                                             {{ index }}
                                         </option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
-                                    <select v-model="sub_category" class="subCategory select-custom-point"
+                                <div class="w-auto col-6">
+                                    <select class="subCategory select-custom-point"
                                             @change="fetch()">
                                         <option value="" selected>Sub Category</option>
                                         <option v-for="(category, index) in sub_categories"
