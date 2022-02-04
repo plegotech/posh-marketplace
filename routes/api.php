@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('/orders/{for}', 'OrdersController@adminOrders');
     Route::get('/admin-data', 'AdminController@adminData');
     Route::get('/basic-statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@basicStatistics');
 });
@@ -48,7 +49,7 @@ Route::post('/seller/{step}', 'SellerController@seller');
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 
 Route::prefix('orders')->group(function () {
-    Route::get('/{per_page}', 'OrdersController@index');
+    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
     Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
         'OrdersController@fetchAllBySeller');
     Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
