@@ -101,8 +101,9 @@
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
                                 </td>
@@ -135,13 +136,217 @@
                                     <span>4949, Forecast Ave</span>
                                 </td>
                                 <td>
-                                    <div class="dropdown cst-slct">
+                                     <div class="dropdown cst-slct">
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
+                                                </ul>
+                                            </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                     <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
+                                                </ul>
+                                            </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                     <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
+                                                </ul>
+                                            </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                     <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
+                                                </ul>
+                                            </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                     <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
+                                                </ul>
+                                            </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>AKN 1250</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>Nike Shoes</span>
+                                </td>
+                                <td>
+                                    <span>06/25/2021</span>
+                                </td>
+                                <td>
+                                    <span>3</span>
+                                </td>
+                                <td>
+                                    <span>$540</span>
+                                </td>
+                                <td>
+                                    <span class="shipped">shipped</span>
+                                </td>
+                                <td>
+                                    <span>Credit Card</span>
+                                </td>
+                                <td>
+                                    <span>4949, Forecast Ave</span>
+                                </td>
+                                <td>
+                                     <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
 
@@ -180,88 +385,9 @@
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
-                                                </ul>
-                                            </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>AKN 1250</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>Nike Shoes</span>
-                                </td>
-                                <td>
-                                    <span>06/25/2021</span>
-                                </td>
-                                <td>
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <span>$540</span>
-                                </td>
-                                <td>
-                                    <span class="shipped">shipped</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>4949, Forecast Ave</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
-                                                </ul>
-                                            </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>AKN 1250</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>Nike Shoes</span>
-                                </td>
-                                <td>
-                                    <span>06/25/2021</span>
-                                </td>
-                                <td>
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <span>$540</span>
-                                </td>
-                                <td>
-                                    <span class="shipped">shipped</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>4949, Forecast Ave</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
                                 </td>
@@ -294,133 +420,14 @@
                                     <span>4949, Forecast Ave</span>
                                 </td>
                                 <td>
-                                    <div class="dropdown cst-slct">
+                                     <div class="dropdown cst-slct">
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
-                                                </ul>
-                                            </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>AKN 1250</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>Nike Shoes</span>
-                                </td>
-                                <td>
-                                    <span>06/25/2021</span>
-                                </td>
-                                <td>
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <span>$540</span>
-                                </td>
-                                <td>
-                                    <span class="shipped">shipped</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>4949, Forecast Ave</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
-                                                </ul>
-                                            </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>AKN 1250</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>Nike Shoes</span>
-                                </td>
-                                <td>
-                                    <span>06/25/2021</span>
-                                </td>
-                                <td>
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <span>$540</span>
-                                </td>
-                                <td>
-                                    <span class="shipped">shipped</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>4949, Forecast Ave</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
-                                                </ul>
-                                            </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>AKN 1250</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>Nike Shoes</span>
-                                </td>
-                                <td>
-                                    <span>06/25/2021</span>
-                                </td>
-                                <td>
-                                    <span>3</span>
-                                </td>
-                                <td>
-                                    <span>$540</span>
-                                </td>
-                                <td>
-                                    <span class="shipped">shipped</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>4949, Forecast Ave</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                                     data-toggle="dropdown" aria-haspopup="true"
-                                                     aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
                                 </td>
@@ -458,8 +465,9 @@
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
 

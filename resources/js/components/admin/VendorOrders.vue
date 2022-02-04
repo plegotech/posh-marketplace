@@ -96,13 +96,14 @@
                                     <span>4949, Forecast Ave habib</span>
                                 </td>
                                     <td>
-                                        <div class="dropdown cst-slct">
+                                         <div class="dropdown cst-slct">
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
                                      </td>
@@ -139,9 +140,10 @@
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
 
@@ -179,9 +181,10 @@
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
 
@@ -219,9 +222,10 @@
                                                 <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                      data-toggle="dropdown" aria-haspopup="true"
                                                      aria-expanded="false">
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                    <li class="edit-mob">Accept</li>
-                                                    <li class="inactive-mob">Reject</li>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                                    <li class="view-mob">View</li>
+                                                    <li class="edit-mob">Edit</li>
+                                                    <li class="inactive-mob">Delete</li>
                                                 </ul>
                                             </div>
 
