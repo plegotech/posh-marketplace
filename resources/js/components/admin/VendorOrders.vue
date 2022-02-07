@@ -1,11 +1,126 @@
 <template>
 
     <div class="container-fluid pending-vend">
+        <!-- start modal -->
+        <div class="modal fade bd-example-modal-lg cstm-modal" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content p-4">
+                    <img src="/img/cancel-icon.png" class="cancel-popup" alt="">
+                    <img src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
+                         alt="">
 
+                    <form ref="form">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Company Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                        placeholder="Company Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="email" class="form-control"
+                                           placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>City</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>State</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="offset-sm-4 col-sm-8">
+                                <div class="form-group">
+                                    <button class="btn btn-light btn-block">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- start modal -->
         <div class="row" style="margin-top:20px">
-
             <div class="col-sm-12">
-
                 <div class="top-newOrder myorder">
                     <div class="row mb-4">
                         <div class="col-sm-4">
@@ -93,7 +208,7 @@
                                     <span>Credit Card</span>
                                 </td>
                                 <td>
-                                    <span>4949, Forecast Ave habib</span>
+                                    <span>4949, Forecast Ave</span>
                                 </td>
                                     <td>
                                          <div class="dropdown cst-slct">
