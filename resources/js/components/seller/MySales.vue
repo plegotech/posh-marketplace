@@ -75,7 +75,7 @@
 
                 <div class="top-newOrder">
 
-                    <table class="table mobile-btn-show">
+                    <table class="table mobile-btn-show recent-Orders-table" id="seller_MySales">
                         <thead>
                         <tr>
                             <th scope="col" @click="soldProductStatistics(1, 0, 'name' )"><span class="sort-ad">Product Name <img class="shuffle"
