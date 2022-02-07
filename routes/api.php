@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/orders/{for}', 'OrdersController@adminOrders');
     Route::get('/admin-data', 'AdminController@adminData');
+    Route::get('/statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@userStatistics');
     Route::get('/basic-statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@basicStatistics');
 });
 

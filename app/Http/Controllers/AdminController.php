@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OrderItems;
 use App\User;
+use App\Product;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -126,7 +127,7 @@ class AdminController extends Controller
         );
     }
 
-    public function basicStatistics($time_period = 0, $first_date = '0', $last_date = '0')
+    private function filterDates($time_period = 0, $first_date = '0', $last_date = '0')
     {
         //2022-02-16 01:12:51 : Format 16th Feb
         if($first_date == '0' AND $last_date == '0') {
@@ -157,6 +158,19 @@ class AdminController extends Controller
                 $last_date = date('Y-m-d 23:59:59', strtotime(substr($last_date, 0, 24)));
             }
         }
+
+        return array(
+            'first_date'    => $first_date,
+            'last_date'     => $last_date
+        );
+    }
+
+    public function basicStatistics($time_period = 0, $first_date = '0', $last_date = '0')
+    {
+        $dates      = $this->filterDates($time_period, $first_date, $last_date);
+
+        $first_date = $dates['first_date'];
+        $last_date  = $dates['last_date'];
 
         //total gross sales remaining
         //total net sales remaining
@@ -201,6 +215,42 @@ class AdminController extends Controller
         $data = array_merge($data, array('top_products' => $this->topProducts()));
 
         return response()->json($data);
+    }
+
+    public function userStatistics($time_period = 0, $first_date = 0, $last_date = 0)
+    {
+        $dates      = $this->filterDates($time_period, $first_date, $last_date);
+
+        $first_date = $dates['first_date'];
+        $last_date  = $dates['last_date'];
+
+        $date_range = '';
+        if(!empty($first_date) AND $first_date != 0) {
+            $date_range .= ' AND created_at >= "'.$first_date.'"';
+        }
+
+        if(!empty($last_date) AND $last_date != 0) {
+            $date_range .= ' AND created_at < "'.$last_date.'"';
+        }
+
+        $statistics = Product::select(DB::raw('(select count(*) from products where status = "active" '.$date_range.') as active_products'),
+            DB::raw('(select count(*) from products where status = "archived" '.$date_range.') as archive_products'),
+            DB::raw('(select count(*) from order_items where progress = "delivered" AND status = "approved" '.$date_range.') as purchased_orders'),
+            DB::raw('(select count(*) from order_items where status = "rejected" '.$date_range.') as cancelled_orders'),
+            DB::raw('(SUM(`products`.`net_price` * `order_items`.`quantity`)) as gross_sales'))
+
+            ->where('order_items.progress', 'delivered');
+
+        if(!empty($first_date) AND $first_date != 0) {
+            $statistics = $statistics->whereDate('order_items.created_at', '>=', $first_date);
+        }
+
+        if(!empty($last_date) AND $last_date != 0) {
+            $statistics = $statistics->whereDate('order_items.created_at', '<=', $last_date);
+        }
+
+        return $statistics->join('order_items', 'products.id', '=', 'order_items.item_id')
+            ->first()->toArray();
     }
 
 }
