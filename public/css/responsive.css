@@ -509,10 +509,12 @@
         padding-left: 20px;
     }
                         body table tbody tr.set-table td .cstm-chkb span {
+                            min-width:auto;
         width: 20px;
         position: relative;
         margin-left: 20px;
     }
+    table#sellerVendor_Prod1 thead tr th:first-child {padding-left:70px !important}
     body table.db-adm tbody tr {}
     body table.db-adm tbody tr td {}
             }
