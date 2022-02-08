@@ -517,6 +517,12 @@
     table#sellerVendor_Prod1 thead tr th:first-child {padding-left:70px !important}
     body table.db-adm tbody tr {}
     body table.db-adm tbody tr td {}
+    .rg-wrapper {overflow-y:auto;}
+    .bgp-card-bx {height:20vh}
+    .registration-dvs-form {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
             }
         @media only screen and (max-width: 400px) {
             ul.topnav-user li:last-child {

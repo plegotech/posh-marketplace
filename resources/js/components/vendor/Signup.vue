@@ -1,6 +1,6 @@
 <template>
 
-    <div class="wrapper">
+    <div class="wrapper rg-wrapper">
         <!-- START: REGISTRATION SCREEN -->
         <section class="registration-screen" id="registration-dvs">
             <div class="container-fluid">
