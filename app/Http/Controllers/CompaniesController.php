@@ -53,7 +53,8 @@ class CompaniesController extends Controller
             // Setup the validator
             $rules = array(
                 'email'     => 'required|email|max:255|unique:users,email,'.$request->input('user_id'),
-                'name'      => 'required'
+                'name'      => 'required',
+                'phone'     => 'digits:10',
             );
 
             $validator = Validator::make($request->all(), $rules);

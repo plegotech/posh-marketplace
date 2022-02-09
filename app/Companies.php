@@ -12,14 +12,32 @@ class Companies extends Model
     public      $timestamps     = true;
 
     protected $fillable = [
-        'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country'
+        'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country', 'phone'
     ];
+
+    private function grossAmount($type)
+    {
+        $sql = "(select COALESCE(sum(net_price * quantity), 0) from order_items";
+        $sql .= " inner join products on products.id = order_items.item_id ";
+        if($type == 'seller') {
+            $sql .= " where seller_id = users.id and progress = 'delivered' and order_items.status = ";
+        } else {
+            $sql .= " where vendor_id = users.id and progress = 'delivered' and order_items.status = ";
+        }
+        $sql .= " 'approved' group by seller_id) as gross_total";
+
+        return $sql;
+    }
 
     public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0, $search = 0)
     {   // Oct 01, 2021 09:58 PM
+
+        $sql = $this->grossAmount($type);
+
         $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone AS user_phone'
             , 'users.email',
-            DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'")
+            DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'"),
+            DB::raw("$sql")
         )
         ->where('users.user_type', $type);
 

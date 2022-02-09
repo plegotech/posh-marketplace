@@ -8,112 +8,113 @@
                     <img src="/img/cancel-icon.png" class="cancel-popup" alt="">
                     <img :src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
                          alt="">
+                    <div class="row">
 
-                    <form ref="form">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Company Name</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.name" class="form-control"
-                                        placeholder="Company Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.first_name" class="form-control"
-                                           placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.last_name" class="form-control"
-                                           placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="email" v-model="company.email" class="form-control"
-                                           placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.phone" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.address" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>City</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.city" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>State</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.state" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <input type="text" v-model="company.country" class="form-control"
-                                           placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="offset-sm-4 col-sm-8">
-                                <div class="form-group">
-                                    <button @click="addCompany()" class="btn btn-light btn-block">Save</button>
-                                </div>
+                        <div v-for="error in errors"  class="col-md-12 form-row alert-danger text-center">
+                            {{ error[0] }}
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Company Name</label>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.name" class="form-control"
+                                       placeholder="Company Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.first_name" class="form-control"
+                                       placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.last_name" class="form-control"
+                                       placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Email</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="email" v-model="company.email" class="form-control"
+                                       placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.phone" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Address</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.address" class="form-control"
+                                       placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>City</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.city" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>State</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.state" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Country</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" v-model="company.country" class="form-control"
+                                       placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="offset-sm-4 col-sm-8">
+                            <div class="form-group">
+                                <button @click="addCompany()" class="btn btn-light btn-block">Save</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,11 +138,13 @@
                         <table class="table recent-Orders-table mobile-btn-show" id="manageSeller_Admin">
                             <thead>
                             <tr>
-                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span class="sort-ad">Company <img
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'name')"><span
+                                    class="sort-ad">Company <img
                                     class="shuffle"
                                     src="/img/shuffle.png"></span>
                                 </th>
-                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span class="sort-ad">Seller Name
+                                <th class="shuffle-bx" scope="col" @click="fetchCompanies(0, 0, 'first_name')"><span
+                                    class="sort-ad">Seller Name
                                     <img
                                         class="shuffle" src="/img/shuffle.png"></span></th>
                                 <th scope="col">Email Address</th>
@@ -166,13 +169,13 @@
                                     <span>{{ company.email }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ company.phone }}</span>
+                                    <span>{{ company.user_phone }}</span>
                                 </td>
                                 <td>
                                     <span>{{ company.city }}, {{ company.state }}</span>
                                 </td>
                                 <td>
-                                    <span>$0.00</span>
+                                    <span v-if="company.gross_total > 0">${{ company.gross_total }}</span>
                                 </td>
                                 <td>
                                     <span>{{ company.login_time }}</span>
@@ -181,13 +184,14 @@
 
                                     <div class="dropdown cst-slct">
                                         <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                            data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             <li @click="editCompany(company)" data-toggle="modal"
                                                 data-target=".bd-example-modal-lg" class="edit-mob">Edit
                                             </li>
-                                            <li @click="markInactive(company.user_id)" class="inactive-mob">Inactive</li>
+                                            <li @click="markInactive(company.user_id)" class="inactive-mob">Inactive
+                                            </li>
                                         </ul>
                                     </div>
 
@@ -212,9 +216,9 @@
                             <div class="right">
                                 <span>{{ from }}-{{ to }} of {{ total }} Items</span>
                                 <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
-                                    class="prev-itm" alt="">
+                                     class="prev-itm" alt="">
                                 <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
-                                    class="next-itm" alt="">
+                                     class="next-itm" alt="">
                             </div>
                         </div>
                     </div>
@@ -230,6 +234,7 @@ export default {
     data() {
         return {
             search: 0,
+            errors: [],
             companies: [],
             per_page: 0,
             order: 'asc',
@@ -252,7 +257,7 @@ export default {
                 city: '',
                 state: '',
                 country: '',
-                _token:                     document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
     },
@@ -340,7 +345,7 @@ export default {
             this.company.user_id = company.user_id;
             this.company.first_name = company.first_name;
             this.company.last_name = company.last_name;
-            this.company.phone = company.phone;
+            this.company.phone = company.user_phone;
             this.company.email = company.email;
             this.company.logo = company.logo;
             this.company.name = company.name;
@@ -356,7 +361,7 @@ export default {
         },
 
         addCompany(company) {
-            // this.$refs.form.submit();
+            var object = this;
             fetch('/api/company', {
                 method: 'post',
                 body: JSON.stringify(this.company),
@@ -367,10 +372,10 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success == false) {
-                        alert('the email is already taken or company name is empty');
+                        this.errors = data.errors;
+                    } else {
+                        object.clearForm();
                     }
-                    this.clearForm();
-                    this.fetchCompanies();
                 })
                 .catch(err => console.log(err));
         },
