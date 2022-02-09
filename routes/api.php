@@ -61,8 +61,12 @@ Route::prefix('orders')->group(function () {
 });
 
 Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
-Route::get('/product/remove/{product?}', 'ProductController@remove');
-Route::post('/product', 'ProductController@create');
 
+Route::prefix('product')->group(function () {
+    Route::post('/', 'ProductController@create');
+
+    Route::get('/remove/{product?}', 'ProductController@remove');
+    Route::get('/get/{product?}', 'ProductController@get');
+});
 Route::get('/website/{seller_id}', 'SellerController@website');
 Route::get('/domain-hosting/domain/{domain?}', 'DomainHostingController@checkDomainAvailability');

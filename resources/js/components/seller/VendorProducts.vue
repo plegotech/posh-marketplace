@@ -43,7 +43,7 @@
                             <p class="mini-head">Results</p>
                         </div>
                     </div>
-                    <div class="table-container"">
+                    <div class="table-container">
                         <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod1">
                             <thead>
                             <tr>
@@ -158,7 +158,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                        
+
                     </table>
                 </div>
 

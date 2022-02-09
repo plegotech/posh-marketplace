@@ -21,9 +21,7 @@
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.parent_category" class="form-control-label select-custom-point">
                                         <option v-for="(category, index) in parent_categories"
-                                                :value="index">
-                                            {{ index }}
-                                        </option>
+                                                :value="index">{{ index }}</option>
                                     </select>
                                     <span class="form-label">Category</span>
                                 </div>
@@ -49,7 +47,7 @@
                                                               width="30" height="30"></p>
                                     </div>
                                     <div class="upload-image-vup">
-                                        <img src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
+                                        <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
                                         <input type="file" ref="file" style="display: none" name="featured_image" @change="featuredImage" />
                                         <button class="img-title-up" @click="$refs.file.click()">Upload Image</button>
                                     </div>
@@ -83,6 +81,7 @@
 export default {
     data() {
         return {
+            product_id:             null,
             csv_file:               null,
             parent_categories:      null,
             processing:             false,
@@ -90,6 +89,7 @@ export default {
             user:                   this.$store.state.auth.user,
             brands:                 null,
             product: {
+                id:                     null,
                 name:                   null,
                 net_price:              null,
                 vendor_id:              null,
@@ -103,12 +103,41 @@ export default {
     },
 
     created() {
-        this.parent_categories  = SITE_CATEGORIES;
-        this.brands             = SITE_BRANDS;
-        this.product.vendor_id    = this.user.id;
+        this.parent_categories          = SITE_CATEGORIES;
+        this.brands                     = SITE_BRANDS;
+        this.product.vendor_id          = this.user.id;
+        this.product_id                 = this.$route.params.product_id;
+
+        if(this.product_id) {
+            this.getProductById(this.product_id);
+        }
     },
 
     methods: {
+        getProductById(product) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let url = '/api/product/get/' + product;
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    if(res.featured_image) {
+                        let src = "/img/product-images/" + res.vendor_id + "/" + res.featured_image;
+                        document.getElementById('img-upload-vup').src = src;
+                    }
+                    this.product.id                     = res.id;
+                    this.product.name                   = res.name;
+                    this.product.net_price              = res.net_price;
+                    this.product.vendor_id              = res.vendor_id;
+                    this.product.parent_category        = res.parent_category;
+                    this.product.brand                  = res.brand;
+                    this.product.description            = res.description;
+                    console.log(this.product);
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
         csvUpload(e) {
             document.getElementById('ajaxLoader').style.display = 'block';
 
@@ -163,6 +192,7 @@ export default {
             }
 
             let data = new FormData();
+            data.append('id', this.product.id);
             data.append('name', this.product.name);
             data.append('net_price', this.product.net_price);
             data.append('vendor_id', this.product.vendor_id);
@@ -182,9 +212,7 @@ export default {
                     }
                 })
                 .catch(function (res) {
-                    console.log('--');
                     console.log(res);
-                    console.log('--');
                 })
                 .finally(()=>{
                     this.processing = false;
