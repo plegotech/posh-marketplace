@@ -347,6 +347,11 @@ export default {
             this.time_period = 0;
             this.basicStatistics(0);
             this.orders(0);
+            let elements = document.getElementsByClassName('vdp-datepicker__clear-button');
+            for(var i = 0; i < elements.length; i++) {
+                let element = elements[i];
+                element.click();
+            }
         },
         basicStatistics(time_period = 0) {
 
