@@ -104,7 +104,7 @@ export default {
 
         { name: 'login-user', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
         { name: 'reset-password', meta: { title: 'Reset Password', middleware:'guest' }, path: '/reset-password', component: ResetPassword },
-        { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
+        { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },

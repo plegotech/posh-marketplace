@@ -17,7 +17,7 @@ class Companies extends Model
 
     public function getCompaniesByUserType($type, $perpage = null, $order_by = null, $order = null, $status = 0, $search = 0)
     {   // Oct 01, 2021 09:58 PM
-        $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone'
+        $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone AS user_phone'
             , 'users.email',
             DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'")
         )
@@ -25,9 +25,20 @@ class Companies extends Model
 
         if(strlen($search) > 1) {
             $companies = $companies->where(function ($companies) use($search) {
-            $companies->where('users.first_name', 'LIKE', '%'.$search.'%')
-                    ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
-                    ->orWhere('companies.name', 'LIKE', '%'.$search.'%');
+
+                $search_items = explode(' ', $search);
+
+                $companies->where('users.first_name', 'LIKE', '%'.$search.'%')
+                        ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
+                        ->orWhere('companies.name', 'LIKE', '%'.$search.'%');
+
+                if(count($search_items) > 1) {
+                    for($x = 1; $x < count($search_items); $x++) {
+                        $companies->orWhere('users.first_name', 'LIKE', '%'.$search_items[$x].'%')
+                            ->orWhere('users.last_name', 'LIKE', '%'.$search_items[$x].'%')
+                            ->orWhere('companies.name', 'LIKE', '%'.$search_items[$x].'%');
+                    }
+                }
             });
         }
 

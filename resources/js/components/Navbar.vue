@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark">
-        
+
         <div class="" id="navbarTogglerDemo01">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerSidebar"
@@ -47,7 +47,7 @@ export default {
             await axios.post('/logout').then(({data}) => {
                 this.signOut()
                 axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
-                this.$router.push({name: "login"})
+                this.$router.push({name: "login-user"})
             })
         }
     }

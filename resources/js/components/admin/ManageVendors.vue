@@ -210,9 +210,9 @@
                             </div>
                             <div class="right">
                                 <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                                <img src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
+                                <img v-if="from > 1" src="/img/prev-arrow.png" @click="fetchCompanies(current_page-1)"
                                      class="prev-itm" alt="">
-                                <img src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
+                                <img v-if="total > to" src="/img/next-arrow.png" @click="fetchCompanies(current_page+1)"
                                      class="next-itm" alt="">
                             </div>
                         </div>
@@ -315,7 +315,7 @@ export default {
                     this.to = res.to;
                     this.from = res.from;
                     this.total = res.total;
-                    this.current_page = res.to / res.per_page;
+                    this.current_page = res.current_page;
                     document.getElementById('ajaxLoader').style.display = 'none';
                 })
                 .catch(err => console.log(err))
@@ -333,7 +333,11 @@ export default {
         fetchCompaniesSearch: function (e) {
             if (e.keyCode === 13) {
                 var element = e.target;
-                this.fetchCompanies(0, 0, 0, element.value);
+                if(element.value.length) {
+                    this.fetchCompanies(0, 0, 0, element.value);
+                } else {
+                    this.fetchCompaniesSearchClear();
+                }
             }
         },
 
