@@ -44,116 +44,98 @@
                                         <option value="December">December</option>
                                     </select>
                                 </div>
+                                
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <select class="mt-0 select-custom-point">
-                            <option value="" selected>Choose Month</option>
-                            <option value="Janruary">Janruary</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
+                        <div class="col-sm-12">
+                            <table class="table mobile-btn-show recent-Orders-table" id="pvs-tab">
+                                <thead>
+                                <tr>
+                                    <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
+                                        class="shuffle"
+                                        src="/img/shuffle.png"></span>
+                                    </th>
+                                    <th @click="fetch(0, 0, 'name')" class="shuffle-bx" scope="col"><span class="sort-ad">Product <img
+                                        class="shuffle"
+                                        src="/img/shuffle.png"></span>
+                                    </th>
+                                    <th class="shuffle-bx" scope="col"><span class="sort-ad">Tracking Id <img
+                                        class="shuffle" src="/img/shuffle.png"></span>
+                                    </th>
+                                    <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img
+                                        class="shuffle" src="/img/shuffle.png"></span>
+                                    </th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Pricing</th>
+                                    <th scope="col">Delivery Status</th>
+                                    <th scope="col">Payment</th>
+                                    <th scope="col">Shipping Detail</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="order in orders">
+                                    <td>
+                                        <span>{{ order.id }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ order.name }}</span>
+                                    </td>
+                                    <td>
+                                        <span>MRP0043456</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ order.ordered_at }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ order.quantity }}</span>
+                                    </td>
+                                    <td>
+                                        <span>${{ order.quantity * order.net_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="comleted-txt">{{ order.progress }}</span>
+                                    </td>
+                                    <td>
+                                        <span>Credit Card</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ order.shipping_address }}</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                                        
+                            <div class="foot-table" v-if="total < 1">
+                                <p>No results found.</p>
+                            </div>
+                            <div class="foot-table" v-if="total > 0">
+                                <div class="left"><span>Rows Per Page:
+                                                                <select
+                                                                    @change="fetch(current_page, $event.target.value)">
+                                                                    <option value="25">25</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="75">75</option>
+                                                                    <option value="100">100</option>
+                                                                </select>
+                                                                </span></div>
+                                <div class="right">
+                                    <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                    <img
+                                        src="/img/prev-arrow.png" @click="fetch(current_page-1)"
+                                        alt="" class="prev-itm">
+                                    <img
+                                        src="/img/next-arrow.png" @click="fetch(current_page+1)"
+                                        alt="" class="next-itm"></div>
+                            </div>
+                            <!-- END: TABLE   -->
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
         <hr>
-        <!-- start: TABLE -->
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="orders-completed-bx">
-                    <table class="table span.td-title-bx" id="pvs-tab">
-                        <thead>
-                        <tr>
-                            <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
-                                class="shuffle"
-                                src="/img/shuffle.png"></span>
-                            </th>
-                            <th @click="fetch(0, 0, 'name')" class="shuffle-bx" scope="col"><span class="sort-ad">Product <img
-                                class="shuffle"
-                                src="/img/shuffle.png"></span>
-                            </th>
-                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Tracking Id <img
-                                class="shuffle" src="/img/shuffle.png"></span>
-                            </th>
-                            <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img
-                                class="shuffle" src="/img/shuffle.png"></span>
-                            </th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Pricing</th>
-                            <th scope="col">Delivery Status</th>
-                            <th scope="col">Payment</th>
-                            <th scope="col">Shipping Detail</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="order in orders">
-                            <td>
-                                <span>{{ order.id }}</span>
-                            </td>
-                            <td>
-                                <span>{{ order.name }}</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>{{ order.ordered_at }}</span>
-                            </td>
-                            <td>
-                                <span>{{ order.quantity }}</span>
-                            </td>
-                            <td>
-                                <span>${{ order.quantity * order.net_price }}</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">{{ order.progress }}</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>{{ order.shipping_address }}</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="foot-table" v-if="total < 1">
-            <p>No results found.</p>
-        </div>
-        <div class="foot-table" v-if="total > 0">
-            <div class="left"><span>Rows Per Page:
-                                            <select
-                                                @change="fetch(current_page, $event.target.value)">
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="75">75</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                            </span></div>
-            <div class="right">
-                <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                <img
-                    src="/img/prev-arrow.png" @click="fetch(current_page-1)"
-                    alt="" class="prev-itm">
-                <img
-                    src="/img/next-arrow.png" @click="fetch(current_page+1)"
-                    alt="" class="next-itm"></div>
-        </div>
-        <!-- END: TABLE   -->
+        
     </div>
     <!-- END::: FIRST TAB CONTENT -->
 </template>
