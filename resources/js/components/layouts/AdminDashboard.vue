@@ -1,121 +1,140 @@
 <template>
     <div class="wrapper">
-       <div class="navbar-expand-lg">
-        <aside class="collapse navbar-collapse" id="navbarTogglerSidebar">
-            <div class="sidebar left ">
-                <div class="user-panel">
-                    <div class="sidebar-header navbar-dark">
-                        <h3>Posh Market</h3>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarTogglerSidebar"
-                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                            <img src="/img/close.png" alt="" class="closetag-menu">
-                            <!-- <span class="navbar-toggler-icon"></span> -->
-                        </button>
+        <div class="navbar-expand-lg">
+            <aside class="collapse navbar-collapse" id="navbarTogglerSidebar">
+                <div class="sidebar left ">
+                    <div class="user-panel">
+                        <div class="sidebar-header navbar-dark">
+                            <h3>Posh Market</h3>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarTogglerSidebar"
+                                    aria-controls="navbarTogglerSidebar" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <img src="/img/close.png" alt="" class="closetag-menu">
+                                <!-- <span class="navbar-toggler-icon"></span> -->
+                            </button>
+                        </div>
                     </div>
+                    <ul class="list-sidebar bg-white">
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/dashboard">
+                                <i class="sb-menu-icon overview-icon"></i>
+                                <span class="nav-label">Overview</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/manage-vendors">
+                                <i class="sb-menu-icon manage-vendors"></i>
+                                <span class="nav-label">Manage Vendors</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/manage-sellers">
+                                <i class="sb-menu-icon manage-sellers"></i>
+                                <span class="nav-label">Manage Sellers</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/pending-vendor-signups">
+                                <span class="pending-number-bx">{{ pending_vendors }}</span> <i
+                                class="sb-menu-icon pending-vendor-signups"></i>
+                                <span class="nav-label">Pending Vendor Signups</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/pending-seller-signups">
+                                <span class="pending-number-bx">{{ pending_sellers }}</span> <i
+                                class="sb-menu-icon pending-seller-signups"></i>
+                                <span class="nav-label">Pending Seller Signups</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/manage-users">
+                                <i class="sb-menu-icon manage-users"></i>
+                                <span class="nav-label">Manage Users</span>
+                            </router-link>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="#">
+                                <i class="sb-menu-icon orders"></i>
+                                <span class="nav-label">Orders <i><img class="arrow"
+                                                                       src="/img/menu-icons/arrow-down.png"
+                                                                       alt=""></i> </span>
+                                <ul>
+                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <router-link to="/admin/seller-orders">
+                                            Seller Orders
+                                        </router-link>
+                                    </li>
+                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <router-link to="/admin/vendor-orders">
+                                            Vendors Orders
+                                        </router-link>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="#">
+                                <i class="sb-menu-icon reports"></i>
+                                <span class="nav-label">Reports <i><img class="arrow"
+                                                                        src="/img/menu-icons/arrow-down.png"
+                                                                        alt=""></i> </span>
+                                <ul>
+                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <router-link to="/admin/seller-reports">
+                                            Seller Reports
+                                        </router-link>
+                                    </li>
+                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <router-link to="/admin/vendor-reports">
+                                            Vendor Reports
+                                        </router-link>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/payment-details">
+                                <i class="sb-menu-icon payment-details"></i>
+                                <span class="nav-label">Payment Details</span>
+                            </router-link>
+                        </li>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/payment-history">
+                                <i class="sb-menu-icon payment-history"></i>
+                                <span class="nav-label">Payment History</span>
+                            </router-link>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="list-sidebar bg-white">
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/dashboard">
-                            <i class="sb-menu-icon overview-icon"></i>
-                            <span class="nav-label">Overview</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/manage-vendors">
-                            <i class="sb-menu-icon manage-vendors"></i>
-                            <span class="nav-label">Manage Vendors</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/manage-sellers">
-                            <i class="sb-menu-icon manage-sellers"></i>
-                            <span class="nav-label">Manage Sellers</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/pending-vendor-signups">
-                            <span class="pending-number-bx">{{ pending_vendors }}</span> <i
-                            class="sb-menu-icon pending-vendor-signups"></i>
-                            <span class="nav-label">Pending Vendor Signups</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/pending-seller-signups">
-                            <span class="pending-number-bx">{{ pending_sellers }}</span> <i
-                            class="sb-menu-icon pending-seller-signups"></i>
-                            <span class="nav-label">Pending Seller Signups</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/manage-users">
-                            <i class="sb-menu-icon manage-users"></i>
-                            <span class="nav-label">Manage Users</span>
-                        </router-link>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#">
-                            <i class="sb-menu-icon orders"></i>
-                            <span class="nav-label">Orders <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
-                                                                   alt=""></i> </span>
-                            <ul>
-                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link to="/admin/seller-orders">
-                                        Seller Orders
-                                    </router-link>
-                                </li>
-                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link to="/admin/vendor-orders">
-                                        Vendors Orders
-                                    </router-link>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#">
-                            <i class="sb-menu-icon reports"></i>
-                            <span class="nav-label">Reports <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
-                                                                    alt=""></i> </span>
-                            <ul>
-                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link to="/admin/seller-reports">
-                                        Seller Reports
-                                    </router-link>
-                                </li>
-                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link to="/admin/vendor-reports">
-                                        Vendor Reports
-                                    </router-link>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/payment-details">
-                            <i class="sb-menu-icon payment-details"></i>
-                            <span class="nav-label">Payment Details</span>
-                        </router-link>
-                    </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                        <router-link to="/admin/payment-history">
-                            <i class="sb-menu-icon payment-history"></i>
-                            <span class="nav-label">Payment History</span>
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+            </aside>
         </div>
         <div class="body">
             <nav class="navbar navbar-expand-lg navbar-dark">
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                     <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarTogglerSidebar"
-                aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <a class="navbar-brand" href="#">Dashboard</a>
                     <ul class="topnav-user">
                         <li>
@@ -161,7 +180,7 @@ export default {
     },
     created() {
         this.adminDashboardIterate();
-        if(this.user.user_type != 'admin') {
+        if (this.user.user_type != 'admin') {
             this.$router.push({name: "forbidden"});
         }
     },

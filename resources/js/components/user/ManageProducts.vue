@@ -164,10 +164,10 @@
             fetchProducts(page = 0, search = 0) {
                 document.getElementById('ajaxLoader').style.display = 'block';
 
-                var sort_by         = document.getElementsByClassName('sort_by');
-                var status          = document.getElementsByClassName('status');
-                var parent          = document.getElementsByClassName('parentCategory');
-                var sub_category    = document.getElementsByClassName('subCategory');
+                let sort_by         = document.getElementsByClassName('sort_by');
+                let status          = document.getElementsByClassName('status');
+                let parent          = document.getElementsByClassName('parentCategory');
+                let sub_category    = document.getElementsByClassName('subCategory');
 
                 if(typeof parent[0] !== 'undefined') {
                     parent = parent[0].value;

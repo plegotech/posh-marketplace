@@ -52,11 +52,11 @@ class OrdersController extends Controller
         return response()->json($order, 201);
     }
 
-    public function fetchAllByVendor($vendor = 0, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
+    public function fetchAllByVendor($vendor = 0, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status, $date = 0)
     {
         $orders = new Order();
 
-        $orders = $orders->getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status);
+        $orders = $orders->getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status, $date);
 
         return response()->json($orders, 201);
     }
