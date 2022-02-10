@@ -69,6 +69,7 @@
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                     <li @click="updateOrderStatus(order.id, 'approved')" class="edit-mob">Accept</li>
                                                     <li @click="updateOrderStatus(order.id, 'rejected')" class="inactive-mob">Reject</li>
+                                                    <li class="inactive-mob">View</li>
                                                 </ul>
                                             </div>
                                             </td>
