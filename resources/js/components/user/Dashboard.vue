@@ -9,7 +9,7 @@
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/total-sales-icons.png" width="134" height="80" alt=""></div>
                             <div class="secBox-rtxt">
-                                <span>Vendor Orders</span>
+                                <span>Orders</span>
                                 <h3>{{ total_orders }}</h3>
                             </div>
                         </div>
@@ -136,7 +136,12 @@
         },
         methods: {
             dashboard() {
-                var url = '/api/vendor/dashboard/' + this.user.id;
+
+                if(this.user.user_type == 'vendor') {
+                    var url = '/api/vendor/dashboard/' + this.user.id;
+                } else {
+                    var url = '/api/seller/dashboard/' + this.user.id;
+                }
 
                 fetch(url)
                     .then(res => res.json())

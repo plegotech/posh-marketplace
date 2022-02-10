@@ -47,8 +47,14 @@ Route::prefix('vendor')->group(function () {
 });
 
 Route::post('/seller-product', 'SellerController@sellerProduct');
-Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}', 'SellerController@soldStatistics');
-Route::post('/seller/{step}', 'SellerController@seller');
+
+Route::prefix('seller')->group(function () {
+    Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}',
+        'SellerController@soldStatistics');
+    Route::get('/dashboard/{id}', 'SellerController@dashboard');
+
+    Route::post('/seller/{step}', 'SellerController@seller');
+});
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 

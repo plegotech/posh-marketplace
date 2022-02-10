@@ -324,4 +324,32 @@ class SellerController extends Controller
             return response()->json(array('status' => 'created'));
         }
     }
+
+    public function dashboard($id)
+    {
+        $sql = "SELECT COUNT(*) FROM order_items inner join products on products.id = order_items.item_id";
+        $sql .= " where order_items.seller_id = '$id' AND ";
+        $stats =OrderItems::select(DB::raw('('.$sql.' order_items.status = "approved" AND order_items.progress != "delivered") as total_orders'),
+            DB::raw('('.$sql.' order_items.status = "pending") as pending_orders'),
+            DB::raw('('.$sql.' order_items.status = "rejected") as cancelled_orders'),
+            DB::raw('('.$sql.' order_items.progress = "delivered") as successful_orders')
+        )
+            ->first()->toArray();
+
+        $orders = OrderItems::select('order_items.id', 'products.name', DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"),
+            'order_items.quantity', 'products.net_price', 'order_items.progress', 'orders.shipping_address'
+            , 'orders.shipping_method', 'orders.payment_method', DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'))
+            ->where('order_items.seller_id', $id)
+            ->join('products', 'products.id', '=', 'order_items.item_id')
+            ->join('orders', 'orders.id', '=', 'order_items.order_id')
+            ->orderBy('order_items.id', 'desc')
+            ->limit(10)
+            ->get()
+            ->toArray();
+
+        $stats['orders'] = $orders;
+
+        return response()->json($stats);
+    }
+
 }
