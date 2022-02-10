@@ -217,14 +217,20 @@
 
                 if (status.length != 0) {
                     url += '/' + status;
+                } else {
+                    url += '/0';
                 }
 
                 if (parent.length > 1) {
                     url += '/' + parent;
+                } else {
+                    url += '/0';
                 }
 
                 if (sub_category.length > 1) {
                     url += '/' + sub_category;
+                } else {
+                    url += '/0';
                 }
 
                 if (page > 0) {

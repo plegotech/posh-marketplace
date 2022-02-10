@@ -40,8 +40,6 @@ class ProductController extends Controller
 
         }
 
-        $products = $products->where('products.status', 'active');
-
         if($search != "0") {
             $products = $products->where('name', 'LIKE', '%'.$search.'%');
         }
@@ -55,7 +53,7 @@ class ProductController extends Controller
         }
 
         if($status != "0") {
-            $products = $products->where('seller_products.status', $status);
+            $products = $products->where('products.status', $status);
         }
 
         $products = $products->orderBy($order_by, $order)
