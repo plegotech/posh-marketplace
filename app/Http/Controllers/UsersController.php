@@ -134,7 +134,8 @@ class UsersController extends Controller
         } else {
             User::create($data);
         }
-        return Response()->json(array(
+      
+              return Response()->json(array(
             'success' => true,
             'message' => 'User created successfully.'
         ), 200); 

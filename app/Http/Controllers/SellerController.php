@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Companies;
 use App\OrderItems;
+use App\Product;
 use Illuminate\Http\Request;
 use App\User;
 use App\SellerWebsite;
@@ -24,69 +25,128 @@ class SellerController extends Controller
         return 'silence is the gold';
     }
 
+
+    public function businessLicenses(Request $request)
+    {
+        // Setup the validator
+        $rules = array(
+            'company_id'        => 'required',
+            'business_licenses' => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Validate the input and return correct response
+        if ($validator->fails()) {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            )); // 400 being the HTTP code for an invalid request.
+        }
+
+        if ($request->hasfile('license')) {
+            $data = array();
+            foreach ($request->file('license') as $file) {
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path() . '/files/licenses/', $name);
+                $data[] = $name;
+
+            }
+
+            Companies::where('id', $request->input('company_id'))
+                ->update(['license' => \GuzzleHttp\json_encode($data)]);
+        }
+
+        return response()->json(['success' => 'true']);
+    }
+
+    private function runSignupStepTwo($request)
+    {
+        SellerWebsite::where('seller_id', $request->input('seller_id'))
+            ->update(['tier' => $request->input('tier')]);
+    }
+
     private function runSignupStepOne($request)
     {
         $user = array(
-            'first_name'    => $request->input('first_name'),
-            'last_name'     => $request->input('last_name'),
-            'email'         => $request->input('email'),
-            'phone'         => $request->input('phone'),
-            'user_type'     => 'seller',
-            'status'        => 'pending',
-            'gender'        => $request->input('gender'),
-            'password'      => Hash::make($request->input('password')),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'user_type' => 'seller',
+            'status' => 'pending',
+            'gender' => $request->input('gender'),
+            'password' => Hash::make($request->input('password')),
         );
 
-        if(!empty($request->input('id'))) {
+        if (!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
                 ->update($user);
         } else {
             $user = User::create($user);
 
-            if((int) $user->id > 0) {
+            if ((int)$user->id > 0) {
                 $company = array(
-                    'name'                  => $request->input('company'),
-                    'user_id'               => $user->id,
-                    'subscription_fee'      => 0,
-                    'licence'               => $request->input('licence'),
-                    'ein_number'            => $request->input('ein_number'),
-                    'address'               => $request->input('address'),
-                    'city'                  => $request->input('city'),
-                    'state'                 => $request->input('state'),
-                    'country'               => 'United States'
+                    'name' => $request->input('company'),
+                    'user_id' => $user->id,
+                    'subscription_fee' => 0,
+                    'license' => 0,
+                    'ein_number' => $request->input('ein_number'),
+                    'address' => $request->input('address'),
+                    'city' => $request->input('city'),
+                    'state' => $request->input('state'),
+                    'country' => 'United States'
                 );
 
                 $company = Companies::create($company);
             }
         }
 
-        return response()->json(['success' => 'true', 'created' => $user->id, 'company' => $company->id]);
+        return response()->json(['success' => 'true', 'user_id' => $user->id, 'company' => $company->id]);
     }
 
     public function seller(Request $request, $step)
     {
-        if($step == 0) {
+        if ($step == '0') {
             // Setup the validator
             $rules = array(
-                'email'             => 'required|email|unique:users|max:255',
-                'first_name'        => 'required|min:3|max:50',
-                'last_name'         => 'required|min:3|max:50',
-                'address'           => 'required',
-                'city'              => 'required',
-                'state'             => 'required',
-                'gender'            => 'required',
-                'phone'             => 'required|max:17',
-                'company'           => 'required',
-                'licence'           => 'required',
-                'ein_number'        => 'required',
-                'password'          => 'required|confirmed|max:6'
+                'email' => 'required|email|unique:users|max:255',
+                'first_name' => 'required|min:2|max:50',
+                'last_name' => 'required|min:2|max:50',
+                'address' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'gender' => 'required',
+                'phone' => 'required|max:17',
+                'company' => 'required',
+                'ein_number' => 'required',
+                'password' => 'required|confirmed'
             );
 
             $validator = Validator::make($request->all(), $rules);
 
             // Validate the input and return correct response
-            if ($validator->fails())
-            {
+            if ($validator->fails()) {
+
+                //If email has any partially registered account
+                $step = $this->checkPartialStatusOfSellerRegistration($request->input('email'));
+
+                if($step) {
+
+                    $seller = User::select('id')
+                    ->where('email', $request->input('email'))
+                    ->where('user_type', 'seller')
+                    ->first();
+
+                    return Response()->json(array(
+                        'user_id'   => $seller->id,
+                        'success'   => 'in-progress',
+                        'step'      => $step
+
+                    ), 200);
+                }
+
                 return Response()->json(array(
                     'success' => false,
                     'errors' => $validator->getMessageBag()->toArray()
@@ -94,9 +154,126 @@ class SellerController extends Controller
                 ), 400); // 400 being the HTTP code for an invalid request.
             }
             return $this->runSignupStepOne($request);
-        } else {
-
         }
+
+        if($step == 'tier') {
+            // Setup the validator
+            $rules = array(
+                'tier'      => 'required',
+                'seller_id' => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::updateOrCreate(array('seller_id' => $request->input('seller_id')),
+                array('tier' => $request->input('tier')));
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to domain selection'
+
+            ), 200);
+        }
+
+        if($step == 'domain') {
+            // Setup the validator
+            $rules = array(
+                'domain'    => 'required',
+                'seller_id' => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::where('seller_id', $request->input('seller_id'))
+                ->update(['domain' => $request->input('domain')]);
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to template selection'
+
+            ), 200);
+        }
+
+        if($step == 'site_template') {
+            // Setup the validator
+            $rules = array(
+                'site_template'     => 'required',
+                'seller_id'         => 'required'
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            // Validate the input and return correct response
+            if ($validator->fails()) {
+
+                return Response()->json(array(
+                    'success' => false,
+                    'errors' => $validator->getMessageBag()->toArray()
+
+                ), 400); // 400 being the HTTP code for an invalid request.
+            }
+
+            SellerWebsite::where('seller_id', $request->input('seller_id'))
+                ->update(['site_template' => $request->input('site_template')]);
+
+            return Response()->json(array(
+                'user_id'   => $request->input('seller_id'),
+                'success'   => 'true',
+                'message'   => 'Move to login'
+
+            ), 200);
+        }
+    }
+
+    public function checkPartialStatusOfSellerRegistration($email)
+    {
+        $seller_record = SellerWebsite::select('seller_website.seller_id', 'seller_website.site_template', 'seller_website.domain')
+            ->where('users.email', $email)
+            ->join('users', 'users.id', '=', 'seller_website.seller_id')
+            ->first();
+
+        if($seller_record) {
+            $steps = $seller_record->toArray();
+            if(strlen($steps['site_template']) > 0) {
+                return 'login';
+            }
+            if(strlen($steps['domain']) > 1) {
+                return 'seller-final';
+            }
+            return 'seller-signup-domain';
+        }
+
+        $seller = User::where('users.email', $email)
+            ->where('users.user_type', 'seller')
+            ->first();
+
+        if($seller) {
+            return 'seller-signup-tier';
+        }
+
+        return false;
     }
 
     public function website($seller)
@@ -132,7 +309,7 @@ class SellerController extends Controller
             ->where('product_id', $request->input('product_id'))
             ->count();
 
-        if($count) {
+        if ($count) {
             SellerProduct::where('seller_id', $request->input('seller_id'))
                 ->where('product_id', $request->input('product_id'))
                 ->delete();

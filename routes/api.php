@@ -21,7 +21,12 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
     return true;
 });
 
-Route::get('/admin-data', 'AdminController@adminData');
+Route::prefix('admin')->group(function () {
+    Route::get('/orders/{for}', 'OrdersController@adminOrders');
+    Route::get('/admin-data', 'AdminController@adminData');
+    Route::get('/statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@userStatistics');
+    Route::get('/basic-statistics/{time_period?}/{first_date?}/{last_date?}', 'AdminController@basicStatistics');
+});
 
 Route::get('/companies/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}',
     'CompaniesController@companies');
@@ -43,12 +48,25 @@ Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{
 Route::post('/seller/{step}', 'SellerController@seller');
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
-Route::get('/orders/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}', 'OrdersController@fetchAllBySeller');
-Route::get('/orders/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}', 'OrdersController@fetchAllByVendor');
-Route::get('/orders/vendor-change-status/{vendor_id}/{order_id}/{status}', 'OrdersController@updateVendorOrderStatus');
+
+Route::prefix('orders')->group(function () {
+    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
+    Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
+        'OrdersController@fetchAllBySeller');
+    Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
+        'OrdersController@fetchAllByVendor');
+    Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
+        'OrdersController@updateVendorOrderStatus');
+
+});
 
 Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
-Route::get('/product/remove/{product?}', 'ProductController@remove');
-Route::post('/product', 'ProductController@create');
 
+Route::prefix('product')->group(function () {
+    Route::post('/', 'ProductController@create');
+
+    Route::get('/remove/{product?}', 'ProductController@remove');
+    Route::get('/get/{product?}', 'ProductController@get');
+});
 Route::get('/website/{seller_id}', 'SellerController@website');
+Route::get('/domain-hosting/domain/{domain?}', 'DomainHostingController@checkDomainAvailability');

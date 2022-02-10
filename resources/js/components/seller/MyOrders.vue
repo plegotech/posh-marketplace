@@ -46,8 +46,14 @@
                         </div>
                         <hr>
                         <!-- start: TABLE -->
+                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
                             <thead>
-                                    class="sort-ad">Recipient <img class="shuffle"
+                                <tr>
+                                <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
+                                    class="shuffle"
+                                    src="/img/shuffle.png"></span>
+                                </th>
+                                <th @click="fetch(0, 0, 'first_name')" class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle"
                                                                    src="/img/shuffle.png"></span>
                                 </th>
                                 <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span
@@ -62,6 +68,7 @@
                             <tr v-for="order in orders">
                                 <td>
                                     <span>{{ order.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ order.first_name }} {{ order.last_name }} </span>
@@ -188,7 +195,7 @@ export default {
                     if (res.total < res.per_page) {
                         this.from = 0;
                     }
-                    this.current_page = res.to / res.per_page;
+                    this.current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(function () {

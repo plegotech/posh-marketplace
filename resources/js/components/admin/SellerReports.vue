@@ -4,25 +4,29 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <input placeholder="From" type="text" class="datepicker">
+                    <datepicker :clear-button="true" v-model="first_date" :value="first_date"
+                                @closed="basicStatistics()" placeholder="From"
+                                class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <input placeholder="To" type="text" class="datepicker">
+                    <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()"
+                                placeholder="To" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2 mt-4">
-                <select name="" id="">
-                    <option value="">
-                    <option value="" selected>Current Year</option>
-                    </option>
+            <div class="col-sm-2">
+                <select @change="basicStatistics($event.target.value)" class="mtc-24">
+                    <option value="0" selected>Select time period</option>
+                    <option value="year">Current Year</option>
+                    <option value="quarter">Current Quarter</option>
+                    <option value="month">Current Month</option>
                 </select>
             </div>
-            <div class="col-sm-2 offset-sm-2">
-                <button class="mt-4">CLEAR ALL</button>
+            <div class=" col-sm-4">
+                <button @click="clearFiltration()" class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
             </div>
         </div>
         <div class="row">
@@ -35,7 +39,7 @@
                     </div>
                     <div class="right">
                         <span>Active Products</span>
-                        <h2>1,230</h2>
+                        <h2>{{ active_products }}</h2>
                     </div>
                 </div>
             </div>
@@ -46,7 +50,7 @@
                     </div>
                     <div class="right">
                         <span>Archive Products</span>
-                        <h2>406</h2>
+                        <h2>{{ archive_products }}</h2>
                     </div>
                 </div>
             </div>
@@ -57,12 +61,12 @@
                     </div>
                     <div class="right">
                         <span>Products/Services Purchased</span>
-                        <h2>$29,318.34</h2>
+                        <h2>${{ gross_sales }}</h2>
                     </div>
                 </div>
             </div>
         </div>
-
+<br>
         <div style="position:relative">
 
             <h1 class="pd-0">Order Report</h1>
@@ -75,7 +79,7 @@
                             <div class="left">
                                 <div class="content">
                                     <span>Purchased Orders</span>
-                                    <h3>1,454</h3>
+                                    <h3>{{ purchased_orders }}</h3>
                                 </div>
                             </div>
                             <div class="right">
@@ -103,7 +107,7 @@
                             <div class="left">
                                 <div class="content">
                                     <span>Average Purchased Orders</span>
-                                    <h3>$2,352.90</h3>
+                                    <h3>${{ gross_sales / purchased_orders }}</h3>
                                 </div>
                             </div>
                             <div class="right">
@@ -133,9 +137,78 @@
 </template>
 
 <script>
+import datepicker from "vuejs-datepicker";
+
 export default {
-    mounted() {
-        console.log('Component mounted.')
+    data() {
+        return {
+            active_products: 0,
+            first_date: 0,
+            last_date: 0,
+            time_period: 0,
+            archive_products: 0,
+            purchased_orders: 0,
+            gross_sales: 0,
+            cancelled_orders: 0
+        }
+    },
+    components: {
+        datepicker
+    },
+    created() {
+        this.basicStatistics();
+    },
+    methods: {
+        basicStatistics(time_period = 0) {
+
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/admin/statistics';
+
+            var time_period = time_period;
+
+            if (time_period != 0 || this.time_period != 0) {
+                if (time_period != 0) {
+                    this.time_period = time_period;
+                    this.first_date = 0;
+                    this.last_date = 0;
+                }
+                url += '/' + this.time_period;
+            } else {
+                url += '/0';
+            }
+
+            if (this.first_date != 0 && this.time_period == 0) {
+                url += '/' + this.first_date;
+            } else {
+                url += '/0';
+            }
+
+            if (this.last_date != 0 && this.time_period == 0) {
+                url += '/' + this.last_date;
+            } else {
+                url += '/0';
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.active_products                = res.active_products;
+                    this.archive_products               = res.archive_products;
+                    this.purchased_orders               = res.purchased_orders;
+                    this.cancelled_orders               = res.cancelled_orders;
+                    this.gross_sales                    = res.gross_sales;
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+        clearFiltration() {
+            this.time_period            = 0;
+            this.first_name             = 0;
+            this.last_name              = 0;
+            this.basicStatistics(0);
+        },
     }
 }
 </script>

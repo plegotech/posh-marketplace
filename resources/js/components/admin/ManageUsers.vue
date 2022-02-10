@@ -5,7 +5,7 @@
              aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <img src="/img/cancel.png" class="cancel-popup" alt="">
+                    <img src="/img/cancel-icon.png" class="cancel-popup" alt="">
                     <form ref="form">
                         <div class="row">
                             <div class="col-sm-4">

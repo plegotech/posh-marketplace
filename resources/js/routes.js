@@ -15,6 +15,7 @@ import AdminVendorReports from './components/admin/VendorReports';
 
 import UserLogin from './components/user/LoginUser';
 import AdminLogin from './components/user/LoginAdmin';
+import ResetPassword from './components/user/ResetPassword';
 import SellerLogin from './components/user/LoginSeller';
 import VendorLogin from './components/user/LoginVendor';
 import VendorSignup from './components/vendor/Signup';
@@ -87,7 +88,7 @@ export default {
             { name: 'vendor-dashboard', meta: { title: 'Overview' }, path: '/vendor/dashboard', component: VendorDashboard },
             { name: 'vendor-manage-products', meta: { title: 'Manage Products' }, path: '/vendor/manage/products', component: ManageProducts },
             { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
-            { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products', component: VendorUploadProducts },
+            { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products/:product_id?', component: VendorUploadProducts },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
             { name: 'vendor-all-orders', meta: { title: 'Completed Orders' }, path: '/vendor/orders/completed', component: VendorCompletedOrders },
@@ -102,14 +103,15 @@ export default {
          */
 
         { name: 'login-user', meta: { title: 'Login', middleware:'guest' }, path: '/', component: UserLogin },
-        { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/admin-login', component: AdminLogin },
+        { name: 'reset-password', meta: { title: 'Reset Password', middleware:'guest' }, path: '/reset-password', component: ResetPassword },
+        { name: 'login', meta: { title: 'Admin Login', middleware:'guest' }, path: '/', component: AdminLogin },
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
-        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller-signup', component: SellerSignup },
-        { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/signup-tier', component: SellerSignupTier },
-        { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller-signup-domain', component: SellerSignupDomain },
-        { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller-signup-final', component: SellerSignupFinal },
+        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller/signup', component: SellerSignup },
+        { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-tier/:user_id', component: SellerSignupTier },
+        { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-domain/:user_id', component: SellerSignupDomain },
+        { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-template/:user_id', component: SellerSignupFinal },
         { meta: { title: 'User Signup' }, path: '/user-signup', component: UserSignup },
         { name: 'forbidden', meta: { title: 'Forbidden Access' }, path: '/forbidden', component: ForbiddenAccess }
     ]

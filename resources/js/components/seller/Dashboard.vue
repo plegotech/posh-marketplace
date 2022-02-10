@@ -83,6 +83,7 @@
                     <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -112,6 +113,7 @@
                        <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -141,6 +143,7 @@
                         <tr class="row-box-s">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -170,6 +173,7 @@
                         <tr class="ifpending-bx">
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -199,6 +203,7 @@
                         <tr>
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>
@@ -228,6 +233,7 @@
                         <tr>
                             <td>
                                 <span class="blue-txt">INV - 1001</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
                                 <span>Nike Shoes</span>

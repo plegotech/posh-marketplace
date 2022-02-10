@@ -33,7 +33,7 @@ class VendorController extends Controller
             'state'             => 'required',
             'phone'             => 'required|max:17',
             'company'           => 'required',
-            'password'          => 'required|confirmed|min:8|max:8'
+            'password'          => 'required|confirmed'
         );
 
         $validator = Validator::make($request->all(), $rules);

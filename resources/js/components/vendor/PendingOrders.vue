@@ -218,7 +218,7 @@ export default {
                 });
         },
 
-        searchVendorPendingOrders: function (e) {
+        searchObjects: function (e) {
             if (e.keyCode === 13) {
                 var element = e.target;
                 var type = element.getAttribute('data-type');
@@ -226,8 +226,8 @@ export default {
             }
         },
 
-        removeVendorPendingOrderSearch: function () {
-            document.getElementsByClassName('vendorPendingOrderSearch')[0].value = '';
+        removeSearch: function () {
+            document.getElementsByClassName('search_BX')[0].value = '';
             this.search = 0;
             this.fetch();
         },

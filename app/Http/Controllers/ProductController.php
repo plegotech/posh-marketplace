@@ -70,13 +70,19 @@ class ProductController extends Controller
             ->update(['status' => 'deleted']);
     }
 
+    public function get($product)
+    {
+        return response()->json(Product::where('id', $product)
+            ->first());
+    }
+
     public function create(Request $request)
     {
         // Setup the validator
         $rules = array(
             'name'              => 'required|max:255',
             'net_price'         => 'numeric|min:0.01|required',
-            'featured_image'    => 'required|mimes:jpg,jpeg,png|max:2048',
+            'featured_image'    => 'max:2048',
             'parent_category'   => 'required',
             'brand'             => 'required',
             'description'       => 'required',
@@ -95,16 +101,27 @@ class ProductController extends Controller
             )); // 400 being the HTTP code for an invalid request.
         }
 
-        $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
-        $destination = base_path() . '/public/img/product-images/'. $request->input('vendor_id');
-        $request->file('featured_image')->move($destination, $photo);
-
         $data = $request->all();
-        $data['featured_image'] = $photo;
+        unset($data['id']);
+        unset($data['featured_image']);
 
-        $product = Product::create($data);
+        if($request->file('featured_image')) {
+            $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('vendor_id');
+            $request->file('featured_image')->move($destination, $photo);
+            $data['featured_image'] = $photo;
+        }
 
-        return response()->json(['success' => 'true', 'created' => $product->id]);
+        if(empty($request->input('id'))) {
+            $product = Product::create($data);
+            $id = $product->id;
+        } else {
+            Product::where('id', $request->input('id'))
+                ->update($data);
+            $id = $request->input('id');
+        }
+
+        return response()->json(['success' => 'true', 'created' => $id]);
     }
 
     private function csvToArray($filename = '', $delimiter = ',', $vendor)

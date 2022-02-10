@@ -18,7 +18,7 @@ class CompaniesTable extends Migration
             $table->string('logo')->nullable();
             $table->string('name');
             $table->string('phone')->nullable();
-            $table->string('licence')->nullable();
+            $table->json('license')->nullable();
             $table->string('ein_number')->nullable();
             $table->integer('user_id');
             $table->integer('subscription_fee');

@@ -15,7 +15,7 @@
                         </select>
                     </div>
                     <div class="col-sm-3 my-3">
-                        <select class="select-custom-point"  @click="soldProductStatistics(1, 0, 'name' )">
+                        <select class="select-custom-point">
                             <option value="" selected>Choose Month</option>
                             <option value="Janruary">Janruary</option>
                             <option value="February">February</option>
@@ -75,7 +75,7 @@
 
                 <div class="top-newOrder">
 
-                    <table class="table mobile-btn-show">
+                    <table class="table mobile-btn-show recent-Orders-table" id="seller_MySales">
                         <thead>
                         <tr>
                             <th scope="col" @click="soldProductStatistics(1, 0, 'name' )"><span class="sort-ad">Product Name <img class="shuffle"

@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\Order;
 use App\Product;
 use App\OrderItems;

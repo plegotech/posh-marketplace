@@ -109,7 +109,7 @@
         </div>
         <div class="body">
             <nav class="navbar navbar-expand-lg navbar-dark">
-               
+
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                      <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerSidebar"
@@ -181,7 +181,7 @@ export default {
             setInterval(this.adminDashboard, 60000);
         },
         adminDashboard() {
-            fetch('/api/admin-data')
+            fetch('/api/admin/admin-data')
                 .then(res => res.json())
                 .then(res => {
                     this.pending_sellers = res.pending_sellers;

@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="container-fluid pending-vend">
         <div class="row mt-4" >
             <div class="col-sm-12">
@@ -72,8 +74,11 @@
                                         <h3><sup>$</sup> {{ product.net_price }}</h3>
                                     </div>
                                     <div class="pb-btn-list">
-                                        <div class="btn-st btn-blue">VIEW</div>
-                                        <div class="btn-st btn-green">EDIT</div>
+                                        <div class="btn-st btn-green">
+                                            <router-link :to="{ name: 'vendor-upload-products', params: { product_id: product.id }}">
+                                                EDIT
+                                            </router-link>
+                                        </div>
                                         <div @click="deleteProduct(product.id)" class="btn-st btn-red">DELETE</div>
                                     </div>
                                 </div>

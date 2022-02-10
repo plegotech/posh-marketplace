@@ -1,10 +1,4 @@
 $(function () {
-    // $(document.body).each(".datepicker", function () {
-    //     $(this).datepicker()
-    // })
-
-    // $(".tabs").tabs();
-
     $('.calendar').each(function () {
         $(this).on('click', function () {
             $(this).closest('.datepicker').click();
@@ -16,26 +10,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 $(document).ready(function () {
-    // $(".row-box-s td:nth-child(2)").prepend("<span class='td-title-bx'>Order Id</span>");
     
-
-    // $(".mobile-btn-show tbody tr").addClass("row-box-s");
-    // $(".mobile-btn-show tbody tr td:nth-child(3)").prepend("<span class='btn-mshow'><i class='fas fa-plus'></i></span>");    
-    // $(".btn-mshow").on('click', function () {
-    //     $(this).find('.fas').toggleClass('active');
-    //     $('.td-title-bx').remove();        
-    //     $(this).parents('tr').toggleClass('divBlockset');
-    //     $("tr.divBlockset td:nth-child(1)").prepend("<span class='td-title-bx'>Order Id</span>");
-    //     $("tr.divBlockset td:nth-child(2)").prepend("<span class='td-title-bx'>Product</span>");
-    //     $("tr.divBlockset td:nth-child(3)").prepend("<span class='td-title-bx'>Tracking Id</span>");
-    //     $("tr.divBlockset td:nth-child(4)").prepend("<span class='td-title-bx'>Delivery Date</span>");
-    //     $("tr.divBlockset td:nth-child(5)").prepend("<span class='td-title-bx'>Quantity</span>");
-    //     $("tr.divBlockset td:nth-child(6)").prepend("<span class='td-title-bx'>Pricing</span>");
-    //     $("tr.divBlockset td:nth-child(7)").prepend("<span class='td-title-bx'>Status</span>");
-    //     $("tr.divBlockset td:nth-child(8)").prepend("<span class='td-title-bx'>Payment</span>");
-    //     $("tr.divBlockset td:nth-child(9)").prepend("<span class='td-title-bx'>Shipping Deal</span>");
-    //   });
-
     $('.button-left').click(function () {
         $('.sidebar').toggleClass('fliph');
     });
@@ -47,25 +22,17 @@ $(document).ready(function () {
     })
 
     $('.cst-slct ul li').on('click', function () {
-        $(this).each(function () {
-            $(this).parent('ul').hide()
-        })
+        if ($(window).width() < 960) {
+            return false;
+        }
+        else {
+            $(this).each(function () {
+                $(this).parent('ul').hide()
+            })
+        }
     })
 
-    // $('.sub-menu').each(function () {
-    //     $(this).on('click', function () {
-    //         if ($(this).hasClass('active_')) {
-    //             $(this).children().children('ul').slideUp();
-    //             $(this).removeClass('active_');
-    //             $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-down.png')
-    //         } else {
-    //             $(this).children().children('ul').slideDown();
-    //             $(this).addClass('active_');
-    //             $(this).children().find('.arrow').attr('src', '/img/menu-icons/arrow-up.png')
-    //         }
-    //     })
-    // })
-
+    
     $('.pdf-down').on('click', function () {
         $(this).each(function () {
             alert('File has been downloaded!');
@@ -73,20 +40,6 @@ $(document).ready(function () {
     })
 
 });
-
-// document.addEventListener('click', function (event) {
-//
-//     // Don't follow the link
-//     event.preventDefault();
-//     // If the clicked element doesn't have the right selector, bail
-//     if (event.target.matches('.cst-slct')) {
-//         var options = event.target.getElementsByClassName('more-opts')[0];
-//         options.style.display = 'block'
-//     };
-//
-//     return;
-//
-// }, false);
 
 function closeAllModals() {
 
@@ -101,8 +54,6 @@ function closeAllModals() {
     }
 
     // get modal backdrops
-    // const modalsBackdrops = document.getElementsByClassName('modal-backdrop');
-    // document.body.className = document.body.className.replace("modal-open","");
 
     // remove every modal backdrop
     for(let i=0; i<modalsBackdrops.length; i++) {
@@ -123,6 +74,9 @@ $(document.body).on('click', '.sub-menu' ,function(){
 })
 $(document.body).on('click', '.cancel-popup' ,function(){
     $('.cstm-modal').removeClass('show');
+    $('body').removeClass('modal-open');
+    $('.modal').attr("aria-hidden","true").removeAttr("aria-modal","true").removeAttr("role", "dialog").css('display', 'none');
+    $('.modal-backdrop').remove();
 })
 
 $(document.body).on('click', '#signInOpt' ,function(){
@@ -174,6 +128,7 @@ $(document.body).on('click', 'table', function(){
         
         var headT = $('table#'+tableId+' thead th');
         headT.on('click', function(){
+            alert("clicked!");
             return false;
         })
         var tableHeads = [];
@@ -188,16 +143,23 @@ $(document.body).on('click', 'table', function(){
             var intNth = parseInt(i+1);
             var dyn_nth = "nth-child("+intNth+")";
             $('table#'+tableId+' tbody tr.set-table td:'+dyn_nth).prepend("<span class='title-span'>"+$(x[i]).text()+"</span>");
-            console.log($(x[i]).text())
-            // .mob-expand
         }     
+        
     }
 });
 
+
 $(document.body).on('click', 'tbody tr', function(){
-    if ($(window).width() < 960) {
-        $("table.table.recent-Orders-table tr .title-span").remove();
-        $("table.table.recent-Orders-table tr").removeClass("set-table");
-        $(this).addClass("set-table");
+    
+    var table_Class_1 = $(this).closest('table').attr('class');
+    if(table_Class_1 == "tabsTable"){
+        return false;
+    }
+    else {
+        if ($(window).width() < 960) {
+            $("table.table.recent-Orders-table tr .title-span").remove();
+            $("table.table.recent-Orders-table tr").removeClass("set-table");
+            $(this).addClass("set-table");
+        }
     }
 });

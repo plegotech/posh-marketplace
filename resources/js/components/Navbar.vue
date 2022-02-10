@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark">
-        
+
         <div class="" id="navbarTogglerDemo01">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerSidebar"
@@ -9,10 +9,9 @@
         </button>
             <a class="navbar-brand" href="#">Dashboard</a>
             <ul class="topnav-user">
-                <li><a href=""><img src="/img/mail-icon.png" alt="" class="notify"><span class="numberof-ma">3</span></a></li>
                 <li>
                     <a href="">
-                        <img src="/img/notification-bell.png" class="notify" alt="">
+                        <img src="/img/notification-bell.png" class="notify" alt=""><span class="numberof-ma">3</span>
                     </a>
                 </li>
                 <li>
@@ -48,7 +47,7 @@ export default {
             await axios.post('/logout').then(({data}) => {
                 this.signOut()
                 axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
-                this.$router.push({name: "login"})
+                this.$router.push({name: "login-user"})
             })
         }
     }

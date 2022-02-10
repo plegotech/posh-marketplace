@@ -9,7 +9,7 @@ class Order extends Model
 {
     protected   $table          = 'orders';
     protected   $primaryKey     = 'id';
-    public      $timestamps     = false;
+    public      $timestamps     = true;
 
     protected $fillable = [
         'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_methods',
@@ -76,7 +76,6 @@ class Order extends Model
         }
         return $orders;
     }
-
 
     public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status)
     {   // Oct 01, 2021 09:58 PM

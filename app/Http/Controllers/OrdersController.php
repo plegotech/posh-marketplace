@@ -4,13 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\OrderItems;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Validator;
-
-use App\Companies;
-use App\User;
-use App\Exports\CompaniesExport;
 
 class OrdersController extends Controller
 {
@@ -19,9 +13,13 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($per_page, $search = 0, $category = 0, $sub_category = 0)
     {
-        return 'silence is the gold';
+        $orderItems = new OrderItems();
+
+        $orders = $orderItems->getAllOrders($per_page, $search, $category, $sub_category);
+
+        return response()->json($orders, 201);
     }
 
     public function updateVendorOrderStatus($vendor, $order, $status)
@@ -43,7 +41,6 @@ class OrdersController extends Controller
         }
 
         return 'Order was updated successfully.';
-
     }
 
     public function getVendorOrderById($id)
@@ -55,7 +52,7 @@ class OrdersController extends Controller
         return response()->json($order, 201);
     }
 
-    public function fetchAllByVendor($vendor, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
+    public function fetchAllByVendor($vendor = 0, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
     {
         $orders = new Order();
 
@@ -64,7 +61,7 @@ class OrdersController extends Controller
         return response()->json($orders, 201);
     }
 
-    public function fetchAllBySeller($seller, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
+    public function fetchAllBySeller($seller = 0, $per_page = 25, $order_by = 'id', $order = 'desc', $search = 0, $status)
     {
         $orders = new Order();
 
