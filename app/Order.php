@@ -81,7 +81,7 @@ class Order extends Model
         return $orders;
     }
 
-    public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status)
+    public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status, $date)
     {   // Oct 01, 2021 09:58 PM
         $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
             'users.first_name', 'users.last_name','products.vendor_id', 'order_items.quantity',
@@ -105,6 +105,10 @@ class Order extends Model
             } else {
                 $orders = $orders->where('order_items.status', $status);
             }
+        }
+
+        if(strlen($date) > 1) {
+            $orders = $orders->where('order_items.created_at', 'LIKE', '%'.$date.'%');
         }
 
         $orders = $orders->where('order_items.seller_id', $seller);

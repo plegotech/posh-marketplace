@@ -49,18 +49,18 @@ Route::prefix('vendor')->group(function () {
 Route::post('/seller-product', 'SellerController@sellerProduct');
 
 Route::prefix('seller')->group(function () {
-    Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}',
+    Route::get('/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}',
         'SellerController@soldStatistics');
     Route::get('/dashboard/{id}', 'SellerController@dashboard');
 
-    Route::post('/seller/{step}', 'SellerController@seller');
+    Route::post('/{step}', 'SellerController@seller');
 });
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 
 Route::prefix('orders')->group(function () {
     Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
-    Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}',
+    Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}/{date?}',
         'OrdersController@fetchAllBySeller');
     Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}/{date?}',
         'OrdersController@fetchAllByVendor');
