@@ -24,13 +24,41 @@ class UsersController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+        // $request->validate([
+        //     'email' => ['required', 'email'],
+        //     'password' => ['required']
+        // ]);
 
+        $rules = array(
+            'email'             => 'required|email',
+            'password'          => 'required'
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails())
+        {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ), 400); // 400 being the HTTP code for an invalid request.
+        }
+
+        $data = $request->all();
         if (Auth::attempt($request->only('email', 'password'))){
-            return response()->json(Auth::user(), 200);
+            return Response()->json(array(
+                'success' => true,
+                'message'=>"Logged In successfully",
+                'userdetail' => Auth::user()
+            ), 200); 
+
+        } else {
+            return Response()->json(array(
+                'success' => false,
+                'message' => "Login Failed"
+            ), 200); 
+
         }
         throw ValidationException::withMessages([
             'email' =>['The provided credentials are incorect.']
@@ -71,10 +99,16 @@ class UsersController extends Controller
     {
         // Setup the validator
         $rules = array(
-            'email'         => 'required|email|unique:users|max:255',
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'phone'         => 'required',
+            'email'             => 'required|email|unique:users|max:255',
+            'first_name'        => 'required|min:3|max:50',
+            'last_name'         => 'required|min:3|max:50',
+            'gender'            => 'required',
+            'u_address'           => 'required',
+            'u_city'              => 'required',
+            'u_state'             => 'required',
+            'phone'             => 'required|max:17',
+            'u_zip'               => 'required',
+            'password'          => 'required|confirmed|max:10'
         );
 
         $validator = Validator::make($request->all(), $rules);
@@ -88,9 +122,11 @@ class UsersController extends Controller
 
             ), 400); // 400 being the HTTP code for an invalid request.
         }
-
         $data = $request->all();
+
         unset($data['_token']);
+        unset($data['password_confirmation']);
+        $data['password']=Hash::make(strtolower($data['password']));
 
         if(!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
@@ -98,7 +134,10 @@ class UsersController extends Controller
         } else {
             User::create($data);
         }
-        return response()->json(['message' => 'user was updated successfully.']);
+        return Response()->json(array(
+            'success' => true,
+            'message' => 'User created successfully.'
+        ), 200); 
     }
 
     public function vendor(Request $request)

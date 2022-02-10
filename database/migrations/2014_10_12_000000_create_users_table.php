@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('gender')->nullable();
             $table->string('email')->unique();
+            $table->string('u_address')->nullable();
+            $table->string('u_zip')->nullable();
+            $table->string('u_city')->nullable();
+            $table->string('u_state')->nullable();
             $table->string('phone')->nullable();
             $table->enum('user_type', ['user', 'seller', 'vendor', 'admin'])->default('user');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');

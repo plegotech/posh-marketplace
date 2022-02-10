@@ -3,6 +3,7 @@
 use App\Order;
 use App\Product;
 use App\OrderItems;
+use App\User;
 
 use Illuminate\Database\Seeder;
 
