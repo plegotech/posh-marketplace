@@ -62,9 +62,15 @@
                                                 <span>{{ order.shipping_address }}</span>
                                             </td>
                                             <td>
-                                                <button @click="updateOrderStatus(order.id, 'rejected')">Reject</button>
-                                                <button @click="updateOrderStatus(order.id, 'approved')">Accept</button>
-                                                <button>View</button>
+                                                <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <li @click="updateOrderStatus(order.id, 'approved')" class="edit-mob">Accept</li>
+                                                    <li @click="updateOrderStatus(order.id, 'rejected')" class="inactive-mob">Reject</li>
+                                                </ul>
+                                            </div>
                                             </td>
                                         </tr>
                                         </tbody>
