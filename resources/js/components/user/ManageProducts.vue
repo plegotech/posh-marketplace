@@ -73,7 +73,7 @@
                                     <div class="price-title-b">
                                         <h3><sup>$</sup> {{ product.net_price }}</h3>
                                     </div>
-                                    <div class="pb-btn-list">
+                                    <div v-if="user.user_type == 'vendor'" class="pb-btn-list">
                                         <div class="btn-st btn-green">
                                             <router-link :to="{ name: 'vendor-upload-products', params: { product_id: product.id }}">
                                                 EDIT
