@@ -41,7 +41,10 @@ Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation
 Route::get('/user/change-status/{userid}/{status}', 'UsersController@changeUserStatus');
 Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
 
-Route::post('/vendor', 'VendorController@vendor');
+Route::prefix('vendor')->group(function () {
+    Route::post('/', 'VendorController@vendor');
+    Route::get('/dashboard/{id}', 'VendorController@dashboard');
+});
 
 Route::post('/seller-product', 'SellerController@sellerProduct');
 Route::get('/seller/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}', 'SellerController@soldStatistics');

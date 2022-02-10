@@ -10,28 +10,28 @@
                             <div class="secBox-img"><img src="/img/total-sales-icons.png" width="134" height="80" alt=""></div>
                             <div class="secBox-rtxt">
                                 <span>Vendor Orders</span>
-                                <h3>3020</h3>
+                                <h3>{{ total_orders }}</h3>
                             </div>
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/pending-orders.png" width="124" height="70" alt=""></div>
                             <div class="secBox-rtxt">
                                 <span>Pending Orders</span>
-                                <h3>30</h3>
+                                <h3>{{ pending_orders }}</h3>
                             </div>
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/cancel-icon.png" width="101" height="69" alt=""></div>
                             <div class="secBox-rtxt">
                                 <span>Cancelled Orders</span>
-                                <h3>10</h3>
+                                <h3>{{ cancelled_orders }}</h3>
                             </div>
                         </div>
                         <div class="sec-box">
                             <div class="secBox-img"><img src="/img/ok-icon.png" width="101" height="69" alt=""></div>
                             <div class="secBox-rtxt">
-                                <span>Successful Orders</span>
-                                <h3>1500</h3>
+                                    <span>Successful Orders</span>
+                                    <h3>{{ successful_orders }}</h3>
                             </div>
                         </div>
                     </div>
@@ -67,10 +67,10 @@
                     <table class="table recent-Orders-table mobile-btn-show" id="vendor_DB">
                         <thead>
                         <tr>
-                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
-                            <th scope="col"><span class="sort-ad">Product <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Product</th>
                             <th scope="col">Tracking Id</th>
-                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Pricing</th>
                             <th scope="col">Status</th>
@@ -79,186 +79,35 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                <span class="blue-txt">INV - 1001</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">Completed</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="blue-txt">INV - 1002</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">Completed</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="blue-txt">INV - 1003</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">Completed</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
-                        <tr class="ifpending-bx">
-                            <td>
-                                <span class="blue-txt">INV - 1004</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="pendig-txt">Pending</span>
-                            </td>
-                            <td>
-                                <span>Bank Transfer</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="blue-txt">INV - 1005</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">Completed</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="blue-txt">INV - 1006</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Nike Shoes</span>
-                            </td>
-                            <td>
-                                <span>MRP0043456</span>
-                            </td>
-                            <td>
-                                <span>05/10/2019</span>
-                            </td>
-                            <td>
-                                <span>3</span>
-                            </td>
-                            <td>
-                                <span>$2,350.00</span>
-                            </td>
-                            <td>
-                                <span class="comleted-txt">Completed</span>
-                            </td>
-                            <td>
-                                <span>Credit Card</span>
-                            </td>
-                            <td>
-                                <span>Chicago</span>
-                            </td>
-                        </tr>
+                            <tr v-for="order in orders">
+                                <td>
+                                    <span class="blue-txt">{{ order.id }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ order.name }}</span>
+                                </td>
+                                <td>
+                                    <span>MRP0043456</span>
+                                </td>
+                                <td>
+                                    <span>{{ order.ordered_at }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ order.quantity }}</span>
+                                </td>
+                                <td>
+                                    <span v-if="order.total_sold">${{ order.total_sold }}</span>
+                                </td>
+                                <td>
+                                    <span :class="order.progress">{{ order.progress }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ order.payment_method }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ order.shipping_address }}</span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>
@@ -269,7 +118,40 @@
     </div>
 
 </template>
+
 <script>
-export default {
-}
+    export default {
+        data() {
+            return {
+                total_orders:           0,
+                pending_orders:         0,
+                cancelled_orders:       0,
+                successful_orders:      0,
+                user:                   this.$store.state.auth.user,
+                orders:                 []
+            }
+        },
+        created() {
+            this.dashboard()
+        },
+        methods: {
+            dashboard() {
+                var url = '/api/vendor/dashboard/' + this.user.id;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(res => {
+                        this.total_orders           = res.total_orders;
+                        this.pending_orders         = res.pending_orders;
+                        this.cancelled_orders       = res.cancelled_orders;
+                        this.successful_orders      = res.successful_orders;
+                        this.orders                 = res.orders;
+                    })
+                    .catch(err => console.log(err))
+                    .finally(() => {
+                        document.getElementById('ajaxLoader').style.display = 'none';
+                    });
+            }
+        }
+    }
 </script>
