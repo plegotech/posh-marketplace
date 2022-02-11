@@ -59,13 +59,13 @@ Route::prefix('seller')->group(function () {
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 
 Route::prefix('orders')->group(function () {
-    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
     Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}/{date?}',
         'OrdersController@fetchAllBySeller');
     Route::get('/vendor/{vendor_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}/{date?}',
         'OrdersController@fetchAllByVendor');
     Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
-        'OrdersController@updateVendorOrderStatus');
+        'OrdersController@updateOrderStatus');
+    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
 
 });
 
