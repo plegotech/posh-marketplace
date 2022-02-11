@@ -122,8 +122,8 @@ export default {
         return {
             orders:         [],
             date_range:     null,
-            year:           null,
-            month:          null,
+            year:           '',
+            month:          '',
             search:         0,
             per_page:       0,
             order:          'asc',

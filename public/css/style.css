@@ -1939,6 +1939,12 @@ ul.topnav-user li {
 .img-fluid.img-upload-vup {
     border: 1px solid #DBDBDB;
     border-radius: 10px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    background-image: url(http://localhost:8000/img/img-upload-dummy.jpg);
+    height: 243px;
+    background-size: contain;
+    background-position: center;
 }
 .upload-image-vup {
     position: relative;
@@ -2951,3 +2957,7 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     transform: rotate(45deg);
   }
   #first-pvs-posh select, #first-pvs-posh .search-box {margin-bottom:20px;}
+
+ .box-a-tier.box-sha .box-t-ins h4 {color:green}
+ .box-a-tier.box-sha i.num-count-bx, .box-a-tier.box-sha button {background:green !important;}
+ .box-a-tier.box-sha button:hover {color:white}
