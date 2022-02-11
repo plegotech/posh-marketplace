@@ -41,6 +41,13 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="up-main-bx-2">
+                                <div class="form-outline-ft mb-5">
+                                    <select v-model="product.status" class="form-control-label select-custom-point">
+                                        <option v-for="status in product_status"
+                                                :value="status">{{ status }}</option>
+                                    </select>
+                                    <span class="form-label">Status</span>
+                                </div>
                                 <div class="uploadimage-vup">
                                     <div class="upload-title-vup">
                                         <p>Product Image <img src="/img/help-icon.png" class="img-ut-vup"
@@ -97,6 +104,7 @@ export default {
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
+                status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
@@ -105,6 +113,7 @@ export default {
     created() {
         this.parent_categories          = SITE_CATEGORIES;
         this.brands                     = SITE_BRANDS;
+        this.product_status             = PRODUCT_STATUS;
         this.product.vendor_id          = this.user.id;
         this.product_id                 = this.$route.params.product_id;
 
@@ -200,6 +209,7 @@ export default {
             data.append('description', this.product.description);
             data.append('brand', this.product.brand);
             data.append('featured_image', this.product.featured_image);
+            data.append('status', this.product.status);
 
             axios.post('/product', data, config)
                 .then(function (res) {

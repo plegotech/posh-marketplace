@@ -60,7 +60,7 @@ class VendorController extends Controller
             'gender'            => 'required|min:3|max:7',
             'city'              => 'required',
             'state'             => 'required',
-            'phone'             => 'required|max:17',
+            'phone'             => 'required|digits:10',
             'company'           => 'required',
             'password'          => 'required|confirmed'
         );

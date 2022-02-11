@@ -84,6 +84,7 @@ class ProductController extends Controller
             'parent_category'   => 'required',
             'brand'             => 'required',
             'description'       => 'required',
+            'status'            => 'required',
             'vendor_id'         => 'required',
         );
 

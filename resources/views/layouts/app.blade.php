@@ -27,9 +27,10 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script>
-        var SITE_CATEGORIES = JSON.parse('<?php echo json_encode(\Config::get('constants.categories')); ?>');
-        var SITE_BRANDS = JSON.parse('<?php echo json_encode(\Config::get('constants.brands')); ?>');
-        var SELLER_TIERS = JSON.parse('<?php echo json_encode(\Config::get('constants.seller_tiers')); ?>');
+        var SITE_CATEGORIES     = JSON.parse('<?php echo json_encode(\Config::get('constants.categories')); ?>');
+        var SITE_BRANDS         = JSON.parse('<?php echo json_encode(\Config::get('constants.brands')); ?>');
+        var SELLER_TIERS        = JSON.parse('<?php echo json_encode(\Config::get('constants.seller_tiers')); ?>');
+        var PRODUCT_STATUS      = JSON.parse('<?php echo json_encode(\Config::get('constants.product_status')); ?>');
     </script>
 </head>
 <body>

@@ -57,6 +57,9 @@ return [
             'Medical Supplies'
         ),
     ),
+    'product_status' => array(
+        'archived', 'active', 'deleted'
+    ),
     'brands' => array(
         'Apple',
         'Google',
