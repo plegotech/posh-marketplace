@@ -36,10 +36,14 @@ Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
 
 Route::post('/login', 'UsersController@login');
 Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}', 'UsersController@users');
-Route::post('/user', 'UsersController@createUser');
-Route::get('/user/toggle-activation/{userid}', 'UsersController@toggleActivation');
-Route::get('/user/change-status/{userid}/{status}', 'UsersController@changeUserStatus');
 Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
+
+Route::prefix('user')->group(function () {
+    Route::post('/', 'UsersController@createUser');
+    Route::get('/toggle-activation/{userid}', 'UsersController@toggleActivation');
+    Route::get('/change-status/{userid}/{status}', 'UsersController@changeUserStatus');
+    Route::get('/company/{user}', 'UsersController@userCompany');
+});
 
 Route::prefix('vendor')->group(function () {
     Route::post('/', 'VendorController@vendor');

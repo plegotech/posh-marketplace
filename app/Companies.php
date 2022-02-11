@@ -12,7 +12,7 @@ class Companies extends Model
     public      $timestamps     = true;
 
     protected $fillable = [
-        'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country', 'phone'
+        'logo', 'name', 'user_id', 'subscription_fee', 'address', 'city', 'state', 'country', 'phone', 'ein_number'
     ];
 
     private function grossAmount($type)

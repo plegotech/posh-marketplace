@@ -107,7 +107,7 @@ export default {
         { name: 'login-seller', meta: { title: 'Seller Login', middleware:'guest' }, path: '/seller-login', component: SellerLogin },
         { name: 'login-vendor', meta: { title: 'Vendor Login', middleware:'guest' }, path: '/vendor-login', component: VendorLogin },
         { name: 'vendor-signup', meta: { title: 'Vendor Signup', middleware:'guest' }, path: '/vendor-signup', component: VendorSignup },
-        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller/signup', component: SellerSignup },
+        { name: 'seller-signup', meta: { title: 'Seller Signup' }, path: '/seller/signup/:user_id?', component: SellerSignup },
         { name: 'seller-signup-tier', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-tier/:user_id', component: SellerSignupTier },
         { name: 'seller-signup-domain', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-domain/:user_id', component: SellerSignupDomain },
         { name: 'seller-final', meta: { title: 'Seller Signup' }, path: '/seller/signup/select-template/:user_id', component: SellerSignupFinal },

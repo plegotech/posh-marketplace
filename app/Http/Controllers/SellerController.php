@@ -118,7 +118,7 @@ class SellerController extends Controller
                 'city' => 'required',
                 'state' => 'required',
                 'gender' => 'required',
-                'phone' => 'required|max:17',
+                'phone' => 'required|digits:10',
                 'company' => 'required',
                 'ein_number' => 'required',
                 'password' => 'required|confirmed'

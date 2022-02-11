@@ -84,6 +84,7 @@ export default {
             errors:                         null,
             created_id:                     null,
             seller: {
+                seller_id:                  null,
                 first_name:                 null,
                 last_name:                  null,
                 gender:                     null,
@@ -101,10 +102,39 @@ export default {
             }
         }
     },
-    mounted() {
+    created() {
+        this.seller.seller_id =  this.$route.params.user_id;
+        if(this.seller.seller_id) {
+            this.getUserCompanyData(this.seller.seller_id);
+        }
         console.log('Component mounted.')
     },
     methods: {
+        getUserCompanyData(seller_id) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/user/company/' + seller_id;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.seller.first_name      = res.first_name;
+                    this.seller.last_name       = res.last_name;
+                    this.seller.gender          = res.gender;
+                    this.seller.license         = res.license;
+                    this.seller.ein_number      = res.ein_number;
+                    this.seller.address         = res.address;
+                    this.seller.city            = res.city;
+                    this.seller.state           = res.state;
+                    this.seller.phone           = res.phone;
+                    this.seller.company         = res.name;
+                    this.seller.email           = res.email;
+                    this.seller.seller_id       = res.user_id;
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
         uploadBusinessLicenses(company_id) {
             var object = this;
 

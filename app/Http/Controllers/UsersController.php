@@ -222,4 +222,11 @@ class UsersController extends Controller
 
         return response()->json(['message' => 'user status was updated successfully.']);
     }
+
+    public function userCompany($user)
+    {
+        return response()->json(User::where('users.id', $user)
+            ->join('companies', 'companies.user_id', '=', 'users.id')
+            ->first());
+    }
 }
