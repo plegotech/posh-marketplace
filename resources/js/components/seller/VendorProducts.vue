@@ -2,7 +2,7 @@
 
     <div class="container-fluid pending-vend seller-vendor-prod">
 
-        <div class="row mt-4" >
+        <div class="row mt-4">
 
             <div class="col-sm-12">
 
@@ -54,32 +54,36 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="product in all_products"
+                            <tr v-for="product in all_products"
                                 :id="'allProduct'+product.id">
-                                    <td>
-                                        <img src="/img/nike-shoe1.png" alt="">
-                                        <span>{{ product.id }}</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>{{ product.name }}</span>
-                                    </td>
-                                    <td>
+                                <td>
+                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <span>{{ product.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <span>{{ product.name }}</span>
+                                </td>
+                                <td>
                                         <span>
                                             ${{ product.net_price }}
                                         </span>
-                                    </td>
-                                    <td class="center">
-                                        <label class="cstm-chkb">
-                                            <input type="checkbox" @click="toggleSellerProduct(product.id)" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
+                                </td>
+                                <td class="center">
+                                    <label class="cstm-chkb">
+                                        <input type="checkbox" @click="toggleSellerProduct(product.id)"
+                                               checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr v-if="all_total < 1">
+                                <td>No products available.</td>
+                            </tr>
                             </tbody>
                         </table>
                         <div class="foot-table" v-if="total > 0">
-                                <div class="left"><span>Rows Per Page:
+                            <div class="left"><span>Rows Per Page:
                                                 <select
                                                     @change="fetch(current_page, $event.target.value)">
                                                     <option value="25">25</option>
@@ -88,44 +92,16 @@
                                                     <option value="100">100</option>
                                                 </select>
                                                 </span></div>
-                                <div class="right">
-                                    <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                                    <img
-                                        src="/img/prev-arrow.png" @click="fetch(current_page-1)"
-                                        alt="" class="prev-itm">
-                                    <img
-                                        src="/img/next-arrow.png" @click="fetch(current_page+1)"
-                                        alt="" class="next-itm"></div>
-                            </div>
+                            <div v-if="all_total > 0" class="right">
+                                <span>{{ all_from }}-{{ all_to }} of {{ all_total }} Items</span>
+                                <img v-if="all_from > 1"
+                                     src="/img/prev-arrow.png" @click="fetch(current_page-1)"
+                                     alt="" class="prev-itm">
+                                <img v-if="all_total > all_from"
+                                     src="/img/next-arrow.png" @click="fetch(current_page+1)"
+                                     alt="" class="next-itm"></div>
                         </div>
-
-
-                    <!--<div v-if="all_total > 0" class="row">
-                        <div class="col-sm-12 d-flex justify-content-center">
-                            <div aria-label="Page navigation example">
-                                <ul class="pagination bottm-pagination">
-                                    <li v-if="all_current_page > 4" @click="fetchAllProducts(all_current_page - 4)" class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li v-if="all_current_page > 3" @click="fetchAllProducts(all_current_page - 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 3 }}</a></li>
-                                    <li v-if="all_current_page > 2" @click="fetchAllProducts(all_current_page - 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 2 }}</a></li>
-                                    <li v-if="all_current_page > 1" @click="fetchAllProducts(all_current_page - 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 1 }}</a></li>
-                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)"> {{ all_current_page }} </a></li>
-                                    <li v-if="all_last_page > (all_current_page)" @click="fetchAllProducts(all_current_page + 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 1 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 1)" @click="fetchAllProducts(all_current_page + 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 2 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 2)" @click="fetchAllProducts(all_current_page + 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 3 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 3)" @click="fetchAllProducts(all_current_page + 4)" class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true"> &raquo; </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>-->
-
+                    </div>
                     <div class="my-product">
                         <h2>My Products <span>({{ total }} of {{ max_product }} chosen)</span></h2>
                     </div>
@@ -139,24 +115,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="product in products">
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>{{ product.id }}</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>{{ product.name }}</span>
-                                </td>
-                                <td>
+                        <tr v-for="product in products">
+                            <td>
+                                <img src="/img/nike-shoe1.png" alt="">
+                                <span>{{ product.id }}</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                            </td>
+                            <td>
+                                <span>{{ product.name }}</span>
+                            </td>
+                            <td>
                                     <span>
                                         ${{ product.net_price }}
                                     </span>
-                                </td>
-                                <td>
-                                    <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
-                                </td>
-                            </tr>
+                            </td>
+                            <td>
+                                <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
+                            </td>
+                        </tr>
                         </tbody>
 
                     </table>
@@ -173,9 +149,9 @@ export default {
     data() {
         return {
             product_check: {
-                product_id:     0,
-                seller_id:      0,
-                _token:         document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                product_id: 0,
+                seller_id: 0,
+                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
             all_products: [],
             all_from: null,
@@ -224,8 +200,11 @@ export default {
         updateSubCategories() {
             var parent = document.getElementsByClassName('parentCategory');
 
-            if(typeof parent[0] !== 'undefined') {
+            if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
                 this.sub_categories = SITE_CATEGORIES[parent];
             }
             this.fetchAllProducts();
@@ -239,7 +218,7 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.max_product    =   SELLER_TIERS[res.tier];
+                    this.max_product = SELLER_TIERS[res.tier];
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
@@ -273,11 +252,11 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.products       = res.data;
-                    this.total          = res.total;
+                    this.products = res.data;
+                    this.total = res.total;
                     var productsData = this.products;
                     productsData.forEach(function (product) {
-                        document.getElementById('allProduct'+product.id).style.display = 'none';
+                        document.getElementById('allProduct' + product.id).style.display = 'none';
                     });
                 })
                 .catch(err => console.log(err))
@@ -289,20 +268,20 @@ export default {
         fetchAllProducts(page = 0, search = 0) {
             document.getElementById('ajaxLoader').style.display = 'block';
 
-            var sort_by         = document.getElementsByClassName('sort_by');
-            var parent          = document.getElementsByClassName('parentCategory');
-            var sub_category    = document.getElementsByClassName('subCategory');
+            var sort_by             = document.getElementsByClassName('sort_by');
+            var parent              = document.getElementsByClassName('parentCategory');
+            var sub_category        = document.getElementsByClassName('subCategory');
 
-            if(typeof parent[0] !== 'undefined') {
+            if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
             }
 
-            if(typeof sub_category[0] !== 'undefined') {
+            if (typeof sub_category[0] !== 'undefined') {
                 sub_category = sub_category[0].value;
             }
 
             var order_by = 0;
-            if(typeof sort_by[0] !== 'undefined') {
+            if (typeof sort_by[0] !== 'undefined') {
                 order_by = sort_by[0].value;
             }
 
@@ -352,12 +331,12 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.all_products       = res.data;
-                    this.all_to             = res.to;
-                    this.all_from           = res.from;
-                    this.all_last_page      = res.last_page;
-                    this.all_total          = res.total;
-                    this.all_current_page   = res.current_page;
+                    this.all_products = res.data;
+                    this.all_to = res.to;
+                    this.all_from = res.from;
+                    this.all_last_page = res.last_page;
+                    this.all_total = res.total;
+                    this.all_current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {

@@ -75,10 +75,10 @@
                                             </span></div>
                             <div class="right">
                                 <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                                <img
+                                <img v-if="from > 1"
                                     src="/img/prev-arrow.png" @click="fetch(current_page-1)"
                                     alt="" class="prev-itm">
-                                <img
+                                <img v-if="to < total"
                                     src="/img/next-arrow.png" @click="fetch(current_page+1)"
                                     alt="" class="next-itm"></div>
                         </div>
