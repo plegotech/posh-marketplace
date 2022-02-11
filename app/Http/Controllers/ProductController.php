@@ -56,6 +56,8 @@ class ProductController extends Controller
             $products = $products->where('products.status', $status);
         }
 
+        $products = $products->where('products.status', '!=', 'deleted');
+
         $products = $products->orderBy($order_by, $order)
         ->paginate(18);
 
