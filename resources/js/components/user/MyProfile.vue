@@ -87,6 +87,11 @@
 
                 <div id="companyEdit" class="col-sm-12" style="display: none">
                 <div class="row">
+                    <div class="col-md-12">
+                        <p v-for="error in company_errors" class="alert-danger alert">
+                            {{ error[0] }}
+                        </p>
+                    </div>
                 <div class="col-sm-6">
                     <label>Company Name:</label>
                     <input type="text" class="form-control"
@@ -169,6 +174,7 @@ export default {
         return {
             user: this.$store.state.auth.user,
             company_show: 1,
+            company_errors: [],
             company: null,
             user_data: {
                 first_name: null,
@@ -217,6 +223,7 @@ export default {
         },
         updateCompany() {
             var object = this;
+            this.company_errors = [];
             fetch('/api/update-company', {
                 method: 'post',
                 body: JSON.stringify(this.company_data),
@@ -226,8 +233,8 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'false') {
-                        alert('Please fill the missing fields first.');
+                    if (data.success == false) {
+                        object.company_errors = data.errors;
                     } else {
                         object.getUserCompanyData();
                         object.hideCompanyEditForm();
@@ -246,8 +253,8 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'false') {
-                        alert('Please fill the missing fields first.');
+                    if (data.success == false) {
+                        object.company_errors = data.errors;
                     } else {
                         this.signIn();
                         object.getUserCompanyData();

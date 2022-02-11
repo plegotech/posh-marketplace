@@ -89,14 +89,14 @@ export default {
             user:                   this.$store.state.auth.user,
             brands:                 null,
             product: {
-                id:                     null,
-                name:                   null,
-                net_price:              null,
-                vendor_id:              null,
-                parent_category:        null,
-                brand:                  null,
-                description:            null,
-                featured_image:         null,
+                id:                     '',
+                name:                   '',
+                net_price:              '',
+                vendor_id:              '',
+                parent_category:        '',
+                brand:                  '',
+                description:            '',
+                featured_image:         '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
@@ -160,7 +160,7 @@ export default {
                 .then(function (res) {
                     var data = res.data;
                     if (data.success == 'true') {
-                        alert('product created successfully.');
+                        alert('The CSV was imported successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;

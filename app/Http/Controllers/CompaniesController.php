@@ -32,6 +32,29 @@ class CompaniesController extends Controller
 
     public function updateCompany(Request $request)
     {
+        // Setup the validator
+        $rules = array(
+//            'email'     => 'required|email|max:255|unique:users,email,'.$request->input('user_id'),
+            'name'      => 'required',
+            'phone'     => 'digits:10',
+            'zip_code'  => 'required',
+            'address'   => 'required',
+            'city'      => 'required',
+            'state'     => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Validate the input and return correct response
+        if ($validator->fails())
+        {
+            return Response()->json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ), 400); // 400 being the HTTP code for an invalid request.
+        }
+
         $company = array();
         $company['zip_code']            = $request->input('zip_code');
         $company['name']                = $request->input('name');

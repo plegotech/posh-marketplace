@@ -24,11 +24,6 @@ class UsersController extends Controller
 
     public function login(Request $request)
     {
-        // $request->validate([
-        //     'email' => ['required', 'email'],
-        //     'password' => ['required']
-        // ]);
-
         $rules = array(
             'email'             => 'required|email',
             'password'          => 'required'
@@ -46,18 +41,19 @@ class UsersController extends Controller
         }
 
         $data = $request->all();
+
         if (Auth::attempt($request->only('email', 'password'))){
             return Response()->json(array(
                 'success' => true,
                 'message'=>"Logged In successfully",
                 'userdetail' => Auth::user()
-            ), 200); 
+            ), 200);
 
         } else {
             return Response()->json(array(
                 'success' => false,
                 'message' => "Login Failed"
-            ), 200); 
+            ), 200);
 
         }
         throw ValidationException::withMessages([
@@ -134,11 +130,11 @@ class UsersController extends Controller
         } else {
             User::create($data);
         }
-      
+
               return Response()->json(array(
             'success' => true,
             'message' => 'User created successfully.'
-        ), 200); 
+        ), 200);
     }
 
     public function vendor(Request $request)
