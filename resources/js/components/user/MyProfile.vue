@@ -66,6 +66,7 @@
                 </div>
                 <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateProfile">Update</button>
+                    <button @click="closeTab_UserProf">Close</button>
                 </div>
                 </div>
             </div>
@@ -130,6 +131,7 @@
                            </div>
                             <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateCompany">Update</button>
+                    <button @click="closeTab_CompEdit">Close</button>
                     </div>
                     </div>
                 </div>
@@ -241,6 +243,14 @@ export default {
                     }
                 })
                 .catch(err => console.log(err));
+        },
+        closeTab_UserProf(){
+            var targetuserProfile_Id = document.getElementById('userProfile');
+            targetuserProfile_Id.style.display='none';
+        },
+        closeTab_CompEdit(){
+            var targetCompEdit_Id = document.getElementById('companyEdit');
+            targetCompEdit_Id.style.display='none';
         },
         updateProfile() {
             var object = this;
