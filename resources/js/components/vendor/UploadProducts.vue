@@ -19,11 +19,19 @@
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
-                                    <select v-model="product.parent_category" class="form-control-label select-custom-point">
+                                    <select v-model="product.parent_category" @change="updateSubCategories()" class="parentCategory form-control-label select-custom-point">
                                         <option v-for="(category, index) in parent_categories"
                                                 :value="index">{{ index }}</option>
                                     </select>
                                     <span class="form-label">Category</span>
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
+                                    <select v-model="product.sub_category" class="subCategory form-control-label select-custom-point">
+                                        <option v-for="(category, index) in sub_categories"
+                                                :value="category">{{ category }}</option>
+                                    </select>
+                                    <span class="form-label">Sub-Category</span>
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <select v-model="product.brand" class="form-control-label select-custom-point">
@@ -91,6 +99,7 @@ export default {
             product_id:             null,
             csv_file:               null,
             parent_categories:      null,
+            sub_categories:         null,
             processing:             false,
             errors:                 null,
             user:                   this.$store.state.auth.user,
@@ -101,6 +110,7 @@ export default {
                 net_price:              '',
                 vendor_id:              '',
                 parent_category:        '',
+                sub_category:        '',
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
@@ -123,6 +133,17 @@ export default {
     },
 
     methods: {
+        updateSubCategories() {
+            var parent = document.getElementsByClassName('parentCategory');
+
+            if (typeof parent[0] !== 'undefined') {
+                parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
+                this.sub_categories = SITE_CATEGORIES[parent];
+            }
+        },
         getProductById(product) {
             document.getElementById('ajaxLoader').style.display = 'block';
             let url = '/api/product/get/' + product;
@@ -138,6 +159,8 @@ export default {
                     this.product.net_price              = res.net_price;
                     this.product.vendor_id              = res.vendor_id;
                     this.product.parent_category        = res.parent_category;
+                    this.product.status                 = res.status;
+                    this.product.sub_category           = res.sub_category;
                     this.product.brand                  = res.brand;
                     this.product.description            = res.description;
                     console.log(this.product);
@@ -210,6 +233,7 @@ export default {
             data.append('brand', this.product.brand);
             data.append('featured_image', this.product.featured_image);
             data.append('status', this.product.status);
+            data.append('sub_category', this.product.sub_category);
 
             axios.post('/product', data, config)
                 .then(function (res) {
@@ -231,6 +255,8 @@ export default {
         },
         clearForm() {
             this.product.name = null;
+            this.product.status = null;
+            this.product.sub_category = null;
             this.product.net_price = null;
             this.product.parent_category = null;
             this.product.brand = null;
