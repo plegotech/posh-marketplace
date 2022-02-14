@@ -2961,3 +2961,4 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
  .box-a-tier.box-sha .box-t-ins h4 {color:green}
  .box-a-tier.box-sha i.num-count-bx, .box-a-tier.box-sha button {background:green !important;}
  .box-a-tier.box-sha button:hover {color:white}
+ #myChart {width:200px;}
