@@ -73,7 +73,7 @@ Route::prefix('orders')->group(function () {
 
 });
 
-Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
+Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}/{min_price?}/{max_price?}', 'ProductController@fetch');
 
 Route::prefix('product')->group(function () {
     Route::post('/', 'ProductController@create');

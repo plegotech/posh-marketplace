@@ -23,7 +23,7 @@ class ProductController extends Controller
     }
 
     public function fetch($user = 0, $order_by = 'id', $order = 'desc', $search = 0, $status = 0
-    ,$category = 0, $sub_category = 0)
+    ,$category = 0, $sub_category = 0, $min_price=0, $max_price=0)
     {
         $products = new Product();
 
@@ -38,6 +38,9 @@ class ProductController extends Controller
                  ->where('seller_id', $user);
             }
 
+        }
+        if($min_price != "0" && $max_price!=0) {
+            $products = $products->where('net_price', 'BETWEEN', $min_price.' AND '.$max_price);
         }
 
         if($search != "0") {
