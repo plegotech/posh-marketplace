@@ -93,19 +93,32 @@ class UsersController extends Controller
 
     public function createUser(Request $request)
     {
+        $data = $request->all();
+
+        if(isset($data['user']) && $data['user']=="user"){
+            $rules = array(
+                'email'             => 'required|email|unique:users|max:255',
+                'first_name'        => 'required|min:3|max:50',
+                'last_name'         => 'required|min:3|max:50',
+                'gender'            => 'required',
+                'u_address'           => 'required',
+                'u_city'              => 'required',
+                'u_state'             => 'required',
+                'phone'             => 'required|max:17',
+                'u_zip'               => 'required',
+                'password'          => 'required|confirmed|max:10'
+            );
+    
+        } else {
+            $rules = array(
+                'email'             => 'required|email|unique:users|max:255',
+                'first_name'        => 'required|min:3|max:50',
+                'last_name'         => 'required|min:3|max:50',
+                'phone'             => 'required|max:17'
+            );
+    
+        }
         // Setup the validator
-        $rules = array(
-            'email'             => 'required|email|unique:users|max:255',
-            'first_name'        => 'required|min:3|max:50',
-            'last_name'         => 'required|min:3|max:50',
-            'gender'            => 'required',
-            'u_address'           => 'required',
-            'u_city'              => 'required',
-            'u_state'             => 'required',
-            'phone'             => 'required|max:17',
-            'u_zip'               => 'required',
-            'password'          => 'required|confirmed|max:10'
-        );
 
         $validator = Validator::make($request->all(), $rules);
 
@@ -122,16 +135,16 @@ class UsersController extends Controller
 
         unset($data['_token']);
         unset($data['password_confirmation']);
-        $data['password']=Hash::make(strtolower($data['password']));
-
+        if(isset($data['password'])){
+            $data['password']=Hash::make(strtolower($data['password']));
+        }
         if(!empty($request->input('id'))) {
             User::where('id', $request->input('id'))
                 ->update($data);
         } else {
             User::create($data);
         }
-
-              return Response()->json(array(
+        return Response()->json(array(            
             'success' => true,
             'message' => 'User created successfully.'
         ), 200);
