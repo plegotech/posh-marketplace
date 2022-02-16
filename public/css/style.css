@@ -2886,31 +2886,7 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
 .my-product h2 span {
     font-weight: 300;
 }
-.mini-head {}
-.mob-expand {display:none}
-/* Customize the label (the container) */
-.cstm-chkb {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .cstm-chkb input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
+
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;
@@ -2962,3 +2938,29 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
  .box-a-tier.box-sha i.num-count-bx, .box-a-tier.box-sha button {background:green !important;}
  .box-a-tier.box-sha button:hover {color:white}
  #myChart {width:200px;}
+ 
+.mini-head {}
+.mob-expand {display:none}
+/* Customize the label (the container) */
+.cstm-chkb {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .cstm-chkb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
