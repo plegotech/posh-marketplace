@@ -22,23 +22,12 @@ class OrdersController extends Controller
         return response()->json($orders, 201);
     }
 
-    public function updateVendorOrderStatus($vendor, $order, $status)
+    public function updateOrderStatus($vendor, $order, $status)
     {
         $orderItems = new OrderItems();
 
-        // Select All Products of the O
-        $item_ids = $orderItems
-            ->where('order_id', $order)
-            ->where('vendor_id', $vendor)
-            ->join('products', 'products.id', '=', 'order_items.item_id')
-            ->pluck('products.id');
-
-        if($item_ids) {
-            foreach($item_ids as $key => $item) {
-                $orderItems->where('item_id', $item)
-                    ->update(['status' => $status]);
-            }
-        }
+        $orderItems->where('id', $order)
+            ->update(['status' => $status]);
 
         return 'Order was updated successfully.';
     }

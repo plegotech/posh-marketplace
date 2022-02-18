@@ -38,6 +38,11 @@ class Order extends Model
             'order_items.status as item_status', 'order_items.progress',
             DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
 
+
+        $orders = $orders->join('order_items', 'order_items.order_id', '=', 'orders.id');
+        $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id');
+        $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
+
         if(strlen($search) > 1) {
             $orders = $orders->where(function ($orders) use($search) {
                 $orders->where('users.first_name', 'LIKE', '%'.$search.'%')
@@ -62,10 +67,6 @@ class Order extends Model
         }
 
         $orders = $orders->where('products.vendor_id', $vendor);
-
-        $orders = $orders->join('order_items', 'order_items.order_id', '=', 'orders.id');
-        $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id');
-        $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
 
         $orders = $orders->orderBy($order_by, $order)
             ->groupBy('order_items.id');

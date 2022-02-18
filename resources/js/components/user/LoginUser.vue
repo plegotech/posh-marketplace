@@ -28,7 +28,7 @@
 
                     <div class="info-login">
                         <h2>New to Posh Market?
-                            
+
                             <span id="signInOpt">Sign Up</span>
                             <ul class="signInOpt">
                                 <router-link :to="{ name: 'seller-signup' }"><li>Seller Signup</li></router-link>
@@ -55,6 +55,7 @@ import { mapActions } from 'vuex'
 export default {
     data() {
         return {
+            user: this.$store.state.auth.user,
             form: {
                 email: '',
                 password: ''
@@ -66,6 +67,17 @@ export default {
         }
     },
     methods: {
+        created() {
+            if (this.user.user_type == 'admin') {
+                this.$router.push({name: "dashboard"});
+            }
+            if (this.user.user_type == 'seller') {
+                this.$router.push({name: "seller-dashboard"});
+            }
+            if (this.user.user_type == 'vendor') {
+                this.$router.push({name: "vendor-dashboard"});
+            }
+        },
         ...mapActions({
             signIn:'auth/login'
         }),

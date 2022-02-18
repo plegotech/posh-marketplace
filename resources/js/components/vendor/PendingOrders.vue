@@ -233,15 +233,19 @@ export default {
         },
 
         updateOrderStatus(id, status) {
+            document.getElementById('ajaxLoader').style.display = 'block';
             var object = this;
             var url = '/api/orders/vendor-change-status/' + this.user.id + '/' + id + '/' + status;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     alert(data);
-                    object.fetch();
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+                .finally(function () {
+                    object.fetch();
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });;
         }
     }
 }
