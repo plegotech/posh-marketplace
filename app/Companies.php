@@ -37,6 +37,7 @@ class Companies extends Model
         $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone AS user_phone'
             , 'users.email',
             DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'"),
+            DB::raw("DATE_FORMAT(companies.created_at, '%b %d, %Y %h:%i %p') AS 'signup_date'"),
             DB::raw("$sql")
         )
         ->where('users.user_type', $type);

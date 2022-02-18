@@ -57,7 +57,7 @@
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.created_at }}</span>
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>
@@ -154,8 +154,7 @@
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.created_at }}</span>
-<!--                                            <span>Oct 01, 2021 09:58 PM</span>-->
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>

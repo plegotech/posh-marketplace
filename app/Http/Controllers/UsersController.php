@@ -108,7 +108,7 @@ class UsersController extends Controller
                 'u_zip'               => 'required',
                 'password'          => 'required|confirmed|max:10'
             );
-    
+
         } else {
             $rules = array(
                 'email'             => 'required|email|unique:users|max:255',
@@ -116,7 +116,7 @@ class UsersController extends Controller
                 'last_name'         => 'required|min:3|max:50',
                 'phone'             => 'required|max:17'
             );
-    
+
         }
         // Setup the validator
 
@@ -144,7 +144,7 @@ class UsersController extends Controller
         } else {
             User::create($data);
         }
-        return Response()->json(array(            
+        return Response()->json(array(
             'success' => true,
             'message' => 'User created successfully.'
         ), 200);
@@ -238,7 +238,8 @@ class UsersController extends Controller
 
     public function userCompany($user)
     {
-        return response()->json(User::where('users.id', $user)
+        return response()->json(User::select('users.*', 'companies.*', 'users.phone as user_phone')
+            ->where('users.id', $user)
             ->join('companies', 'companies.user_id', '=', 'users.id')
             ->first());
     }

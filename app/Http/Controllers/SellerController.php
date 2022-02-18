@@ -70,40 +70,51 @@ class SellerController extends Controller
     private function runSignupStepOne($request)
     {
         $user = array(
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'user_type' => 'seller',
-            'status' => 'pending',
-            'gender' => $request->input('gender'),
-            'password' => Hash::make($request->input('password')),
+            'first_name'    => $request->input('first_name'),
+            'last_name'     => $request->input('last_name'),
+            'email'         => $request->input('email'),
+            'phone'         => $request->input('phone'),
+            'user_type'     => 'seller',
+            'status'        => 'pending',
+            'gender'        => $request->input('gender'),
+            'password'      => Hash::make($request->input('password')),
         );
 
-        if (!empty($request->input('id'))) {
-            User::where('id', $request->input('id'))
+        $seller_id = $request->input('id');
+
+        if(empty($seller_id)) {
+            $seller_id = $request->input('seller_id');
+        }
+
+        if (!empty($seller_id)) {
+            User::where('id', $seller_id)
                 ->update($user);
         } else {
             $user = User::create($user);
 
             if ((int)$user->id > 0) {
                 $company = array(
-                    'name' => $request->input('company'),
-                    'user_id' => $user->id,
-                    'subscription_fee' => 0,
-                    'license' => 0,
-                    'ein_number' => $request->input('ein_number'),
-                    'address' => $request->input('address'),
-                    'city' => $request->input('city'),
-                    'state' => $request->input('state'),
-                    'country' => 'United States'
+                    'name'                  => $request->input('company'),
+                    'user_id'               => $user->id,
+                    'subscription_fee'      => 0,
+                    'license'               => 0,
+                    'ein_number'            => $request->input('ein_number'),
+                    'address'               => $request->input('address'),
+                    'city'                  => $request->input('city'),
+                    'state'                 => $request->input('state'),
+                    'country'               => 'United States'
                 );
 
                 $company = Companies::create($company);
+                $response = ['company' => $company->id];
             }
+            $seller_id = $user->id;
         }
 
-        return response()->json(['success' => 'true', 'user_id' => $user->id, 'company' => $company->id]);
+        $response['success'] = 'true';
+        $response['user_id'] = $seller_id;
+
+        return response()->json($response);
     }
 
     public function seller(Request $request, $step)
@@ -111,45 +122,56 @@ class SellerController extends Controller
         if ($step == '0') {
             // Setup the validator
             $rules = array(
-                'email' => 'required|email|unique:users|max:255',
-                'first_name' => 'required|min:2|max:50',
-                'last_name' => 'required|min:2|max:50',
-                'address' => 'required',
-                'city' => 'required',
-                'state' => 'required',
-                'gender' => 'required',
-                'phone' => 'required|digits:10',
-                'company' => 'required',
-                'ein_number' => 'required',
-                'password' => 'required|confirmed'
+                'first_name'    => 'required|min:2|max:50',
+                'last_name'     => 'required|min:2|max:50',
+                'address'       => 'required',
+                'city'          => 'required',
+                'state'         => 'required',
+                'gender'        => 'required',
+                'phone'         => 'required|digits:10',
+                'company'       => 'required',
+                'ein_number'    => 'required',
+                'password'      => 'required|confirmed'
             );
 
             $validator = Validator::make($request->all(), $rules);
+            $error_bag = $validator->getMessageBag()->toArray();
+
+            if(array_key_exists('seller_id', $error_bag)) {
+                $rules['email'] = 'required|email|max:255';
+            } else {
+                $rules['email'] = 'required|email|unique:users|max:255';
+            }
 
             // Validate the input and return correct response
             if ($validator->fails()) {
 
                 //If email has any partially registered account
-                $step = $this->checkPartialStatusOfSellerRegistration($request->input('email'));
+                if(count($error_bag) == 1 && isset($error_bag['email'])
+                    && !array_key_exists('seller_id', $error_bag)) {
+                    $step = $this->checkPartialStatusOfSellerRegistration($request->input('email'));
 
-                if($step) {
+                    if($step) {
 
-                    $seller = User::select('id')
-                    ->where('email', $request->input('email'))
-                    ->where('user_type', 'seller')
-                    ->first();
+                        $seller = User::select('id')
+                            ->where('email', $request->input('email'))
+                            ->where('user_type', 'seller')
+                            ->first();
 
-                    return Response()->json(array(
-                        'user_id'   => $seller->id,
-                        'success'   => 'in-progress',
-                        'step'      => $step
+                        return Response()->json(array(
+                            'user_id'   => $seller->id,
+                            'success'   => 'in-progress',
+                            'step'      => $step
 
-                    ), 200);
+                        ), 200);
+                    }
+                } else {
+                    unset($error_bag['email']);
                 }
 
                 return Response()->json(array(
-                    'success' => false,
-                    'errors' => $validator->getMessageBag()->toArray()
+                    'success'   => false,
+                    'errors'    => $error_bag
 
                 ), 400); // 400 being the HTTP code for an invalid request.
             }

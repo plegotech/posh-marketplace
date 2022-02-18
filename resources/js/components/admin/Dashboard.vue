@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-    
+
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-sm-2">
-                <select @change="basicStatistics($event.target.value)" class="mtc-24">
+                <select @change="clearFiltration();basicStatistics($event.target.value);" class="mtc-24">
                     <option value="0" selected>Select time period</option>
                     <option value="year">Current Year</option>
                     <option value="quarter">Current Quarter</option>
@@ -364,6 +364,9 @@ export default {
             this.time_period = 0;
             this.basicStatistics(0);
             this.orders(0);
+            this.clearFirstLastDate();
+        },
+        clearFirstLastDate() {
             let elements = document.getElementsByClassName('vdp-datepicker__clear-button');
             for(var i = 0; i < elements.length; i++) {
                 let element = elements[i];
@@ -382,6 +385,7 @@ export default {
                     this.time_period = time_period;
                     this.first_date = 0;
                     this.last_date = 0;
+                    this.clearFirstLastDate();
                 }
                 url += '/' + this.time_period;
             } else {

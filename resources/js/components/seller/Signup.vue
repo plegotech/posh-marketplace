@@ -35,6 +35,9 @@
                     </div>
                     <div class="form-group col-md-6">
                     <div class="custom-file-upload">
+                        <div v-for="doc in seller.license">
+                            <a :href="'/files/licenses/'+doc">{{ doc }}</a>
+                        </div>
                         <input type="file" ref="business_license" name="file" multiple="multiple" class="form-control" >
                     </div>
                     </div>
@@ -88,7 +91,7 @@ export default {
                 first_name:                 null,
                 last_name:                  null,
                 gender:                     null,
-                license:                    null,
+                license:                    0,
                 ein_number:                 null,
                 address:                    null,
                 city:                       null,
@@ -120,12 +123,12 @@ export default {
                     this.seller.first_name      = res.first_name;
                     this.seller.last_name       = res.last_name;
                     this.seller.gender          = res.gender;
-                    this.seller.license         = res.license;
+                    this.seller.license         = JSON.parse(res.license);
                     this.seller.ein_number      = res.ein_number;
                     this.seller.address         = res.address;
                     this.seller.city            = res.city;
                     this.seller.state           = res.state;
-                    this.seller.phone           = res.phone;
+                    this.seller.phone           = res.user_phone;
                     this.seller.company         = res.name;
                     this.seller.email           = res.email;
                     this.seller.seller_id       = res.user_id;
@@ -181,11 +184,12 @@ export default {
 
             var object = this;
 
-            var business_licenses = this.$refs.business_license.files[0];
-
-            if (!business_licenses) {
-                alert('Please upload the business license');
-                return;
+            if(this.seller.license == 0) {
+                var business_licenses = this.$refs.business_license.files[0];
+                if (!business_licenses) {
+                    alert('Please upload the business license');
+                    return;
+                }
             }
 
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -202,7 +206,11 @@ export default {
                     if (data.success == 'true') {
                         alert('account created successfully.');
                         this.created_id = data.user_id;
-                        this.uploadBusinessLicenses(data.company);
+                        if(object.seller.license == 0) {
+                            object.uploadBusinessLicenses(data.company);
+                        } else {
+                            object.$router.push({name: "seller-signup-tier", params: { user_id: object.created_id }})
+                        }
                     } else if (data.success == 'in-progress') {
                         alert('There is an account against this email, sending your to the relevant screen to proceed.');
                         object.$router.push({name: data.step, params: { user_id: data.user_id }})

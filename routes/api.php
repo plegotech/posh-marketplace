@@ -81,5 +81,6 @@ Route::prefix('product')->group(function () {
     Route::get('/remove/{product?}', 'ProductController@remove');
     Route::get('/get/{product?}', 'ProductController@get');
 });
+
 Route::get('/website/{seller_id}', 'SellerController@website');
 Route::get('/domain-hosting/domain/{domain?}', 'DomainHostingController@checkDomainAvailability');
