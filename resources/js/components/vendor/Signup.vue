@@ -51,7 +51,8 @@
                                         <input v-model="vendor.company" placeholder="Company Name" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
+                                        <input v-model="vendor.email" type="email" placeholder="Email Address*" class="form-control" id="txtEmail" onblur="validateForm()">
+                                            <label id="lblError" style="color:red"></label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.password" placeholder="Password*" class="form-control" type="password">
@@ -83,6 +84,23 @@
 </template>
 
 <script>
+/* EMAIL */
+function validateForm() {
+         var x = document.getElementById("txtEmail").value;
+         var atpos = x.indexOf("@");
+         var dotpos = x.lastIndexOf(".");
+         if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+
+
+             document.getElementById("lblError").innerHTML = "Enter valid email Address";
+         }
+         else {
+             document.getElementById("lblError").innerHTML = "";
+         }
+     }
+/* EMAIL */
+
+
 export default {
     data() {
         return {
