@@ -5,7 +5,12 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="user-prof">
-                        <img src="/img/user_profile.png" alt="">
+                        <div class="uploadProfile">
+                            <div class="profileImage">
+                                <input type="file" id="upload-photo" />
+                                <img src="/img/edit.png" alt="" class="uploadImgBx"></div>
+                            <img src="/img/user_profile.png" alt="">
+                        </div>
                         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                         <span>{{ user.email }}</span>
                     </div>

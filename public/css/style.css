@@ -903,9 +903,8 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     max-width: 350px;
     position: relative;
 }
-.pending-vend .search-box {
-    width: 100%;
-}
+
+
 .pending-vend .search-box img.search-icon {
     position: absolute;
     left: 20px;
@@ -2731,6 +2730,28 @@ body .main .body .graphs .left i img {
     margin-right: 3px;
     top: -2px;
     position: relative;
+}
+.pending-vend .search-box {
+    width: 100%;
+}
+.profileImage {
+    position: relative;
+}
+.uploadProfile .profileImage img.uploadImgBx {
+    position: absolute;
+    right: 37%;
+    width: 24px;
+    top: -15px;
+    pointer-events: none;
+}
+.profileImage input#upload-photo {
+    opacity: 0;
+    position: absolute;
+    right: 37%;
+    width: 24px;
+    height: 24px;
+    top: -13px;
+    cursor: pointer;
 }
 .prof-area .sm-wd {max-width:100px;float: right;margin-right: 10px;}
 .prof-area .add-new {
