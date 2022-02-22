@@ -28,7 +28,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <input v-model="seller.email" placeholder="Email Address*" class="form-control" type="email">
+                        <input v-model="seller.email" @keydown.space.prevent placeholder="Email Address*" class="form-control" type="email">
                     </div>
                     <div class="form-group col-md-6">
                         <input v-model="seller.company" placeholder="Company Name" class="form-control" type="text">

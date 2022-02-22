@@ -7,7 +7,7 @@
                     <div class="user-prof">
                         <div class="uploadProfile">
                             <div class="profileImage">
-                                <input accept="image/*" (change)="processFile(imageInput)" name="upload-photo" type="file" id="upload-photo" />
+                                <input type="file" id="upload-photo" />
                                 <img src="/img/edit.png" alt="" class="uploadImgBx"></div>
                             <img src="/img/user_profile.png" alt="">
                         </div>

@@ -51,8 +51,7 @@
                                         <input v-model="vendor.company" placeholder="Company Name" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input v-model="vendor.email" type="email" placeholder="Email Address*" class="form-control" id="txtEmail" onblur="validateForm()">
-                                            <label id="lblError" style="color:red"></label>
+                                        <input v-model="vendor.email" @keydown.space.prevent type="email" placeholder="Email Address*" class="form-control" id="txtEmail" onblur="validateForm()">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.password" placeholder="Password*" class="form-control" type="password">
