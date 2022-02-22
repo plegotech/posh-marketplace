@@ -1,6 +1,6 @@
 <template>
-    <div class="float-right row">
-        <div class="col mb-4">
+    <div class="row cst-row">
+        <div class="col-6 mb-4">
             <select v-model="year" @change="$emit('update:year', year);$emit('fetch');"
                     class="mt-0 select-custom-point">
                 <option value="" selected>Choose Year</option>
@@ -12,7 +12,7 @@
                 <option value="2017">2017</option>
             </select>
         </div>
-        <div class="col mb-4">
+        <div class="col-6 mb-4">
             <select v-model="month" @change="$emit('update:month', month);$emit('fetch');"
                     class="mt-0 select-custom-point">
                 <option value="" selected>Choose Month</option>
