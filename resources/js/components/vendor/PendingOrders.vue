@@ -7,7 +7,7 @@
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-lg-8 col-12">
                                 <div class="search-box mb-4">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
@@ -16,7 +16,10 @@
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
                                 </div>
-                                <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
+                            </div>
+                            
+                            <div class="col-lg-4 col-12">
+                                <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>                        
                             </div>
                         </div>
                         <div class="row">
