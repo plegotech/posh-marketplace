@@ -20,7 +20,7 @@
                             <!-- end filter -->
                             <div v-if="single_order != 0" class="col-lg-5 col-12">
                                 <div class="inpro-order-detail">
-                                    <table class=" tablebg-inpro  mobile-btn-show">
+                                    <table class="tablebg-inpro">
                                         <tbody>
                                         <tr>
                                             <td>Order Id:</td><td>{{ single_order.id }}</td>
