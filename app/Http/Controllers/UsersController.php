@@ -43,10 +43,16 @@ class UsersController extends Controller
         $data = $request->all();
 
         if (Auth::attempt($request->only('email', 'password'))){
+//            return Response()->json(array(
+//                'success' => true,
+//                'message'=>"Logged In successfully",
+//                'userdetail' => Auth::user()
+//            ), 200);
+            //dd(Auth::user());
             return Response()->json(array(
                 'success' => true,
                 'message'=>"Logged In successfully",
-                'userdetail' => Auth::user()
+                'userdetail' => User::where('id',Auth::user()->id)->with('cartitems')->first()
             ), 200);
 
         } else {
