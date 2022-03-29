@@ -903,9 +903,8 @@ button.primary:hover {color: #0862a3;background:white;transition:.2s;}
     max-width: 350px;
     position: relative;
 }
-.pending-vend .search-box {
-    width: 100%;
-}
+
+
 .pending-vend .search-box img.search-icon {
     position: absolute;
     left: 20px;
@@ -2732,6 +2731,28 @@ body .main .body .graphs .left i img {
     top: -2px;
     position: relative;
 }
+.pending-vend .search-box {
+    width: 100%;
+}
+.profileImage {
+    position: relative;
+}
+.uploadProfile .profileImage img.uploadImgBx {
+    position: absolute;
+    right: 37%;
+    width: 24px;
+    top: -15px;
+    pointer-events: none;
+}
+.profileImage input#upload-photo {
+    opacity: 0;
+    position: absolute;
+    right: 37%;
+    width: 24px;
+    height: 24px;
+    top: -13px;
+    cursor: pointer;
+}
 .prof-area .sm-wd {max-width:100px;float: right;margin-right: 10px;}
 .prof-area .add-new {
     font-weight: bold;
@@ -2886,31 +2907,7 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
 .my-product h2 span {
     font-weight: 300;
 }
-.mini-head {}
-.mob-expand {display:none}
-/* Customize the label (the container) */
-.cstm-chkb {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .cstm-chkb input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
+
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;
@@ -2961,3 +2958,41 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
  .box-a-tier.box-sha .box-t-ins h4 {color:green}
  .box-a-tier.box-sha i.num-count-bx, .box-a-tier.box-sha button {background:green !important;}
  .box-a-tier.box-sha button:hover {color:white}
+ #myChart {width:200px;}
+ 
+.mini-head {}
+.mob-expand {display:none}
+/* Customize the label (the container) */
+.cstm-chkb {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .cstm-chkb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .mob-ordInProg {
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cst-row {
+    float: left;
+    width: 100%;
+    margin: 0 !important;
+}

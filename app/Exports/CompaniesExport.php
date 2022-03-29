@@ -22,6 +22,6 @@ class CompaniesExport implements FromCollection, WithHeadings
     {
         return ["ID", "LOGO", "NAME", "COMPANY CONTACT", "ZIP CODE", "LICENCE", "EIN", "VENDOR ID",
             "SUBSCRIPTION FEE", "ADDRESS", "CITY", "STATE", "COUNTRY", "CREATED_AT", "UPDATED AT",
-            "FIRST NAME", "LAST NAME", "PHONE", "EMAIL", "LAST LOGIN"];
+            "FIRST NAME", "LAST NAME", "PHONE", "EMAIL", "LAST LOGIN", "SIGNUP"];
     }
 }

@@ -150,6 +150,9 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
+                    this.product.parent_category        = res.parent_category;
+                    document.getElementsByClassName('parentCategory')[0].value = res.parent_category;
+                    this.updateSubCategories();
                     if(res.featured_image) {
                         let src = "/img/product-images/" + res.vendor_id + "/" + res.featured_image;
                         document.getElementById('img-upload-vup').src = src;
@@ -158,7 +161,6 @@ export default {
                     this.product.name                   = res.name;
                     this.product.net_price              = res.net_price;
                     this.product.vendor_id              = res.vendor_id;
-                    this.product.parent_category        = res.parent_category;
                     this.product.status                 = res.status;
                     this.product.sub_category           = res.sub_category;
                     this.product.brand                  = res.brand;

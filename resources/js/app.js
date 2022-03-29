@@ -8,7 +8,6 @@ import Datepicker from 'vuejs-datepicker';
 import routes from './routes';
 import store from './store'
 import { BootstrapVue } from 'bootstrap-vue'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 

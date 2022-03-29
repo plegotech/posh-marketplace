@@ -22,8 +22,8 @@ class ProductController extends Controller
     {
         return 'silence is the gold';
     }
-
     public function fetch(Request $request)
+
     {
 
         

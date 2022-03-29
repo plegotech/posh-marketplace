@@ -3,75 +3,79 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12">
                 <div class="top-newOrder mb-4">
+                
+                    
                     <div class="row">
-                        <div v-if="single_order != 0" class="col-lg-5 col-12">
-                            <div class="inpro-order-detail">
-                                <table class=" tablebg-inpro  mobile-btn-show">
-                                    <tbody>
-                                    <tr>
-                                        <td>Order Id:</td><td>{{ single_order.id }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Order Date:</td><td>{{ single_order.ordered_at }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ship Date:</td><td>{{ single_order.shipping_date }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shipping Address:</td><td>{{ single_order.shipping_address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carrier:</td><td>{{ single_order.shipping_method }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carrier Tracking Number:</td><td>US Postal Service</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-lg-8 col-12">
+                                <div class="search-box mb-4">
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX"
+                                    v-on:keypress="searchObjects">
+                                    <img src="/img/close-srch.png" @click="removeSearch" class="close-icon" alt="">
+                                    </div>
                             </div>
-                        </div>
-                        </div>
-                            <div class="row">
-                                <div class="col-lg-7 col-12">
-                                    <div class="search-box mb-4">
-                                        <img src="/img/search-icon.png" class="search-icon" alt="">
-                                        <input type="text" class="search_BX"
-                                        v-on:keypress="searchObjects">
-                                        <img src="/img/close-srch.png" @click="removeSearch" class="close-icon" alt="">
-                                        </div>
-                                </div>
-                                <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
+                            <div class="col-lg-4 col-12">
+                                <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>                        
                             </div>
                             <!-- end filter -->
-
-                            <div v-if="single_order != 0" class="order-progress-ar">
-                                <div class="opar-bx">
-                                    <!-- start:: -->
-                                    <div class="stepper-wrapper">
-                                        <div id="received" class="stepper-item">
-                                            <div class="step-counter"></div>
-                                            <div class="step-name">Received</div>
-                                        </div>
-                                        <div id="at_depot" class="stepper-item">
-                                            <div class="step-counter"></div>
-                                            <div class="step-name">At Depot</div>
-                                        </div>
-                                        <div id="in_transit" class="stepper-item">
-                                            <div class="step-counter"></div>
-                                            <div class="step-name">In Transit</div>
-                                        </div>
-                                        <div id="out_for_delivery" class="stepper-item">
-                                            <div class="step-counter"></div>
-                                            <div class="step-name">Out For Delivery</div>
-                                        </div>
-                                        <div id="delivered" class="stepper-item">
-                                            <div class="step-counter"></div>
-                                            <div class="step-name">Delivered</div>
-                                        </div>
-                                    </div>
-                                    <!-- end :::  -->
+                            <div v-if="single_order != 0" class="col-lg-5 col-12">
+                                <div class="inpro-order-detail">
+                                    <table class="tablebg-inpro">
+                                        <tbody>
+                                        <tr>
+                                            <td>Order Id:</td><td>{{ single_order.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Order Date:</td><td>{{ single_order.ordered_at }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ship Date:</td><td>{{ single_order.shipping_date }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping Address:</td><td>{{ single_order.shipping_address }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrier:</td><td>{{ single_order.shipping_method }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrier Tracking Number:</td><td>US Postal Service</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            <div class="col-lg-7">
+                                <div v-if="single_order != 0" class="order-progress-ar mob-ordInProg">
+                                    <div class="opar-bx">
+                                        <!-- start:: -->
+                                        <div class="stepper-wrapper">
+                                            <div id="received" class="stepper-item">
+                                                <div class="step-counter"></div>
+                                                <div class="step-name">Received</div>
+                                            </div>
+                                            <div id="at_depot" class="stepper-item">
+                                                <div class="step-counter"></div>
+                                                <div class="step-name">At Depot</div>
+                                            </div>
+                                            <div id="in_transit" class="stepper-item">
+                                                <div class="step-counter"></div>
+                                                <div class="step-name">In Transit</div>
+                                            </div>
+                                            <div id="out_for_delivery" class="stepper-item">
+                                                <div class="step-counter"></div>
+                                                <div class="step-name">Out For Delivery</div>
+                                            </div>
+                                            <div id="delivered" class="stepper-item">
+                                                <div class="step-counter"></div>
+                                                <div class="step-name">Delivered</div>
+                                            </div>
+                                        </div>
+                                        <!-- end :::  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                         <div class="col-sm-12">
                             <!-- START: FIRST TAB CONTENT -->

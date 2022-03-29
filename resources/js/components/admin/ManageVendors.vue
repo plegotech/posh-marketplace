@@ -379,6 +379,10 @@ export default {
                 .then(data => {
                     if (data.success == false) {
                         this.errors = data.errors;
+
+                        setTimeout(function () {
+                            this.errors = [];
+                        }, 5000);
                     } else {
                         object.clearForm();
                     }

@@ -37,6 +37,7 @@ class Companies extends Model
         $companies = $this::select('companies.*', 'users.first_name', 'users.last_name', 'users.phone AS user_phone'
             , 'users.email',
             DB::raw("DATE_FORMAT(users.last_login, '%b %d, %Y %h:%i %p') AS 'login_time'"),
+            DB::raw("DATE_FORMAT(companies.created_at, '%b %d, %Y %h:%i %p') AS 'signup_date'"),
             DB::raw("$sql")
         )
         ->where('users.user_type', $type);
@@ -46,14 +47,11 @@ class Companies extends Model
 
                 $search_items = explode(' ', $search);
 
-                $companies->where('users.first_name', 'LIKE', '%'.$search.'%')
-                        ->orWhere('users.last_name', 'LIKE', '%'.$search.'%')
-                        ->orWhere('companies.name', 'LIKE', '%'.$search.'%');
-
-                if(count($search_items) > 1) {
-                    for($x = 1; $x < count($search_items); $x++) {
+                if(count($search_items) > 0) {
+                    for($x = 0; $x < count($search_items); $x++) {
                         $companies->orWhere('users.first_name', 'LIKE', '%'.$search_items[$x].'%')
                             ->orWhere('users.last_name', 'LIKE', '%'.$search_items[$x].'%')
+                            ->orWhere('users.email', 'LIKE', '%'.$search_items[$x].'%')
                             ->orWhere('companies.name', 'LIKE', '%'.$search_items[$x].'%');
                     }
                 }

@@ -30,7 +30,6 @@
                                         <th scope="col">City & State</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Company</th>
-                                        <th scope="col">Subscription Fees</th>
                                         <th scope="col">Signed-up Date & Time</th>
                                         <th scope="col">Email Address</th>
                                         <th scope="col">Actions</th>
@@ -52,16 +51,13 @@
                                             <span>{{ company.city }}, {{ company.state }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.phone }}</span>
+                                            <span>{{ company.user_phone }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.subscription_fee }}</span>
-                                        </td>
-                                        <td>
-                                            <span>Oct 01, 2021 09:58 PM</span>
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>
@@ -132,7 +128,6 @@
                                         <th scope="col">City & State</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Company</th>
-                                        <th scope="col">Subscription Fees</th>
                                         <th scope="col">Signed-up Date & Time</th>
                                         <th scope="col">Email Address</th>
                                     </tr>
@@ -153,16 +148,13 @@
                                             <span>{{ company.city }}, {{ company.state }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.phone }}</span>
+                                            <span>{{ company.user_phone }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.subscription_fee }}</span>
-                                        </td>
-                                        <td>
-                                            <span>Oct 01, 2021 09:58 PM</span>
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>
@@ -308,10 +300,11 @@ export default {
                 var element = e.target;
                 var type = element.getAttribute('data-type');
 
-                if(type == 'pending') {
-                    this.fetchCompanies(0, 0, 0, 'pending', element.value);
+                if (element.value.length) {
+                    this.fetchCompanies(0, 0, 0, type, element.value)
                 } else {
-                    this.fetchCompanies(0, 0, 0, 'rejected', element.value);
+                    this.search = 0;
+                    this.fetchCompanies(0, 0, 0, type)
                 }
             }
         },
