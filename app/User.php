@@ -45,4 +45,10 @@ class User extends Authenticatable
 
         return $result[0];
     }
+    
+    
+    public function cartitems() {
+        return $this->hasMany(CartItems::class, 'user_id');
+    }
+        
 }

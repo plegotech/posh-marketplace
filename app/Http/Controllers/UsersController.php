@@ -43,10 +43,16 @@ class UsersController extends Controller
         $data = $request->all();
 
         if (Auth::attempt($request->only('email', 'password'))){
+//            return Response()->json(array(
+//                'success' => true,
+//                'message'=>"Logged In successfully",
+//                'userdetail' => Auth::user()
+//            ), 200);
+            //dd(Auth::user());
             return Response()->json(array(
                 'success' => true,
                 'message'=>"Logged In successfully",
-                'userdetail' => Auth::user()
+                'userdetail' => User::where('id',Auth::user()->id)->with('cartitems')->first()
             ), 200);
 
         } else {
@@ -94,27 +100,21 @@ class UsersController extends Controller
     public function createUser(Request $request)
     {
         $data = $request->all();
+        $rules = array(
+            'email'             => 'required|email|unique:users|max:255',
+            'first_name'        => 'required|min:3|max:50',
+            'last_name'         => 'required|min:3|max:50',
+            'phone'             => 'required|max:17'
+        );
 
         if(isset($data['user']) && $data['user']=="user"){
-            $rules = array(
-                'email'             => 'required|email|unique:users|max:255',
-                'first_name'        => 'required|min:3|max:50',
-                'last_name'         => 'required|min:3|max:50',
+            $rules2 = array(
                 'gender'            => 'required',
                 'u_address'           => 'required',
                 'u_city'              => 'required',
                 'u_state'             => 'required',
-                'phone'             => 'required|max:17',
                 'u_zip'               => 'required',
                 'password'          => 'required|confirmed|max:10'
-            );
-
-        } else {
-            $rules = array(
-                'email'             => 'required|email|unique:users|max:255',
-                'first_name'        => 'required|min:3|max:50',
-                'last_name'         => 'required|min:3|max:50',
-                'phone'             => 'required|max:17'
             );
 
         }

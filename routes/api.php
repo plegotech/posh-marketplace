@@ -35,6 +35,7 @@ Route::post('/update-company', 'CompaniesController@updateCompany');
 Route::get('/export-companies/{type}', 'CompaniesController@exportCompanies');
 
 Route::post('/login', 'UsersController@login');
+
 Route::get('/users/{type?}/{perpage?}/{order_by?}/{order?}/{status?}/{search?}', 'UsersController@users');
 Route::get('/user-company/{userid}', 'CompaniesController@getCompanyByUserId');
 
@@ -72,8 +73,12 @@ Route::prefix('orders')->group(function () {
     Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
 
 });
+// http://127.0.0.1:8000/api/products?user=0&order_by=id&order=desc&search=0&status=0&category=0&sub_category=0&min_price=300&max_price=0&brand=%27HP%27,%27Dell%27,%27Asus%27&colors=&warranty=0&ram=&processor=
+Route::get('/products', 'ProductController@fetch');
+Route::get('/categories', 'CategoryController@fetch');
+Route::get('/filters', 'ProductsMetaController@fetch');
 
-Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}/{min_price?}/{max_price?}', 'ProductController@fetch');
+Route::post('/addtocart', 'CartItemsController@addToCart');
 
 Route::prefix('product')->group(function () {
     Route::post('/', 'ProductController@create');

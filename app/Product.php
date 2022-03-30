@@ -14,4 +14,12 @@ class Product extends Model
         'images', 'name', 'brand', 'sku', 'description', 'vendor_id', 'net_price',
         'sale_price', 'created_at', 'updated_at', 'featured_image', 'parent_category', 'sub_category'
     ];
+
+    public function ParentCategory() {
+        return $this->hasMany(Category::class, 'parent_category');
+    }    
+    public function SubCategory() {
+        return $this->hasMany(Category::class, 'sub_category');
+    }    
+    
 }
