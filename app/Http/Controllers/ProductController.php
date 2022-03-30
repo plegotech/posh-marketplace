@@ -74,10 +74,8 @@ class ProductController extends Controller
          }
 
          if(isset($sub_category) && $sub_category != "0") {
-             $products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
-         }
-         if(isset($brand) && $brand != "0") {
-             //$products->where('brand', 'in', '('.$sub_category.')');
+             //$products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
+             $products = $products->where('sub_category', $sub_category);
          }
          if(isset($colors) && $colors != "0") {
              $colors = explode(",",$colors);

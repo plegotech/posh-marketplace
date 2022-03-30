@@ -4,15 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
-
+class ProductsMetaController extends Controller
+{
     //
+    
     public function fetch(Request $request) {
-        $data = \App\Category::where([['parent_category_id',0],['status',1]])->with('children')->get();
+        $data = $request->all();
+        if(isset($data->category_id)){
+            $catId= $data->category_id;
+        } else {
+            $catId= 10;
+        }
+        $data = \App\ProductsMeta::where('category_id',$catId)->get();
         if($data){
+            
+            $aData = array();
+            foreach($data as $row){
+                $aData[$row->field][]=$row;
+            }
+            
             return Response()->json(array(
                 'success' => true,
-                'data' => $data
+                'data' => $aData
 
             )); // 400 being the HTTP code for an invalid request.
             
@@ -26,5 +39,5 @@ class CategoryController extends Controller {
         }
         //return response()->json($data);
     }
-
+    
 }
