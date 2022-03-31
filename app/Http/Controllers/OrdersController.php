@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderItems;
 use Validator;
-
+use Illuminate\Http\Request;
 class OrdersController extends Controller
 {
     /**
@@ -57,5 +57,40 @@ class OrdersController extends Controller
         $orders = $orders->getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status, $date);
 
         return response()->json($orders, 201);
+    }
+    public function createOrder(Request $request){
+        $data = $request->all();
+        $user_id = $data['user_id'];
+        $CartData = \App\CartItems::where('user_id',$user_id)->get();
+        $UserInfo = \App\User::where('id', $user_id)->first();
+        $orderItems = new OrderItems();
+        $InsertArray = [
+            'user_id'=>$user_id,
+            'status'=>'pending',
+            'shipping_address'=>$UserInfo->u_address,
+            'shipping_method'=>'DHL',
+            'payment_method'=>'COD',
+            'notes'=>'Ok'
+        ];
+        $model = Order::create($InsertArray);
+        if($CartData){
+            foreach($CartData as $row){
+                $OrderItemsArray= [
+                    'order_id'=>$model->id,
+                    'item_id'=>$row->product_id,
+                    'seller_id'=>'977',
+                    'quantity'=>$row->quantity,
+                    'shipping_date'=>date("Y-m-d"),
+                    'delivery_date'=>date("Y-m-d", strtotime("+2 days")),
+                    'status'=>'pending',
+                    'progress'=>'received',
+                    'vendor_notes'=>'Vendor Notes here',
+                    'buyer_notes'=>'Buyers Ok'
+                ];
+                OrderItems::create($OrderItemsArray);                
+            }
+            \App\CartItems::where('user_id', $user_id)->delete();
+        }
+        return response()->json(["true"]);
     }
 }

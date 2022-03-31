@@ -9,6 +9,15 @@ use App\User;
 class CartItemsController extends Controller {
 
     //
+    public function updateCart(Request $request){
+        $data = $request->all();
+        $quantity = $data['quantity'];
+        $cart_id = $data['cart_id'];
+        $A_Cart = explode("_", $cart_id);
+        $cart_id = $A_Cart[1];
+        CartItems::find($cart_id)->update(['quantity'=>$quantity]);
+        return response()->json(array(true));
+    }
     public function addToCart(Request $request) {
 //        dd($request);
         $data = $request->all();
@@ -31,7 +40,14 @@ class CartItemsController extends Controller {
     }
     public function removeCartData(Request $request){
         $data = $request->all();
-        $model = CartItems::where('user_id', $data['user_id'])->delete();
+        //return Response()->json($data);
+        $Where = [];
+        if(isset($data['cart_item_id'])){
+            $Where=['user_id'=>$data['user_id'], 'id'=>$data['cart_item_id']];
+        } else {
+            $Where=['user_id'=>$data['user_id']];
+        }
+        $model = CartItems::where($Where)->delete();
         if ($model) {
             return Response()->json(array(
                         'success' => true

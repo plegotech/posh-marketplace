@@ -79,8 +79,10 @@ Route::get('/categories', 'CategoryController@fetch');
 Route::get('/filters', 'ProductsMetaController@fetch');
 
 Route::post('/addtocart', 'CartItemsController@addToCart');
+Route::post('/updatecart', 'CartItemsController@updateCart');
 Route::post('/usercartdata', 'CartItemsController@userCartData');
 Route::post('/removecartdata', 'CartItemsController@removeCartData');
+Route::post('/placeorder', 'OrdersController@createOrder');
 
 Route::prefix('product')->group(function () {
     Route::post('/', 'ProductController@create');

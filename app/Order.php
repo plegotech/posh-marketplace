@@ -12,7 +12,7 @@ class Order extends Model
     public      $timestamps     = true;
 
     protected $fillable = [
-        'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_methods',
+        'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_method',
         'notes', 'created_at', 'updated_at'
     ];
 
