@@ -62,8 +62,8 @@ class CartItemsController extends Controller {
 
     public function userCartData(Request $request){
         $data = $request->all();
-        $response = CartItems::where('user_id', $data['user_id'])->with('productsTable')->get();
+        //$response = CartItems::where('user_id', $data['user_id'])->with('productsTable')->get();
         
-        return response()->json($response);
+        return response()->json($data);
     }
 }
