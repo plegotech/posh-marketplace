@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CartItems;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class CartItemsController extends Controller {
 
@@ -63,9 +64,22 @@ class CartItemsController extends Controller {
     public function userCartData(Request $request){
         $data = $request->all();
         $data = (array)$data;
-        $response = CartItems::where('user_id', $data['user_id'])->with('productsTable')->get();
+        //$response = CartItems::where('user_id', $data['user_id'])->with('productsTable')->get();
+        //$query = DB::table('tablethis')->where('user_id', $data['user_id'])->get();
+        /*
+         * select ci.*, pd.description,pd.name,pd.name,pd.net_price from cart_items as ci 
+inner join products as pd on pd.id = ci.product_id 
+where ci.user_id=1001
+         */
+        
+        $qData = DB::table('cart_items as ci')
+            ->join('products as pd', 'pd.id', '=', 'ci.product_id')
+            ->select('ci.*', 'pd.description', 'pd.name','pd.net_price')
+                ->where('user_id',1001)
+            ->get();
+        
 //        $response = CartItems::where('user_id', $data['user_id'])->get();
         
-        return response()->json($response);
+        return response()->json($qData);
     }
 }
