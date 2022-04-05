@@ -16,6 +16,11 @@ class CartItemsController extends Controller {
         $cart_id = $data['cart_id'];
         $A_Cart = explode("_", $cart_id);
         $cart_id = $A_Cart[1];
+        if($quantity>0){
+            CartItems::find($cart_id)->update(['quantity'=>$quantity]);
+        } else {
+            CartItems::find($cart_id)->delete();
+        }
         CartItems::find($cart_id)->update(['quantity'=>$quantity]);
         return response()->json(array(true));
     }
