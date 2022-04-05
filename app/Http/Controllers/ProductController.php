@@ -66,7 +66,7 @@ class ProductController extends Controller
          }
 
          if(isset($search) && $search != "0") {
-             $products->where('name', 'LIKE', '%'.$search.'%');
+             $products = $products->where('name', 'LIKE', '%'.$search.'%');
          }
 
          if(isset($category) && $category != "0") {
