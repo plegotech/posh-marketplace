@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         return 'silence is the gold';
     }
-    public function fetch(Request $request)
+    public function fetchall(Request $request)
 
     {
 
@@ -106,14 +106,44 @@ class ProductController extends Controller
 
 
     }
+    
+    
+    public function fetch($user = 0, $order_by = 'id', $order = 'desc', $search = 0, $status = 0
+    ,$category = 0, $sub_category = 0){
+        $products = new Product();
+        if($user > 0) {
+            $userClass = new User();
+            $user_type = $userClass->getUserType($user);
+
+            if($user_type == 'vendor') {
+                $products = $products->where('vendor_id', $user);
+            } else {
+                $products = $products->join('seller_products', 'seller_products.product_id', '=', 'products.id')
+                 ->where('seller_id', $user);
+            }
+
+        }
+        if($search != "0") {
+            $products = $products->where('name', 'LIKE', '%'.$search.'%');
+        }
+
+        if($category != "0") {
+            $products = $products->where('parent_category', 'LIKE', '%'.$category.'%');
+        }
+
+        if($sub_category != "0") {
+            $products = $products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
+        }
+        $products = $products->orderBy($order_by, $order)
+        ->paginate(18);
+        return response()->json($products);
+
+    }
     public function fetch__xtk($user = 0, $order_by = 'id', $order = 'desc', $search = 0, $status = 0
         ,$category = 0, $sub_category = 0, $min_price=0, $max_price=0, $brand=0, $colors= 0, $warranty= 0, $ram= 0, $processor= 0)
     {
         
         $products = new Product();
-
-        $WhereCondition=[];
-        $WhereInCondition=[];
         if($user > 0) {
             $userClass = new User();
             $user_type = $userClass->getUserType($user);

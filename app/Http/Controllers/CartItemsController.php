@@ -75,7 +75,7 @@ where ci.user_id=1001
         $qData = DB::table('cart_items as ci')
             ->join('products as pd', 'pd.id', '=', 'ci.product_id')
             ->select('ci.*', 'pd.description', 'pd.name','pd.net_price')
-                ->where('user_id',1001)
+                ->where('user_id',$data['user_id'])
             ->get();
         
 //        $response = CartItems::where('user_id', $data['user_id'])->get();
