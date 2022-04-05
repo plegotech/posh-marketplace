@@ -12,8 +12,9 @@ class CategoryController extends Controller {
         if($data){
             $myAr = array();
             foreach($data as $row){
-                $row['newtitle']=strtolower(preg_replace('/\s+/', '', $row['title']));
-                
+                $new_title = strtolower(preg_replace('/\s+/', '', $row['title']));
+                $new_title = str_replace("&", "-", $new_title);
+                $row['newtitle']=$new_title;
                 $myAr[]=$row;
             }
             $data = $myAr;
