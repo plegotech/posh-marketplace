@@ -25,11 +25,19 @@ class CartItemsController extends Controller {
         return response()->json(array(true));
     }
     public function addToCart(Request $request) {
-//        dd($request);
         $data = $request->all();
         
-        //return response()->json($data);
-        $model = CartItems::insert($request->all());
+        $product_id = $data['product_id'];
+        $user_id = $data['user_id'];
+        $quantity = $data['quantity'];
+        
+        $Exisitng = CartItems::where(['product_id'=>$product_id,'user_id'=>$user_id])->first();
+        if($Exisitng){
+            $data['quantity'] += $Exisitng->quantity;
+            $model = CartItems::find($Exisitng->id)->update($data);
+        } else {
+            $model = CartItems::insert($data);
+        }
         if ($model) {
             return Response()->json(array(
                         'success' => true,
