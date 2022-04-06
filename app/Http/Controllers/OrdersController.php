@@ -75,10 +75,16 @@ class OrdersController extends Controller
         $model = Order::create($InsertArray);
         if($CartData){
             foreach($CartData as $row){
+                $seller = \App\SellerProduct::where('product_id', $row->product_id)->first();
+                if($seller){
+                    $seller_id = $seller->seller_id;
+                } else {
+                    $seller_id = 997;
+                }
                 $OrderItemsArray= [
                     'order_id'=>$model->id,
                     'item_id'=>$row->product_id,
-                    'seller_id'=>'977',
+                    'seller_id'=>$seller_id,
                     'quantity'=>$row->quantity,
                     'shipping_date'=>date("Y-m-d"),
                     'delivery_date'=>date("Y-m-d", strtotime("+2 days")),
