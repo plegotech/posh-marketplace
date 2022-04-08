@@ -56,6 +56,7 @@
                                     </select>
                                     <span class="form-label">Status</span>
                                 </div>
+
                                 <div class="uploadimage-vup">
                                     <div class="upload-title-vup">
                                         <p>Product Image <img src="/img/help-icon.png" class="img-ut-vup"
@@ -65,6 +66,17 @@
                                         <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
                                         <input type="file" ref="file" style="display: none" name="featured_image" @change="featuredImage" />
                                         <button class="img-title-up" @click="$refs.file.click()">Upload Image</button>
+                                    </div>
+                                </div>
+
+                                <div class="uploadimage-vup">
+                                    <div class="upload-title-vup">
+                                        <p>Product Images Gallery</p>
+                                    </div>
+                                    <div class="upload-image-vup">
+                                        <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
+                                        <input type="file" multiple ref="file2" style="display: none" name="gallery_image" @change="galleryImage" />
+                                        <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
                                     </div>
                                 </div>
                                 <div>
@@ -114,6 +126,7 @@ export default {
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
+gallery_image: '',
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
@@ -212,6 +225,9 @@ export default {
         },
         featuredImage(e) {
             this.product.featured_image = e.target.files[0];
+        },
+        galleryImage(e) {
+            this.product.gallery_image = e.target.files[0];
         },
         addProduct() {
             document.getElementById('ajaxLoader').style.display = 'block';
