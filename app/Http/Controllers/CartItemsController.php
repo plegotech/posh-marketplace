@@ -7,6 +7,7 @@ use App\CartItems;
 use App\User;
 use Illuminate\Support\Facades\DB;
 
+
 class CartItemsController extends Controller {
 
     //
@@ -87,7 +88,7 @@ where ci.user_id=1001
         
         $qData = DB::table('cart_items as ci')
             ->join('products as pd', 'pd.id', '=', 'ci.product_id')
-            ->select('ci.*', 'pd.description', 'pd.name','pd.net_price')
+            ->select('ci.*', 'pd.description', 'pd.name','pd.net_price','pd.featured_image','pd.vendor_id')
                 ->where('user_id',$data['user_id'])
             ->get();
         
