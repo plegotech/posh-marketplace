@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="upload-image-vup">
                                         <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                        <input type="file" multiple ref="file2" style="display: none" name="gallery_image" @change="galleryImage" />
+                                        <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage" />
                                         <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@ export default {
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
-gallery_image: '',
+imagesArray: null,
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
@@ -227,7 +227,7 @@ gallery_image: '',
             this.product.featured_image = e.target.files[0];
         },
         galleryImage(e) {
-            this.product.gallery_image = e.target.files[0];
+            this.product.imagesArray = e.target.files;
         },
         addProduct() {
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -250,6 +250,11 @@ gallery_image: '',
             data.append('description', this.product.description);
             data.append('brand', this.product.brand);
             data.append('featured_image', this.product.featured_image);
+            data.append('images', this.product.imagesArray.length);
+
+            for (const i of Object.keys(this.product.imagesArray)) {
+                data.append('imagesArray_'+i, this.product.imagesArray[i])
+            }
             data.append('status', this.product.status);
             data.append('sub_category', this.product.sub_category);
 
