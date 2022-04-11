@@ -242,6 +242,8 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
+        
+//        dd($request->all());
         // Setup the validator
         $rules = array(
             'name'              => 'required|max:255',
@@ -267,9 +269,25 @@ class ProductController extends Controller
         }
 
         $data = $request->all();
+        //dd($data);
         unset($data['id']);
         unset($data['featured_image']);
 
+        if($data['images']>0){
+            
+            $i=0;
+            while($i<$data['images']){
+                if($request->file('imagesArray_'.$i)) {
+                    $photo = rand(5000, 9999) . $request->file('imagesArray_'.$i)->getClientOriginalName();
+                    $destination = base_path() . '/public/img/product-images/'. $request->input('vendor_id');
+                    $request->file('imagesArray_'.$i)->move($destination, $photo);
+                    $dataM['images'][] = $photo;
+                    unset($data['imagesArray_'.$i]);
+                }
+                $i++;
+            }
+            $data['images'] = json_encode($dataM['images']);
+        }
         if($request->file('featured_image')) {
             $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/'. $request->input('vendor_id');
@@ -277,6 +295,7 @@ class ProductController extends Controller
             $data['featured_image'] = $photo;
         }
 
+//        dd($data);
         if(empty($request->input('id'))) {
             $product = Product::create($data);
             $id = $product->id;
