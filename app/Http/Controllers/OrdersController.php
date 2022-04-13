@@ -6,6 +6,7 @@ use App\Order;
 use App\OrderItems;
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 class OrdersController extends Controller
 {
     /**
@@ -57,6 +58,50 @@ class OrdersController extends Controller
         $orders = $orders->getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status, $date);
 
         return response()->json($orders, 201);
+    }
+    public function fetchUserOrders(Request $request)
+    {
+        $data = $request->all();
+//        return response()->json($data, 201);
+        extract($request->all());
+        
+        if(!isset($user_id)){
+             $user_id = '1020';
+        }
+        
+        if(isset($order)){
+            $ordertype = [$order];
+        } else {
+            $ordertype = ['pending','rejected','approved'];
+        }
+        
+        $ReportData = DB::table("orders as o")
+                ->join('order_items as oi','oi.order_id','=','o.id')
+                ->where("o.user_id",$user_id)
+                ->whereIn("oi.status",$ordertype)
+                ->select(DB::raw("o.shipping_address, o.shipping_method, o.payment_method, oi.*"))
+                ->get();
+
+        return response()->json($ReportData, 201);
+    }
+    public function fetchUserOrdersSummary($user_id)
+    {
+//        $data = Order::select('status',DB::raw('count(0) as c'))->where('user_id',$user_id)->groupBy('status')->get();
+        
+
+        $ReportData = DB::table("orders as o")
+                ->join('order_items as oi','oi.order_id','=','o.id')
+                ->where("o.user_id",$user_id)
+                ->select(DB::raw("o.shipping_address, o.shipping_method, o.payment_method, oi.*"))
+                ->get();
+        
+        $myAr = ['pending'=>0,'rejected'=>0,'approved'=>0];
+        if($ReportData){
+            foreach($ReportData as $row){
+                $myAr[$row->status]+=$row->quantity;
+            }
+        }
+        return response()->json($myAr, 201);
     }
     public function createOrder(Request $request){
         $data = $request->all();

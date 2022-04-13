@@ -33,9 +33,6 @@ class ProductController extends Controller
         
         //echo $min_price;
         $products = new Product();
-        $products = $products->where('status','!=', "'deleted'");
-        
-
 
         if(isset($user) && $user > 0) {
             $userClass = new User();

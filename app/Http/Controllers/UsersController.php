@@ -243,4 +243,7 @@ class UsersController extends Controller
             ->join('companies', 'companies.user_id', '=', 'users.id')
             ->first());
     }
+    public function userProfile($user_id) {
+        return response()->json(User::find($user_id));
+    }
 }
