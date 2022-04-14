@@ -10,15 +10,9 @@ import store from './store'
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-//import CKEditor from '@ckeditor/ckeditor5-vue2'
-
-import CKEditor from '@ckeditor/ckeditor5-vue';
-import CKEditorClassicCustom from './components/ckeditor-classic-custom';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-Vue.use(CKEditor);
-Vue.component('ckeditor-classic-custom', CKEditorClassicCustom);
 const Router = new VueRouter(routes);
 
 Router.beforeEach((to, from, next) => {
