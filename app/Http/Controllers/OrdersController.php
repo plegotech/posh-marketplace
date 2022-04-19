@@ -80,6 +80,7 @@ class OrdersController extends Controller
                 ->where("o.user_id",$user_id)
                 ->whereIn("oi.status",$ordertype)
                 ->select(DB::raw("o.shipping_address, o.shipping_method, o.payment_method, oi.*"))
+                ->orderBy("oi.id","desc")
                 ->get();
 
         return response()->json($ReportData, 201);

@@ -65,6 +65,9 @@ Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
 Route::get('/user-order', 'OrdersController@fetchUserOrders');
 Route::get('/user-order-summary/{id}', 'OrdersController@fetchUserOrdersSummary');
 Route::get('/user-profile/{id}', 'UsersController@userProfile');
+Route::post('/user-profile-update','UsersController@updateUserInfo');
+Route::post('/user-profile-password','UsersController@updateUserPass');
+Route::post('/user-profile-location','UsersController@updateUserLoc');
 
 Route::prefix('orders')->group(function () {
     Route::get('/seller/{seller_id?}/{per_page?}/{order_by?}/{order?}/{search?}/{status?}/{date?}',
