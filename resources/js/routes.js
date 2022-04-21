@@ -31,6 +31,9 @@ import ManageProducts from  './components/user/ManageProducts';
 
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerOrders from './components/seller/MyOrders';
+import Categories from './components/seller/Categories';
+import Headerfooter from './components/seller/Headerfooter';
+
 import VendorProductsSeller from  './components/seller/VendorProducts';
 import SellerBilling from  './components/seller/Billing';
 import SellerManageWebsite from  './components/seller/ManageWebsite';
@@ -75,6 +78,8 @@ export default {
             { name: 'seller-dashboard', meta: { title: 'Overview' }, path: '/seller/dashboard', component: UserDashboard },
             { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: ManageProducts },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
+            { name: 'seller-categories', meta: { title: 'Categories' }, path: '/seller/categories', component: Categories },
+            { name: 'seller-headerfooter', meta: { title: 'Headerfooter' }, path: '/seller/headerfooter', component: Headerfooter },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
             { name: 'seller-manage-website', meta: { title: 'Manage Website' }, path: '/seller/manage-website', component: SellerManageWebsite },
