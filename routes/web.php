@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/product', 'ProductController@create');
+Route::post('/headerfooter', 'SellerController@createHeaderFooter');
+Route::get('/getheaderfooter/{id}', 'SellerController@fetchHeaderFooter');
+Route::post('/createcategory', 'CategoryController@create');
 Route::post('/product-csv', 'ProductController@uploadCsv');
 Route::post('/seller/business-licenses', 'SellerController@businessLicenses');
-
+Route::get('/categories', 'CategoryController@fetch');
+Route::post('/create-category', 'CategoryController@create');
 Route::get('/admin/{any}', function () {
     return view('dashboards.admin');
 })->where('any', '.*');

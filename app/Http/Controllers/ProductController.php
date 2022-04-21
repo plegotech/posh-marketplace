@@ -231,10 +231,21 @@ class ProductController extends Controller
             ->update(['status' => 'deleted']);
     }
 
-    public function get($product)
+    public function get($product, Request $request)
     {
+        
         return response()->json(Product::where('id', $product)
             ->first());
+    }
+    public function producthistory(Request $request){
+        $data = $request->all();
+        $ret = \App\UserProductVisited::create($data);
+        return response()->json(array($ret));
+    }
+    public function productvisited(Request $request){
+        $data = $request->all();
+        $ret = \App\UserProductVisited::create($data);
+        return response()->json(array($ret));
     }
 
     public function create(Request $request)
