@@ -20,6 +20,7 @@ Route::post('/createcategory', 'CategoryController@create');
 Route::post('/product-csv', 'ProductController@uploadCsv');
 Route::post('/seller/business-licenses', 'SellerController@businessLicenses');
 Route::get('/categories', 'CategoryController@fetch');
+Route::get('/brands', 'CategoryController@fetchBrands');
 Route::post('/create-category', 'CategoryController@create');
 Route::get('/admin/{any}', function () {
     return view('dashboards.admin');

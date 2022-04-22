@@ -31,7 +31,7 @@ import ManageProducts from  './components/user/ManageProducts';
 
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerOrders from './components/seller/MyOrders';
-import Categories from './components/seller/Categories';
+import Categories from './components/vendor/Categories';
 import Headerfooter from './components/seller/Headerfooter';
 
 import VendorProductsSeller from  './components/seller/VendorProducts';
@@ -78,7 +78,7 @@ export default {
             { name: 'seller-dashboard', meta: { title: 'Overview' }, path: '/seller/dashboard', component: UserDashboard },
             { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: ManageProducts },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
-            { name: 'seller-categories', meta: { title: 'Categories' }, path: '/seller/categories', component: Categories },
+//            { name: 'seller-categories', meta: { title: 'Categories' }, path: '/seller/categories', component: Categories },
             { name: 'seller-headerfooter', meta: { title: 'Headerfooter' }, path: '/seller/headerfooter', component: Headerfooter },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
@@ -93,6 +93,7 @@ export default {
             { name: 'vendor-manage-products', meta: { title: 'Manage Products' }, path: '/vendor/manage/products', component: ManageProducts },
             { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products/:product_id?', component: VendorUploadProducts },
+            { name: 'vendor-categories', meta: { title: 'Categories' }, path: '/vendor/categories', component: Categories },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
             { name: 'vendor-all-orders', meta: { title: 'Completed Orders' }, path: '/vendor/orders/completed', component: VendorCompletedOrders },

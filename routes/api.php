@@ -81,7 +81,7 @@ Route::prefix('orders')->group(function () {
 });
 // http://127.0.0.1:8000/api/products?user=0&order_by=id&order=desc&search=0&status=0&category=0&sub_category=0&min_price=300&max_price=0&brand=%27HP%27,%27Dell%27,%27Asus%27&colors=&warranty=0&ram=&processor=
 
-Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}', 'ProductController@fetch');
+Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?}/{sub_category?}/{brand?}', 'ProductController@fetch');
 
 Route::get('/allproducts', 'ProductController@fetchall');
 Route::get('/categories', 'CategoryController@fetch');
@@ -100,6 +100,7 @@ Route::prefix('product')->group(function () {
 
     Route::get('/remove/{product?}', 'ProductController@remove');
     Route::get('/get/{product?}', 'ProductController@get');
+    Route::get('/recommended/{product?}', 'ProductController@getRecommended');
 });
 
 Route::get('/website/{seller_id}', 'SellerController@website');

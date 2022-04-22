@@ -20,16 +20,16 @@
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.parent_category" @change="updateSubCategories()" class="parentCategory form-control-label select-custom-point">
-                                        <option v-for="(category, index) in parent_categories"
-                                                :value="index">{{ index }}</option>
+                                        <option v-for="(category, index) in this.catlist"
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                     <span class="form-label">Category</span>
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.sub_category" class="subCategory form-control-label select-custom-point">
-                                        <option v-for="(category, index) in sub_categories"
-                                                :value="category">{{ category }}</option>
+                                        <option v-for="(category, index) in this.subcatlist"
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                     <span class="form-label">Sub-Category</span>
                                 </div>
@@ -133,7 +133,9 @@ export default {
 imagesArray: null,
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
+            },
+            catlist:[],
+            subcatlist:[]
         }
     },
 
@@ -148,8 +150,50 @@ imagesArray: null,
             this.getProductById(this.product_id);
         }
     },
+    mounted(){
+        this.loadCategories();
+    },
 
     methods: {
+
+        async loadCategories(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories");
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.catlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+        async loadSubCategories(id){
+//alert(id)
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories", 
+                    {
+                      params: {
+                        id: id
+                      },
+                    },
+                    { useCredentails: true }
+            );
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.subcatlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+
+
+
+
         updateSubCategories() {
             var parent = document.getElementsByClassName('parentCategory');
 
@@ -158,7 +202,8 @@ imagesArray: null,
                 if(parent.length < 1) {
                     document.getElementsByClassName('subCategory')[0].value = ""
                 }
-                this.sub_categories = SITE_CATEGORIES[parent];
+                //this.sub_categories = SITE_CATEGORIES[parent];
+                this.loadSubCategories(parent)
             }
         },
         getProductById(product) {
