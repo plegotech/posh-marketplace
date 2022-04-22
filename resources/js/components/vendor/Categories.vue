@@ -19,7 +19,7 @@
                                     <select class="form-control-label select-custom-point" v-model="parent">
                                         <option value="0">No Parent</option>
                                         <option v-for="(category, index) in this.catlist"
-                                                :value="index">{{ category.title }}</option>
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                     <span class="form-label">Category Parent</span>
                                 </div>
@@ -146,6 +146,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+this.loadCategories()
                 });
 
         }
