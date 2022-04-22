@@ -8,6 +8,7 @@
                             <div class="up-main-bx-1">
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="name" class="form-control-label" required>
+                                    <input type="hidden" v-model="cat_id" />
                                     <label class="form-label">Category Name</label>
                                 </div>
                             </div>    
@@ -46,6 +47,7 @@
                                 <th>Categories</th>
                                 <th>Sub Categories</th>
                                 <th>Created On</th>
+                                <th>Manage</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -65,6 +67,17 @@
                                 </td>
                                 <td>
                                     {{ order.created_at }}
+                                </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Update</li>
+                                            <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>
@@ -89,6 +102,7 @@ export default {
 
     data(){
         return {
+            cat_id:0,
             catlist:[],
             name:null,
             parent:null,
@@ -126,6 +140,7 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
+            data.append('cat_id', this.cat_id);
             data.append('title', this.name);
             data.append('parent_category_id', this.parent);
 
@@ -147,6 +162,35 @@ export default {
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
 this.loadCategories()
+                });
+
+        },
+        updateCategory(cat){            
+            //alert(cat.id)
+            this.name = cat.title
+            this.parent=0
+            this.cat_id = cat.id
+        },
+        deleteCategory(id){
+            //alert(id)
+            axios.post('/api/category/delete/'+id)
+                .then(function (res) {
+                    console.log(res);
+                    var data = res.data;
+                    if (data.success == 'true') {
+                        alert('Category created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    this.processing = false;
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                    this.loadCategories()
                 });
 
         }
