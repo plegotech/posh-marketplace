@@ -103,5 +103,9 @@ Route::prefix('product')->group(function () {
     Route::get('/recommended/{product?}', 'ProductController@getRecommended');
 });
 
+Route::prefix('category')->group(function () {
+    Route::post('/delete/{id}', 'CategoryController@delete');
+});
+
 Route::get('/website/{seller_id}', 'SellerController@website');
 Route::get('/domain-hosting/domain/{domain?}', 'DomainHostingController@checkDomainAvailability');
