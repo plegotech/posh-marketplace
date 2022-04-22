@@ -9,25 +9,34 @@
                 <div class="top-newOrder payment_Hist">
 
                     <div class="row">
-                        <div class="col-sm-3 mb-4">
+                        <div class="col-sm-3 mb-3">
                             <select class="parentCategory select-custom-point" @change="updateSubCategories()">
                                 <option value="" selected>Category</option>
-                                <option v-for="(category, index) in parent_categories"
-                                        :value="index">
-                                    {{ index }}
+                                <option v-for="(category, index) in this.catlist"
+                                        :value="category.id">
+                                    {{ category.title }}
                                 </option>
                             </select>
                         </div>
-                        <div class="col-sm-3 mb-4">
-                            <select class="subCategory select-custom-point" @change="fetchAllProducts()">
+                        <div class="col-sm-3 mb-3">
+                            <select class="subCategory select-custom-point" @change="loadBrands()">
                                 <option value="" selected>Sub Category</option>
-                                <option v-for="(category, index) in sub_categories"
+                                <option v-for="(category, index) in this.subcatlist"
+                                        :value="category.id">
+                                    {{ category.title }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <select class="brand select-custom-point" @change="fetchAllProducts()">
+                                <option value="" selected>Brands</option>
+                                <option v-for="(category, index) in this.brands"
                                         :value="category">
                                     {{ category }}
                                 </option>
                             </select>
                         </div>
-                        <div class="search-box mb-4 col-sm-3 offset-sm-3">
+                        <div class="search-box mb-3 col-sm-3 offset-sm-3">
 
                             <img src="/img/search-icon.png" class="search-icon" alt="">
                             <input style="float:left" type="text" class="search_BX"
@@ -167,10 +176,14 @@ export default {
             max_product: 0,
             products: [],
             user: this.$store.state.auth.user,
+            catlist:[],
+            subcatlist:[],
+            brands:[],
         }
     },
     mounted() {
         console.log('Component mounted.')
+        this.loadCategories()
     },
     created() {
         this.fetchAllProducts();
@@ -181,6 +194,72 @@ export default {
     },
     methods: {
 
+        async loadCategories(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories");
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.catlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+        async loadSubCategories(id){
+//alert(id)
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories", 
+                    {
+                      params: {
+                        id: id
+                      },
+                    },
+                    { useCredentails: true }
+            );
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.subcatlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+        async loadBrands(){
+
+
+            var parent = document.getElementsByClassName('subCategory');
+
+            if (typeof parent[0] !== 'undefined') {
+                parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
+                
+                document.getElementById('ajaxLoader').style.display = 'block';
+                let result = axios.get("/brands", 
+                        {
+                          params: {
+                            sub_category: parent
+                          },
+                        },
+                        { useCredentails: true }
+                );
+                console.warn("Check Data");
+                const obj = (await result).data;
+                console.warn(obj);
+                if(obj.success==true){
+                  this.brands = obj.data;
+                } else {
+                  alert("Issue loading categories");
+                }
+                document.getElementById('ajaxLoader').style.display = 'none';
+            }
+            //this.fetchAllProducts();
+        },
         toggleSellerProduct(product) {
             this.product_check.product_id = product;
             fetch('/api/seller-product', {
@@ -205,7 +284,9 @@ export default {
                 if(parent.length < 1) {
                     document.getElementsByClassName('subCategory')[0].value = ""
                 }
+                
                 this.sub_categories = SITE_CATEGORIES[parent];
+                this.loadSubCategories(parent);
             }
             this.fetchAllProducts();
         },
@@ -271,6 +352,7 @@ export default {
             var sort_by             = document.getElementsByClassName('sort_by');
             var parent              = document.getElementsByClassName('parentCategory');
             var sub_category        = document.getElementsByClassName('subCategory');
+            var brand               = document.getElementsByClassName('brand');
 
             if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
@@ -278,6 +360,9 @@ export default {
 
             if (typeof sub_category[0] !== 'undefined') {
                 sub_category = sub_category[0].value;
+            }
+            if (typeof brand[0] !== 'undefined') {
+                brand = brand[0].value;
             }
 
             var order_by = 0;
@@ -316,12 +401,15 @@ export default {
 
             url += '/0';
 
-            if (parent.length > 1) {
+            if (parent.length >= 1) {
                 url += '/' + parent;
             }
 
-            if (sub_category.length > 1) {
+            if (sub_category.length >= 1) {
                 url += '/' + sub_category;
+            }
+            if (brand.length >= 1) {
+                url += '/' + brand;
             }
 
             if (page > 0) {

@@ -6,33 +6,25 @@
                     <div class="col-sm-12">
                         <div class="top-newOrder">
                             <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-6">
-                                    <router-link class="box-selection" :to="{ name: 'seller-categories'}">
-                                        <img src="/img/choose-page.png" alt="">
-                                        <h1>Manage Categories</h1>
-                                    </router-link>
-                                </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
                                     <router-link class="box-selection" :to="{ name: 'seller-headerfooter'}">
                                         <img src="/img/mail-account.png" alt="">
                                         <h1>Headers & Footers</h1>
                                     </router-link>
                                 </div>
-                            </div>
-                            <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <a class="box-selection">
                                         <img src="/img/choose-page.png" alt="">
                                         <h1>Manage Pages</h1>
                                     </a>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <a class="box-selection">
                                         <img src="/img/mail-account.png" alt="">
                                         <h1>Products</h1>
                                     </a>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <a class="box-selection">
                                         <img src="/img/price-tag.png" alt="">
                                         <h1>Promotion Deals</h1>

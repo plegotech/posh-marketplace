@@ -106,7 +106,7 @@ class ProductController extends Controller
     
     
     public function fetch($user = 0, $order_by = 'id', $order = 'desc', $search = 0, $status = 0
-    ,$category = 0, $sub_category = 0){
+    ,$category = 0, $sub_category = 0, $brand=0){
         $products = new Product();
         if($user > 0) {
             $userClass = new User();
@@ -125,11 +125,14 @@ class ProductController extends Controller
         }
 
         if($category != "0") {
-            $products = $products->where('parent_category', 'LIKE', '%'.$category.'%');
+            $products = $products->where('parent_category', $category);
         }
 
         if($sub_category != "0") {
-            $products = $products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
+            $products = $products->where('sub_category', $sub_category);
+        }
+        if($brand != "0") {
+            $products = $products->where('brand', 'LIKE', '%'.$brand.'%');
         }
         $products = $products->orderBy($order_by, $order)
         ->paginate(18);
@@ -236,6 +239,14 @@ class ProductController extends Controller
         
         return response()->json(Product::where('id', $product)
             ->first());
+    }
+    public function getRecommended($product, Request $request)
+    {
+        $parent_category = Product::where('id', $product)->parent_category;
+        $data = Product::where('parent_category',$parent_category)->limit(4)->get();
+        
+        
+        return response()->json($data);
     }
     public function producthistory(Request $request){
         $data = $request->all();

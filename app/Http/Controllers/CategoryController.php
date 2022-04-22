@@ -26,7 +26,9 @@ class CategoryController extends Controller {
     }
     //
     public function fetch(Request $request) {
-        $data = \App\Category::where([['parent_category_id',0],['status',1]])->with('children')->get();
+        $dataReq = $request->all();
+        $p_cat = isset($dataReq['id']) ? $dataReq['id'] : 0;
+        $data = \App\Category::where([['parent_category_id',$p_cat],['status',1]])->with('children')->get();
         if($data){
             $myAr = array();
             foreach($data as $row){
@@ -52,5 +54,25 @@ class CategoryController extends Controller {
         }
         //return response()->json($data);
     }
+    public function fetchBrands(Request $request){
+        $data = $request->all();
+        $products = \App\Product::where("sub_category", $data['sub_category'])->get();
+        $myAr = array();
+        if($products){
+            
+            foreach($products as $row){
+                if($row['brand']==null){
+                    $row['brand'] = "No Brand";
+                }
+                $myAr[$row['brand']]=$row['brand'];
+            }
+        }
+            return Response()->json(array(
+                'success' => true,
+                'data' => $myAr
+
+            )); // 400 being the HTTP code for an invalid request.
+    }
+    
 
 }
