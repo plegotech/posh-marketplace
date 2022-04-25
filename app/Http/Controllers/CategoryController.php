@@ -60,6 +60,21 @@ class CategoryController extends Controller {
         }
         //return response()->json($data);
     }
+    public function fetchAll(){
+        $data = \App\Category::with('children')->get();
+        if($data){
+        return Response()->json(array(
+                        'success' => true,
+                        'data' => $data
+            )); // 400 being the HTTP code for an invalid request.
+        } else {
+            return Response()->json(array(
+                        'success' => false,
+                        'data' => "No Data"
+            )); // 400 being the HTTP code for an invalid request.
+            
+        }
+    }
 
     public function fetchBrands(Request $request) {
         $data = $request->all();

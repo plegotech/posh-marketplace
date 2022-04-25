@@ -4,7 +4,7 @@
             <div class="col-sm-12 addcat">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="up-main-bx-1">
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="name" class="form-control-label" required>
@@ -13,7 +13,7 @@
                                 </div>
                             </div>    
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="up-main-bx-1">
                                 <div class="form-outline-ft mb-5">
                                     
@@ -26,7 +26,16 @@
                                 </div>
                             </div>    
                         </div>
-                        <div class="col-sm-4">     
+                        <div class="col-sm-3">
+                            <div class="up-main-bx-1">
+                                <div class="form-outline-ft mb-5">
+                                    <input type="file" ref="file" style="display: none" name="thumb" @change="changeThumb" />
+                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
+                                    <span class="form-label">Thumbnail</span>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="col-sm-3">     
                             <div>
                                     <button class="primary" @click="saveCategories">SAVE</button>
                             </div>
@@ -44,8 +53,10 @@
                             <thead>
                                 <tr>
                                 <th>ID</th>
+                                <th>Thumbnail</th>
                                 <th>Categories</th>
                                 <th>Sub Categories</th>
+                                <th>Type</th>
                                 <th>Created On</th>
                                 <th>Manage</th>
                             </tr>
@@ -54,6 +65,9 @@
                             <tr v-for="(order, index) in this.catlist" :key="index">
                                 <td>
                                     {{ order.id }}
+                                </td>
+                                <td>
+                                    {{ order.img }}
                                 </td>
                                 <td>
                                     {{ order.title }}
@@ -66,6 +80,9 @@
                                     
                                 </td>
                                 <td>
+                                    {{ order.parent_category_id ? "Sub Category" : "Main Category"}}
+                                </td>
+                                <td>
                                     {{ order.created_at }}
                                 </td>
                                 <td>
@@ -74,7 +91,7 @@
                                              data-toggle="dropdown" aria-haspopup="true"
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Update</li>
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
                                             <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
                                         </ul>
                                     </div>
@@ -105,6 +122,7 @@ export default {
             cat_id:0,
             catlist:[],
             name:null,
+            thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
         }
@@ -113,10 +131,12 @@ export default {
         this.loadCategories();
     },
     methods:{
-        
+        changeThumb(e){
+            this.thumb= e.target.files[0];
+        },
         async loadCategories(){
             document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categories");
+            let result = axios.get("/categoriesall");
             console.warn("Check Data");
             const obj = (await result).data;
             console.warn(obj);
@@ -142,6 +162,7 @@ export default {
             data.append('seller_id', this.user.id);
             data.append('cat_id', this.cat_id);
             data.append('title', this.name);
+            data.append('img', this.thumb);
             data.append('parent_category_id', this.parent);
 
             axios.post('/create-category', data, config)

@@ -242,11 +242,36 @@ class ProductController extends Controller
     }
     public function getRecommended($product, Request $request)
     {
-        $parent_category = Product::where('id', $product)->parent_category;
+        $parent_category = Product::where('id', $product)->first()->parent_category;
         $data = Product::where('parent_category',$parent_category)->limit(4)->get();
         
         
         return response()->json($data);
+    }
+    public function getFeatured()
+    {
+        $data = Product::orderBy('id','desc')->limit(4)->get();
+        return response()->json($data);
+    }
+    public function getJustForYou($user_id)
+    {
+        if($user_id)
+        $ReportData = DB::table("orders as o")
+                ->join('order_items as oi','oi.order_id','=','o.id')
+                ->join('products as p','p.id','=','oi.item_id')
+                ->where("o.user_id",$user_id)
+                ->select(DB::raw("p.*"))
+                ->groupBy("p.id")
+                ->orderBy('o.id','desc')->limit(4)->get();
+        else
+        $ReportData = DB::table("orders as o")
+                ->join('order_items as oi','oi.order_id','=','o.id')
+                ->join('products as p','p.id','=','oi.item_id')
+                ->select(DB::raw("p.*"))
+                ->groupBy("p.id")
+                ->orderBy('o.id','desc')->limit(4)->get();
+        
+        return response()->json($ReportData);
     }
     public function producthistory(Request $request){
         $data = $request->all();

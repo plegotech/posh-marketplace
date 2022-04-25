@@ -59,6 +59,7 @@ Route::prefix('seller')->group(function () {
     Route::get('/dashboard/{id}', 'SellerController@dashboard');
 
     Route::post('/{step}', 'SellerController@seller');
+    Route::get('/homepage/{id?}', 'SellerController@getSellerHomepage');
 });
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');
@@ -101,6 +102,8 @@ Route::prefix('product')->group(function () {
     Route::get('/remove/{product?}', 'ProductController@remove');
     Route::get('/get/{product?}', 'ProductController@get');
     Route::get('/recommended/{product?}', 'ProductController@getRecommended');
+    Route::get('/featured', 'ProductController@getFeatured');
+    Route::get('/justforyou/{id?}', 'ProductController@getJustForYou');
 });
 
 Route::prefix('category')->group(function () {
