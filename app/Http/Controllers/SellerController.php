@@ -24,7 +24,66 @@ class SellerController extends Controller {
     public function index() {
         return 'silence is the gold';
     }
-
+    public function createCategoryImages(Request $request){
+        
+        $data = $request->all();
+        
+        if($request->file('home')) {
+            $photo = rand(5000, 9999) . $request->file('home')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('home')->move($destination, $photo);
+            unset($data['home']);
+            $data['images_home'] = $photo;
+        }
+        if($request->file('elec')) {
+            $photo = rand(5000, 9999) . $request->file('elec')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('elec')->move($destination, $photo);
+            unset($data['elec']);
+            $data['images_elec'] = $photo;
+        }
+        if($request->file('hot')) {
+            $photo = rand(5000, 9999) . $request->file('hot')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('hot')->move($destination, $photo);
+            unset($data['hot']);
+            $data['images_hot'] = $photo;
+        }
+        if($request->file('new')) {
+            $photo = rand(5000, 9999) . $request->file('new')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('new')->move($destination, $photo);
+            unset($data['new']);
+            $data['images_new'] = $photo;
+        }
+        if($request->file('cat')) {
+            $photo = rand(5000, 9999) . $request->file('cat')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('cat')->move($destination, $photo);
+            unset($data['cat']);
+            $data['images_cat'] = $photo;
+        }
+//        dd($data);
+        if(\App\SellerHomepage::where("seller_id", $data['seller_id'])->count()){
+            $resp = \App\SellerHomepage::where("seller_id", $data['seller_id'])->update($data);
+        } else {
+            $resp = \App\SellerHomepage::create($data);
+        }
+        if($resp){
+            return Response()->json(array(true));
+        } else {
+            return Response()->json(array(false));
+        }
+    }
+    public function getSellerHomepage($id){
+        $CatImages=\App\SellerHomepage::where("seller_id", $id)->first();
+        $SlidersPromotions = SellerWebsite::where("seller_id", $id)->select('sliders', 'promotion')->first();
+        if($SlidersPromotions){
+            $SlidersPromotions->sliders = json_decode($SlidersPromotions->sliders);
+            $SlidersPromotions->promotion = json_decode($SlidersPromotions->promotion);
+        }
+        return Response()->json(array("CatImages"=>$CatImages, "Sliders"=>$SlidersPromotions));
+    }
     public function createHeaderFooter(Request $request) {
         $data = $request->all();
         extract($data);
@@ -35,10 +94,53 @@ class SellerController extends Controller {
 //        $id = Auth::user()->getId();
 //        echo $id;
 //        die;
+        
+        if($data['sliders']>0){
+            
+            $i=0;
+            while($i<$data['sliders']){
+                if($request->file('slider_images_'.$i)) {
+                    $photo = rand(5000, 9999) . $request->file('slider_images_'.$i)->getClientOriginalName();
+                    $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+                    $request->file('slider_images_'.$i)->move($destination, $photo);
+                    $dataM['slider_images'][] = $photo;
+                    unset($data['slider_images_'.$i]);
+                }
+                $i++;
+            }
+            $data['sliders'] = json_encode($dataM['slider_images']);
+        }
+        if($data['promotion']>0){
+            
+            $i=0;
+            while($i<$data['promotion']){
+                if($request->file('pro_images_'.$i)) {
+                    $photo = rand(5000, 9999) . $request->file('pro_images_'.$i)->getClientOriginalName();
+                    $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+                    $request->file('pro_images_'.$i)->move($destination, $photo);
+                    $dataM['pro_images'][] = $photo;
+                    unset($data['pro_images_'.$i]);
+                }
+                $i++;
+            }
+            $data['promotion'] = json_encode($dataM['pro_images']);
+        }
+        
+        if($request->file('logo')) {
+            $photo = rand(5000, 9999) . $request->file('logo')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/'. $request->input('seller_id');
+            $request->file('logo')->move($destination, $photo);
+            $data['logo'] = $photo;
+        }
+        
         $createArray = array(
             'seller_id' => $seller_id,
             'site_template' => 1,
             'domain' => $domain,
+            'about_us' => $about_us,
+            'logo' => $data['logo'],
+            'sliders' => $data['sliders'],
+            'promotion' => $data['promotion'],
             'h_shop_name' => $h_shop_name,
             'h_shop_address' => $h_shop_address,
             'f_main_menu_title' => $f_main_menu_title,

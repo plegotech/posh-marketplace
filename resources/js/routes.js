@@ -33,11 +33,13 @@ import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerOrders from './components/seller/MyOrders';
 import Categories from './components/vendor/Categories';
 import Headerfooter from './components/seller/Headerfooter';
+import Categoryimages from './components/seller/ManageCategoriesImages';
 
 import VendorProductsSeller from  './components/seller/VendorProducts';
 import SellerBilling from  './components/seller/Billing';
 import SellerManageWebsite from  './components/seller/ManageWebsite';
 import SellerSales from  './components/seller/MySales';
+import Sliders from  './components/seller/Sliders';
 
 
 import VendorDashboardLayout from './components/layouts/VendorDashboard';
@@ -78,12 +80,13 @@ export default {
             { name: 'seller-dashboard', meta: { title: 'Overview' }, path: '/seller/dashboard', component: UserDashboard },
             { name: 'seller-manage-products', meta: { title: 'Manage Products' }, path: '/seller/manage/products', component: ManageProducts },
             { name: 'seller-order', meta: { title: 'My Orders' }, path: '/seller/orders', component: SellerOrders },
-//            { name: 'seller-categories', meta: { title: 'Categories' }, path: '/seller/categories', component: Categories },
             { name: 'seller-headerfooter', meta: { title: 'Headerfooter' }, path: '/seller/headerfooter', component: Headerfooter },
             { name: 'seller-vendor-products', meta: { title: 'Vendor Products' }, path: '/seller/vendor-products', component: VendorProductsSeller },
             { name: 'seller-billing', meta: { title: 'Billing' }, path: '/seller/billing', component: SellerBilling },
             { name: 'seller-manage-website', meta: { title: 'Manage Website' }, path: '/seller/manage-website', component: SellerManageWebsite },
             { name: 'seller-sales', meta: { title: 'Sales' }, path: '/seller/sales', component: SellerSales },
+            { name: 'seller-categoryimages', meta: { title: 'Category Images' }, path: '/seller/Categoryimages', component: Categoryimages },
+            { name: 'seller-sliders', meta: { title: 'Sliders' }, path: '/seller/Sliders', component: Sliders },
             { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: UserProfile }
         ]},
 

@@ -22,6 +22,14 @@
                                     <label class="form-label">Domain</label>          
                                 </div>
                                 <div class="form-outline-ft mb-5">
+
+                                    <input type="file" ref="file" style="display: none" name="logo" @change="changeLogo" />
+                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
+
+
+                                    <label class="form-label">Logo</label>          
+                                </div>
+                                <div class="form-outline-ft mb-5">
                                     
                                     <select class="form-control-label">
                                         <option value="1">Template 1</option>
@@ -127,6 +135,40 @@
                                     <label class="form-label">Instagram</label>
                                     
                                 </div>
+
+<h3>About US:</h3>
+<br>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.about_us" class="form-control-label" required>
+                                    <label class="form-label">About US</label>
+                                    
+                                </div>
+<h3>Slider Images:</h3>
+<br>
+                                    <div class="uploadimage-vup">
+                                        <div class="upload-title-vup">
+                                            <p>Slider Images</p>
+                                        </div>
+                                        <div class="upload-image-vup">
+                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
+                                            <input type="file" multiple ref="file1" style="display: none" name="slider_images" @change="sliderImages" />
+                                            <button class="img-title-up" @click="$refs.file1.click()">Upload Images</button>
+                                        </div>
+                                    </div>
+<h3>Promotional Images:</h3>
+<br>
+                                    <div class="uploadimage-vup">
+                                        <div class="upload-title-vup">
+                                            <p>Promotion Images</p>
+                                        </div>
+                                        <div class="upload-image-vup">
+                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
+                                            <input type="file" multiple ref="file2" style="display: none" name="pro_images" @change="proImages" />
+                                            <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
+                                        </div>
+                                    </div>
+
+
                                 <div>
                                     <button @click="addinfo" class="primary">SAVE</button>
                                 </div>
@@ -150,6 +192,9 @@ export default {
                 site_domain:              '',
                 site_temp:              '',
                 main_menu_title:        '',
+                logo:        '',
+                slider_images:        '',
+                pro_images:        '',
                 main_menu_links:{
                     main_menu_link1:        '',
                     main_menu_link2:        '',
@@ -174,6 +219,7 @@ export default {
                     social_link2:        '',
                     social_link3:        '',
                 },
+                about_us:'',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
@@ -182,6 +228,16 @@ export default {
         this.getHeaderFooter()
     },
     methods: {
+        changeLogo(e) {
+            this.headerfooter.logo= e.target.files[0];
+        },
+        sliderImages(e) {
+            this.headerfooter.slider_images= e.target.files;
+        },
+        proImages(e) {
+            this.headerfooter.pro_images= e.target.files;
+        },
+
         addinfo() {
 
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -200,6 +256,10 @@ export default {
             data.append('domain', this.headerfooter.site_domain);
             data.append('h_shop_name', this.headerfooter.site_name);
             data.append('h_shop_address', this.headerfooter.site_address);
+            data.append('about_us', this.headerfooter.about_us);
+            data.append('logo', this.headerfooter.logo);
+            data.append('sliders', this.headerfooter.slider_images.length);
+            data.append('promotion', this.headerfooter.pro_images.length);
             data.append('f_main_menu_title', this.headerfooter.main_menu_title);
             data.append('f_main_menu_link1', this.headerfooter.main_menu_links.main_menu_link1);
             data.append('f_main_menu_link2', this.headerfooter.main_menu_links.main_menu_link2);
@@ -220,6 +280,14 @@ export default {
             data.append('f_findus_link1', this.headerfooter.social_links.social_link1);
             data.append('f_findus_link2', this.headerfooter.social_links.social_link2);
             data.append('f_findus_link3', this.headerfooter.social_links.social_link3);
+
+            for (const i of Object.keys(this.headerfooter.slider_images)) {
+                data.append('slider_images_'+i, this.headerfooter.slider_images[i])
+            }
+
+            for (const i of Object.keys(this.headerfooter.pro_images)) {
+                data.append('pro_images_'+i, this.headerfooter.pro_images[i])
+            }
             
             axios.post('/headerfooter', data, config)
                 .then(function (res) {

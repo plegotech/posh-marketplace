@@ -33,6 +33,27 @@
                             </div>
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-4">
+                                    <router-link class="box-selection" :to="{ name: 'seller-sliders'}">
+                                        <img src="/img/mail-account.png" alt="">
+                                        <h1>Slider Section</h1>
+                                    </router-link>
+                                </div>
+                                <div class="col-sm-4">
+                                    <router-link class="box-selection" :to="{ name: 'seller-categoryimages'}">
+                                        <img src="/img/mail-account.png" alt="">
+                                        <h1>Category thumbnails</h1>
+                                    </router-link>
+                                </div>
+                                
+                                <div class="col-sm-4">
+                                    <a class="box-selection">
+                                        <img src="/img/price-tag.png" alt="">
+                                        <h1>Promotion Deals</h1>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mix-boxmw">
+                                <div class="col-sm-4">
                                     <a class="box-selection">
                                         <img src="/img/separate-by-using-blank-sheets.png" alt="">
                                         <h1>Change Template</h1>
