@@ -29,46 +29,49 @@ class SellerController extends Controller {
 
         $data = $request->all();
 
+        $data2['seller_id'] = $data["seller_id"];
         if ($request->file('home')) {
             $photo = rand(5000, 9999) . $request->file('home')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('home')->move($destination, $photo);
             unset($data['home']);
-            $data['images_home'] = $photo;
+            $data2['images_home'] = $photo;
+        } else {
+            
         }
         if ($request->file('elec')) {
             $photo = rand(5000, 9999) . $request->file('elec')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('elec')->move($destination, $photo);
             unset($data['elec']);
-            $data['images_elec'] = $photo;
+            $data2['images_elec'] = $photo;
         }
         if ($request->file('hot')) {
             $photo = rand(5000, 9999) . $request->file('hot')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('hot')->move($destination, $photo);
             unset($data['hot']);
-            $data['images_hot'] = $photo;
+            $data2['images_hot'] = $photo;
         }
         if ($request->file('new')) {
             $photo = rand(5000, 9999) . $request->file('new')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('new')->move($destination, $photo);
             unset($data['new']);
-            $data['images_new'] = $photo;
+            $data2['images_new'] = $photo;
         }
         if ($request->file('cat')) {
             $photo = rand(5000, 9999) . $request->file('cat')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('cat')->move($destination, $photo);
             unset($data['cat']);
-            $data['images_cat'] = $photo;
+            $data2['images_cat'] = $photo;
         }
 //        dd($data);
         if (\App\SellerHomepage::where("seller_id", $data['seller_id'])->count()) {
-            $resp = \App\SellerHomepage::where("seller_id", $data['seller_id'])->update($data);
+            $resp = \App\SellerHomepage::where("seller_id", $data['seller_id'])->update($data2);
         } else {
-            $resp = \App\SellerHomepage::create($data);
+            $resp = \App\SellerHomepage::create($data2);
         }
         if ($resp) {
             return Response()->json(array(true));
