@@ -179,6 +179,17 @@ class SellerController extends Controller {
         return Response()->json($data);
     }
 
+    public function getBestSellerCategories($id){
+        $data = \App\SellerProduct::where('seller_id', $id)->with('products')->get();
+        if($data){
+            $myArray = array();
+            foreach($data as $row){
+                $myArray[$row['products'][0]['parent_category']]=$row['products'][0]['parent_category'];
+            }
+        }
+//        dd($myArray);        
+        return Response()->json($myArray);
+    }
     public function businessLicenses(Request $request) {
         // Setup the validator
         $rules = array(
