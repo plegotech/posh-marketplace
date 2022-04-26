@@ -29,47 +29,46 @@
                                 <br>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1_url" class="form-control-label" required>
-                                    <label class="form-label">Link1</label>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2_url" class="form-control-label" required>
-                                    <label class="form-label">Link2</label>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3_url" class="form-control-label" required>
-                                    <label class="form-label">Link3</label>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4_url" class="form-control-label" required>
-                                    <label class="form-label">Link4</label>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <h3>Company:</h3>
                                 <br>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link1_url" class="form-control-label" required>
-                                    <label class="form-label">Link1</label>
+                                    <input type="text" v-model="headerfooter.company_links.company_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link2_url" class="form-control-label" required>
-                                    <label class="form-label">Link2</label>
+                                    <input type="text" v-model="headerfooter.company_links.company_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link3_url" class="form-control-label" required>
-                                    <label class="form-label">Link3</label>
-                                    
+                                    <input type="text" v-model="headerfooter.company_links.company_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>                                    
                                 </div>
 </div>
 </div>
@@ -80,37 +79,37 @@
 <br>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link1_url" class="form-control-label" required>
-                                    <label class="form-label">Link1</label>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link2_url" class="form-control-label" required>
-                                    <label class="form-label">Link2</label>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link3_url" class="form-control-label" required>
-                                    <label class="form-label">Link3</label>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>
                                     
                                 </div>
 <h3>Social:</h3>
 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.social_links.social_link1" class="form-control-label" required>
-                                    <label class="form-label">Facebook</label>
+                                    <input type="text" v-model="headerfooter.social_links.social_link1" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Facebook Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.social_links.social_link2" class="form-control-label" required>
-                                    <label class="form-label">Twitter</label>
+                                    <input type="text" v-model="headerfooter.social_links.social_link2" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Twitter Link</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.social_links.social_link3" class="form-control-label" required>
-                                    <label class="form-label">Instagram</label>
+                                    <input type="text" v-model="headerfooter.social_links.social_link3" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Instagram Link</label>
                                     
                                 </div>
 
