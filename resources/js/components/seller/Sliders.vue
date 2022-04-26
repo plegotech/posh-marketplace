@@ -13,10 +13,14 @@
                                         </div>
                                         <div class="upload-image-vup">
                                             <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage" />
-                                            <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
+                                            <input type="file" multiple ref="file1" style="display: none" name="slider_images" @change="sliderImages" />
+                                            <button class="img-title-up" @click="$refs.file1.click()">Upload Images</button>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div>
+                                    <button @click="addinfo" class="primary">SAVE</button>
                                 </div>
                             </div>
                         </div>
@@ -31,17 +35,17 @@ export default {
     data() {
         return {
             user:this.$store.state.auth.user,
-            images: null,
+            slider_images:        '',
         }
     },
     mounted() {
         console.log('Component mounted.')
     },
     methods:{
-        galleryImage(e) {
-            this.images = e.target.files;
-        },
-        addProduct() {
+        sliderImages(e) {
+            this.slider_images= e.target.files;
+        },        
+        addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
 
@@ -55,13 +59,13 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
-            data.append('images', this.images.length);
+            data.append('sliders', this.slider_images.length);
 
-            for (const i of Object.keys(this.images)) {
-                data.append('images_'+i, this.images[i])
+            for (const i of Object.keys(this.slider_images)) {
+                data.append('slider_images_'+i, this.slider_images[i])
             }
 
-            axios.post('/product', data, config)
+            axios.post('/createsliders', data, config)
                 .then(function (res) {
                     var data = res.data;
                     if (data.success == 'true') {

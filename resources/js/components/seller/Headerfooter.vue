@@ -18,10 +18,6 @@
                                     <label class="form-label">Address</label>          
                                 </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.site_domain" class="form-control-label" required>
-                                    <label class="form-label">Domain</label>          
-                                </div>
-                                <div class="form-outline-ft mb-5">
 
                                     <input type="file" ref="file" style="display: none" name="logo" @change="changeLogo" />
                                     <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
@@ -29,60 +25,49 @@
 
                                     <label class="form-label">Logo</label>          
                                 </div>
-                                <div class="form-outline-ft mb-5">
-                                    
-                                    <select class="form-control-label">
-                                        <option value="1">Template 1</option>
-                                        <option value="2">Template 2</option>
-                                    </select>
-                                    <label class="form-label">Template</label>          
-                                </div>
                                 <h3>Main Menu:</h3>
                                 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.main_menu_title" class="form-control-label" required>
-                                    <label class="form-label">Title</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1_url" class="form-control-label" required>
                                     <label class="form-label">Link1</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2_url" class="form-control-label" required>
                                     <label class="form-label">Link2</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3_url" class="form-control-label" required>
                                     <label class="form-label">Link3</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4_url" class="form-control-label" required>
                                     <label class="form-label">Link4</label>
                                     
                                 </div>
                                 <h3>Company:</h3>
                                 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.company_title" class="form-control-label" required>
-                                    <label class="form-label">Title</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link1" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.company_links.company_link1_url" class="form-control-label" required>
                                     <label class="form-label">Link1</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link2" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.company_links.company_link2_url" class="form-control-label" required>
                                     <label class="form-label">Link2</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.company_links.company_link3" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.company_links.company_link3_url" class="form-control-label" required>
                                     <label class="form-label">Link3</label>
                                     
                                 </div>
@@ -94,32 +79,25 @@
 <h3>Discover:</h3>
 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.discover_title" class="form-control-label" required>
-                                    <label class="form-label">Title</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link1" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link1_url" class="form-control-label" required>
                                     <label class="form-label">Link1</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link2" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link2_url" class="form-control-label" required>
                                     <label class="form-label">Link2</label>
                                     
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.discover_links.discover_link3" class="form-control-label" required>
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link3_url" class="form-control-label" required>
                                     <label class="form-label">Link3</label>
                                     
                                 </div>
 <h3>Social:</h3>
 <br>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.social_title" class="form-control-label" required>
-                                    <label class="form-label">Title</label>
-                                    
-                                </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.social_links.social_link1" class="form-control-label" required>
                                     <label class="form-label">Facebook</label>
@@ -135,39 +113,6 @@
                                     <label class="form-label">Instagram</label>
                                     
                                 </div>
-
-<h3>About US:</h3>
-<br>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.about_us" class="form-control-label" required>
-                                    <label class="form-label">About US</label>
-                                    
-                                </div>
-<h3>Slider Images:</h3>
-<br>
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Slider Images</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" multiple ref="file1" style="display: none" name="slider_images" @change="sliderImages" />
-                                            <button class="img-title-up" @click="$refs.file1.click()">Upload Images</button>
-                                        </div>
-                                    </div>
-<h3>Promotional Images:</h3>
-<br>
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Promotion Images</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" multiple ref="file2" style="display: none" name="pro_images" @change="proImages" />
-                                            <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
-                                        </div>
-                                    </div>
-
 
                                 <div>
                                     <button @click="addinfo" class="primary">SAVE</button>
@@ -189,31 +134,35 @@ export default {
             headerfooter: {
                 site_name:                   '',
                 site_address:              '',
-                site_domain:              '',
-                site_temp:              '',
-                main_menu_title:        '',
                 logo:        '',
                 slider_images:        '',
                 pro_images:        '',
                 main_menu_links:{
                     main_menu_link1:        '',
+                    main_menu_link1_url:        '',
                     main_menu_link2:        '',
+                    main_menu_link2_url:        '',
                     main_menu_link3:        '',
-                    main_menu_link4:        ''
+                    main_menu_link3_url:        '',
+                    main_menu_link4:        '',
+                    main_menu_link4_url:        ''
                 },
-                company_title:        '',
                 company_links:{
                     company_link1:        '',
+                    company_link1_url:        '',
                     company_link2:        '',
-                    company_link3:        ''
+                    company_link2_url:        '',
+                    company_link3:        '',
+                    company_link3_url:        ''
                 },
-                discover_title:        '',
                 discover_links:{
                     discover_link1:        '',
+                    discover_link1_url:        '',
                     discover_link2:        '',
-                    discover_link3:        ''
+                    discover_link2_url:        '',
+                    discover_link3:        '',
+                    discover_link3_url:        ''
                 },
-                social_title:        '',
                 social_links:{
                     social_link1:        '',
                     social_link2:        '',
@@ -252,31 +201,35 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
-            data.append('site_template', this.headerfooter.site_temp);
-            data.append('domain', this.headerfooter.site_domain);
             data.append('h_shop_name', this.headerfooter.site_name);
             data.append('h_shop_address', this.headerfooter.site_address);
             data.append('about_us', this.headerfooter.about_us);
             data.append('logo', this.headerfooter.logo);
-            data.append('sliders', this.headerfooter.slider_images.length);
             data.append('promotion', this.headerfooter.pro_images.length);
-            data.append('f_main_menu_title', this.headerfooter.main_menu_title);
+
             data.append('f_main_menu_link1', this.headerfooter.main_menu_links.main_menu_link1);
+            data.append('f_main_menu_link1_url', this.headerfooter.main_menu_links.main_menu_link1_url);
             data.append('f_main_menu_link2', this.headerfooter.main_menu_links.main_menu_link2);
+            data.append('f_main_menu_link2_url', this.headerfooter.main_menu_links.main_menu_link2_url);
             data.append('f_main_menu_link3', this.headerfooter.main_menu_links.main_menu_link3);
+            data.append('f_main_menu_link3_url', this.headerfooter.main_menu_links.main_menu_link3_url);
             data.append('f_main_menu_link4', this.headerfooter.main_menu_links.main_menu_link4);
+            data.append('f_main_menu_link4_url', this.headerfooter.main_menu_links.main_menu_link4_url);
 
-            data.append('f_company_title', this.headerfooter.company_title);
             data.append('f_company_link1', this.headerfooter.company_links.company_link1);
+            data.append('f_company_link1_url', this.headerfooter.company_links.company_link1_url);
             data.append('f_company_link2', this.headerfooter.company_links.company_link2);
+            data.append('f_company_link2_url', this.headerfooter.company_links.company_link2_url);
             data.append('f_company_link3', this.headerfooter.company_links.company_link3);
+            data.append('f_company_link3_url', this.headerfooter.company_links.company_link3_url);
 
-            data.append('f_discover_title', this.headerfooter.discover_title);
             data.append('f_discover_link1', this.headerfooter.discover_links.discover_link1);
+            data.append('f_discover_link1_url', this.headerfooter.discover_links.discover_link1_url);
             data.append('f_discover_link2', this.headerfooter.discover_links.discover_link2);
+            data.append('f_discover_link2_url', this.headerfooter.discover_links.discover_link2_url);
             data.append('f_discover_link3', this.headerfooter.discover_links.discover_link3);
+            data.append('f_discover_link3_url', this.headerfooter.discover_links.discover_link3_url);
 
-            data.append('f_findus_title', this.headerfooter.social_title);
             data.append('f_findus_link1', this.headerfooter.social_links.social_link1);
             data.append('f_findus_link2', this.headerfooter.social_links.social_link2);
             data.append('f_findus_link3', this.headerfooter.social_links.social_link3);
