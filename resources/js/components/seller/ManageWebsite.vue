@@ -46,10 +46,10 @@
                                 </div>
                                 
                                 <div class="col-sm-4">
-                                    <a class="box-selection">
+                                    <router-link class="box-selection" :to="{ name: 'seller-promotion'}">
                                         <img src="/img/price-tag.png" alt="">
                                         <h1>Promotion Deals</h1>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                             <div class="row justify-content-center mix-boxmw">
@@ -60,10 +60,10 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-4">
-                                    <a class="box-selection">
+                                    <router-link class="box-selection" :to="{ name: 'seller-aboutus'}">
                                         <img src="/img/info.png" alt="">
                                         <h1>About Us</h1>
-                                    </a>
+                                    </router-link>
                                 </div>
                                 <div class="col-sm-4">
                                     <a class="box-selection">

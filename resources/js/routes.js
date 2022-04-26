@@ -40,6 +40,8 @@ import SellerBilling from  './components/seller/Billing';
 import SellerManageWebsite from  './components/seller/ManageWebsite';
 import SellerSales from  './components/seller/MySales';
 import Sliders from  './components/seller/Sliders';
+import Promotion from  './components/seller/Promotions';
+import AboutUs from  './components/seller/AboutUs';
 
 
 import VendorDashboardLayout from './components/layouts/VendorDashboard';
@@ -87,6 +89,8 @@ export default {
             { name: 'seller-sales', meta: { title: 'Sales' }, path: '/seller/sales', component: SellerSales },
             { name: 'seller-categoryimages', meta: { title: 'Category Images' }, path: '/seller/Categoryimages', component: Categoryimages },
             { name: 'seller-sliders', meta: { title: 'Sliders' }, path: '/seller/Sliders', component: Sliders },
+            { name: 'seller-promotion', meta: { title: 'Promotion' }, path: '/seller/Promotion', component: Promotion },
+            { name: 'seller-aboutus', meta: { title: 'AboutUs' }, path: '/seller/AboutUs', component: AboutUs },
             { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: UserProfile }
         ]},
 
