@@ -250,8 +250,11 @@ class SellerController extends Controller {
     public function fetchHeaderFooter($id) {
         $data = SellerWebsite::where('seller_id', $id)->first();
         if ($data) {
+            $data['f_main_menu_title'] = json_decode($data['f_main_menu_title']);
             $data['f_main_menu_links'] = json_decode($data['f_main_menu_links']);
+            $data['f_company_title'] = json_decode($data['f_company_title']);
             $data['f_company_links'] = json_decode($data['f_company_links']);
+            $data['f_discover_title'] = json_decode($data['f_discover_title']);
             $data['f_discover_links'] = json_decode($data['f_discover_links']);
             $data['f_findus_links'] = json_decode($data['f_findus_links']);
         }
