@@ -60,6 +60,7 @@ Route::prefix('seller')->group(function () {
 
     Route::post('/{step}', 'SellerController@seller');
     Route::get('/homepage/{id?}', 'SellerController@getSellerHomepage');
+    Route::get('/bestcategories/{id?}', 'SellerController@getBestSellerCategories');
 });
 
 Route::get('/vendor-order/{id}', 'OrdersController@getVendorOrderById');

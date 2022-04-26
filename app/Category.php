@@ -8,7 +8,7 @@ class Category extends Model {
 
     //
     protected $table = 'product_categories';
-protected $fillable = [
+    protected $fillable = [
         'title', 'status', 'parent_category_id', 'seller_id', 'created_at', 'updated_at'
     ];
     public function children() {
