@@ -266,6 +266,7 @@ class SellerController extends Controller {
 
     public function getBestSellerCategories($id) {
         $data = \App\SellerProduct::where('seller_id', $id)->with('products')->get();
+        
         if ($data) {
             $myArray = array();
             foreach ($data as $row) {
@@ -276,6 +277,15 @@ class SellerController extends Controller {
             }
         }
 //        dd($myArray);        
+        
+        
+        $data = \App\Category::get();
+        if ($data) {
+            $myArray2 = array();
+            foreach ($data as $row) {
+                $myArray2[] = $row['title'];
+            }
+        }
         return Response()->json($myArray2);
     }
 
