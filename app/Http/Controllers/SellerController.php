@@ -271,9 +271,12 @@ class SellerController extends Controller {
             foreach ($data as $row) {
                 $myArray[$row['products'][0]['parent_category']] = $row['products'][0]['parent_category'];
             }
+            foreach($myArray as $row){
+                $myArray2[] = $row;
+            }
         }
 //        dd($myArray);        
-        return Response()->json($myArray);
+        return Response()->json($myArray2);
     }
 
     public function businessLicenses(Request $request) {
