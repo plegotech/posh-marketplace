@@ -34,6 +34,7 @@
                                     <span class="form-label">Sub-Category</span>
                                 </div>
                                 <div class="form-outline-ft mb-5">
+                                    <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.brand" class="form-control-label select-custom-point">
                                         <option v-for="brand in brands"
                                         :value="brand">{{ brand }}</option>
