@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         
         //DB::enableQueryLog();
-        //dd($request->all());
+//        dd($request->all());
         extract($request->all());
         
         //echo $min_price;
@@ -70,6 +70,10 @@ class ProductController extends Controller
              $products->where('parent_category', 'LIKE', '%'.$category.'%');
          }
 
+         if(isset($parent_category) && $parent_category != "0") {
+             //$products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
+             $products = $products->where('parent_category', $parent_category);
+         }
          if(isset($sub_category) && $sub_category != "0") {
              //$products->where('sub_category', 'LIKE', '%'.$sub_category.'%');
              $products = $products->where('sub_category', $sub_category);
