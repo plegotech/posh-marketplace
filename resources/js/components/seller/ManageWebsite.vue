@@ -24,12 +24,6 @@
                                         <h1>Products</h1>
                                     </a>
                                 </div>
-                                <div class="col-sm-3">
-                                    <a class="box-selection">
-                                        <img src="/img/price-tag.png" alt="">
-                                        <h1>Promotion Deals</h1>
-                                    </a>
-                                </div>
                             </div>
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-4">

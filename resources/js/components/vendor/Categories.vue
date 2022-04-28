@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid pending-vend">
         <div class="row mt-12">
-            <div class="col-sm-12 addcat">
+            <div class="col-sm-12 addcat" v-if="this.catlist.length>=10 ? 'disabled' : ''">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">
                         <div class="col-sm-3">
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-sm-3">     
                             <div>
-                                    <button class="primary" @click="saveCategories">SAVE</button>
+                                    <button class="primary"  @click="saveCategories">SAVE</button>
                             </div>
                         </div>
                     </div>
