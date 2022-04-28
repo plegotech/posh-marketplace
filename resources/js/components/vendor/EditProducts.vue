@@ -26,6 +26,15 @@
                                     <span class="form-label">Category</span>
                                 </div>
                                 <div class="form-outline-ft mb-5">
+                                    <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
+                                    <select v-model="product.parent_category" @change="updateSubCategories()" class="parentCategory form-control-label select-custom-point">
+                                        <option v-for="(category, index) in this.catlist"
+                                                :value="category.id">{{ category.title }}</option>
+                                    </select>
+                                    <span class="form-label">Category</span>
+                                </div>
+
+                                <div class="form-outline-ft mb-5">
                                     <select class="form-control-label select-custom-point">
                                         <option>Apple</option>
                                         <option>Electronic</option>

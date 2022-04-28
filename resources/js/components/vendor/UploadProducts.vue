@@ -131,7 +131,7 @@ export default {
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
-imagesArray: [],
+                imagesArray: [],
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
