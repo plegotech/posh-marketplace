@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid pending-vend">
         <div class="row mt-12">
-            <div class="col-sm-12 addcat" v-if="this.catlist.length>=10 ? 'disabled' : ''">
+            <div class="col-sm-12 addcat">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">
                         <div class="col-sm-3">
@@ -19,7 +19,7 @@
                                     
                                     <select class="form-control-label select-custom-point" v-model="parent">
                                         <option value="0">No Parent</option>
-                                        <option v-for="(category, index) in this.catlist"
+                                        <option v-for="(category, index) in this.catlist_ddl"
                                                 :value="category.id">{{ category.title }}</option>
                                     </select>
                                     <span class="form-label">Category Parent</span>
@@ -53,7 +53,7 @@
                             <thead>
                                 <tr>
                                 <th>ID</th>
-                                <th>Thumbnail</th>
+                                
                                 <th>Categories</th>
                                 <th>Sub Categories</th>
                                 <th>Type</th>
@@ -66,9 +66,7 @@
                                 <td>
                                     {{ order.id }}
                                 </td>
-                                <td>
-                                    {{ order.img }}
-                                </td>
+                                
                                 <td>
                                     {{ order.title }}
                                 </td>
@@ -80,7 +78,7 @@
                                     
                                 </td>
                                 <td>
-                                    {{ order.parent_category_id ? "Sub Category" : "Main Category"}}
+                                    {{ order.parent_category_id ? "-" : "MAIN"}}
                                 </td>
                                 <td>
                                     {{ order.created_at }}
@@ -120,19 +118,41 @@ export default {
     data(){
         return {
             cat_id:0,
+            catlist_ddl:[],
             catlist:[],
             name:null,
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
+            catlist_ddl_limit:false
         }
     },
     mounted(){
+        this.loadParentCategories();
         this.loadCategories();
+        
     },
     methods:{
         changeThumb(e){
             this.thumb= e.target.files[0];
+        },
+        async loadParentCategories(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories");
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.catlist_ddl = obj.data;
+              console.warn((await result).data.length);
+              if((await result).data.length<10){
+                console.warn("Inside");
+                this.catlist_ddl_limit=true
+              }
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
         },
         async loadCategories(){
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -169,6 +189,10 @@ export default {
                 .then(function (res) {
                     console.log(res);
                     var data = res.data;
+                    this.cat_id=0
+                    this.name=null
+                    this.thumb=null
+                    this.parent=null
                     if (data.success == 'true') {
                         alert('Category created successfully.');
                         object.clearForm();

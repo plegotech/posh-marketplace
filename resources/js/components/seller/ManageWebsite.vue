@@ -7,16 +7,10 @@
                         <div class="top-newOrder">
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-4">
-                                    <router-link class="box-selection" :to="{ name: 'seller-headerfooter'}">
-                                        <img src="/img/mail-account.png" alt="">
-                                        <h1>Headers & Footers</h1>
-                                    </router-link>
-                                </div>
-                                <div class="col-sm-4">
-                                    <a class="box-selection">
+                                    <router-link class="box-selection" :to="{ name: 'seller-managepages'}">
                                         <img src="/img/choose-page.png" alt="">
                                         <h1>Manage Pages</h1>
-                                    </a>
+                                    </router-link>
                                 </div>
                                 <div class="col-sm-4">
                                     <a class="box-selection">
@@ -24,21 +18,6 @@
                                         <h1>Products</h1>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-4">
-                                    <router-link class="box-selection" :to="{ name: 'seller-sliders'}">
-                                        <img src="/img/mail-account.png" alt="">
-                                        <h1>Slider Section</h1>
-                                    </router-link>
-                                </div>
-                                <div class="col-sm-4">
-                                    <router-link class="box-selection" :to="{ name: 'seller-categoryimages'}">
-                                        <img src="/img/mail-account.png" alt="">
-                                        <h1>Category thumbnails</h1>
-                                    </router-link>
-                                </div>
-                                
                                 <div class="col-sm-4">
                                     <router-link class="box-selection" :to="{ name: 'seller-promotion'}">
                                         <img src="/img/price-tag.png" alt="">
