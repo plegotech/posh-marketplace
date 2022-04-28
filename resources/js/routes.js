@@ -34,6 +34,7 @@ import SellerOrders from './components/seller/MyOrders';
 import Categories from './components/vendor/Categories';
 import Headerfooter from './components/seller/Headerfooter';
 import Categoryimages from './components/seller/ManageCategoriesImages';
+import ManagePages from './components/seller/ManagePages';
 
 import VendorProductsSeller from  './components/seller/VendorProducts';
 import SellerBilling from  './components/seller/Billing';
@@ -88,6 +89,7 @@ export default {
             { name: 'seller-manage-website', meta: { title: 'Manage Website' }, path: '/seller/manage-website', component: SellerManageWebsite },
             { name: 'seller-sales', meta: { title: 'Sales' }, path: '/seller/sales', component: SellerSales },
             { name: 'seller-categoryimages', meta: { title: 'Category Images' }, path: '/seller/Categoryimages', component: Categoryimages },
+            { name: 'seller-managepages', meta: { title: 'Manage Pages' }, path: '/seller/ManagePages', component: ManagePages },
             { name: 'seller-sliders', meta: { title: 'Sliders' }, path: '/seller/Sliders', component: Sliders },
             { name: 'seller-promotion', meta: { title: 'Promotion' }, path: '/seller/Promotion', component: Promotion },
             { name: 'seller-aboutus', meta: { title: 'AboutUs' }, path: '/seller/AboutUs', component: AboutUs },
