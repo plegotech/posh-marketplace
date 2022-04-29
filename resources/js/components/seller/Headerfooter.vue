@@ -117,7 +117,6 @@
                                     <label class="form-label">Instagram Link</label>                                    
                                 </div>
                                 </div>
-
                                 </div>
                                 </div>
                                  <div class="col-sm-6">
