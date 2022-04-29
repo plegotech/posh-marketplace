@@ -106,18 +106,15 @@
                                 <br>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.social_links.social_link1" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Facebook Link</label>
-                                    
+                                    <label class="form-label">Facebook Link</label>                                    
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.social_links.social_link2" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Twitter Link</label>
-                                    
+                                    <label class="form-label">Twitter Link</label>                                    
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.social_links.social_link3" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Instagram Link</label>
-                                    
+                                    <label class="form-label">Instagram Link</label>                                    
                                 </div>
                                 </div>
 

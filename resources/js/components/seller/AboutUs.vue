@@ -9,7 +9,7 @@
 <h3>About US:</h3>
 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="about_us" class="form-control-label" required>
+                                    <textarea type="text" v-model="about_us" class="form-control-label" required></textarea>
                                     <label class="form-label">About US</label>
                                     
                                 </div>
