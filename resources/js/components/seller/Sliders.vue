@@ -5,12 +5,50 @@
         <div class="row" style="margin-top:20px">
                     <div class="col-sm-12">
                         <div class="top-newOrder">
+                            <div class="row justify-content-center">
+                            <div class="col-sm-12"><h3 class="mb-5">Slider Images</h3></div>
+                            
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                             <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                             <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Image 3 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                        </div>
+
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-12">
                                     <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
+                                        <!-- <div class="upload-title-vup">
                                             <p>Slider Images</p>
-                                        </div>
+                                        </div> -->
                                         <div class="upload-image-vup">
                                             <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
                                             <input type="file" multiple ref="file1" style="display: none" name="slider_images" @change="sliderImages" />

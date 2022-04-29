@@ -2999,3 +2999,32 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     width: 100%;
     margin: 0 !important;
 }
+.upload-site-logo {
+    width: 100%;
+    border: 2px dashed #938989;
+    background: #efefef;
+}
+.upload-site-logo p {
+    text-align: center;
+    margin-top: 1rem;
+}
+span.sl-remove-logo {
+    float: right;
+    cursor: pointer;
+}
+hr.sep-line-full {
+    border-color: #dddddd;
+    width: 100%;
+}
+img.rl-icon {
+    height: 20px;
+    width: 20px;
+    margin-top: 9px;
+}
+.upload-site-logo img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}

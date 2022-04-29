@@ -4,99 +4,106 @@
             <div class="col-sm-12">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">
+                         <div class="col-sm-6">
+                            <div class="up-main-bx-1">
+                                <h3>Main Menu:</h3>
+                                <br>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full">
+                                </div>
+                                <!-- <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                 <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>  
+                                    <hr class="sep-line-full">                                  
+                                </div> -->
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full">   
+                                </div>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full"> 
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                            <div class="up-main-bx-1">
+                                <h3>Company:</h3>
+                                <br>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.company_links.company_link1" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.company_links.company_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full"> 
+                                </div>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.company_links.company_link2" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.company_links.company_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full"> 
+                                </div>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.company_links.company_link3" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.company_links.company_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">Title & Link</label>  
+                                    <hr class="sep-line-full">                                   
+                                </div>
+                                </div>
+                                </div>
                         <div class="col-sm-6">
                             <div class="up-main-bx-1">
                                 <h3>Shop Information:</h3>
                                 <br>
-                                <div class="form-outline-ft mb-5">
+                                <div class="form-outline-ft mb-3">
                                     <input type="text" v-model="headerfooter.site_name" class="form-control-label" required>
                                     <label class="form-label">Shop Name</label>
                                 </div>
-                                
+                                <div class="form-outline-ft mb-5 ">
+                                    <p class="sl-title">Site Logo <span class="sl-remove-logo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <div class="upload-site-logo">
+                                    <input type="file" ref="file" style="display: none" name="logo" @change="changeLogo" />
+                                      <img src="/img/no-image-available.png">
+                                      </div>
+                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
+                                    <!-- <label class="form-label">Logo</label>           -->
+                                </div>
                                 <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.site_address" class="form-control-label" required>
+                                    <textarea type="text" v-model="headerfooter.site_address" class="form-control-label" required></textarea>
                                     <label class="form-label">Address</label>          
                                 </div>
-                                <div class="form-outline-ft mb-5">
 
-                                    <input type="file" ref="file" style="display: none" name="logo" @change="changeLogo" />
-                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
-
-
-                                    <label class="form-label">Logo</label>          
-                                </div>
-                                <h3>Main Menu:</h3>
+                                <div class="">
+                                    <h3>Social:</h3>
                                 <br>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.main_menu_links.main_menu_link4_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <h3>Company:</h3>
-                                <br>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.company_links.company_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.company_links.company_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.company_links.company_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.company_links.company_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>                                    
-                                </div>
-</div>
-</div>
-
-<div class="col-sm-6"><div class="up-main-bx-1">
-
-<h3>Discover:</h3>
-<br>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link1" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link2" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link3" class="form-control-label" required>
-                                    <input type="text" v-model="headerfooter.discover_links.discover_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
-                                    <label class="form-label">Title & Link</label>
-                                    
-                                </div>
-<h3>Social:</h3>
-<br>
                                 <div class="form-outline-ft mb-5">
                                     <input type="text" v-model="headerfooter.social_links.social_link1" placeholder="http://facebook.com" class="form-control-label" required>
                                     <label class="form-label">Facebook Link</label>
@@ -112,7 +119,40 @@
                                     <label class="form-label">Instagram Link</label>
                                     
                                 </div>
+                                </div>
 
+                                </div>
+                                </div>
+                                 <div class="col-sm-6">
+                            <div class="up-main-bx-1">
+                                <h3>Discover:</h3>
+                                <br>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link1" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link1_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full">   
+                                </div>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link2" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link2_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                    <hr class="sep-line-full">  
+                                </div>
+                                <div class="form-outline-ft mb-4">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link3" class="form-control-label" required>
+                                    <label class="form-label">Title</label>                                    
+                                </div>
+                                <div class="form-outline-ft mb-5">
+                                    <input type="text" v-model="headerfooter.discover_links.discover_link3_url" placeholder="http://facebook.com" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
                                 <div>
                                     <button @click="addinfo" class="primary">SAVE</button>
                                 </div>

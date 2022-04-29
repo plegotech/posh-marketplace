@@ -5,6 +5,69 @@
         <div class="row" style="margin-top:20px">
                     <div class="col-sm-12">
                         <div class="top-newOrder">
+                            <div class="row justify-content-center">
+
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">New Arrivals <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Hot Categories <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Hot Items Gaming <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Electronics Deal <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+                            <div class="col-sm-4 mb-5">
+                                <p class="sl-title mb-4">Home & Kitchen <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <div class="form-outline-ft mb-3">
+                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <label class="form-label">URL</label>
+                                </div>
+                                <div class="upload-site-logo">
+                                    <img src="/img/no-image-available.png">
+                                </div>
+                                <button class="img-title-up" >Upload Images</button>
+                            </div>
+
+
+                            </div>
+
+
+
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-6">
                                     <div class="uploadimage-vup">
