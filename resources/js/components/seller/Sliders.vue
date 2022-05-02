@@ -11,55 +11,44 @@
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link1" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file1" style="display: none" @change="sliderImages1" />
+                                <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                             </div>
                              <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link2" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file2" style="display: none" @change="sliderImages2" />
+                                <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
                             </div>
                              <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Image 3 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link3" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file3" style="display: none" @change="sliderImages3" />
+                                <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
+
                             </div>
                         </div>
 
                             <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-12">
-                                    <div class="uploadimage-vup">
-                                        <!-- <div class="upload-title-vup">
-                                            <p>Slider Images</p>
-                                        </div> -->
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" multiple ref="file1" style="display: none" name="slider_images" @change="sliderImages" />
-                                            <button class="img-title-up" @click="$refs.file1.click()">Upload Images</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
                                     <button @click="addinfo" class="primary">SAVE</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,15 +62,27 @@ export default {
     data() {
         return {
             user:this.$store.state.auth.user,
-            slider_images:        '',
+            slider_images_1:        '',
+            slider_images_2:        '',
+            slider_images_3:        '',
+            link1:        '',
+            link2:        '',
+            link3:        '',
+            
         }
     },
     mounted() {
         console.log('Component mounted.')
     },
     methods:{
-        sliderImages(e) {
-            this.slider_images= e.target.files;
+        sliderImages1(e) {
+            this.slider_images_1= e.target.files[0];
+        },        
+        sliderImages2(e) {
+            this.slider_images_2= e.target.files[0];
+        },        
+        sliderImages3(e) {
+            this.slider_images_3= e.target.files[0];
         },        
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -97,11 +98,13 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
-            data.append('sliders', this.slider_images.length);
+            data.append('link1', this.link1)
+            data.append('link2', this.link2)
+            data.append('link3', this.link3)
 
-            for (const i of Object.keys(this.slider_images)) {
-                data.append('slider_images_'+i, this.slider_images[i])
-            }
+            data.append('slider_images_1', this.slider_images_1);
+            data.append('slider_images_2', this.slider_images_2);
+            data.append('slider_images_3', this.slider_images_3);
 
             axios.post('/createsliders', data, config)
                 .then(function (res) {
