@@ -14,7 +14,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.images_new)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file1" style="display: none" name="images_new" @change="changeNew" />
                                 <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
@@ -26,7 +32,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.images_cat)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file2" style="display: none" name="images_cat" @change="changeCat" />
                                 <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
@@ -38,7 +50,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.images_hot)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file3" style="display: none" name="images_hot" @change="changeHot" />
                                 <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
@@ -50,7 +68,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.images_elec)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file4" style="display: none" name="images_elec" @change="changeElec" />
                                 <button class="img-title-up" @click="$refs.file4.click()">Upload Image</button>
@@ -63,7 +87,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.images_home)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file5" style="display: none" name="images_home" @change="changeHome" />
                                 <button class="img-title-up" @click="$refs.file5.click()">Upload Image</button>
@@ -97,13 +127,34 @@ link_home:null,
 link_hot:null,
             images_new:'',
 link_new:null,
-
+img_url: "https://posh-marketplace.plego.pro/img/product-images/",
         }
     },
     mounted() {
         console.log('Component mounted.')
+this.getSlidersPromotionsCategoryImages()
     },
     methods : {
+        async getSlidersPromotionsCategoryImages() {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/api/seller/homepage/"+this.user.id);
+            console.log((await result).data);
+            this.list_homepage = (await result).data
+
+            this.images_cat = (await result).data.CatImages.images_cat.image;
+            this.images_elec = (await result).data.CatImages.images_elec.image;
+            this.images_hot = (await result).data.CatImages.images_hot.image;
+            this.images_new = (await result).data.CatImages.images_new.image;
+            this.images_home = (await result).data.CatImages.images_home.image;
+
+            this.link_cat = (await result).data.CatImages.images_cat.link;
+            this.link_elec = (await result).data.CatImages.images_elec.link;
+            this.link_hot = (await result).data.CatImages.images_hot.link;
+            this.link_new = (await result).data.CatImages.images_new.link;
+            this.link_home = (await result).data.CatImages.images_home.link;
+document.getElementById('ajaxLoader').style.display = 'none';
+        },
+
         changeCat(e){
             this.images_cat = e.target.files[0]
         },
@@ -167,7 +218,11 @@ link_new:null,
                 });
 
 
-        }
+        },
+        getImgUrll(pet) {
+          return this.img_url + "/" + this.user.id + "/" + pet;
+        },
+
     },
     
 }

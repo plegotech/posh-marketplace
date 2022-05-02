@@ -16,7 +16,14 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img src="/img/no-image-available.png" style="width: 100%;">
+                                        <img
+                                          :src="getImgUrll(this.pro_images_top1)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
+
                                     </div>
                                     <input type="file" ref="file1" style="display: none" @change="proImages1" />
                                     <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
@@ -28,7 +35,13 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img src="/img/no-image-available.png" style="width: 100%;">
+                                        <img
+                                          :src="getImgUrll(this.pro_images_top2)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                     </div>
                                     <input type="file" ref="file2" style="display: none" @change="proImages2" />
                                     <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
@@ -43,7 +56,14 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.pro_images_bot1)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
+
                                     </div>
                                     <input type="file" ref="file3" style="display: none" @change="proImages3" />
                                     <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
@@ -55,7 +75,13 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.pro_images_bot2)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                     </div>
                                     <input type="file" ref="file4" style="display: none" @change="proImages4" />
                                     <button class="img-title-up" @click="$refs.file4.click()">Upload Image</button>
@@ -87,12 +113,32 @@ export default {
             pro_images_bot1:        '',
             link4:        '',
             pro_images_bot2:        '',
+img_url: "https://posh-marketplace.plego.pro/img/product-images/",
         }
     },
     mounted() {
         console.log('Component mounted.')
+        this.getSlidersPromotionsCategoryImages()
     },
     methods:{
+        async getSlidersPromotionsCategoryImages() {
+document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/api/seller/homepage/"+this.user.id);
+            console.log((await result).data);
+
+            this.link1 = (await result).data.Sliders.promotion.top1.link
+            this.link2 = (await result).data.Sliders.promotion.top2.link
+            this.link3 = (await result).data.Sliders.promotion.bot1.link
+            this.link4 = (await result).data.Sliders.promotion.bot2.link
+
+            this.pro_images_top1 = (await result).data.Sliders.promotion.top1.image
+            this.pro_images_top2 = (await result).data.Sliders.promotion.top2.image
+            this.pro_images_bot1 = (await result).data.Sliders.promotion.bot1.image
+            this.pro_images_bot2 = (await result).data.Sliders.promotion.bot2.image
+
+            console.log(this.list_homepage);
+document.getElementById('ajaxLoader').style.display = 'none';
+        },
         proImages1(e) {
             this.pro_images_top1= e.target.files[0];
         },        
@@ -148,7 +194,11 @@ export default {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
 
-        }
+        },
+        getImgUrll(pet) {
+          return this.img_url + "/" + this.user.id + "/" + pet;
+        },
+
     }
 }
 </script>
