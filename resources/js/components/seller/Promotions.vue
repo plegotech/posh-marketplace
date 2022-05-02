@@ -12,24 +12,26 @@
                                 <div class="col-sm-6 mb-5">
                                     <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
-                                        <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                        <input type="text" placeholder="Image URL" v-model="link1" class="form-control-label" required>
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
                                         <img src="/img/no-image-available.png" style="width: 100%;">
                                     </div>
-                                    <button class="img-title-up" >Upload Images</button>
+                                    <input type="file" ref="file1" style="display: none" @change="proImages1" />
+                                    <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                                 </div>
                                 <div class="col-sm-6 mb-5">
                                     <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
-                                        <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                        <input type="text" placeholder="Image URL" v-model="link2" class="form-control-label" required>
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
                                         <img src="/img/no-image-available.png" style="width: 100%;">
                                     </div>
-                                    <button class="img-title-up" >Upload Images</button>
+                                    <input type="file" ref="file2" style="display: none" @change="proImages2" />
+                                    <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
                                 </div>
                             </div>
                             <div class="row justify-content-center"> 
@@ -37,42 +39,31 @@
                                 <div class="col-sm-6 mb-5">
                                     <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
-                                        <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                        <input type="text" placeholder="Image URL" v-model="link3" class="form-control-label" required>
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
                                         <img src="/img/no-image-available.png">
                                     </div>
-                                    <button class="img-title-up" >Upload Images</button>
+                                    <input type="file" ref="file3" style="display: none" @change="proImages3" />
+                                    <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
                                 </div>
                                 <div class="col-sm-6 mb-5">
                                     <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
-                                        <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                        <input type="text" placeholder="Image URL" v-model="link4" class="form-control-label" required>
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
                                         <img src="/img/no-image-available.png">
                                     </div>
-                                    <button class="img-title-up" >Upload Images</button>
+                                    <input type="file" ref="file4" style="display: none" @change="proImages4" />
+                                    <button class="img-title-up" @click="$refs.file4.click()">Upload Image</button>
                                 </div>
                             </div>
 
                             <div class="row justify-content-center mix-boxmw">
                                 <div class="col-sm-12">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Promotional Images</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" multiple ref="file2" style="display: none" name="pro_images" @change="proImages" />
-                                            <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
                                     <button @click="addinfo" class="primary">SAVE</button>
                                 </div>
                             </div>
@@ -88,15 +79,31 @@ export default {
     data() {
         return {
             user:this.$store.state.auth.user,
-            pro_images:        '',
+            link1:        '',
+            pro_images_top1:        '',
+            link2:        '',
+            pro_images_top2:        '',
+            link3:        '',
+            pro_images_bot1:        '',
+            link4:        '',
+            pro_images_bot2:        '',
         }
     },
     mounted() {
         console.log('Component mounted.')
     },
     methods:{
-        proImages(e) {
-            this.pro_images= e.target.files;
+        proImages1(e) {
+            this.pro_images_top1= e.target.files[0];
+        },        
+        proImages2(e) {
+            this.pro_images_top2= e.target.files[0];
+        },        
+        proImages3(e) {
+            this.pro_images_bot1= e.target.files[0];
+        },        
+        proImages4(e) {
+            this.pro_images_bot2= e.target.files[0];
         },        
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -112,11 +119,16 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
-            data.append('promotion', this.pro_images.length);
 
-            for (const i of Object.keys(this.pro_images)) {
-                data.append('pro_images_'+i, this.pro_images[i])
-            }
+            data.append('link1', this.link1)
+            data.append('link2', this.link2)
+            data.append('link3', this.link3)
+            data.append('link4', this.link4)
+
+            data.append('pro_images_top1', this.pro_images_top1);
+            data.append('pro_images_top2', this.pro_images_top2);
+            data.append('pro_images_bot1', this.pro_images_bot1);
+            data.append('pro_images_bot2', this.pro_images_bot2);
 
             axios.post('/createpromotions', data, config)
                 .then(function (res) {

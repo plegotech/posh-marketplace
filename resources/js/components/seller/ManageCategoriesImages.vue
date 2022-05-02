@@ -10,133 +10,70 @@
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">New Arrivals <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link_new" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file1" style="display: none" name="images_new" @change="changeNew" />
+                                <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Hot Categories <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link_cat" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file2" style="display: none" name="images_cat" @change="changeCat" />
+                                <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Hot Items Gaming <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link_hot" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file3" style="display: none" name="images_hot" @change="changeHot" />
+                                <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Electronics Deal <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL" v-model="link_elec" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file4" style="display: none" name="images_elec" @change="changeElec" />
+                                <button class="img-title-up" @click="$refs.file4.click()">Upload Image</button>
+
                             </div>
                             <div class="col-sm-4 mb-5">
                                 <p class="sl-title mb-4">Home & Kitchen <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
-                                    <input type="text" placeholder="Image URL" class="form-control-label" required>
+                                    <input type="text" placeholder="Image URL"  v-model="link_home" class="form-control-label" required>
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
                                     <img src="/img/no-image-available.png">
                                 </div>
-                                <button class="img-title-up" >Upload Images</button>
+                                <input type="file" ref="file5" style="display: none" name="images_home" @change="changeHome" />
+                                <button class="img-title-up" @click="$refs.file5.click()">Upload Image</button>
                             </div>
-
-
-                            </div>
-
-
-
-                            <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-6">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>New Arrivals</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" ref="file1" style="display: none" name="images_new" @change="changeNew" />
-                                            <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Hot Categories</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" ref="file2" style="display: none" name="images_cat" @change="changeCat" />
-                                            <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row justify-content-center mix-boxmw">
-                                <div class="col-sm-4">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Hot Items Gaming</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" ref="file3" style="display: none" name="images_hot" @change="changeHot" />
-                                            <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Electronics Deal</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" ref="file4" style="display: none" name="images_elec" @change="changeElec" />
-                                            <button class="img-title-up" @click="$refs.file4.click()">Upload Image</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="uploadimage-vup">
-                                        <div class="upload-title-vup">
-                                            <p>Home & Kitchen</p>
-                                        </div>
-                                        <div class="upload-image-vup">
-                                            <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
-                                            <input type="file" ref="file5" style="display: none" name="images_home" @change="changeHome" />
-                                            <button class="img-title-up" @click="$refs.file5.click()">Upload Image</button>
-                                        </div>
-                                    </div>
+                                <div class="col-sm-12">
+                                    <button @click="addImages" class="primary">SAVE</button>
                                 </div>
                             </div>
-<div class="row justify-content-center mix-boxmw">
-                            <div class="col-sm-12">
-                                <button @click="addImages" class="primary">SAVE</button>
-                            </div>
-</div>
                         </div>
                     </div>
                 </div>
@@ -149,11 +86,18 @@ export default {
     data(){
         return {
             user:this.$store.state.auth.user,
+
             images_cat:'',
+link_cat:null,
             images_elec:'',
+link_elec:null,
             images_home:'',
+link_home:null,
             images_hot:'',
+link_hot:null,
             images_new:'',
+link_new:null,
+
         }
     },
     mounted() {
@@ -190,6 +134,13 @@ export default {
 
             let data = new FormData();
             data.append('seller_id', this.user.id);
+
+            data.append('link_home', this.link_home);
+            data.append('link_elec', this.link_elec);
+            data.append('link_cat', this.link_cat);
+            data.append('link_new', this.link_new);
+            data.append('link_hot', this.link_hot);
+
             data.append('home', this.images_home);
             data.append('elec', this.images_elec);
             data.append('cat', this.images_cat);
