@@ -99,40 +99,49 @@ class SellerController extends Controller {
     public function createSliders(Request $request) {
         $data = $request->all();
         extract($data);
-        $dataM = array('s1' => '', 's2' => '', 's3' => '');
         if ($request->file('slider_images_1')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_1')->move($destination, $photo);
-            $dataM['s1'] = $photo;
+            $dataM[0] = array('image'=>$photo,'link'=>$link1);
             unset($data['slider_images_1']);
         }
         if ($request->file('slider_images_2')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_2')->move($destination, $photo);
-            $dataM['s2'] = $photo;
+            $dataM[1] = array('image'=>$photo,'link'=>$link2);
             unset($data['slider_images_2']);
         }
         if ($request->file('slider_images_3')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_3')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_3')->move($destination, $photo);
-            $dataM['s3'] = $photo;
+            $dataM[2] = array('image'=>$photo,'link'=>$link2);
             unset($data['slider_images_3']);
         }
-        $data['sliders'] = json_encode(array(
-            array('link' => $link1, 'image' => $dataM['s1']),
-            array('link' => $link2, 'image' => $dataM['s2']),
-            array('link' => $link3, 'image' => $dataM['s3'])
-                )
-        );
+        $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
+        if($existingdata){
+            $Sliders = json_decode($existingdata->sliders);
+            if(!isset($dataM[0])){
+                $dataM[0]=$Sliders[0];
+            } 
+            if(!isset($dataM[1])){
+                $dataM[1]=$Sliders[1];
+            } 
+            if(!isset($dataM[2])){
+                $dataM[2]=$Sliders[2];
+            }
+        }
+        $data['sliders'] = json_encode(array($dataM));
 
         $createArray = array(
             'seller_id' => $seller_id,
             'sliders' => $data['sliders']
         );
-        if (SellerWebsite::where("seller_id", $seller_id)->count()) {
+        if ($existingdata) {
+            $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
+            
             $data = SellerWebsite::where("seller_id", $seller_id)->update($createArray);
         } else {
             $data = SellerWebsite::create($createArray);
@@ -182,38 +191,56 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('pro_images_top1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top1')->move($destination, $photo);
-            $dataM['t1'] = $photo;
+            
+            $dataM[0] = array('image'=>$photo,'link'=>$link1);
             unset($data['pro_images_top1']);
         }
         if ($request->file('pro_images_top2')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_top2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top2')->move($destination, $photo);
-            $dataM['t2'] = $photo;
+            $dataM[1] = array('image'=>$photo,'link'=>$link2);
             unset($data['pro_images_top2']);
         }
         if ($request->file('pro_images_bot1')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot1')->move($destination, $photo);
-            $dataM['b1'] = $photo;
+            $dataM[2] = array('image'=>$photo,'link'=>$link3);
             unset($data['pro_images_bot1']);
         }
         if ($request->file('pro_images_bot2')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot2')->move($destination, $photo);
-            $dataM['b2'] = $photo;
+            $dataM[3] = array('image'=>$photo,'link'=>$link4);
             unset($data['pro_images_bot2']);
         }
+        $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
+        if($existingdata){
+            $Promotion = json_decode($existingdata->promotion);
+            if($Promotion){
+                if(!isset($dataM[0])){
+                    $dataM[0]=$Promotion[0];
+                } 
+                if(!isset($dataM[1])){
+                    $dataM[1]=$Promotion[1];
+                } 
+                if(!isset($dataM[2])){
+                    $dataM[2]=$Promotion[2];
+                }
+                if(!isset($dataM[3])){
+                    $dataM[3]=$Promotion[3];
+                }
+            }
+        }
         $data['promotion'] = json_encode(array(
-            'top1' => array('link' => $link1, 'image' => $dataM['t1']),
-            'top2' => array('link' => $link2, 'image' => $dataM['t2']),
-            'bot1' => array('link' => $link3, 'image' => $dataM['b1']),
-            'bot2' => array('link' => $link4, 'image' => $dataM['b2'])
+            'top1' => $dataM[0],
+            'top2' => $dataM[1],
+            'bot1' => $dataM[2],
+            'bot2' => $dataM[3]
                 )
         );
-
         $createArray = array(
             'seller_id' => $seller_id,
             'promotion' => $data['promotion']
