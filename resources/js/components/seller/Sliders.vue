@@ -15,7 +15,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.slider_images_1)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file1" style="display: none" @change="sliderImages1" />
                                 <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
@@ -27,7 +33,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.slider_images_2)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file2" style="display: none" @change="sliderImages2" />
                                 <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
@@ -39,7 +51,13 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                    <img src="/img/no-image-available.png">
+                                        <img
+                                          :src="getImgUrll(this.slider_images_3)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " style="width: 100%;"
+                                        />
                                 </div>
                                 <input type="file" ref="file3" style="display: none" @change="sliderImages3" />
                                 <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
@@ -73,8 +91,27 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
+this.getSlidersPromotionsCategoryImages()
     },
     methods:{
+        async getSlidersPromotionsCategoryImages() {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/api/seller/homepage/"+this.user.id);
+            console.log((await result).data);
+
+            this.link1 = (await result).data.Sliders.sliders[0].link
+            this.link2 = (await result).data.Sliders.sliders[1].link
+            this.link3 = (await result).data.Sliders.sliders[2].link
+
+            this.slider_images_1 = (await result).data.Sliders.sliders[0].image
+            this.slider_images_2 = (await result).data.Sliders.sliders[1].image
+            this.slider_images_3 = (await result).data.Sliders.sliders[2].image
+
+            console.log(this.list_homepage);
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+
+
         sliderImages1(e) {
             this.slider_images_1= e.target.files[0];
         },        
@@ -124,7 +161,11 @@ export default {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
 
-        }
+        },
+        getImgUrll(pet) {
+          return this.img_url + "/" + this.user.id + "/" + pet;
+        },
+
     }
 }
 </script>
