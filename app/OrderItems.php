@@ -18,7 +18,7 @@ class OrderItems extends Model
 
     public function getAllOrders($per_page, $search, $category, $sub_category)
     {
-        $orders = $this->select('products.id as product_id', 'products.name as product_name', 'products.brand',
+        $orders = $this->select('products.id as product_id', 'product_categories.title', 'products.name as product_name', 'products.brand',
             'products.net_price', 'products.featured_image',
             'seller.first_name as seller_first_name', 'seller.last_name as seller_last_name', 'vendor.first_name as vendor_first_name',
             'vendor.last_name as vendor_last_name',
@@ -35,15 +35,18 @@ class OrderItems extends Model
             });
         }
 
-        if(strlen($category) > 1) {
-            $orders = $orders->where('products.parent_category', 'LIKE', '%' . strtolower($category) . '%');
-        }
+//        if(strlen($category) > 1) {
+//            $orders = $orders->where('product_categories.title', 'LIKE', '%' . $category . '%');
+//        }
 
         if(strlen($sub_category) > 1) {
-            $orders = $orders->where('products.sub_category', 'LIKE', '%' . strtolower($sub_category) . '%');
+            $orders = $orders->where('product_categories.title', 'LIKE', '%' . $sub_category . '%');
         }
 
         $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id')
+            ->leftJoin('product_categories', function ($join) {
+                $join->on('product_categories.id', '=', 'products.sub_category');
+            })
             ->join('orders', 'orders.id', '=', 'order_items.order_id')
             ->join('users AS customer', 'customer.id', '=', 'orders.user_id')
             ->join('users AS seller', 'seller.id', '=', 'order_items.seller_id')
