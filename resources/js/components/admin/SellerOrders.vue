@@ -74,7 +74,7 @@
                                     <span>{{ order.product_name }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ order.created_at }}</span>
+                                    <span>{{ order.order_date }}</span>
                                 </td>
                                 <td>
                                     <span>{{ order.quantity }}</span>

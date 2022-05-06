@@ -21,7 +21,9 @@ class OrderItems extends Model
         $orders = $this->select('products.id as product_id', 'products.name as product_name', 'products.brand',
             'products.net_price', 'products.featured_image',
             'seller.first_name as seller_first_name', 'seller.last_name as seller_last_name', 'vendor.first_name as vendor_first_name',
-            'vendor.last_name as vendor_last_name', 'order_items.created_at', 'order_items.quantity', 'order_items.progress',
+            'vendor.last_name as vendor_last_name',
+            DB::raw("DATE_FORMAT(order_items.created_at, '%b %d, %Y %h:%i %p') AS 'order_date'"),
+            'order_items.quantity', 'order_items.progress',
             DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'), 'orders.shipping_address',
             'order_items.id as order_item_id', 'orders.id as order_id', 'orders.user_id', 'customer.first_name as customer_first_name',
             'customer.last_name as customer_last_name');
