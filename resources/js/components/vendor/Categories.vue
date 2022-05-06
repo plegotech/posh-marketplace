@@ -184,15 +184,13 @@ export default {
             data.append('title', this.name);
             data.append('img', this.thumb);
             data.append('parent_category_id', this.parent);
-
+                    this.cat_id=0;
+                    this.name=null;
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
                     var data = res.data;
-                    this.cat_id=0
-                    this.name=null
-                    this.thumb=null
-                    this.parent=null
+
                     if (data.success == 'true') {
                         alert('Category created successfully.');
                         object.clearForm();
