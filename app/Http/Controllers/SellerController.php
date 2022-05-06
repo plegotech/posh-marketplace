@@ -340,7 +340,8 @@ class SellerController extends Controller {
 //        dd($myArray);        
 
 
-        $data = \App\Category::get();
+        
+        $data = \App\Category::where('parent_category_id','>','0')->get();
         if ($data) {
             $myArray2 = array();
             foreach ($data as $row) {
