@@ -345,7 +345,7 @@ class SellerController extends Controller {
         ->join('seller_products as sp','sp.product_id','=','p.id')
         ->where("sp.seller_id",$id)
         ->select(DB::raw("p.featured_image, p.vendor_id, pc.*"))
-        ->groupBy("p.id")
+        ->groupBy("p.sub_category")
         ->get();
 //        dd($ReportData);
 
