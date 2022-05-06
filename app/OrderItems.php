@@ -34,11 +34,11 @@ class OrderItems extends Model
         }
 
         if(strlen($category) > 1) {
-            $orders = $orders->where('products.parent_category', $category);
+            $orders = $orders->where('products.parent_category', 'LIKE', '%' . strtolower($category) . '%');
         }
 
         if(strlen($sub_category) > 1) {
-            $orders = $orders->where('products.sub_category', $sub_category);
+            $orders = $orders->where('products.sub_category', 'LIKE', '%' . strtolower($sub_category) . '%');
         }
 
         $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id')
