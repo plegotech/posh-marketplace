@@ -91,23 +91,22 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
-this.getSliders()
+this.getSlidersPromotionsCategoryImages()
     },
     methods:{
-        async getSliders() {
+        async getSlidersPromotionsCategoryImages() {
             document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
 
-            if((await result).data.Sliders !=null){
-            this.link1 = (await result).data.Sliders.link1
-            this.link2 = (await result).data.Sliders.link2
-            this.link3 = (await result).data.Sliders.link3
+            this.link1 = (await result).data.Sliders.sliders[0].link
+            this.link2 = (await result).data.Sliders.sliders[1].link
+            this.link3 = (await result).data.Sliders.sliders[2].link
 
-            this.slider_images_1 = (await result).data.Sliders.image1
-            this.slider_images_2 = (await result).data.Sliders.image2
-            this.slider_images_3 = (await result).data.Sliders.image3
-            }
+            this.slider_images_1 = (await result).data.Sliders.sliders[0].image
+            this.slider_images_2 = (await result).data.Sliders.sliders[1].image
+            this.slider_images_3 = (await result).data.Sliders.sliders[2].image
+
             console.log(this.list_homepage);
             document.getElementById('ajaxLoader').style.display = 'none';
         },

@@ -118,27 +118,26 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
     },
     mounted() {
         console.log('Component mounted.')
-        this.getPromotions()
+        this.getSlidersPromotionsCategoryImages()
     },
     methods:{
-        async getPromotions() {
-            document.getElementById('ajaxLoader').style.display = 'block';
+        async getSlidersPromotionsCategoryImages() {
+document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
-            if((await result).data.Promotions!=null){
-                this.link1 = (await result).data.Promotions.link1
-                this.link2 = (await result).data.Promotions.link2
-                this.link3 = (await result).data.Promotions.link3
-                this.link4 = (await result).data.Promotions.link4
 
-                this.pro_images_top1 = (await result).Promotions.image1
-                this.pro_images_top2 = (await result).Promotions.image2
-                this.pro_images_bot1 = (await result).Promotions.image3
-                this.pro_images_bot2 = (await result).Promotions.image4
+            this.link1 = (await result).data.Sliders.promotion.top1.link
+            this.link2 = (await result).data.Sliders.promotion.top2.link
+            this.link3 = (await result).data.Sliders.promotion.bot1.link
+            this.link4 = (await result).data.Sliders.promotion.bot2.link
 
-                console.log(this.list_homepage);
-            }
-            document.getElementById('ajaxLoader').style.display = 'none';
+            this.pro_images_top1 = (await result).data.Sliders.promotion.top1.image
+            this.pro_images_top2 = (await result).data.Sliders.promotion.top2.image
+            this.pro_images_bot1 = (await result).data.Sliders.promotion.bot1.image
+            this.pro_images_bot2 = (await result).data.Sliders.promotion.bot2.image
+
+            console.log(this.list_homepage);
+document.getElementById('ajaxLoader').style.display = 'none';
         },
         proImages1(e) {
             this.pro_images_top1= e.target.files[0];
