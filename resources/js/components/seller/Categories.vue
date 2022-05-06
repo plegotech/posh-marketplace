@@ -81,6 +81,7 @@ export default {
                 .then(function (res) {
                     console.log(res);
                     var data = res.data;
+                    
                     if (data.success == 'true') {
                         alert('Category created successfully.');
                         object.clearForm();
