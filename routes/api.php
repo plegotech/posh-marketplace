@@ -87,6 +87,7 @@ Route::get('/products/{user?}/{orderBy?}/{order?}/{search?}/{status?}/{category?
 
 Route::get('/allproducts', 'ProductController@fetchall');
 Route::get('/categories', 'CategoryController@fetch');
+Route::get('/categorieslimited', 'CategoryController@fetchWithLimit');
 Route::get('/headerfooter/{id}', 'SellerController@fetchHeaderFooter');
 Route::get('/filters', 'ProductsMetaController@fetch');
 

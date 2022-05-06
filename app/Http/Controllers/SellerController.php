@@ -326,29 +326,37 @@ class SellerController extends Controller {
     }
 
     public function getBestSellerCategories($id) {
-        $data = \App\SellerProduct::where('seller_id', $id)->with('products')->get();
-
-        if ($data) {
-            $myArray = array();
-            foreach ($data as $row) {
-                $myArray[$row['products'][0]['parent_category']] = $row['products'][0]['parent_category'];
-            }
-            foreach ($myArray as $row) {
-                $myArray2[] = $row;
-            }
-        }
+//        $data = \App\SellerProduct::where('seller_id', $id)->with('products')->get();
+//
+//        if ($data) {
+//            $myArray = array();
+//            foreach ($data as $row) {
+//                $myArray[$row['products'][0]['parent_category']] = $row['products'][0]['parent_category'];
+//            }
+//            foreach ($myArray as $row) {
+//                $myArray2[] = $row;
+//            }
+//        }
 //        dd($myArray);        
 
 
-        
-        $data = \App\Category::where('parent_category_id','>','0')->get();
-        if ($data) {
-            $myArray2 = array();
-            foreach ($data as $row) {
-                $myArray2[] = $row['title'];
-            }
-        }
-        return Response()->json($myArray2);
+        $data = DB::table("product_categories as pc")
+        ->join('products as p','p.sub_category','=','pc.id')
+        ->join('seller_products as sp','sp.product_id','=','p.id')
+        ->where("sp.seller_id",$id)
+        ->select(DB::raw("p.featured_image, p.vendor_id, pc.*"))
+        ->groupBy("p.id")
+        ->get();
+//        dd($ReportData);
+
+//        $data = \App\Category::where('parent_category_id','>','0')->get();
+//        if ($data) {
+//            $myArray2 = array();
+//            foreach ($data as $row) {
+//                $myArray2[] = $row['title'];
+//            }
+//        }
+        return Response()->json($data);
     }
 
     public function businessLicenses(Request $request) {
