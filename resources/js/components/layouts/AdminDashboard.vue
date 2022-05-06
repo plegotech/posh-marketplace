@@ -60,30 +60,14 @@
                                 <span class="nav-label">Manage Users</span>
                             </router-link>
                         </li>
-                        <li class="sub-menu">
-                            <a href="#">
-                                <i class="sb-menu-icon orders"></i>
-                                <span class="nav-label">Orders <i><img class="arrow"
-                                                                       src="/img/menu-icons/arrow-down.png"
-                                                                       alt=""></i> </span>
-                                <ul>
-                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
-                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                        <router-link to="/admin/seller-orders">
-                                            Seller Orders
-                                        </router-link>
-                                    </li>
-                                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
-                                        aria-controls="navbarTogglerSidebar" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                        <router-link to="/admin/vendor-orders">
-                                            Vendors Orders
-                                        </router-link>
-                                    </li>
-                                </ul>
-                            </a>
+                        <li data-toggle="collapse" data-target="#navbarTogglerSidebar"
+                            aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                            <router-link to="/admin/orders">
+                                <i class="sb-menu-icon manage-users"></i>
+                                <span class="nav-label">Orders</span>
+                            </router-link>
                         </li>
+
                         <li class="sub-menu">
                             <a href="#">
                                 <i class="sb-menu-icon reports"></i>
