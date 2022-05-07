@@ -22,9 +22,9 @@
                         <div class="col-sm-6 offset-sm-2">
                             <div class="row justify-content-end">
                                 <div class="w-auto col-6">
-                                    <select class="parentCategory select-custom-point"
+                                    <select v-model="category" class="parentCategory select-custom-point"
                                             @change="updateSubCategories()">
-                                        <option value="sdas" selected>Category</option>
+                                        <option value="0" selected>Category</option>
                                         <option v-for="(category, index) in parent_categories"
                                                 :value="index">
                                             {{ index }}
@@ -32,9 +32,9 @@
                                     </select>
                                 </div>
                                 <div class="w-auto col-6">
-                                    <select class="subCategory select-custom-point"
+                                    <select v-model="sub_category" class="subCategory select-custom-point"
                                             @change="fetch()">
-                                        <option value="" selected>Sub Category</option>
+                                        <option value="0" selected>Sub Category</option>
                                         <option v-for="(category, index) in sub_categories"
                                                 :value="category">
                                             {{ category }}
@@ -74,7 +74,7 @@
                                     <span>{{ order.product_name }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ order.created_at }}</span>
+                                    <span>{{ order.order_date }}</span>
                                 </td>
                                 <td>
                                     <span>{{ order.quantity }}</span>

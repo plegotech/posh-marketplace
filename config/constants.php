@@ -3,7 +3,7 @@
 return [
     'users' => array('user', 'seller', 'vendor', 'admin'), // Never change the order,
     'categories' => array(
-        'Computers' => array(
+        'Computer' => array(
             'Dell'
         ),
         'Electronic Devices' => array(

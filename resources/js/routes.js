@@ -70,6 +70,7 @@ export default {
             { meta: { title: 'Pending Vendor Signups' }, path: '/admin/pending-vendor-signups', component: AdminPendingVendorSignups },
             { meta: { title: 'Pending Seller Signups' }, path: '/admin/pending-seller-signups', component: AdminPendingSellerSignups },
             { meta: { title: 'Manage Users' }, path: '/admin/manage-users', component: AdminManageUsers },
+            { meta: { title: 'Orders' }, path: '/admin/orders', component: AdminSellerOrders },
             { meta: { title: 'Seller Orders' }, path: '/admin/seller-orders', component: AdminSellerOrders },
             { meta: { title: 'Vendor Orders' }, path: '/admin/vendor-orders', component: AdminVendorOrders },
             { meta: { title: 'Payment Details' }, path: '/admin/payment-details', component: AdminPaymentDetails },
