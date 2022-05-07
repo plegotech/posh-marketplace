@@ -103,11 +103,22 @@ this.getSliders()
             this.link2 = (await result).data.Sliders.link2
             this.link3 = (await result).data.Sliders.link3
 
+<<<<<<< HEAD
             this.slider_images_1 = (await result).data.Sliders.image1
             this.slider_images_2 = (await result).data.Sliders.image2
             this.slider_images_3 = (await result).data.Sliders.image3
             }
+=======
+            if((await result).data.Sliders !=null){
+            this.link1 = (await result).data.Sliders.link1
+            this.link2 = (await result).data.Sliders.link2
+            this.link3 = (await result).data.Sliders.link3
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
 
+            this.slider_images_1 = (await result).data.Sliders.image1
+            this.slider_images_2 = (await result).data.Sliders.image2
+            this.slider_images_3 = (await result).data.Sliders.image3
+            }
             console.log(this.list_homepage);
             document.getElementById('ajaxLoader').style.display = 'none';
         },

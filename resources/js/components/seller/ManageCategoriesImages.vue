@@ -147,6 +147,7 @@ this.getSlidersPromotionsCategoryImages()
             this.images_hot = (await result).data.CatImages.images_hot;
             this.images_new = (await result).data.CatImages.images_new;
             this.images_home = (await result).data.CatImages.images_home;
+<<<<<<< HEAD
 
             this.link_cat = (await result).data.CatImages.link_cat;
             this.link_elec = (await result).data.CatImages.link_elec;
@@ -155,6 +156,15 @@ this.getSlidersPromotionsCategoryImages()
             this.link_home = (await result).data.CatImages.link_home;
 }
 
+=======
+
+            this.link_cat = (await result).data.CatImages.link_cat;
+            this.link_elec = (await result).data.CatImages.link_elec;
+            this.link_hot = (await result).data.CatImages.link_hot;
+            this.link_new = (await result).data.CatImages.link_new;
+            this.link_home = (await result).data.CatImages.link_home;
+}
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
 document.getElementById('ajaxLoader').style.display = 'none';
         },
 

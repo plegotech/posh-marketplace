@@ -46,6 +46,21 @@ class SellerController extends Controller
             "images_cat" => ""
         );
 
+<<<<<<< HEAD
+=======
+        $updateArray=array(
+            "seller_id"=>$seller_id,
+            "link_home"=>$link_home,
+            "images_home"=>"",
+            "link_elec"=>$link_elec,
+            "images_elec"=>"",
+            "link_hot"=>$link_hot,
+            "images_hot"=>"",
+            "link_new"=>$link_new,
+            "images_new"=>"",
+            "link_cat"=>$link_cat,
+            "images_cat"=>"");
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
         if ($request->file('home')) {
             $photo = rand(5000, 9999) . $request->file('home')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
@@ -91,6 +106,7 @@ class SellerController extends Controller
             $request->file('cat')->move($destination, $photo);
             unset($data['cat']);
             $updateArray['images_cat'] = $photo;
+<<<<<<< HEAD
         } else {
             unset($updateArray['images_cat']);
         }
@@ -110,6 +126,25 @@ class SellerController extends Controller
     public function getSellerHomepage($id)
     {
         
+=======
+        } else {
+            unset($updateArray['images_cat']);
+        }
+//        dd($data);
+        if (\App\SellerHomepage::where("seller_id", $seller_id)->count()) {
+            $resp = \App\SellerHomepage::where("seller_id", $seller_id)->update($updateArray);
+        } else {
+            $resp = \App\SellerHomepage::create($updateArray);
+        }
+        if ($resp) {
+            return Response()->json(array("success"=>true));
+        } else {
+            return Response()->json(array("success"=>true));
+        }
+    }
+
+    public function getSellerHomepage($id) {
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
         $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
         $Sliders = \App\Sliders::where("seller_id", $id)->first();
         $Promotions = \App\Promotions::where("seller_id", $id)->first();
@@ -120,13 +155,22 @@ class SellerController extends Controller
     {
         $data = $request->all();
         extract($data);
+<<<<<<< HEAD
         $updateArray = array("seller_id" => $seller_id, "link1" => $link1, "image1" => "", "link2" => $link2, "image2" => "", "link3" => $link3, "image3" => "");
 
+=======
+
+        $updateArray = array("seller_id" => $seller_id, "link1" => $link1, "image1" => "", "link2" => $link2, "image2" => "", "link3" => $link3, "image3" => "");
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
         if ($request->file('slider_images_1')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_1')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray["image1"] = $photo;
+=======
+            $updateArray["image1"]=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['slider_images_1']);
         } else {
             unset($updateArray["image1"]);
@@ -135,7 +179,11 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('slider_images_2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_2')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray["image2"] = $photo;
+=======
+            $updateArray["image2"]=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['slider_images_2']);
         } else {
             unset($updateArray["image2"]);
@@ -144,7 +192,11 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('slider_images_3')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_3')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray["image3"] = $photo;
+=======
+            $updateArray["image3"]=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['slider_images_3']);
         } else {
             unset($updateArray["image3"]);
@@ -156,9 +208,15 @@ class SellerController extends Controller
             $data = \App\Sliders::create($updateArray);
         }
         if ($data) {
+<<<<<<< HEAD
             return Response()->json(array("success" => true));
         } else {
             return Response()->json(array("success" => false));
+=======
+            return Response()->json(array("success"=>true));
+        } else {
+            return Response()->json(array("success"=>false));
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
         }
     }
 
@@ -197,7 +255,12 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('pro_images_top1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top1')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray['image1'] = $photo;
+=======
+
+            $updateArray['image1']=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['pro_images_top1']);
         } else {
             unset($updateArray['image1']);
@@ -206,7 +269,11 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('pro_images_top2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top2')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray['image2'] = $photo;
+=======
+            $updateArray['image2']=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['pro_images_top2']);
         } else {
             unset($updateArray['image2']);
@@ -215,7 +282,11 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('pro_images_bot1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot1')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray['image3'] = $photo;
+=======
+            $updateArray['image3']=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['pro_images_bot1']);
         } else {
             unset($updateArray['image3']);
@@ -224,7 +295,11 @@ class SellerController extends Controller
             $photo = rand(5000, 9999) . $request->file('pro_images_bot2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot2')->move($destination, $photo);
+<<<<<<< HEAD
             $updateArray['image4'] = $photo;
+=======
+            $updateArray['image4']=$photo;
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
             unset($data['pro_images_bot2']);
         } else {
             unset($updateArray['image4']);
@@ -328,6 +403,7 @@ class SellerController extends Controller
 
 
         $data = DB::table("product_categories as pc")
+<<<<<<< HEAD
             ->join('products as p', 'p.sub_category', '=', 'pc.id')
             ->join('seller_products as sp', 'sp.product_id', '=', 'p.id')
             ->where("sp.seller_id", $id)
@@ -335,6 +411,22 @@ class SellerController extends Controller
             ->groupBy("p.sub_category")
             ->get();
 
+=======
+                ->join('products as p', 'p.sub_category', '=', 'pc.id')
+                ->join('seller_products as sp', 'sp.product_id', '=', 'p.id')
+                ->where("sp.seller_id", $id)
+                ->select(DB::raw("p.id,p.featured_image, p.vendor_id, pc.*"))
+                ->groupBy("p.sub_category")
+                ->get();
+//        dd($ReportData);
+//        $data = \App\Category::where('parent_category_id','>','0')->get();
+//        if ($data) {
+//            $myArray2 = array();
+//            foreach ($data as $row) {
+//                $myArray2[] = $row['title'];
+//            }
+//        }
+>>>>>>> 7e7aa67 (Revert "Revert "Updated Bugs"")
         return Response()->json($data);
     }
 
