@@ -99,7 +99,7 @@ this.getSliders()
             document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
-            if((await result).data.Sliders !=null){
+            if((await result).data.Slider !=null){
                 this.link1 = (await result).data.Sliders.link1
                 this.link2 = (await result).data.Sliders.link2
                 this.link3 = (await result).data.Sliders.link3

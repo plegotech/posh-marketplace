@@ -106,18 +106,17 @@ class SellerController extends Controller {
     }
     public function getSellerHomepage($id) {
         $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
-        $Sliders = \App\Sliders::where("seller_id", $id)->first();
+        $SlidersForBackend = \App\Sliders::where("seller_id", $id)->first();
         
         if($Sliders){
-            
-            $MyArray[0]=array("link"=>$Sliders->link1,"image"=>$Sliders->image1);
-            $MyArray[1]=array("link"=>$Sliders->link2,"image"=>$Sliders->image2);
-            $MyArray[2]=array("link"=>$Sliders->link3,"image"=>$Sliders->image3);
+            $MyArray[0]=array("link"=>$SlidersForBackend->link1,"image"=>$SlidersForBackend->image1);
+            $MyArray[1]=array("link"=>$SlidersForBackend->link2,"image"=>$SlidersForBackend->image2);
+            $MyArray[2]=array("link"=>$SlidersForBackend->link3,"image"=>$SlidersForBackend->image3);
         }
-        $Sliders=$MyArray;
+        $SlidersForTemp=$MyArray;
         
         $Promotions = \App\Promotions::where("seller_id", $id)->first();
-        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $Sliders, "Promotions" => $Promotions));
+        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $SlidersForTemp,"Slider" => $SlidersForBackend, "Promotions" => $Promotions));
     }
 
     public function createSliders(Request $request) {
