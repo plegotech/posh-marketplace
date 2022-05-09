@@ -99,10 +99,23 @@ class SellerController extends Controller {
             return Response()->json(array("success"=>true));
         }
     }
-
+    public function getCatTitle($id){
+        $data = \App\Category::where("id", $id)->first();
+        
+        return Response()->json($data);
+    }
     public function getSellerHomepage($id) {
         $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
         $Sliders = \App\Sliders::where("seller_id", $id)->first();
+        
+        if($Sliders){
+            
+            $MyArray[0]=array("link"=>$Sliders->link1,"image"=>$Sliders->image1);
+            $MyArray[1]=array("link"=>$Sliders->link2,"image"=>$Sliders->image2);
+            $MyArray[2]=array("link"=>$Sliders->link3,"image"=>$Sliders->image3);
+        }
+        $Sliders=$MyArray;
+        
         $Promotions = \App\Promotions::where("seller_id", $id)->first();
         return Response()->json(array("CatImages" => $CatImages, "Sliders" => $Sliders, "Promotions" => $Promotions));
     }
