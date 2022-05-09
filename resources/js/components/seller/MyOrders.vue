@@ -16,38 +16,19 @@
                                          alt="">
                                 </div>
                             </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
-                                    <option value="" selected>Choose Year</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-2">
-                                <select class="mt-0">
-                                    <option value="" selected>Choose Month</option>
-                                    <option value="Janruary">Janruary</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
-                                </select>
-                            </div>
+
+                            <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
                         </div>
                         <hr>
                         <!-- start: TABLE -->
+                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
                             <thead>
-                                    class="sort-ad">Recipient <img class="shuffle"
+                                <tr>
+                                <th @click="fetch(0, 0, 'id')" class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img
+                                    class="shuffle"
+                                    src="/img/shuffle.png"></span>
+                                </th>
+                                <th @click="fetch(0, 0, 'first_name')" class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle"
                                                                    src="/img/shuffle.png"></span>
                                 </th>
                                 <th @click="fetch(0, 0, 'ordered_at')" class="shuffle-bx" scope="col"><span
@@ -62,6 +43,7 @@
                             <tr v-for="order in orders">
                                 <td>
                                     <span>{{ order.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ order.first_name }} {{ order.last_name }} </span>
@@ -93,10 +75,10 @@
                                             </span></div>
                             <div class="right">
                                 <span>{{ from }}-{{ to }} of {{ total }} Items</span>
-                                <img
+                                <img v-if="from > 1"
                                     src="/img/prev-arrow.png" @click="fetch(current_page-1)"
                                     alt="" class="prev-itm">
-                                <img
+                                <img v-if="to < total"
                                     src="/img/next-arrow.png" @click="fetch(current_page+1)"
                                     alt="" class="next-itm"></div>
                         </div>
@@ -112,8 +94,12 @@
 </template>
 
 <script>
+import DateFilter from '../DateFilter'
 
 export default {
+    components: {
+        DateFilter
+    },
     data() {
         return {
             user: this.$store.state.auth.user,
@@ -121,6 +107,9 @@ export default {
             search: 0,
             per_page: 0,
             order: 'asc',
+            date_range:     null,
+            year:           '',
+            month:          '',
             order_by: 0,
             to: null,
             from: null,
@@ -174,6 +163,20 @@ export default {
 
             url += '/0';
 
+            this.date_range = '';
+
+            if (this.year && this.year != 'null') {
+                this.date_range = this.year;
+            }
+
+            if (this.month && this.month != 'null') {
+                this.date_range += '-' + this.month + '-';
+            }
+
+            if (this.date_range) {
+                url += '/' + this.date_range;
+            }
+
             if (page > 0) {
                 url += '?page=' + page;
             }
@@ -188,7 +191,7 @@ export default {
                     if (res.total < res.per_page) {
                         this.from = 0;
                     }
-                    this.current_page = res.to / res.per_page;
+                    this.current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(function () {

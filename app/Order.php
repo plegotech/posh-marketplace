@@ -9,10 +9,10 @@ class Order extends Model
 {
     protected   $table          = 'orders';
     protected   $primaryKey     = 'id';
-    public      $timestamps     = false;
+    public      $timestamps     = true;
 
     protected $fillable = [
-        'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_methods',
+        'user_id', 'status', 'shipping_address', 'shipping_method', 'payment_method',
         'notes', 'created_at', 'updated_at'
     ];
 
@@ -31,12 +31,17 @@ class Order extends Model
     }
 
 
-    public function getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status)
+    public function getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status, $date)
     {   // Oct 01, 2021 09:58 PM
         $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
             'users.first_name', 'users.last_name','products.vendor_id', 'order_items.quantity',
             'order_items.status as item_status', 'order_items.progress',
             DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
+
+
+        $orders = $orders->join('order_items', 'order_items.order_id', '=', 'orders.id');
+        $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id');
+        $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
 
         if(strlen($search) > 1) {
             $orders = $orders->where(function ($orders) use($search) {
@@ -57,11 +62,11 @@ class Order extends Model
             }
         }
 
-        $orders = $orders->where('products.vendor_id', $vendor);
+        if(strlen($date) > 1) {
+            $orders = $orders->where('order_items.created_at', 'LIKE', '%'.$date.'%');
+        }
 
-        $orders = $orders->join('order_items', 'order_items.order_id', '=', 'orders.id');
-        $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id');
-        $orders = $orders->join('users', 'users.id', '=', 'orders.user_id');
+        $orders = $orders->where('products.vendor_id', $vendor);
 
         $orders = $orders->orderBy($order_by, $order)
             ->groupBy('order_items.id');
@@ -77,8 +82,7 @@ class Order extends Model
         return $orders;
     }
 
-
-    public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status)
+    public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status, $date)
     {   // Oct 01, 2021 09:58 PM
         $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
             'users.first_name', 'users.last_name','products.vendor_id', 'order_items.quantity',
@@ -102,6 +106,10 @@ class Order extends Model
             } else {
                 $orders = $orders->where('order_items.status', $status);
             }
+        }
+
+        if(strlen($date) > 1) {
+            $orders = $orders->where('order_items.created_at', 'LIKE', '%'.$date.'%');
         }
 
         $orders = $orders->where('order_items.seller_id', $seller);

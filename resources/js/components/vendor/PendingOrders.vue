@@ -7,7 +7,7 @@
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-lg-8 col-12">
                                 <div class="search-box mb-4">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
@@ -16,89 +16,71 @@
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
                                 </div>
-                                <div class="float-right row">
-                                    <div class="col mb-4">
-                                        <select class="mt-0 select-custom-point">
-                                            <option value="" selected>Choose Year</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2017">2017</option>
-                                        </select>
-                                    </div>
-                                <div class="col mb-4">
-                                    <select class="mt-0 select-custom-point">
-                                        <option value="" selected>Choose Month</option>
-                                        <option value="Janruary">Janruary</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="August">August</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
-                                    </select>
-                                </div>
                             </div>
+                            
+                            <div class="col-lg-4 col-12">
+                                <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>                        
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                        <!-- start: TABLE -->
-                        <div class="pendingOrder-bx">
-                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
-                            <thead>
-                            <tr>
-                                <th class="shuffle-bx" scope="col"><span
-                                    @click="fetch(0, 0, 'id')" class="sort-ad">Order Id <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
-                                </th>
-                                <th class="shuffle-bx" scope="col"><span
-                                    @click="fetch(0, 0, 'first_name')"
-                                    class="sort-ad">Recipient <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
-                                </th>
-                                <th class="shuffle-bx" scope="col"><span
-                                    @click="fetch(0, 0, 'ordered_at')" class="sort-ad">Order Date <img
-                                    class="shuffle"
-                                    src="/img/shuffle.png"></span>
-                                </th>
-                                <th scope="col">Shipping Address</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="order in orders" v-bind="order.id">
-                                <td>
-                                    <span>{{ order.id }}</span>
-                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>{{ order.first_name }} {{ order.last_name }}</span>
-                                </td>
-                                <td>
-                                    <span>{{ order.ordered_at }}</span>
-                                </td>
-                                <td>
-                                    <span>{{ order.shipping_address }}</span>
-                                </td>
-                                <td>
-                                    <button @click="updateOrderStatus(order.id, 'rejected')">Reject</button>
-                                    <button @click="updateOrderStatus(order.id, 'approved')">Accept</button>
-                                    <button>View</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                        </div>
+                                <!-- start: TABLE -->
+                                <div class="pendingOrder-bx">
+                                    <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
+                                        <thead>
+                                        <tr>
+                                            <th class="shuffle-bx" scope="col"><span
+                                                @click="fetch(0, 0, 'id')" class="sort-ad">Order Id <img
+                                                class="shuffle"
+                                                src="/img/shuffle.png"></span>
+                                            </th>
+                                            <th class="shuffle-bx" scope="col"><span
+                                                @click="fetch(0, 0, 'first_name')"
+                                                class="sort-ad">Recipient <img
+                                                class="shuffle"
+                                                src="/img/shuffle.png"></span>
+                                            </th>
+                                            <th class="shuffle-bx" scope="col"><span
+                                                @click="fetch(0, 0, 'ordered_at')" class="sort-ad">Order Date <img
+                                                class="shuffle"
+                                                src="/img/shuffle.png"></span>
+                                            </th>
+                                            <th scope="col">Shipping Address</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="order in orders" v-bind="order.id">
+                                            <td>
+                                                <span>{{ order.id }}</span>
+                                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.first_name }} {{ order.last_name }}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.ordered_at }}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ order.shipping_address }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown cst-slct">
+                                                <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <li @click="updateOrderStatus(order.id, 'approved')" class="edit-mob">Accept</li>
+                                                    <li @click="updateOrderStatus(order.id, 'rejected')" class="inactive-mob">Reject</li>
+                                                    <li class="inactive-mob">View</li>
+                                                </ul>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                         <div class="foot-table" v-if="total < 1">
                             <p>No results found.</p>
@@ -127,27 +109,33 @@
                     <!-- END::: FIRST TAB CONTENT -->
                 </div>
             </div>
-
-
         </div>
     </div>
 </template>
 
 <script>
 
+import DateFilter from '../DateFilter'
+
 export default {
+    components: {
+        DateFilter
+    },
     data() {
         return {
-            orders: [],
-            search: 0,
-            per_page: 0,
-            order: 'asc',
-            order_by: 0,
-            to: null,
-            from: null,
-            total: null,
-            current_page: null,
-            user: this.$store.state.auth.user,
+            orders:         [],
+            date_range:     null,
+            year:           '',
+            month:          '',
+            search:         0,
+            per_page:       0,
+            order:          'asc',
+            order_by:       0,
+            to:             null,
+            from:           null,
+            total:          null,
+            current_page:   null,
+            user:           this.$store.state.auth.user,
         }
     },
     created() {
@@ -156,7 +144,8 @@ export default {
     methods: {
         fetch(page = 0, per_page = 0, order_by = 0, search = 0) {
             document.getElementById('ajaxLoader').style.display = 'block';
-            var url = '/api/orders/vendor/'+ this.user.id;
+
+            var url = '/api/orders/vendor/' + this.user.id;
 
             if (per_page > 0 || this.per_page > 0) {
                 if (per_page > 0) {
@@ -196,6 +185,20 @@ export default {
 
             url += '/pending';
 
+            this.date_range = '';
+
+            if (this.year && this.year != 'null') {
+                this.date_range = this.year;
+            }
+
+            if (this.month && this.month != 'null') {
+                this.date_range += '-' + this.month + '-';
+            }
+
+            if (this.date_range) {
+                url += '/' + this.date_range;
+            }
+
             if (page > 0) {
                 url += '?page=' + page;
             }
@@ -218,7 +221,7 @@ export default {
                 });
         },
 
-        searchVendorPendingOrders: function (e) {
+        searchObjects: function (e) {
             if (e.keyCode === 13) {
                 var element = e.target;
                 var type = element.getAttribute('data-type');
@@ -226,22 +229,26 @@ export default {
             }
         },
 
-        removeVendorPendingOrderSearch: function () {
-            document.getElementsByClassName('vendorPendingOrderSearch')[0].value = '';
+        removeSearch: function () {
+            document.getElementsByClassName('search_BX')[0].value = '';
             this.search = 0;
             this.fetch();
         },
 
         updateOrderStatus(id, status) {
+            document.getElementById('ajaxLoader').style.display = 'block';
             var object = this;
             var url = '/api/orders/vendor-change-status/' + this.user.id + '/' + id + '/' + status;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     alert(data);
-                    object.fetch();
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
+                .finally(function () {
+                    object.fetch();
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });;
         }
     }
 }

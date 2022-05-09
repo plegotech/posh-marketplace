@@ -1,39 +1,60 @@
 <template>
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker placeholder="From" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="first_date" :value="first_date"
+                                @closed="basicStatistics()" placeholder="From"
+                                class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="datepicker-d">
-                    <datepicker placeholder="To" class="datepicker hasDatepicker"></datepicker>
+                    <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()"
+                                placeholder="To" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2 mt-4">
-                    <select>
-                        <option disabled value="" selected>Current Year</option>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                    </select>
+            <div class="col-sm-2">
+                <select @change="clearFiltration();basicStatistics($event.target.value);" class="mtc-24">
+                    <option value="0" selected>Select time period</option>
+                    <option value="year">Current Year</option>
+                    <option value="quarter">Current Quarter</option>
+                    <option value="month">Current Month</option>
+                </select>
             </div>
-             <div class=" col-sm-4">
-                <button class="secondary float-right  mt-4">CLEAR ALL</button>
-             </div>
+            <div class=" col-sm-4">
+                <button @click="clearFiltration()" class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
+            </div>
         </div>
         <br>
         <div class="row">
             <h1>Analytics</h1>
+            <div class="col-sm-6">
+                <canvas id="barChart"></canvas>
+            <br>
+            </div>
+            <div class="col-sm-6">
+                <canvas id="polarArea"></canvas>
+            <br>
+            </div>
+            <div class="col-sm-6">
+                <canvas id="doughnut"></canvas>
+            <br>
+            </div>
+            <div class="col-sm-6">
+                <canvas id="line_Chart"></canvas>
+            <br>
+            </div>
             <div class="col-sm-4">
                 <div class="box">
                     <div class="left">
                         <img src="/img/Group_106.png" alt="">
                     </div>
-                    <div class="right"><span>Total Gross Sales</span> <h2>$30,250</h2></div>
+                    <div class="right"><span>Total Gross Sales</span>
+                        <h2>${{ gross_sales }}</h2></div>
 
                 </div>
             </div>
@@ -55,7 +76,7 @@
                     </div>
                     <div class="right">
                         <span>Total Orders</span>
-                        <h2>$1'500</h2>
+                        <h2>{{ total_orders }}</h2>
                     </div>
                 </div>
             </div>
@@ -66,19 +87,19 @@
                 <h1 class="pd-0">Members</h1>
                 <div class="box">
                     <div class="left">
-                        <img src="/img/Group_106.png" alt="">
+                        <img src="/img/members-icon.png" alt="">
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Vendors</span>
+                        <h2>{{ total_vendors }}</h2>
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Sellers</span>
+                        <h2>{{ total_sellers }}</h2>
                     </div>
                     <div class="right">
-                        <span>Total Gross Sales</span>
-                        <h2>$30,250</h2>
+                        <span>Total Users</span>
+                        <h2>{{ total_users }}</h2>
                     </div>
                 </div>
             </div>
@@ -87,14 +108,14 @@
                 <div class="box">
                     <div class="right">
                         <span>Vendor Sign Up Requests</span>
-                        <h2>4,050</h2>
+                        <h2>{{ vendor_request }}</h2>
                     </div>
                     <div class="right">
                         <span>Seller Sign Up Requests</span>
-                        <h2>8,050</h2>
+                        <h2>{{ seller_request }}</h2>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -105,31 +126,11 @@
                     <b-tabs content-class="mt-3">
                         <b-tab title="Current Year" active>
                             <!-- START:: CURRENT YEAR CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Phoenix Entertainment NYC</td>
-                                    <td>$1,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Wildly Different</td>
-                                    <td>$432,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Tastling NYC | SoFlo</td>
-                                    <td>$235,450</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$333,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Williamson</td>
-                                    <td>$1,234</td>
-                                </tr>
-                                <tr>
-                                    <td>Extreme Commerce</td>
-                                    <td>$33,350</td>
+                                <tr v-for="category in orders_by_year">
+                                    <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                    <td>${{ category.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -137,31 +138,11 @@
                         </b-tab>
                         <b-tab title="Current Month">
                             <!-- START:: CURRENT MONTH CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Computers</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Beauty &amp; Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital Music</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
+                                <tr v-for="category in orders_by_month">
+                                    <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                    <td>${{ category.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -169,31 +150,11 @@
                         </b-tab>
                         <b-tab title="Current Quarter">
                             <!-- START:: CURRENT QUARTER CONTETN -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Architecture</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store and other</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
+                                <tr v-for="category in orders_by_quarter">
+                                    <td>{{ category.parent_category }} {{ category.sub_category }}</td>
+                                    <td>${{ category.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -209,31 +170,11 @@
                     <b-tabs content-class="mt-3">
                         <b-tab title="Current Year" active>
                             <!-- START:: CURRENT YEAR CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Computers</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Beauty &amp; Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital Music</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
+                                <tr v-for="seller in sellers_by_year">
+                                    <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                    <td>${{ seller.total_sold }}</td>
                                 </tr>
                                 </tbody>
 
@@ -242,31 +183,11 @@
                         </b-tab>
                         <b-tab title="Current Month">
                             <!-- START:: CURRENT MONTH CONTENT -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Phoenix Entertainment NYC</td>
-                                    <td>$1,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Wildly Different</td>
-                                    <td>$432,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Tastling NYC | SoFlo</td>
-                                    <td>$235,450</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store</td>
-                                    <td>$333,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Williamson</td>
-                                    <td>$1,234</td>
-                                </tr>
-                                <tr>
-                                    <td>Extreme Commerce</td>
-                                    <td>$33,350</td>
+                                <tr v-for="seller in sellers_by_month">
+                                    <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                    <td>${{ seller.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -274,31 +195,11 @@
                         </b-tab>
                         <b-tab title="Current Quarter">
                             <!-- START:: CURRENT QUARTER CONTETN -->
-                            <table>
+                            <table class="tabsTable">
                                 <tbody>
-                                <tr>
-                                    <td>Architecture</td>
-                                    <td>$1,000,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Personal Care</td>
-                                    <td>$545,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Digital</td>
-                                    <td>$235,600</td>
-                                </tr>
-                                <tr>
-                                    <td>Kindle Store and other</td>
-                                    <td>$33,460</td>
-                                </tr>
-                                <tr>
-                                    <td>Electronics</td>
-                                    <td>$103,250</td>
-                                </tr>
-                                <tr>
-                                    <td>Home &amp; Kitchen</td>
-                                    <td>$23,350</td>
+                                <tr v-for="seller in sellers_by_quarter">
+                                    <td>{{ seller.first_name }} {{ seller.last_name }}</td>
+                                    <td>${{ seller.total_sold }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -318,48 +219,23 @@
                         <thead>
                         <tr>
                             <th scope="col">Product</th>
-                            <th scope="col">Seller Company</th>
+                            <th scope="col">Brand</th>
                             <th scope="col">Vendor Company</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr v-for="product in top_products">
                             <td>
-                                <img src="/img/nike-shirt.png" alt="">
-                                <span>Nike Shirt</span>
+                                <img :src="'/img/product-images/' + product.user_id + '/' + product.featured_image"
+                                     alt="">
+                                <span>{{ product.name }}</span>
                                 <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>
                             <td>
-                                <span>Fath Textile</span>
+                                <span>{{ product.brand }}</span>
                             </td>
                             <td>
-                                <span>WIldly Different</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/cotton-shirt.png" alt="">
-                                <span>Cotton Shirt</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Fath Textile</span>
-                            </td>
-                            <td>
-                                <span>WIldly Different</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/nike-shoes.png" alt="">
-                                <span>Nike Shoes</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Fath Textile</span>
-                            </td>
-                            <td>
-                                <span>WIldly Different</span>
+                                <span>{{ product.company }}</span>
                             </td>
                         </tr>
                         </tbody>
@@ -370,7 +246,7 @@
         <br>
         <div class="row">
             <h1>
-                New Orders
+                Orders
             </h1>
             <div class="col-sm-12">
 
@@ -379,7 +255,8 @@
                     <table class="table recent-Orders-table mobile-btn-show" id="newOrder_Admin">
                         <thead>
                         <tr>
-                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span></th>
+                            <th scope="col"><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
+                            </th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Seller Name</th>
                             <th scope="col">Vendor Company</th>
@@ -389,139 +266,56 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr v-for="order in recent_orders">
                             <td>
                                 <img src="/img/akn-1250.png" alt="">
-                                <span>AKN 1250</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                <span>{{ order.order_item_id }}</span>
                             </td>
                             <td>
-                                <span>Dell</span>
+                                <span>{{ order.product_name }}</span>
                             </td>
                             <td>
-                                <span>Wildly Different</span>
+                                <span>{{ order.seller_first_name }} {{ order.seller_last_name }}</span>
                             </td>
                             <td>
-                                <span>Dmvit Group</span>
+                                <span>{{ order.vendor_first_name }} {{ order.vendor_last_name }}</span>
                             </td>
                             <td>
-                                <span>06/24/2021</span>
+                                <span>{{ order.created_at }}</span>
                             </td>
                             <td>
-                                <span>240</span>
+                                <span>{{ order.quantitiy }}</span>
                             </td>
                             <td>
-                                <span>$356,346</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/akn-1250-1.png" alt="">
-                                <span>AKN 1250</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Dell</span>
-                            </td>
-                            <td>
-                                <span>Wildly Different</span>
-                            </td>
-                            <td>
-                                <span>Dmvit Group</span>
-                            </td>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>46</span>
-                            </td>
-                            <td>
-                                <span>$33,525</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/akn-1250-2.png" alt="">
-                                <span>AKN 1250</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Dell</span>
-                            </td>
-                            <td>
-                                <span>Wildly Different</span>
-                            </td>
-                            <td>
-                                <span>Dmvit Group</span>
-                            </td>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>240</span>
-                            </td>
-                            <td>
-                                <span>$356,34</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/img/akn-1250-3.png" alt="">
-                                <span>AKN 1250</span>
-                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span>Dell</span>
-                            </td>
-                            <td>
-                                <span>Wildly Different</span>
-                            </td>
-                            <td>
-                                <span>Dmvit Group</span>
-                            </td>
-                            <td>
-                                <span>06/24/2021</span>
-                            </td>
-                            <td>
-                                <span>240</span>
-                            </td>
-                            <td>
-                                <span>$356,346</span>
+                                <span>${{ order.total_sold }}</span>
                             </td>
                         </tr>
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                        </tr>
-                        </tfoot>
                     </table>
                     <div class="foot-table">
                         <div class="left">
                                         <span>Rows Per Page:
-                                            <select>
-                                                <option value="4" selected="">4</option>
-                                                <option value="3">3</option>
-                                                <option value="2">2</option>
-                                                <option value="1">1</option>
+                                            <select
+                                                @change="orders(current_page, $event.target.value)">
+                                                <option value="25" selected="">25</option>
+                                                <option value="50">50</option>
+                                                <option value="75">75</option>
+                                                <option value="100">100</option>
                                             </select>
                                         </span>
                         </div>
                         <div class="right">
-                            <span>1-4 of 20 Items</span>
-                            <img src="/img/prev-arrow.png" class="prev-itm" alt="">
-                            <img src="/img/next-arrow.png" class="next-itm" alt="">
-                        </div>
+                            <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                            <img v-if="from > 1"
+                                 src="/img/prev-arrow.png" @click="orders(current_page-1)"
+                                 alt="" class="prev-itm">
+                            <img v-if="to < total"
+                                 src="/img/next-arrow.png" @click="orders(current_page+1)"
+                                 alt="" class="next-itm"></div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -530,8 +324,249 @@ import datepicker from 'vuejs-datepicker';
 
 export default {
     name: "dashboard",
+    data() {
+        return {
+            total: 0,
+            from: 0,
+            to: 0,
+            current_page: 0,
+            time_period: 0,
+            gross_sales: null,
+            total_orders: null,
+            vendor_request: null,
+            seller_request: null,
+            total_vendors: null,
+            first_date: 0,
+            last_date: 0,
+            total_sellers: null,
+            orders_by_month: [],
+            orders_by_quarter: [],
+            orders_by_year: [],
+            sellers_by_month: [],
+            sellers_by_quarter: [],
+            sellers_by_year: [],
+            top_products: [],
+            recent_orders: [],
+            total_users: null
+        }
+    },
     components: {
         datepicker
+    },
+    created() {
+        this.basicStatistics();
+        this.orders();
+    },
+    methods: {
+        clearFiltration() {
+            this.first_date = 0;
+            this.last_date = 0;
+            this.time_period = 0;
+            this.basicStatistics(0);
+            this.orders(0);
+            this.clearFirstLastDate();
+        },
+        clearFirstLastDate() {
+            let elements = document.getElementsByClassName('vdp-datepicker__clear-button');
+            for(var i = 0; i < elements.length; i++) {
+                let element = elements[i];
+                element.click();
+            }
+        },
+        basicStatistics(time_period = 0) {
+
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/admin/basic-statistics';
+
+            var time_period = time_period;
+
+            if (time_period != 0 || this.time_period != 0) {
+                if (time_period != 0) {
+                    this.time_period = time_period;
+                    this.first_date = 0;
+                    this.last_date = 0;
+                    this.clearFirstLastDate();
+                }
+                url += '/' + this.time_period;
+            } else {
+                url += '/0';
+            }
+
+            if (this.first_date != 0 && this.time_period == 0) {
+                url += '/' + this.first_date;
+            } else {
+                url += '/0';
+            }
+
+            if (this.last_date != 0 && this.time_period == 0) {
+                url += '/' + this.last_date;
+            } else {
+                url += '/0';
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.total_orders = res.total_orders;
+                    this.vendor_request = res.vendor_request;
+                    this.vendor_request = res.vendor_request;
+                    this.seller_request = res.seller_request;
+                    this.total_vendors = res.total_vendors;
+                    this.total_sellers = res.total_sellers;
+                    this.total_users = res.total_users;
+                    this.gross_sales = res.gross_sales;
+                    this.orders_by_year = res.orders_by_year;
+                    this.orders_by_month = res.orders_by_month;
+                    this.orders_by_quarter = res.orders_by_quarter;
+                    this.sellers_by_year = res.sellers_by_year;
+                    this.sellers_by_month = res.sellers_by_month;
+                    this.sellers_by_quarter = res.sellers_by_quarter;
+                    this.top_products = res.top_products;
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        },
+        orders(page = 0, per_page = 0) {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let url = '/api/orders';
+
+            if (per_page > 0 || this.per_page > 0) {
+                if (per_page > 0) {
+                    this.per_page = per_page;
+                }
+                url += '/' + this.per_page;
+            } else {
+                url += '/25';
+            }
+
+            if (page > 0) {
+                url += '?page=' + page;
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.recent_orders = res.data;
+                    this.to = res.to;
+                    this.from = res.from;
+                    this.total = res.total;
+                    if (res.total < res.per_page) {
+                        this.from = 0;
+                    }
+                    this.current_page = res.current_page;
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        }
+    },
+    mounted() {
+        //Line Chart Begins from here!
+        var line_Chart = document.getElementById('line_Chart');
+        Chart.defaults.line.spanGaps = true;
+        var stackedLine = new Chart(line_Chart, {
+            type: 'line',
+            data: {
+                label: ["1", "2", "3", "4", "5", "6", "7"],
+                xAxisID: ['4', '2', '8', '7', '16', '18', '6', '20'],
+                yAxisID: ['4', '2', '8', '7', '16', '18', '6', '20'],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [0, 20],
+                    fill: true,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+                },
+        });
+
+        //Bar Chart Begins from here!
+        var barChart = document.getElementById('barChart');
+        var barChart = new Chart(barChart, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        //Doughnut Begins Here!
+        var doughnut_ctx = document.getElementById('doughnut');
+        var doughnut = new Chart(doughnut_ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [15, 20, 15],
+                    backgroundColor: [
+                        '#0862a3',
+                        '#a30808',
+                        '#08a30d'
+                    ]
+                }],
+                labels: [
+                    'Blue',
+                    'Red',
+                    'Green'
+                ],
+            },
+        });
+
+
+        //PolarArea Chart Begins Here!
+        var polarArea_ctx = document.getElementById('polarArea');
+        var polarArea = new Chart(polarArea_ctx, {
+            type: 'polarArea',
+            data: {
+                datasets: [{
+                    data: [15, 20, 10, 5],
+                    backgroundColor: [
+                        '#d3d06e',
+                        '#6ed3d3',
+                        '#826ed3',
+                        '#d36ec7'
+                    ]
+                }],
+                labels: [
+                    'Yellow',
+                    'Sky Blue',
+                    'Purple',
+                    'Pink'
+                ],
+            },
+        });
     }
 }
 </script>

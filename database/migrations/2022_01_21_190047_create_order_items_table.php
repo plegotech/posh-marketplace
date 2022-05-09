@@ -22,7 +22,7 @@ class CreateOrderItemsTable extends Migration
             $table->timestamp('shipping_date')->nullable();
             $table->timestamp('delivery_date')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->enum('progress', ['received', 'at depot', 'in transit', 'out for delivery', 'delivered'])->default('pending');
+            $table->enum('progress', ['received', 'at depot', 'in transit', 'out for delivery', 'delivered'])->default('received');
             $table->string('vendor_notes')->nullable();
             $table->string('seller_notes')->nullable();
             $table->string('buyer_notes')->nullable();

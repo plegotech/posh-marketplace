@@ -2,32 +2,41 @@
 
     <div class="container-fluid pending-vend seller-vendor-prod">
 
-        <div class="row mt-4" >
+        <div class="row mt-4">
 
             <div class="col-sm-12">
 
                 <div class="top-newOrder payment_Hist">
 
                     <div class="row">
-                        <div class="col-sm-3 mb-4">
+                        <div class="col-sm-3 mb-3">
                             <select class="parentCategory select-custom-point" @change="updateSubCategories()">
                                 <option value="" selected>Category</option>
-                                <option v-for="(category, index) in parent_categories"
-                                        :value="index">
-                                    {{ index }}
+                                <option v-for="(category, index) in this.catlist"
+                                        :value="category.id">
+                                    {{ category.title }}
                                 </option>
                             </select>
                         </div>
-                        <div class="col-sm-3 mb-4">
-                            <select class="subCategory select-custom-point" @change="fetchAllProducts()">
+                        <div class="col-sm-3 mb-3">
+                            <select class="subCategory select-custom-point" @change="loadBrands()">
                                 <option value="" selected>Sub Category</option>
-                                <option v-for="(category, index) in sub_categories"
+                                <option v-for="(category, index) in this.subcatlist"
+                                        :value="category.id">
+                                    {{ category.title }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <select class="brand select-custom-point" @change="fetchAllProducts()">
+                                <option value="" selected>Brands</option>
+                                <option v-for="(category, index) in this.brands"
                                         :value="category">
                                     {{ category }}
                                 </option>
                             </select>
                         </div>
-                        <div class="search-box mb-4 col-sm-3 offset-sm-3">
+                        <div class="search-box mb-3 col-sm-3 offset-sm-3">
 
                             <img src="/img/search-icon.png" class="search-icon" alt="">
                             <input style="float:left" type="text" class="search_BX"
@@ -43,68 +52,69 @@
                             <p class="mini-head">Results</p>
                         </div>
                     </div>
-                    <table class="table vendorProduct">
-                        <thead>
-                        <tr>
-                            <th scope="col">Product Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col" class="center"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div class="table-container">
+                        <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod1">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="center"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
                             <tr v-for="product in all_products"
-                            :id="'allProduct'+product.id">
+                                :id="'allProduct'+product.id">
                                 <td>
                                     <img src="/img/nike-shoe1.png" alt="">
                                     <span>{{ product.id }}</span>
+                                    <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
                                 <td>
                                     <span>{{ product.name }}</span>
                                 </td>
                                 <td>
-                                    <span>
-                                        ${{ product.net_price }}
-                                    </span>
+                                        <span>
+                                            ${{ product.net_price }}
+                                        </span>
                                 </td>
                                 <td class="center">
-                                    <i class="fa fa-check-double" @click="toggleSellerProduct(product.id)"></i>
+                                    <label class="cstm-chkb">
+                                        <input type="checkbox" @click="toggleSellerProduct(product.id)"
+                                               checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-
-
-                    <div v-if="all_total > 0" class="row">
-                        <div class="col-sm-12 d-flex justify-content-center">
-                            <div aria-label="Page navigation example">
-                                <ul class="pagination bottm-pagination">
-                                    <li v-if="all_current_page > 4" @click="fetchAllProducts(all_current_page - 4)" class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li v-if="all_current_page > 3" @click="fetchAllProducts(all_current_page - 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 3 }}</a></li>
-                                    <li v-if="all_current_page > 2" @click="fetchAllProducts(all_current_page - 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 2 }}</a></li>
-                                    <li v-if="all_current_page > 1" @click="fetchAllProducts(all_current_page - 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page - 1 }}</a></li>
-                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)"> {{ all_current_page }} </a></li>
-                                    <li v-if="all_last_page > (all_current_page)" @click="fetchAllProducts(all_current_page + 1)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 1 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 1)" @click="fetchAllProducts(all_current_page + 2)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 2 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 2)" @click="fetchAllProducts(all_current_page + 3)" class="page-item"><a class="page-link" href="javascript:void(0)">{{ all_current_page + 3 }}</a></li>
-                                    <li v-if="all_last_page > (all_current_page + 3)" @click="fetchAllProducts(all_current_page + 4)" class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true"> &raquo; </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <tr v-if="all_total < 1">
+                                <td>No products available.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="foot-table" v-if="total > 0">
+                            <div class="left"><span>Rows Per Page:
+                                                <select
+                                                    @change="fetch(current_page, $event.target.value)">
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="75">75</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                                </span></div>
+                            <div v-if="all_total > 0" class="right">
+                                <span>{{ all_from }}-{{ all_to }} of {{ all_total }} Items</span>
+                                <img v-if="all_from > 1"
+                                     src="/img/prev-arrow.png" @click="fetch(current_page-1)"
+                                     alt="" class="prev-itm">
+                                <img v-if="all_total > all_from"
+                                     src="/img/next-arrow.png" @click="fetch(current_page+1)"
+                                     alt="" class="next-itm"></div>
                         </div>
                     </div>
-
                     <div class="my-product">
                         <h2>My Products <span>({{ total }} of {{ max_product }} chosen)</span></h2>
                     </div>
-                    <table class="table vendorProduct">
+                    <table class="table recent-Orders-table mobile-btn-show vendorProduct" id="sellerVendor_Prod2">
                         <thead>
                         <tr>
                             <th scope="col">Product Id</th>
@@ -114,24 +124,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="product in products">
-                                <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
-                                    <span>{{ product.id }}</span>
-                                </td>
-                                <td>
-                                    <span>{{ product.name }}</span>
-                                </td>
-                                <td>
+                        <tr v-for="product in products">
+                            <td>
+                                <img src="/img/nike-shoe1.png" alt="">
+                                <span>{{ product.id }}</span>
+                                <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                            </td>
+                            <td>
+                                <span>{{ product.name }}</span>
+                            </td>
+                            <td>
                                     <span>
                                         ${{ product.net_price }}
                                     </span>
-                                </td>
-                                <td class="center">
-                                    <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
-                                </td>
-                            </tr>
+                            </td>
+                            <td>
+                                <i class="fa fa-trash " @click="toggleSellerProduct(product.id)"></i>
+                            </td>
+                        </tr>
                         </tbody>
+
                     </table>
                 </div>
 
@@ -146,9 +158,9 @@ export default {
     data() {
         return {
             product_check: {
-                product_id:     0,
-                seller_id:      0,
-                _token:         document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                product_id: 0,
+                seller_id: 0,
+                _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
             all_products: [],
             all_from: null,
@@ -164,10 +176,14 @@ export default {
             max_product: 0,
             products: [],
             user: this.$store.state.auth.user,
+            catlist:[],
+            subcatlist:[],
+            brands:[],
         }
     },
     mounted() {
         console.log('Component mounted.')
+        this.loadCategories()
     },
     created() {
         this.fetchAllProducts();
@@ -178,6 +194,72 @@ export default {
     },
     methods: {
 
+        async loadCategories(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories");
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.catlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+        async loadSubCategories(id){
+//alert(id)
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories", 
+                    {
+                      params: {
+                        id: id
+                      },
+                    },
+                    { useCredentails: true }
+            );
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.subcatlist = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+        async loadBrands(){
+
+
+            var parent = document.getElementsByClassName('subCategory');
+
+            if (typeof parent[0] !== 'undefined') {
+                parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
+                
+                document.getElementById('ajaxLoader').style.display = 'block';
+                let result = axios.get("/brands", 
+                        {
+                          params: {
+                            sub_category: parent
+                          },
+                        },
+                        { useCredentails: true }
+                );
+                console.warn("Check Data");
+                const obj = (await result).data;
+                console.warn(obj);
+                if(obj.success==true){
+                  this.brands = obj.data;
+                } else {
+                  alert("Issue loading categories");
+                }
+                document.getElementById('ajaxLoader').style.display = 'none';
+            }
+            //this.fetchAllProducts();
+        },
         toggleSellerProduct(product) {
             this.product_check.product_id = product;
             fetch('/api/seller-product', {
@@ -197,9 +279,14 @@ export default {
         updateSubCategories() {
             var parent = document.getElementsByClassName('parentCategory');
 
-            if(typeof parent[0] !== 'undefined') {
+            if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
+                
                 this.sub_categories = SITE_CATEGORIES[parent];
+                this.loadSubCategories(parent);
             }
             this.fetchAllProducts();
         },
@@ -212,7 +299,7 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.max_product    =   SELLER_TIERS[res.tier];
+                    this.max_product = SELLER_TIERS[res.tier];
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
@@ -246,11 +333,11 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.products       = res.data;
-                    this.total          = res.total;
+                    this.products = res.data;
+                    this.total = res.total;
                     var productsData = this.products;
                     productsData.forEach(function (product) {
-                        document.getElementById('allProduct'+product.id).style.display = 'none';
+                        document.getElementById('allProduct' + product.id).style.display = 'none';
                     });
                 })
                 .catch(err => console.log(err))
@@ -262,20 +349,24 @@ export default {
         fetchAllProducts(page = 0, search = 0) {
             document.getElementById('ajaxLoader').style.display = 'block';
 
-            var sort_by         = document.getElementsByClassName('sort_by');
-            var parent          = document.getElementsByClassName('parentCategory');
-            var sub_category    = document.getElementsByClassName('subCategory');
+            var sort_by             = document.getElementsByClassName('sort_by');
+            var parent              = document.getElementsByClassName('parentCategory');
+            var sub_category        = document.getElementsByClassName('subCategory');
+            var brand               = document.getElementsByClassName('brand');
 
-            if(typeof parent[0] !== 'undefined') {
+            if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
             }
 
-            if(typeof sub_category[0] !== 'undefined') {
+            if (typeof sub_category[0] !== 'undefined') {
                 sub_category = sub_category[0].value;
+            }
+            if (typeof brand[0] !== 'undefined') {
+                brand = brand[0].value;
             }
 
             var order_by = 0;
-            if(typeof sort_by[0] !== 'undefined') {
+            if (typeof sort_by[0] !== 'undefined') {
                 order_by = sort_by[0].value;
             }
 
@@ -310,12 +401,15 @@ export default {
 
             url += '/0';
 
-            if (parent.length > 1) {
+            if (parent.length >= 1) {
                 url += '/' + parent;
             }
 
-            if (sub_category.length > 1) {
+            if (sub_category.length >= 1) {
                 url += '/' + sub_category;
+            }
+            if (brand.length >= 1) {
+                url += '/' + brand;
             }
 
             if (page > 0) {
@@ -325,12 +419,12 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
-                    this.all_products       = res.data;
-                    this.all_to             = res.to;
-                    this.all_from           = res.from;
-                    this.all_last_page      = res.last_page;
-                    this.all_total          = res.total;
-                    this.all_current_page   = res.current_page;
+                    this.all_products = res.data;
+                    this.all_to = res.to;
+                    this.all_from = res.from;
+                    this.all_last_page = res.last_page;
+                    this.all_total = res.total;
+                    this.all_current_page = res.current_page;
                 })
                 .catch(err => console.log(err))
                 .finally(() => {

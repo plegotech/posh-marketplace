@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'user_type', 'password', 'phone',
+        'first_name', 'last_name', 'email', 'user_type', 'password', 'gender',
+        'phone','u_address','u_city','u_state','u_zip',
     ];
 
     /**
@@ -36,7 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+public function getId()
+{
+  return $this->id;
+}
     public function getUserType($user_id)
     {
         $result = $this->where('id', $user_id)
@@ -44,4 +48,10 @@ class User extends Authenticatable
 
         return $result[0];
     }
+    
+    
+    public function cartitems() {
+        return $this->hasMany(CartItems::class, 'user_id');
+    }
+        
 }

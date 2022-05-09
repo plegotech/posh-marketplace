@@ -1,6 +1,6 @@
 <template>
 
-    <div class="wrapper">
+    <div class="wrapper rg-wrapper">
         <!-- START: REGISTRATION SCREEN -->
         <section class="registration-screen" id="registration-dvs">
             <div class="container-fluid">
@@ -37,8 +37,8 @@
                                         <input v-model="vendor.state" placeholder="State*" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <select v-model="vendor.gender" class="form-control">
-                                            <option value="">Gender*</option>
+                                        <select v-model="vendor.gender" class="form-control select-custom-point">
+                                            <option disabled :value="null">Gender*</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                             <option value="other">Other</option>
@@ -51,7 +51,7 @@
                                         <input v-model="vendor.company" placeholder="Company Name" class="form-control" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input  v-model="vendor.email" placeholder="Email Address*" class="form-control" type="email">
+                                        <input v-model="vendor.email" @keydown.space.prevent type="email" placeholder="Email Address*" class="form-control" id="txtEmail" onblur="validateForm()">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input v-model="vendor.password" placeholder="Password*" class="form-control" type="password">
@@ -83,6 +83,23 @@
 </template>
 
 <script>
+/* EMAIL */
+function validateForm() {
+         var x = document.getElementById("txtEmail").value;
+         var atpos = x.indexOf("@");
+         var dotpos = x.lastIndexOf(".");
+         if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+
+
+             document.getElementById("lblError").innerHTML = "Enter valid email Address";
+         }
+         else {
+             document.getElementById("lblError").innerHTML = "";
+         }
+     }
+/* EMAIL */
+
+
 export default {
     data() {
         return {

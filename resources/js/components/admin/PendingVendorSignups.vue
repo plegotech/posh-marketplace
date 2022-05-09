@@ -51,13 +51,13 @@
                                             <span>{{ company.city }}, {{ company.state }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.phone }}</span>
+                                            <span>{{ company.user_phone }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>Oct 01, 2021 09:58 PM</span>
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>
@@ -148,13 +148,13 @@
                                             <span>{{ company.city }}, {{ company.state }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ company.phone }}</span>
+                                            <span>{{ company.user_phone }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.name }}</span>
                                         </td>
                                         <td>
-                                            <span>Oct 01, 2021 09:58 PM</span>
+                                            <span>{{ company.signup_date }}</span>
                                         </td>
                                         <td>
                                             <span>{{ company.email }}</span>
@@ -162,7 +162,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                
+
                                 <div class="foot-table" v-if="rej_total < 1">
                                     <p>No results found.</p>
                                 </div>
@@ -298,13 +298,14 @@ export default {
 
         searchTheVendors: function (e) {
             if (e.keyCode === 13) {
-                var element = e.target;
-                var type = element.getAttribute('data-type');
+                let element = e.target;
+                let type = element.getAttribute('data-type');
 
-                if(type == 'pending') {
-                    this.fetchCompanies(0, 0, 0, 'pending', element.value);
+                if (element.value.length) {
+                    this.fetchCompanies(0, 0, 0, type, element.value)
                 } else {
-                    this.fetchCompanies(0, 0, 0, 'rejected', element.value);
+                    this.search = 0;
+                    this.fetchCompanies(0, 0, 0, type)
                 }
             }
         },

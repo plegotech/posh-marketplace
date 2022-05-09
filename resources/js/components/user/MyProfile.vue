@@ -5,7 +5,12 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="user-prof">
-                        <img src="/img/user_profile.png" alt="">
+                        <div class="uploadProfile">
+                            <div class="profileImage">
+                                <input type="file" id="upload-photo" />
+                                <img src="/img/edit.png" alt="" class="uploadImgBx"></div>
+                            <img src="/img/user_profile.png" alt="">
+                        </div>
                         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                         <span>{{ user.email }}</span>
                     </div>
@@ -66,6 +71,7 @@
                 </div>
                 <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateProfile">Update</button>
+                    <button @click="closeTab_UserProf">Close</button>
                 </div>
                 </div>
             </div>
@@ -87,6 +93,11 @@
 
                 <div id="companyEdit" class="col-sm-12" style="display: none">
                 <div class="row">
+                    <div class="col-md-12">
+                        <p v-for="error in company_errors" class="alert-danger alert">
+                            {{ error[0] }}
+                        </p>
+                    </div>
                 <div class="col-sm-6">
                     <label>Company Name:</label>
                     <input type="text" class="form-control"
@@ -125,6 +136,7 @@
                            </div>
                             <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateCompany">Update</button>
+                    <button @click="closeTab_CompEdit">Close</button>
                     </div>
                     </div>
                 </div>
@@ -169,6 +181,7 @@ export default {
         return {
             user: this.$store.state.auth.user,
             company_show: 1,
+            company_errors: [],
             company: null,
             user_data: {
                 first_name: null,
@@ -217,6 +230,7 @@ export default {
         },
         updateCompany() {
             var object = this;
+            this.company_errors = [];
             fetch('/api/update-company', {
                 method: 'post',
                 body: JSON.stringify(this.company_data),
@@ -226,14 +240,22 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'false') {
-                        alert('Please fill the missing fields first.');
+                    if (data.success == false) {
+                        object.company_errors = data.errors;
                     } else {
                         object.getUserCompanyData();
                         object.hideCompanyEditForm();
                     }
                 })
                 .catch(err => console.log(err));
+        },
+        closeTab_UserProf(){
+            var targetuserProfile_Id = document.getElementById('userProfile');
+            targetuserProfile_Id.style.display='none';
+        },
+        closeTab_CompEdit(){
+            var targetCompEdit_Id = document.getElementById('companyEdit');
+            targetCompEdit_Id.style.display='none';
         },
         updateProfile() {
             var object = this;
@@ -246,8 +268,8 @@ export default {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success == 'false') {
-                        alert('Please fill the missing fields first.');
+                    if (data.success == false) {
+                        object.company_errors = data.errors;
                     } else {
                         this.signIn();
                         object.getUserCompanyData();

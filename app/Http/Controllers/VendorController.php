@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Companies;
+use App\OrderItems;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
@@ -20,6 +22,33 @@ class VendorController extends Controller
         return 'silence is the gold';
     }
 
+    public function dashboard($id)
+    {
+        $sql = "SELECT COUNT(*) FROM order_items inner join products on products.id = order_items.item_id";
+        $sql .= " where products.vendor_id = '$id' AND ";
+        $stats =OrderItems::select(DB::raw('('.$sql.' order_items.status = "approved" AND order_items.progress != "delivered") as total_orders'),
+            DB::raw('('.$sql.' order_items.status = "pending") as pending_orders'),
+            DB::raw('('.$sql.' order_items.status = "rejected") as cancelled_orders'),
+            DB::raw('('.$sql.' order_items.progress = "delivered") as successful_orders')
+        )
+            ->first()->toArray();
+
+        $orders = OrderItems::select('order_items.id', 'products.name', DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"),
+            'order_items.quantity', 'products.net_price', 'order_items.progress', 'orders.shipping_address'
+            , 'orders.shipping_method', 'orders.payment_method', DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'))
+            ->where('products.vendor_id', $id)
+            ->join('products', 'products.id', '=', 'order_items.item_id')
+            ->join('orders', 'orders.id', '=', 'order_items.order_id')
+            ->orderBy('order_items.id', 'desc')
+            ->limit(10)
+            ->get()
+            ->toArray();
+
+        $stats['orders'] = $orders;
+
+        return response()->json($stats);
+    }
+
     public function vendor(Request $request)
     {
         // Setup the validator
@@ -31,9 +60,9 @@ class VendorController extends Controller
             'gender'            => 'required|min:3|max:7',
             'city'              => 'required',
             'state'             => 'required',
-            'phone'             => 'required|max:17',
+            'phone'             => 'required|digits:10',
             'company'           => 'required',
-            'password'          => 'required|confirmed|min:8|max:8'
+            'password'          => 'required|confirmed'
         );
 
         $validator = Validator::make($request->all(), $rules);

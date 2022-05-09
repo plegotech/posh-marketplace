@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="container-fluid pending-vend">
         <div class="row mt-4" >
             <div class="col-sm-12">
@@ -71,9 +73,12 @@
                                     <div class="price-title-b">
                                         <h3><sup>$</sup> {{ product.net_price }}</h3>
                                     </div>
-                                    <div class="pb-btn-list">
-                                        <div class="btn-st btn-blue">VIEW</div>
-                                        <div class="btn-st btn-green">EDIT</div>
+                                    <div v-if="user.user_type == 'vendor'" class="pb-btn-list">
+                                        <div class="btn-st btn-green">
+                                            <router-link :to="{ name: 'vendor-upload-products', params: { product_id: product.id }}">
+                                                EDIT
+                                            </router-link>
+                                        </div>
                                         <div @click="deleteProduct(product.id)" class="btn-st btn-red">DELETE</div>
                                     </div>
                                 </div>
@@ -159,10 +164,10 @@
             fetchProducts(page = 0, search = 0) {
                 document.getElementById('ajaxLoader').style.display = 'block';
 
-                var sort_by         = document.getElementsByClassName('sort_by');
-                var status          = document.getElementsByClassName('status');
-                var parent          = document.getElementsByClassName('parentCategory');
-                var sub_category    = document.getElementsByClassName('subCategory');
+                let sort_by         = document.getElementsByClassName('sort_by');
+                let status          = document.getElementsByClassName('status');
+                let parent          = document.getElementsByClassName('parentCategory');
+                let sub_category    = document.getElementsByClassName('subCategory');
 
                 if(typeof parent[0] !== 'undefined') {
                     parent = parent[0].value;
@@ -212,14 +217,20 @@
 
                 if (status.length != 0) {
                     url += '/' + status;
+                } else {
+                    url += '/0';
                 }
 
                 if (parent.length > 1) {
                     url += '/' + parent;
+                } else {
+                    url += '/0';
                 }
 
                 if (sub_category.length > 1) {
                     url += '/' + sub_category;
+                } else {
+                    url += '/0';
                 }
 
                 if (page > 0) {

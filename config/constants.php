@@ -3,7 +3,7 @@
 return [
     'users' => array('user', 'seller', 'vendor', 'admin'), // Never change the order,
     'categories' => array(
-        'Computers' => array(
+        'Computer' => array(
             'Dell'
         ),
         'Electronic Devices' => array(
@@ -56,6 +56,9 @@ return [
             'Skin Care',
             'Medical Supplies'
         ),
+    ),
+    'product_status' => array(
+        'archived', 'active', 'deleted'
     ),
     'brands' => array(
         'Apple',

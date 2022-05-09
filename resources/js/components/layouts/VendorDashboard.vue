@@ -22,6 +22,12 @@
                         </router-link>
                     </li>
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                        <router-link :to="{ name: 'vendor-categories'}">
+                            <i class="sb-menu-icon manage-products"></i>
+                            <span class="nav-label">Manage Categories</span>
+                        </router-link>
+                    </li>
+                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-manage-products'}">
                             <i class="sb-menu-icon manage-products"></i>
                             <span class="nav-label">Manage Products</span>
