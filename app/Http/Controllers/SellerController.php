@@ -108,7 +108,7 @@ class SellerController extends Controller {
         $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
         $SlidersForBackend = \App\Sliders::where("seller_id", $id)->first();
         
-        if($Sliders){
+        if($SlidersForBackend){
             $MyArray[0]=array("link"=>$SlidersForBackend->link1,"image"=>$SlidersForBackend->image1);
             $MyArray[1]=array("link"=>$SlidersForBackend->link2,"image"=>$SlidersForBackend->image2);
             $MyArray[2]=array("link"=>$SlidersForBackend->link3,"image"=>$SlidersForBackend->image3);
