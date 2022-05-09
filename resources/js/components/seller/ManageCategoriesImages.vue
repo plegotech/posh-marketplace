@@ -116,7 +116,6 @@ export default {
     data(){
         return {
             user:this.$store.state.auth.user,
-
             images_cat:'',
 link_cat:null,
             images_elec:'',
@@ -139,22 +138,21 @@ this.getSlidersPromotionsCategoryImages()
             document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
+            if((await result).data.CatImages!=null){
             this.list_homepage = (await result).data
-
-            this.images_cat = (await result).data.CatImages.images_cat.image;
-            this.images_elec = (await result).data.CatImages.images_elec.image;
-            this.images_hot = (await result).data.CatImages.images_hot.image;
-            this.images_new = (await result).data.CatImages.images_new.image;
-            this.images_home = (await result).data.CatImages.images_home.image;
-
-            this.link_cat = (await result).data.CatImages.images_cat.link;
-            this.link_elec = (await result).data.CatImages.images_elec.link;
-            this.link_hot = (await result).data.CatImages.images_hot.link;
-            this.link_new = (await result).data.CatImages.images_new.link;
-            this.link_home = (await result).data.CatImages.images_home.link;
+            this.images_cat = (await result).data.CatImages.images_cat;
+            this.images_elec = (await result).data.CatImages.images_elec;
+            this.images_hot = (await result).data.CatImages.images_hot;
+            this.images_new = (await result).data.CatImages.images_new;
+            this.images_home = (await result).data.CatImages.images_home;
+            this.link_cat = (await result).data.CatImages.link_cat;
+            this.link_elec = (await result).data.CatImages.link_elec;
+            this.link_hot = (await result).data.CatImages.link_hot;
+            this.link_new = (await result).data.CatImages.link_new;
+            this.link_home = (await result).data.CatImages.link_home;
+}
 document.getElementById('ajaxLoader').style.display = 'none';
         },
-
         changeCat(e){
             this.images_cat = e.target.files[0]
         },
@@ -170,28 +168,22 @@ document.getElementById('ajaxLoader').style.display = 'none';
         changeNew(e){
             this.images_new = e.target.files[0]
         },
-
-
         addImages(){
             document.getElementById('ajaxLoader').style.display = 'block';
             
             var object = this;
-
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             }
-
             let data = new FormData();
             data.append('seller_id', this.user.id);
-
             data.append('link_home', this.link_home);
             data.append('link_elec', this.link_elec);
             data.append('link_cat', this.link_cat);
             data.append('link_new', this.link_new);
             data.append('link_hot', this.link_hot);
-
             data.append('home', this.images_home);
             data.append('elec', this.images_elec);
             data.append('cat', this.images_cat);
@@ -216,13 +208,10 @@ document.getElementById('ajaxLoader').style.display = 'none';
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
-
-
         },
         getImgUrll(pet) {
           return this.img_url + "/" + this.user.id + "/" + pet;
         },
-
     },
     
 }
