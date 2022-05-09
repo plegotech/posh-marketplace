@@ -86,7 +86,8 @@ export default {
             link1:        '',
             link2:        '',
             link3:        '',
-            
+            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+//img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
@@ -99,12 +100,12 @@ this.getSliders()
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
             if((await result).data.Sliders !=null){
-            this.link1 = (await result).data.Sliders.link1
-            this.link2 = (await result).data.Sliders.link2
-            this.link3 = (await result).data.Sliders.link3
-            this.slider_images_1 = (await result).data.Sliders.image1
-            this.slider_images_2 = (await result).data.Sliders.image2
-            this.slider_images_3 = (await result).data.Sliders.image3
+                this.link1 = (await result).data.Sliders.link1
+                this.link2 = (await result).data.Sliders.link2
+                this.link3 = (await result).data.Sliders.link3
+                this.slider_images_1 = (await result).data.Sliders.image1
+                this.slider_images_2 = (await result).data.Sliders.image2
+                this.slider_images_3 = (await result).data.Sliders.image3
             }
             console.log(this.list_homepage);
             document.getElementById('ajaxLoader').style.display = 'none';

@@ -127,6 +127,7 @@ link_hot:null,
             images_new:'',
 link_new:null,
 img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+
         }
     },
     mounted() {
