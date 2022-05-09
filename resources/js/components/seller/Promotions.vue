@@ -114,6 +114,7 @@ export default {
             link4:        '',
             pro_images_bot2:        '',
 img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+//img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
@@ -130,10 +131,10 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
                 this.link2 = (await result).data.Promotions.link2
                 this.link3 = (await result).data.Promotions.link3
                 this.link4 = (await result).data.Promotions.link4
-                this.pro_images_top1 = (await result).Promotions.image1
-                this.pro_images_top2 = (await result).Promotions.image2
-                this.pro_images_bot1 = (await result).Promotions.image3
-                this.pro_images_bot2 = (await result).Promotions.image4
+                this.pro_images_top1 = (await result).data.Promotions.image1
+                this.pro_images_top2 = (await result).data.Promotions.image2
+                this.pro_images_bot1 = (await result).data.Promotions.image3
+                this.pro_images_bot2 = (await result).data.Promotions.image4
                 console.log(this.list_homepage);
             }
             document.getElementById('ajaxLoader').style.display = 'none';
