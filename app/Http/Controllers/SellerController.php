@@ -30,131 +30,125 @@ class SellerController extends Controller {
         $data = $request->all();
         extract($data);
 
-        $data2['seller_id'] = $data["seller_id"];
+        $updateArray=array(
+            "seller_id"=>$seller_id,
+            "link_home"=>$link_home,
+            "images_home"=>"",
+            "link_elec"=>$link_elec,
+            "images_elec"=>"",
+            "link_hot"=>$link_hot,
+            "images_hot"=>"",
+            "link_new"=>$link_new,
+            "images_new"=>"",
+            "link_cat"=>$link_cat,
+            "images_cat"=>"");
         if ($request->file('home')) {
             $photo = rand(5000, 9999) . $request->file('home')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('home')->move($destination, $photo);
             unset($data['home']);
-            $data2['images_home'] = array("image"=>$photo,"link"=>$link_home);
-        } 
+            $updateArray['images_home'] = $photo;
+        } else {
+            unset($updateArray['images_home']);
+        }
         if ($request->file('elec')) {
             $photo = rand(5000, 9999) . $request->file('elec')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('elec')->move($destination, $photo);
             unset($data['elec']);
-            $data2['images_elec'] = array("image"=>$photo,"link"=>$link_elec);
+            $updateArray['images_elec'] = $photo;
+        } else {
+            unset($updateArray['images_elec']);
         }
         if ($request->file('hot')) {
             $photo = rand(5000, 9999) . $request->file('hot')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('hot')->move($destination, $photo);
             unset($data['hot']);
-            $data2['images_hot'] = array("image"=>$photo,"link"=>$link_hot);
+            $updateArray['images_hot'] = $photo;
+        } else {
+            unset($updateArray['images_hot']);
         }
         if ($request->file('new')) {
             $photo = rand(5000, 9999) . $request->file('new')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('new')->move($destination, $photo);
             unset($data['new']);
-            $data2['images_new'] = array("image"=>$photo,"link"=>$link_new);
+            $updateArray['images_new'] = $photo;
+        } else {
+            unset($updateArray['images_new']);
         }
         if ($request->file('cat')) {
             $photo = rand(5000, 9999) . $request->file('cat')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('cat')->move($destination, $photo);
             unset($data['cat']);
-            $data2['images_cat'] = array("image"=>$photo,"link"=>$link_cat);
+            $updateArray['images_cat'] = $photo;
+        } else {
+            unset($updateArray['images_cat']);
         }
 //        dd($data);
-        if (\App\SellerHomepage::where("seller_id", $data['seller_id'])->count()) {
-            $resp = \App\SellerHomepage::where("seller_id", $data['seller_id'])->update($data2);
+        if (\App\SellerHomepage::where("seller_id", $seller_id)->count()) {
+            $resp = \App\SellerHomepage::where("seller_id", $seller_id)->update($updateArray);
         } else {
-            $resp = \App\SellerHomepage::create($data2);
+            $resp = \App\SellerHomepage::create($updateArray);
         }
         if ($resp) {
-            return Response()->json(array(true));
+            return Response()->json(array("success"=>true));
         } else {
-            return Response()->json(array(false));
+            return Response()->json(array("success"=>true));
         }
     }
 
     public function getSellerHomepage($id) {
-        $CatImages = \App\SellerHomepage::where("seller_id", $id)->first();
-        $SlidersPromotions = SellerWebsite::where("seller_id", $id)->select('sliders', 'promotion')->first();
-        if($CatImages){
-            $CatImages->images_home = json_decode($CatImages->images_home);
-            $CatImages->images_new = json_decode($CatImages->images_new);
-            $CatImages->images_hot = json_decode($CatImages->images_hot);
-            $CatImages->images_cat = json_decode($CatImages->images_cat);
-            $CatImages->images_elec = json_decode($CatImages->images_elec);
-        }
-        if ($SlidersPromotions) {
-            $SlidersPromotions->sliders = json_decode($SlidersPromotions->sliders);
-            $SlidersPromotions->promotion = json_decode($SlidersPromotions->promotion);
-        }
-        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $SlidersPromotions));
+        $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
+        $Sliders = \App\Sliders::where("seller_id", $id)->first();
+        $Promotions = \App\Promotions::where("seller_id", $id)->first();
+        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $Sliders, "Promotions" => $Promotions));
     }
 
     public function createSliders(Request $request) {
         $data = $request->all();
         extract($data);
+
+        $updateArray = array("seller_id" => $seller_id, "link1" => $link1, "image1" => "", "link2" => $link2, "image2" => "", "link3" => $link3, "image3" => "");
         if ($request->file('slider_images_1')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_1')->move($destination, $photo);
-            $dataM[0] = array('image'=>$photo,'link'=>$link1);
+            $updateArray["image1"]=$photo;
             unset($data['slider_images_1']);
+        } else {
+            unset($updateArray["image1"]);
         }
         if ($request->file('slider_images_2')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_2')->move($destination, $photo);
-            $dataM[1] = array('image'=>$photo,'link'=>$link2);
+            $updateArray["image2"]=$photo;
             unset($data['slider_images_2']);
+        } else {
+            unset($updateArray["image2"]);
         }
         if ($request->file('slider_images_3')) {
             $photo = rand(5000, 9999) . $request->file('slider_images_3')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_3')->move($destination, $photo);
-            $dataM[2] = array('image'=>$photo,'link'=>$link2);
+            $updateArray["image3"]=$photo;
             unset($data['slider_images_3']);
-        }
-        $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
-        if($existingdata){
-            $Sliders = json_decode($existingdata->sliders);
-            if(!isset($dataM[0])){
-                $dataM[0]=$Sliders[0];
-            } 
-            if(!isset($dataM[1])){
-                $dataM[1]=$Sliders[1];
-            } 
-            if(!isset($dataM[2])){
-                $dataM[2]=$Sliders[2];
-            }
-        }
-        $data['sliders'] = json_encode(array($dataM));
-
-        $createArray = array(
-            'seller_id' => $seller_id,
-            'sliders' => $data['sliders']
-        );
-        if ($existingdata) {
-            $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
-            
-            $data = SellerWebsite::where("seller_id", $seller_id)->update($createArray);
         } else {
-            $data = SellerWebsite::create($createArray);
+            unset($updateArray["image3"]);
+        }
+        $existingdata = \App\Sliders::where("seller_id", $seller_id)->first();
+        if ($existingdata) {
+            $data = \App\Sliders::where("seller_id", $seller_id)->update($updateArray);
+        } else {
+            $data = \App\Sliders::create($updateArray);
         }
         if ($data) {
-            return Response()->json(array(
-                        'success' => true
-            ));
+            return Response()->json(array("success"=>true));
         } else {
-            return Response()->json(array(
-                        'success' => false,
-                        'errors' => $validator->getMessageBag()->toArray()
-            ));
+            return Response()->json(array("success"=>false));
         }
     }
 
@@ -186,69 +180,48 @@ class SellerController extends Controller {
     public function createPromotions(Request $request) {
         $data = $request->all();
         extract($data);
-        $dataM = array('t1' => '', 't2' => '', 'b1' => '', 'b2' => '');
+        $updateArray = array("seller_id" => $seller_id, "link1" => $link1, "image1" => "", "link2" => $link2, "image2" => "", "link3" => $link3, "image3" => "", "link4" => $link4, "image4" => "");
         if ($request->file('pro_images_top1')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_top1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top1')->move($destination, $photo);
-            
-            $dataM[0] = array('image'=>$photo,'link'=>$link1);
+
+            $updateArray['image1']=$photo;
             unset($data['pro_images_top1']);
+        } else {
+            unset($updateArray['image1']);
         }
         if ($request->file('pro_images_top2')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_top2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top2')->move($destination, $photo);
-            $dataM[1] = array('image'=>$photo,'link'=>$link2);
+            $updateArray['image2']=$photo;
             unset($data['pro_images_top2']);
+        } else {
+            unset($updateArray['image2']);
         }
         if ($request->file('pro_images_bot1')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot1')->move($destination, $photo);
-            $dataM[2] = array('image'=>$photo,'link'=>$link3);
+            $updateArray['image3']=$photo;
             unset($data['pro_images_bot1']);
+        } else {
+            unset($updateArray['image3']);
         }
         if ($request->file('pro_images_bot2')) {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot2')->move($destination, $photo);
-            $dataM[3] = array('image'=>$photo,'link'=>$link4);
+            $updateArray['image4']=$photo;
             unset($data['pro_images_bot2']);
-        }
-        $existingdata = SellerWebsite::where("seller_id", $seller_id)->first();
-        if($existingdata){
-            $Promotion = json_decode($existingdata->promotion);
-            if($Promotion){
-                if(!isset($dataM[0])){
-                    $dataM[0]=$Promotion[0];
-                } 
-                if(!isset($dataM[1])){
-                    $dataM[1]=$Promotion[1];
-                } 
-                if(!isset($dataM[2])){
-                    $dataM[2]=$Promotion[2];
-                }
-                if(!isset($dataM[3])){
-                    $dataM[3]=$Promotion[3];
-                }
-            }
-        }
-        $data['promotion'] = json_encode(array(
-            'top1' => $dataM[0],
-            'top2' => $dataM[1],
-            'bot1' => $dataM[2],
-            'bot2' => $dataM[3]
-                )
-        );
-        $createArray = array(
-            'seller_id' => $seller_id,
-            'promotion' => $data['promotion']
-        );
-        if (SellerWebsite::where("seller_id", $seller_id)->count()) {
-            $data = SellerWebsite::where("seller_id", $seller_id)->update($createArray);
         } else {
-            $data = SellerWebsite::create($createArray);
+            unset($updateArray['image4']);
+        }
+        if (\App\Promotions::where("seller_id", $seller_id)->count()) {
+            $data = \App\Promotions::where("seller_id", $seller_id)->update($updateArray);
+        } else {
+            $data = \App\Promotions::create($updateArray);
         }
         if ($data) {
             return Response()->json(array(
@@ -341,14 +314,13 @@ class SellerController extends Controller {
 
 
         $data = DB::table("product_categories as pc")
-        ->join('products as p','p.sub_category','=','pc.id')
-        ->join('seller_products as sp','sp.product_id','=','p.id')
-        ->where("sp.seller_id",$id)
-        ->select(DB::raw("p.id,p.featured_image, p.vendor_id, pc.*"))
-        ->groupBy("p.sub_category")
-        ->get();
+                ->join('products as p', 'p.sub_category', '=', 'pc.id')
+                ->join('seller_products as sp', 'sp.product_id', '=', 'p.id')
+                ->where("sp.seller_id", $id)
+                ->select(DB::raw("p.id,p.featured_image, p.vendor_id, pc.*"))
+                ->groupBy("p.sub_category")
+                ->get();
 //        dd($ReportData);
-
 //        $data = \App\Category::where('parent_category_id','>','0')->get();
 //        if ($data) {
 //            $myArray2 = array();

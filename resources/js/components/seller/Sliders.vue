@@ -91,27 +91,24 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
-this.getSlidersPromotionsCategoryImages()
+this.getSliders()
     },
     methods:{
-        async getSlidersPromotionsCategoryImages() {
+        async getSliders() {
             document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
-
-            this.link1 = (await result).data.Sliders.sliders[0].link
-            this.link2 = (await result).data.Sliders.sliders[1].link
-            this.link3 = (await result).data.Sliders.sliders[2].link
-
-            this.slider_images_1 = (await result).data.Sliders.sliders[0].image
-            this.slider_images_2 = (await result).data.Sliders.sliders[1].image
-            this.slider_images_3 = (await result).data.Sliders.sliders[2].image
-
+            if((await result).data.Sliders !=null){
+            this.link1 = (await result).data.Sliders.link1
+            this.link2 = (await result).data.Sliders.link2
+            this.link3 = (await result).data.Sliders.link3
+            this.slider_images_1 = (await result).data.Sliders.image1
+            this.slider_images_2 = (await result).data.Sliders.image2
+            this.slider_images_3 = (await result).data.Sliders.image3
+            }
             console.log(this.list_homepage);
             document.getElementById('ajaxLoader').style.display = 'none';
         },
-
-
         sliderImages1(e) {
             this.slider_images_1= e.target.files[0];
         },        
@@ -124,25 +121,20 @@ this.getSlidersPromotionsCategoryImages()
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
-
             var object = this;
-
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             }
-
             let data = new FormData();
             data.append('seller_id', this.user.id);
             data.append('link1', this.link1)
             data.append('link2', this.link2)
             data.append('link3', this.link3)
-
             data.append('slider_images_1', this.slider_images_1);
             data.append('slider_images_2', this.slider_images_2);
             data.append('slider_images_3', this.slider_images_3);
-
             axios.post('/createsliders', data, config)
                 .then(function (res) {
                     var data = res.data;
@@ -160,12 +152,10 @@ this.getSlidersPromotionsCategoryImages()
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
-
         },
         getImgUrll(pet) {
           return this.img_url + "/" + this.user.id + "/" + pet;
         },
-
     }
 }
 </script>

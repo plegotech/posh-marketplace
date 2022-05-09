@@ -118,26 +118,25 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
     },
     mounted() {
         console.log('Component mounted.')
-        this.getSlidersPromotionsCategoryImages()
+        this.getPromotions()
     },
     methods:{
-        async getSlidersPromotionsCategoryImages() {
-document.getElementById('ajaxLoader').style.display = 'block';
+        async getPromotions() {
+            document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
-
-            this.link1 = (await result).data.Sliders.promotion.top1.link
-            this.link2 = (await result).data.Sliders.promotion.top2.link
-            this.link3 = (await result).data.Sliders.promotion.bot1.link
-            this.link4 = (await result).data.Sliders.promotion.bot2.link
-
-            this.pro_images_top1 = (await result).data.Sliders.promotion.top1.image
-            this.pro_images_top2 = (await result).data.Sliders.promotion.top2.image
-            this.pro_images_bot1 = (await result).data.Sliders.promotion.bot1.image
-            this.pro_images_bot2 = (await result).data.Sliders.promotion.bot2.image
-
-            console.log(this.list_homepage);
-document.getElementById('ajaxLoader').style.display = 'none';
+            if((await result).data.Promotions!=null){
+                this.link1 = (await result).data.Promotions.link1
+                this.link2 = (await result).data.Promotions.link2
+                this.link3 = (await result).data.Promotions.link3
+                this.link4 = (await result).data.Promotions.link4
+                this.pro_images_top1 = (await result).Promotions.image1
+                this.pro_images_top2 = (await result).Promotions.image2
+                this.pro_images_bot1 = (await result).Promotions.image3
+                this.pro_images_bot2 = (await result).Promotions.image4
+                console.log(this.list_homepage);
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
         },
         proImages1(e) {
             this.pro_images_top1= e.target.files[0];
@@ -154,28 +153,22 @@ document.getElementById('ajaxLoader').style.display = 'none';
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
-
             var object = this;
-
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             }
-
             let data = new FormData();
             data.append('seller_id', this.user.id);
-
             data.append('link1', this.link1)
             data.append('link2', this.link2)
             data.append('link3', this.link3)
             data.append('link4', this.link4)
-
             data.append('pro_images_top1', this.pro_images_top1);
             data.append('pro_images_top2', this.pro_images_top2);
             data.append('pro_images_bot1', this.pro_images_bot1);
             data.append('pro_images_bot2', this.pro_images_bot2);
-
             axios.post('/createpromotions', data, config)
                 .then(function (res) {
                     var data = res.data;
@@ -193,12 +186,10 @@ document.getElementById('ajaxLoader').style.display = 'none';
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
-
         },
         getImgUrll(pet) {
           return this.img_url + "/" + this.user.id + "/" + pet;
         },
-
     }
 }
 </script>
