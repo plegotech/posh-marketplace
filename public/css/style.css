@@ -3018,6 +3018,9 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     width: 100%;
     border: 2px dashed #938989;
     background: #efefef;
+    min-height: 230px;
+    display: flex;
+    align-items: center;
 }
 .upload-site-logo p {
     text-align: center;
@@ -3037,11 +3040,11 @@ img.rl-icon {
     margin-top: 9px;
 }
 .upload-site-logo img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
+    width: auto!important;
+    max-width: 100%;
 }
 .btn-right-bx {
     max-width: 220px;
