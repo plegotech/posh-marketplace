@@ -30,18 +30,18 @@ class SellerController extends Controller {
         $data = $request->all();
         extract($data);
 
-        $updateArray=array(
-            "seller_id"=>$seller_id,
-            "link_home"=>$link_home,
-            "images_home"=>"",
-            "link_elec"=>$link_elec,
-            "images_elec"=>"",
-            "link_hot"=>$link_hot,
-            "images_hot"=>"",
-            "link_new"=>$link_new,
-            "images_new"=>"",
-            "link_cat"=>$link_cat,
-            "images_cat"=>"");
+        $updateArray = array(
+            "seller_id" => $seller_id,
+            "link_home" => $link_home,
+            "images_home" => "",
+            "link_elec" => $link_elec,
+            "images_elec" => "",
+            "link_hot" => $link_hot,
+            "images_hot" => "",
+            "link_new" => $link_new,
+            "images_new" => "",
+            "link_cat" => $link_cat,
+            "images_cat" => "");
         if ($request->file('home')) {
             $photo = rand(5000, 9999) . $request->file('home')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
@@ -94,29 +94,31 @@ class SellerController extends Controller {
             $resp = \App\SellerHomepage::create($updateArray);
         }
         if ($resp) {
-            return Response()->json(array("success"=>true));
+            return Response()->json(array("success" => true));
         } else {
-            return Response()->json(array("success"=>true));
+            return Response()->json(array("success" => true));
         }
     }
-    public function getCatTitle($id){
+
+    public function getCatTitle($id) {
         $data = \App\Category::where("id", $id)->first();
-        
+
         return Response()->json($data);
     }
+
     public function getSellerHomepage($id) {
         $CatImages = \App\CategoryImages::where("seller_id", $id)->first();
         $SlidersForBackend = \App\Sliders::where("seller_id", $id)->first();
-        
-        if($SlidersForBackend){
-            $MyArray[0]=array("link"=>$SlidersForBackend->link1,"image"=>$SlidersForBackend->image1);
-            $MyArray[1]=array("link"=>$SlidersForBackend->link2,"image"=>$SlidersForBackend->image2);
-            $MyArray[2]=array("link"=>$SlidersForBackend->link3,"image"=>$SlidersForBackend->image3);
+
+        if ($SlidersForBackend) {
+            $MyArray[0] = array("link" => $SlidersForBackend->link1, "image" => $SlidersForBackend->image1);
+            $MyArray[1] = array("link" => $SlidersForBackend->link2, "image" => $SlidersForBackend->image2);
+            $MyArray[2] = array("link" => $SlidersForBackend->link3, "image" => $SlidersForBackend->image3);
         }
-        $SlidersForTemp=$MyArray;
-        
+        $SlidersForTemp = $MyArray;
+
         $Promotions = \App\Promotions::where("seller_id", $id)->first();
-        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $SlidersForTemp,"Slider" => $SlidersForBackend, "Promotions" => $Promotions));
+        return Response()->json(array("CatImages" => $CatImages, "Sliders" => $SlidersForTemp, "Slider" => $SlidersForBackend, "Promotions" => $Promotions));
     }
 
     public function createSliders(Request $request) {
@@ -128,7 +130,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('slider_images_1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_1')->move($destination, $photo);
-            $updateArray["image1"]=$photo;
+            $updateArray["image1"] = $photo;
             unset($data['slider_images_1']);
         } else {
             unset($updateArray["image1"]);
@@ -137,7 +139,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('slider_images_2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_2')->move($destination, $photo);
-            $updateArray["image2"]=$photo;
+            $updateArray["image2"] = $photo;
             unset($data['slider_images_2']);
         } else {
             unset($updateArray["image2"]);
@@ -146,7 +148,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('slider_images_3')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('slider_images_3')->move($destination, $photo);
-            $updateArray["image3"]=$photo;
+            $updateArray["image3"] = $photo;
             unset($data['slider_images_3']);
         } else {
             unset($updateArray["image3"]);
@@ -158,9 +160,9 @@ class SellerController extends Controller {
             $data = \App\Sliders::create($updateArray);
         }
         if ($data) {
-            return Response()->json(array("success"=>true));
+            return Response()->json(array("success" => true));
         } else {
-            return Response()->json(array("success"=>false));
+            return Response()->json(array("success" => false));
         }
     }
 
@@ -198,7 +200,7 @@ class SellerController extends Controller {
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top1')->move($destination, $photo);
 
-            $updateArray['image1']=$photo;
+            $updateArray['image1'] = $photo;
             unset($data['pro_images_top1']);
         } else {
             unset($updateArray['image1']);
@@ -207,7 +209,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('pro_images_top2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_top2')->move($destination, $photo);
-            $updateArray['image2']=$photo;
+            $updateArray['image2'] = $photo;
             unset($data['pro_images_top2']);
         } else {
             unset($updateArray['image2']);
@@ -216,7 +218,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot1')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot1')->move($destination, $photo);
-            $updateArray['image3']=$photo;
+            $updateArray['image3'] = $photo;
             unset($data['pro_images_bot1']);
         } else {
             unset($updateArray['image3']);
@@ -225,7 +227,7 @@ class SellerController extends Controller {
             $photo = rand(5000, 9999) . $request->file('pro_images_bot2')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
             $request->file('pro_images_bot2')->move($destination, $photo);
-            $updateArray['image4']=$photo;
+            $updateArray['image4'] = $photo;
             unset($data['pro_images_bot2']);
         } else {
             unset($updateArray['image4']);
@@ -245,6 +247,77 @@ class SellerController extends Controller {
                         'errors' => $validator->getMessageBag()->toArray()
             ));
         }
+    }
+
+    public function RemoveImage(Request $request) {
+        $data = $request->all();
+        $seller_id = $data['seller_id'];
+        $type = $data['type'];
+        $image = $data['image'];
+        $arDel = array();
+        if ($type == "slider") {
+            switch ($image) {
+                case 1:
+                    $arDel['image1'] = null;
+                    break;
+                case 2:
+                    $arDel['image2'] = null;
+                    break;
+                case 3:
+                    $arDel['image3'] = null;
+                    break;
+            }
+            $ret = \App\Sliders::where('seller_id', $seller_id)->update($arDel);
+            
+        } else if ($type == "promotion") {
+            switch ($image) {
+                case 1:
+                    $arDel['image1'] = null;
+                    break;
+                case 2:
+                    $arDel['image2'] = null;
+                    break;
+                case 3:
+                    $arDel['image3'] = null;
+                    break;
+                case 4:
+                    $arDel['image4'] = null;
+                    break;
+            }
+            $ret = \App\Promotions::where('seller_id', $seller_id)->update($arDel);
+            
+        } else if ($type == "cat") {
+            switch ($image) {
+                case 1:
+                    $arDel['images_new'] = null;
+                    break;
+                case 2:
+                    $arDel['images_cat'] = null;
+                    break;
+                case 3:
+                    $arDel['images_hot'] = null;
+                    break;
+                case 4:
+                    $arDel['images_elec'] = null;
+                    break;
+                case 5:
+                    $arDel['images_home'] = null;
+                    break;
+            }
+            $ret = \App\CategoryImages::where('seller_id', $seller_id)->update($arDel);
+            
+        }
+        if ($ret) {
+            return Response()->json(array(
+                        'success' => true
+            ));
+        } else {
+            return Response()->json(array(
+                        'success' => false,
+                        'errors' => $validator->getMessageBag()->toArray()
+            ));
+        }
+        
     }
 
     public function createHeaderFooter(Request $request) {

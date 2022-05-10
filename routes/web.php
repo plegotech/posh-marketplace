@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/product', 'ProductController@create');
 Route::post('/headerfooter', 'SellerController@createHeaderFooter');
 Route::post('/createsliders', 'SellerController@createSliders');
+Route::post('/removeImage', 'SellerController@RemoveImage');
 Route::post('/createpromotions', 'SellerController@createPromotions');
 Route::post('/createaboutus', 'SellerController@createAboutUs');
 Route::post('/catimages', 'SellerController@createCategoryImages');
