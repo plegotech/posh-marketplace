@@ -65,7 +65,7 @@
                     <div v-if="total > 0" class="row">
                         <div v-for="product in products" class="col-xl-4 col-lg-6 col-sm-6">
                             <div class="products-listing-bxx">
-                                <div class="">
+                                <div class="product-img-bx">
                                     <img :src="'/img/product-images/'+ product.vendor_id + '/' + product.featured_image" alt="" class="">
                                 </div>
                                 <p class="plx-title">{{ product.name }}</p>

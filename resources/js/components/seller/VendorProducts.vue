@@ -36,7 +36,7 @@
                                 </option>
                             </select>
                         </div>
-                        <div class="search-box mb-3 col-sm-3 offset-sm-3">
+                        <div class="search-box mb-3 col-sm-3">
 
                             <img src="/img/search-icon.png" class="search-icon" alt="">
                             <input style="float:left" type="text" class="search_BX"

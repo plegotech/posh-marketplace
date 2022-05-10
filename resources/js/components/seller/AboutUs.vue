@@ -4,12 +4,12 @@
             <div class="col-sm-12">
                 <div class="top-newOrder myorder mb-4">
                     <div class="row mb-4 up-main-bx">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="up-main-bx-1">
 <h3>About US:</h3>
 <br>
                                 <div class="form-outline-ft mb-5">
-                                    <textarea type="text" v-model="about_us" class="form-control-label" required></textarea>
+                                    <textarea rows="10" type="text" v-model="about_us" class="form-control-label" required></textarea>
                                     <label class="form-label">About US</label>
                                     
                                 </div>
