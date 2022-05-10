@@ -8,7 +8,7 @@
                             <div class="row justify-content-center">
 
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">New Arrivals <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">New Arrivals <span class="sl-remove-logo"  @click="removeImages(1)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link_new" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -26,7 +26,7 @@
                                 <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Hot Categories <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Hot Categories <span class="sl-remove-logo"  @click="removeImages(2)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link_cat" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -44,7 +44,7 @@
                                 <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Hot Items Gaming <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Hot Items Gaming <span class="sl-remove-logo"  @click="removeImages(3)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link_hot" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -62,7 +62,7 @@
                                 <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
                             </div>
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Electronics Deal <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Electronics Deal <span class="sl-remove-logo"  @click="removeImages(4)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link_elec" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -81,7 +81,7 @@
 
                             </div>
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Home & Kitchen <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Home & Kitchen <span class="sl-remove-logo"  @click="removeImages(5)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL"  v-model="link_home" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -169,6 +169,32 @@ document.getElementById('ajaxLoader').style.display = 'none';
         changeNew(e){
             this.images_new = e.target.files[0]
         },
+        removeImages(imageNumb){
+            const config = {}
+            
+            document.getElementById('ajaxLoader').style.display = 'block';
+            axios.post('/removeImage', {seller_id:this.user.id, image:imageNumb, type:"cat"}, config)
+                .then(function (res) {
+
+                    var data = res.data;
+                    if (data.success == 'true') {
+                        alert('product created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    
+                    document.getElementById('ajaxLoader').style.display = 'none';
+this.getSlidersPromotionsCategoryImages()
+                });
+            
+        },
+
         addImages(){
             document.getElementById('ajaxLoader').style.display = 'block';
             

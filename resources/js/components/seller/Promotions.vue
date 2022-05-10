@@ -10,7 +10,7 @@
                             <div class="col-sm-12"><h3 class="mb-5">Promotional Images</h3></div>   
                             <div class="col-sm-12"><h5 class="mb-3">Top Deals</h5></div>                         
                                 <div class="col-sm-6 mb-5">
-                                    <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo"  @click="removeImages(1)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
                                         <input type="text" placeholder="Image URL" v-model="link1" class="form-control-label" required>
                                         <label class="form-label">URL</label>
@@ -29,7 +29,7 @@
                                     <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                                 </div>
                                 <div class="col-sm-6 mb-5">
-                                    <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo"  @click="removeImages(2)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
                                         <input type="text" placeholder="Image URL" v-model="link2" class="form-control-label" required>
                                         <label class="form-label">URL</label>
@@ -50,7 +50,7 @@
                             <div class="row justify-content-center"> 
                             <div class="col-sm-12"><h5 class="mb-3">Mid Deals</h5></div>                         
                                 <div class="col-sm-6 mb-5">
-                                    <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo"  @click="removeImages(3)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
                                         <input type="text" placeholder="Image URL" v-model="link3" class="form-control-label" required>
                                         <label class="form-label">URL</label>
@@ -69,7 +69,7 @@
                                     <button class="img-title-up" @click="$refs.file3.click()">Upload Image</button>
                                 </div>
                                 <div class="col-sm-6 mb-5">
-                                    <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo"  @click="removeImages(4)>Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="form-outline-ft mb-3">
                                         <input type="text" placeholder="Image URL" v-model="link4" class="form-control-label" required>
                                         <label class="form-label">URL</label>
@@ -151,6 +151,31 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
         proImages4(e) {
             this.pro_images_bot2= e.target.files[0];
         },        
+        removeImages(imageNumb){
+            const config = {}
+            
+            document.getElementById('ajaxLoader').style.display = 'block';
+            axios.post('/removeImage', {seller_id:this.user.id, image:imageNumb, type:"promotion"}, config)
+                .then(function (res) {
+                    var data = res.data;
+
+                    if (data.success == 'true') {
+                        alert('product created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    
+                    document.getElementById('ajaxLoader').style.display = 'none';
+this.getPromotions()
+                });
+            
+        },
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
@@ -172,7 +197,8 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
             data.append('pro_images_bot2', this.pro_images_bot2);
             axios.post('/createpromotions', data, config)
                 .then(function (res) {
-                    var data = res.data;
+                    var data = res;
+                    console.log("Response: "+res);
                     if (data.success == 'true') {
                         alert('product created successfully.');
                         object.clearForm();

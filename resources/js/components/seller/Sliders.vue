@@ -9,7 +9,7 @@
                             <div class="col-sm-12"><h3 class="mb-5">Slider Images</h3></div>
                             
                             <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Image 1 <span class="sl-remove-logo" @click="removeImages(1)">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link1" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -27,7 +27,7 @@
                                 <button class="img-title-up" @click="$refs.file1.click()">Upload Image</button>
                             </div>
                              <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Image 2 <span class="sl-remove-logo" @click="removeImages(2)">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link2" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -45,7 +45,7 @@
                                 <button class="img-title-up" @click="$refs.file2.click()">Upload Image</button>
                             </div>
                              <div class="col-sm-4 mb-5">
-                                <p class="sl-title mb-4">Image 3 <span class="sl-remove-logo">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                <p class="sl-title mb-4">Image 3 <span class="sl-remove-logo" @click="removeImages(3)">Remove <img class="rl-icon" src="/img/Vector.png"></span></p>
                                 <div class="form-outline-ft mb-3">
                                     <input type="text" placeholder="Image URL" v-model="link3" class="form-control-label" required>
                                     <label class="form-label">URL</label>
@@ -86,8 +86,8 @@ export default {
             link1:        '',
             link2:        '',
             link3:        '',
-            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
-//img_url: "http://localhost:8000/img/product-images/",
+            //img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
@@ -119,6 +119,31 @@ this.getSliders()
         sliderImages3(e) {
             this.slider_images_3= e.target.files[0];
         },        
+        removeImages(imageNumb){
+            const config = {}
+            
+            document.getElementById('ajaxLoader').style.display = 'block';
+            axios.post('/removeImage', {seller_id:this.user.id, image:imageNumb, type:"slider"}, config)
+                .then(function (res) {
+                    var data = res.data;
+
+                    if (data.success == 'true') {
+                        alert('product created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                    this.getSliders()
+                });
+            
+        },
         addinfo() {
             document.getElementById('ajaxLoader').style.display = 'block';
             this.processing = true;
