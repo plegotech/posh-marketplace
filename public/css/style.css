@@ -1874,8 +1874,16 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
     font-size: 30px;
     font-weight: bold;
 }
+.product-img-bx {
+    min-height: 200px;
+}
 .products-listing-bxx>div>img {
-    height: 200px;
+    max-height: 200px;
+    width: auto;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 8px;
 }
 .price-btn-bx {
     display: flex;
