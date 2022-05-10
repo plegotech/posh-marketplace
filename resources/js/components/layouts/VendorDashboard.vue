@@ -21,12 +21,31 @@
                             <span class="nav-label">Overview</span>
                         </router-link>
                     </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <li class="sub-menu">
+                        <a href="#">
+                            <i class="sb-menu-icon orders"></i>
+                            <span class="nav-label">Manage Categories <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
+                                                                      alt=""></i> </span>
+                            <ul>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                   <router-link :to="{ name: 'vendor-categories'}">
+                                        Category List
+                                    </router-link>
+                                </li>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                    <router-link :to="{ name: 'vendor-categories'}">
+                                        Sub Category List
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <!-- <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-categories'}">
                             <i class="sb-menu-icon manage-products"></i>
                             <span class="nav-label">Manage Categories</span>
                         </router-link>
-                    </li>
+                    </li> -->
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-manage-products'}">
                             <i class="sb-menu-icon manage-products"></i>

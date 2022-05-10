@@ -216,7 +216,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                                <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -252,7 +252,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -270,7 +270,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -288,7 +288,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -324,7 +324,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -342,7 +342,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>
@@ -360,7 +360,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="products-listing-bxx">
-                                <div class="">
+                            <div class="product-img-bx">
                                     <img src="/img/products-img-1.png" alt="" class="">
                                 </div>
                                 <p class="plx-title">Nike Air Max Torch 3 Men’s Running Shoes...</p>

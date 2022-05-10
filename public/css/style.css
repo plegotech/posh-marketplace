@@ -340,7 +340,7 @@ ul.list-sidebar li {
     padding-right: 17px;
     padding-bottom: 5px;
 }
-ul.list-sidebar li a.router-link-active:before {
+/* ul.list-sidebar li a.router-link-active:before {
     content: "";
     background: #0862A3;
     width: 3px;
@@ -349,7 +349,7 @@ ul.list-sidebar li a.router-link-active:before {
     top: 0;
     bottom: 0;
 	left: 0;
-}
+} */
 .sidebar ul li .sub-menu li a{ position:relative}
 .sidebar ul li .sub-menu li a:before{
     font-family: FontAwesome;
@@ -723,6 +723,20 @@ li.nav-item a.nav-link {
     right: 17px!important;
     left: initial!important;
     font-weight: normal;
+    transform: none!important;
+}
+img.uploaded-icon-img {
+    width: 24px;
+    height: auto;
+}
+.uploadedcategory-icon {
+    border-radius: 4px;
+    background: #f1eded;
+    text-align: center;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 span.sort-ad {
     display: flex;
@@ -1860,8 +1874,16 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
     font-size: 30px;
     font-weight: bold;
 }
+.product-img-bx {
+    min-height: 200px;
+}
 .products-listing-bxx>div>img {
-    height: 200px;
+    max-height: 200px;
+    width: auto;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 8px;
 }
 .price-btn-bx {
     display: flex;
@@ -3027,4 +3049,29 @@ img.rl-icon {
     width: auto;
     display: block;
     margin: 0 auto;
+}
+.btn-right-bx {
+    max-width: 220px;
+    float: right;
+    margin-bottom: 20px;
+}
+.top-newOrder.orderForsub tr.orderForsub-tr td {
+    background: #f9f9f9!important;
+    margin-top: 15px;
+    padding: 12px 10px!important;
+}
+.top-newOrder.orderForsub table tbody tr:nth-child(2n+2) {
+    background: #ffffff!important;
+}
+.top-newOrder.orderForsub tr td {
+    padding: 10px 10px!important;
+}
+tr.orderForsub-tr .dropdown.cst-slct img.dropdown-toggle {
+    left: 16%;
+}
+.top-newOrder.orderForsub tr.orderForsub-tr td:first-child {
+    padding-left: 24px!Important;
+}
+.top-newOrder.orderForsub tr.orderForsub-tr td:nth-child(2) {
+    font-weight: bold;
 }
