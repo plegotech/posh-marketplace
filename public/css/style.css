@@ -2025,13 +2025,6 @@ p.input-tip-bx {
 .form-outline-ft {
     position: relative;
     }
-/*.form-outline-ft input:focus ~ .form-label
-,.form-outline-ft input:not(:focus):valid ~ .form-label {
-    transform: translateY(-1.25rem) translateY(0.1rem) scale(.8);
-    background: #fff;
-    padding-right: 10px;
-    padding-left: 10px;
-}*/
 div#navbarTogglerDemo01 {
     display: flex !important;
     flex-basis: auto;
