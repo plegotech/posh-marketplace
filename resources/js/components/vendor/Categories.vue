@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid pending-vend">
+    <div class="container-fluid pending-vend">       
         <div class="row mt-12">
             <div class="col-sm-12 addcat">
                 <div class="top-newOrder myorder mb-4">
@@ -46,14 +46,188 @@
             </div>
             <div class="col-sm-12">
                 <div>
-                    <!-- START: FIRST TAB CONTENT -->
+                    <!-- START: FIRST TAB CONTENT for Categories -->
                     <div id="first-pvs-posh" class="top-newOrder">
-                        
+                        <div class="row">
+                            <div class="col-xl-6 col-12  mb-4">
+                                <div class="search-box" style="max-width:100%">
+                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <input type="text" class="search_BX fetchProductsSearch">
+                                    <img src="/img/close-srch.png" class="close-icon" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                         <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
                             <thead>
                                 <tr>
-                                <th>ID</th>
-                                
+                                <th>ID</th>                                
+                                <th>Categories</th>
+                                <th>No. of Sub Categories</th>
+                                <th>Manage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Computer Systems</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 2 </td>
+                                <td> Gaming</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 3 </td>
+                                <td> Networking</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 4 </td>
+                                <td> Office Solutions</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 5 </td>
+                                <td> Software Services</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 6 </td>
+                                <td> Home & Tools</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 7 </td>
+                                <td> Electronics</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 8 </td>
+                                <td> Components</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 9 </td>
+                                <td> Automotives</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 10 </td>
+                                <td> Health & Sports</td>
+                                <td> 4 </td>
+                                <td>
+                                    <div class="dropdown cst-slct">
+                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
+                                             data-toggle="dropdown" aria-haspopup="true"
+                                             aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                             </tbody>
+                        </table>
+                        </div>
+                        </div>
+                        <!-- END:: FIRST TAB CONTENT for Categories -->
+                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
+                            <thead>
+                                <tr>
+                                <th>ID</th>                                
                                 <th>Categories</th>
                                 <th>Sub Categories</th>
                                 <th>Type</th>
@@ -105,7 +279,7 @@
 
 
 
-
+</div>
 
             
         </div>
