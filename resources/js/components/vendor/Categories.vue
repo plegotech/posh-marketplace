@@ -1,49 +1,6 @@
 <template>
     <div class="container-fluid pending-vend">       
         <div class="row mt-12">
-            <div class="col-sm-12 addcat">
-                <div class="top-newOrder myorder mb-4">
-                    <div class="row mb-4 up-main-bx">
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="name" class="form-control-label" required>
-                                    <input type="hidden" v-model="cat_id" />
-                                    <label class="form-label">Category Name</label>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    
-                                    <select class="form-control-label select-custom-point" v-model="parent">
-                                        <option value="0">No Parent</option>
-                                        <option v-for="(category, index) in this.catlist_ddl"
-                                                :value="category.id">{{ category.title }}</option>
-                                    </select>
-                                    <span class="form-label">Category Parent</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="file" ref="file" style="display: none" name="thumb" @change="changeThumb" />
-                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
-                                    <span class="form-label">Thumbnail</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">     
-                            <div>
-                                    <button class="primary"  @click="saveCategories">SAVE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <div class="col-sm-12">
                 <div>
                     <!-- START: FIRST TAB CONTENT for Categories -->
@@ -69,152 +26,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td> 1 </td>
-                                <td> Computer Systems</td>
-                                <td> 4 </td>
+                            <tr v-for="(order, index) in this.catlist" :key="index">
+                                <td>{{ order.id }}</td>
+                                <td>{{ order.title }}</td>
+                                <td>{{ order.children.length }}</td>
                                 <td>
                                     <div class="dropdown cst-slct">
                                         <img src="/img/more.png" alt="" class="dropdown-toggle"
                                              data-toggle="dropdown" aria-haspopup="true"
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 2 </td>
-                                <td> Gaming</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 3 </td>
-                                <td> Networking</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 4 </td>
-                                <td> Office Solutions</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 5 </td>
-                                <td> Software Services</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 6 </td>
-                                <td> Home & Tools</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 7 </td>
-                                <td> Electronics</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 8 </td>
-                                <td> Components</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 9 </td>
-                                <td> Automotives</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 10 </td>
-                                <td> Health & Sports</td>
-                                <td> 4 </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
+                                            <router-link :to="{ path: 'editcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link>
+                                            <!--<li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>-->
                                         </ul>
                                     </div>
                                 </td>
@@ -223,55 +46,6 @@
                         </table>
                         </div>
                         </div>
-                        <!-- END:: FIRST TAB CONTENT for Categories -->
-                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
-                            <thead>
-                                <tr>
-                                <th>ID</th>                                
-                                <th>Categories</th>
-                                <th>Sub Categories</th>
-                                <th>Type</th>
-                                <th>Created On</th>
-                                <th>Manage</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="(order, index) in this.catlist" :key="index">
-                                <td>
-                                    {{ order.id }}
-                                </td>
-                                
-                                <td>
-                                    {{ order.title }}
-                                </td>
-                                <td>
-                                    <ul>
-                                            <li v-for="sub in order.children">{{sub.title}}</li>
-                                    </ul>
-                                    
-                                    
-                                </td>
-                                <td>
-                                    {{ order.parent_category_id ? "-" : "MAIN"}}
-                                </td>
-                                <td>
-                                    {{ order.created_at }}
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                            <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <!-- END: TABLE   -->
                     </div>
                     <!-- END::: FIRST TAB CONTENT -->
                 </div>
@@ -303,7 +77,7 @@ export default {
     },
     mounted(){
         this.loadParentCategories();
-        this.loadCategories();
+        //this.loadCategories();
         
     },
     methods:{
@@ -318,6 +92,7 @@ export default {
             console.warn(obj);
             if(obj.success==true){
               this.catlist_ddl = obj.data;
+this.catlist = obj.data;
               console.warn((await result).data.length);
               if((await result).data.length<10){
                 console.warn("Inside");

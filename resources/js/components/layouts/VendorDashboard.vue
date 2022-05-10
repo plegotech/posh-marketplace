@@ -33,7 +33,7 @@
                                     </router-link>
                                 </li>
                                 <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                    <router-link :to="{ name: 'vendor-categories'}">
+                                    <router-link :to="{ name: 'vendor-subcategories'}">
                                         Sub Category List
                                     </router-link>
                                 </li>
