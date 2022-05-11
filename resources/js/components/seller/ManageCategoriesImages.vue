@@ -168,6 +168,15 @@ document.getElementById('ajaxLoader').style.display = 'none';
         },
         changeNew(e){
             this.images_new = e.target.files[0]
+/*
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+*/
         },
         removeImages(imageNumb){
             const config = {}
