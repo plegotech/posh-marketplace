@@ -110,6 +110,7 @@ Route::prefix('product')->group(function () {
 });
 
 Route::prefix('category')->group(function () {
+    Route::post('/update/{id}', 'CategoryController@update');
     Route::post('/delete/{id}', 'CategoryController@delete');
 });
 
