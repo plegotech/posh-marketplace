@@ -14,7 +14,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="images_new"
                                           :src="getImgUrll(this.images_new)"
                                           @error="
                                             $event.target.src =
@@ -32,7 +32,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="images_cat"
                                           :src="getImgUrll(this.images_cat)"
                                           @error="
                                             $event.target.src =
@@ -50,7 +50,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="images_hot"
                                           :src="getImgUrll(this.images_hot)"
                                           @error="
                                             $event.target.src =
@@ -68,7 +68,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="images_elec"
                                           :src="getImgUrll(this.images_elec)"
                                           @error="
                                             $event.target.src =
@@ -87,7 +87,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="images_home"
                                           :src="getImgUrll(this.images_home)"
                                           @error="
                                             $event.target.src =
@@ -117,16 +117,18 @@ export default {
         return {
             user:this.$store.state.auth.user,
             images_cat:'',
-link_cat:null,
+            link_cat:null,
             images_elec:'',
-link_elec:null,
+            link_elec:null,
             images_home:'',
-link_home:null,
+            link_home:null,
             images_hot:'',
-link_hot:null,
+            link_hot:null,
             images_new:'',
-link_new:null,
-img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            link_new:null,
+
+            img_url: "https://posh-marketplace.plego.pro/img/produc-images/",
+            //img_url: "http://localhost:8000/img/product-images/",
 
         }
     },
@@ -154,28 +156,65 @@ this.getSlidersPromotionsCategoryImages()
 }
 document.getElementById('ajaxLoader').style.display = 'none';
         },
-        changeCat(e){
-            this.images_cat = e.target.files[0]
+        changeCat(input){
+            this.images_cat = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#images_cat').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },
-        changeElec(e){
-            this.images_elec = e.target.files[0]
+        changeElec(input){
+            this.images_elec = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#images_elec').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },
-        changeHome(e){
-            this.images_home = e.target.files[0]
+        changeHome(input){
+            this.images_home = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#images_home').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },
-        changeHot(e){
-            this.images_hot = e.target.files[0]
+        changeHot(input){
+            this.images_hot = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#images_hot').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },
-        changeNew(e){
-            this.images_new = e.target.files[0]
+        changeNew(input){
+            this.images_new = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#images_new').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
 /*
+            this.images_new = e.target.files[0]
+
             var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
+            reader.onload = function (f) {
+                $('#images_new').attr('src', f.target.result);
             }
 
-            reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(e.files[0]);
 */
         },
         removeImages(imageNumb){
