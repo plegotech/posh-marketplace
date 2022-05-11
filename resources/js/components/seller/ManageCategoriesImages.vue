@@ -134,7 +134,7 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
-this.getSlidersPromotionsCategoryImages()
+        this.getSlidersPromotionsCategoryImages()
     },
     methods : {
         async getSlidersPromotionsCategoryImages() {
@@ -142,19 +142,21 @@ this.getSlidersPromotionsCategoryImages()
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
             if((await result).data.CatImages!=null){
-            this.list_homepage = (await result).data
-            this.images_cat = (await result).data.CatImages.images_cat;
-            this.images_elec = (await result).data.CatImages.images_elec;
-            this.images_hot = (await result).data.CatImages.images_hot;
-            this.images_new = (await result).data.CatImages.images_new;
-            this.images_home = (await result).data.CatImages.images_home;
-            this.link_cat = (await result).data.CatImages.link_cat;
-            this.link_elec = (await result).data.CatImages.link_elec;
-            this.link_hot = (await result).data.CatImages.link_hot;
-            this.link_new = (await result).data.CatImages.link_new;
-            this.link_home = (await result).data.CatImages.link_home;
-}
-document.getElementById('ajaxLoader').style.display = 'none';
+                this.list_homepage = (await result).data
+                this.images_cat = (await result).data.CatImages.images_cat;
+                this.images_elec = (await result).data.CatImages.images_elec;
+                this.images_hot = (await result).data.CatImages.images_hot;
+                this.images_new = (await result).data.CatImages.images_new;
+                this.images_home = (await result).data.CatImages.images_home;
+                this.link_cat = (await result).data.CatImages.link_cat;
+                this.link_elec = (await result).data.CatImages.link_elec;
+                this.link_hot = (await result).data.CatImages.link_hot;
+                this.link_new = (await result).data.CatImages.link_new;
+                this.link_home = (await result).data.CatImages.link_home;
+            } else {
+                alert("Error in loading");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
         },
         changeCat(input){
             this.images_cat = input.target.files[0]
@@ -286,7 +288,8 @@ this.getSlidersPromotionsCategoryImages()
                 });
         },
         getImgUrll(pet) {
-          return this.img_url + "/" + this.user.id + "/" + pet;
+            console.log(this.img_url + "/" + this.user.id + "/" + pet);
+            return this.img_url + "/" + this.user.id + "/" + pet;
         },
     },
     
