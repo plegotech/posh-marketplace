@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-lg-6  col-6 mb-4">
                                 <div class="form-outline-ft">
-                                    <select class="form-control-label select-custom-point" name="" id="">
+                                    <select class="form-control-label select-custom-point" v-model="parent" name="" id="">
                                         <option value="" selected>Select Main Category</option>
                                         <option v-for="(category, index) in this.catlist_ddl"
                                                 :value="category.id">{{ category.title }}</option>
@@ -21,24 +21,26 @@
                                 <div class="col-sm-6">                                   
                                         <div class="form-outline-ft mb-5">
                                             <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
                                             <label class="form-label">Enter sub Category Name</label>
                                         </div>                                  
                                  </div>
                                  <div class="col-sm-6">                                   
                                         <div class="form-outline-ft mb-5">
-                                            <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
+                                            <input type="text"  class="form-control-label" required>
                                             <label class="form-label">Enter Brand</label>
                                         </div>                               
                                  </div>
                                  <div class="col-sm-6">                                    
                                         <div class="form-outline-ft mb-5">
-                                            <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
+                                            <input type="text"  class="form-control-label" required>
                                             <label class="form-label">Enter Attribute</label>
                                         </div>                                     
                                  </div>
+<div class="col-sm-12">     
+                            <div>
+                                    <button class="primary"  @click="saveCategories">SAVE</button>
+                            </div>
+                        </div>  
                         </div>
                         <!-- END:: Add new Sub Category-->
 
@@ -62,7 +64,7 @@ export default {
 
     data(){
         return {
-            cat_id:0,
+            cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
             name:null,
@@ -74,12 +76,23 @@ export default {
     },
     mounted(){
         this.loadParentCategories();
-        this.loadCategories();
-        
+        this.loadCategory();
     },
     methods:{
         changeThumb(e){
             this.thumb= e.target.files[0];
+        },
+        async loadCategory(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/category/"+this.cat_id);
+            console.warn("Check Data");
+            const obj = (await result).data;
+            if(obj!=null){
+                this.name=obj.data.title
+                this.parent=obj.data.parent_category_id
+            }
+            console.log(obj)
+            document.getElementById('ajaxLoader').style.display = 'none';
         },
         async loadParentCategories(){
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -94,19 +107,6 @@ export default {
                 console.warn("Inside");
                 this.catlist_ddl_limit=true
               }
-            } else {
-              alert("Issue loading categories");
-            }
-            document.getElementById('ajaxLoader').style.display = 'none';
-        },
-        async loadCategories(){
-            document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categoriesall");
-            console.warn("Check Data");
-            const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist = obj.data;
             } else {
               alert("Issue loading categories");
             }

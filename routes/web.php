@@ -25,6 +25,7 @@ Route::post('/createcategory', 'CategoryController@create');
 Route::post('/product-csv', 'ProductController@uploadCsv');
 Route::post('/seller/business-licenses', 'SellerController@businessLicenses');
 Route::get('/categories', 'CategoryController@fetch');
+Route::get('/category/{id}', 'CategoryController@fetchById');
 Route::get('/subcategories', 'CategoryController@fetchSub');
 Route::get('/categoriesall', 'CategoryController@fetchAll');
 Route::get('/brands', 'CategoryController@fetchBrands');

@@ -6,8 +6,26 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
 
+    public function fetchById($id){
+        return Response()->json(array(
+                        'success' => true,
+                        'data' => \App\Category::where('id', $id)->first()
+            ));
+        
+    }
     public function create(Request $request) {
         $data = $request->all();
+        
+        if ($request->file('img')) {
+            $photo = rand(5000, 9999) . $request->file('img')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
+            $request->file('img')->move($destination, $photo);
+            $data['img']=$photo;
+        } else {
+           unset($data['img']);
+        }
+        
+        
         if (isset($data['cat_id']) && $data['cat_id'] != 0) {
             $result = \App\Category::find($data['cat_id'])->update($data);
         } else {

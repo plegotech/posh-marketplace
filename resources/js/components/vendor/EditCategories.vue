@@ -58,7 +58,7 @@ export default {
 
     data(){
         return {
-            cat_id:0,
+            cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
             name:null,
@@ -69,43 +69,21 @@ export default {
         }
     },
     mounted(){
-        this.loadParentCategories();
-        this.loadCategories();
-        
+        this.loadCategory();        
     },
     methods:{
         changeThumb(e){
             this.thumb= e.target.files[0];
         },
-        async loadParentCategories(){
+        async loadCategory(){
             document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categories");
+            let result = axios.get("/category/"+this.cat_id);
             console.warn("Check Data");
             const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist_ddl = obj.data;
-              console.warn((await result).data.length);
-              if((await result).data.length<10){
-                console.warn("Inside");
-                this.catlist_ddl_limit=true
-              }
-            } else {
-              alert("Issue loading categories");
+            if(obj!=null){
+                this.name=obj.data.title
             }
-            document.getElementById('ajaxLoader').style.display = 'none';
-        },
-        async loadCategories(){
-            document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categoriesall");
-            console.warn("Check Data");
-            const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist = obj.data;
-            } else {
-              alert("Issue loading categories");
-            }
+            console.log(obj)
             document.getElementById('ajaxLoader').style.display = 'none';
         },
         saveCategories(){
@@ -147,7 +125,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-                    $route.push("categories");
+                    this.$route.push("categories");
                 });
 
         },
