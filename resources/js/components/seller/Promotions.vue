@@ -212,6 +212,7 @@ this.getPromotions()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+this.getPromotions()
                 });
         },
         getImgUrll(pet) {

@@ -234,6 +234,7 @@ this.getSlidersPromotionsCategoryImages()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+                    this.getSlidersPromotionsCategoryImages()
                 });
         },
         getImgUrll(pet) {

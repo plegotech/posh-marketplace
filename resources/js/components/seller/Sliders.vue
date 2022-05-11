@@ -177,6 +177,7 @@ this.getSliders()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+this.getSliders()
                 });
         },
         getImgUrll(pet) {

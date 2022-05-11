@@ -11,7 +11,7 @@
                         <div class="row mt-5">
                                  <div class="col-sm-6">                                   
                                         <div class="form-outline-ft">
-                                            <input type="text" value="Computer System" class="form-control-label" required>
+                                            <input type="text" v-model="name" class="form-control-label" required>
                                             <input type="hidden"  />
                                             <label class="form-label">Category Name</label>
                                         </div>                               
@@ -124,7 +124,7 @@ export default {
             data.append('cat_id', this.cat_id);
             data.append('title', this.name);
             data.append('img', this.thumb);
-            data.append('parent_category_id', this.parent);
+            data.append('parent_category_id', 0);
 
             axios.post('/create-category', data, config)
                 .then(function (res) {
@@ -147,7 +147,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-this.loadCategories()
+                    $route.push("categories");
                 });
 
         },
