@@ -127,8 +127,8 @@ export default {
             images_new:'',
             link_new:null,
 
-            //img_url: "https://posh-marketplace.plego.pro/img/produc-images",
-            img_url: "http://localhost:8000/img/product-images",
+            img_url: "https://posh-marketplace.plego.pro/img/produc-images",
+            //img_url: "http://localhost:8000/img/product-images",
 
         }
     },
