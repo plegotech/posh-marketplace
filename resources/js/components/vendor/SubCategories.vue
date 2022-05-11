@@ -43,8 +43,10 @@
                                                  data-toggle="dropdown" aria-haspopup="true"
                                                  aria-expanded="false">
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                <li @click="toggleCategory(order.id)" class="inactive-mob">In-Active</li>
                                                 <router-link :to="{ path: 'editsubcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link>
-                                                <!--<li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>-->
+                                                <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
+                                                
                                             </ul>
                                         </div>
                                     </td>
@@ -190,6 +192,27 @@ this.loadCategories()
             this.name = cat.title
             this.parent=0
             this.cat_id = cat.id
+        },
+        toggleCategory(id){
+            axios.post('/api/category/update/'+id)
+                .then(function (res) {
+                    console.log(res);
+                    var data = res.data;
+                    if (data.success == 'true') {
+                        alert('Category created successfully.');
+                        object.clearForm();
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    this.processing = false;
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                    this.loadCategories()
+                });
         },
         deleteCategory(id){
             //alert(id)
