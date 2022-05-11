@@ -86,8 +86,8 @@ export default {
             link1:        '',
             link2:        '',
             link3:        '',
-            //img_url: "https://posh-marketplace.plego.pro/img/product-images/",
-            img_url: "http://localhost:8000/img/product-images/",
+            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            //img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
