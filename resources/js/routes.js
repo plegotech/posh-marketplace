@@ -107,9 +107,13 @@ export default {
             { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products/:product_id?', component: VendorUploadProducts },
             { name: 'vendor-categories', meta: { title: 'Categories' }, path: '/vendor/categories', component: Categories },
+            
+            
             { name: 'vendor-subcategories', meta: { title: 'Sub Categories' }, path: '/vendor/subcategories', component: SubCategories },
-            { name: 'vendor-editcategories', meta: { title: 'Edit Categories' }, path: '/vendor/editcategories', component: EditCategories },
-            { name: 'vendor-editsubcategories', meta: { title: 'Edit Sub Categories' }, path: '/vendor/editsubcategories', component: EditSubCategories },
+            { name: 'vendor-editcategories',props: true, meta: { title: 'Edit Categories' }, path: '/vendor/editcategories/:id?', component: EditCategories },
+            
+            
+            { name: 'vendor-editsubcategories',props: true, meta: { title: 'Edit Sub Categories' }, path: '/vendor/editsubcategories/:id?', component: EditSubCategories },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
             { name: 'vendor-all-orders', meta: { title: 'Completed Orders' }, path: '/vendor/orders/completed', component: VendorCompletedOrders },

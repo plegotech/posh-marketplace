@@ -18,8 +18,7 @@
                                 </div>
                             </div>
                             <div class="col-6"><div class="btn-right-bx">
-
-<router-link :to="{ name: 'vendor-editsubcategories'}" class="primary">Add New Sub Category</router-link>
+<router-link :to="{ path: 'editsubcategories', query: { id: 0 }, props: true }" class="primary">Add New Sub Category</router-link>
 </div></div>
                         </div>
                         <div class="row">
