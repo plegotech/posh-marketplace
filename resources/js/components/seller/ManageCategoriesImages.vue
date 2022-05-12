@@ -127,7 +127,7 @@ export default {
             images_new:'',
             link_new:null,
 
-            img_url: "https://posh-marketplace.plego.pro/img/produc-images",
+            img_url: "https://posh-marketplace.plego.pro/img/product-images",
             //img_url: "http://localhost:8000/img/product-images",
 
         }
@@ -142,6 +142,7 @@ export default {
             let result = axios.get("/api/seller/homepage/"+this.user.id);
             console.log((await result).data);
             if((await result).data.CatImages!=null){
+                console.log("Not Null");
                 this.list_homepage = (await result).data
                 this.images_cat = (await result).data.CatImages.images_cat;
                 this.images_elec = (await result).data.CatImages.images_elec;
@@ -207,17 +208,6 @@ export default {
                 }
                 reader.readAsDataURL(input.target.files[0]);
             }
-/*
-            this.images_new = e.target.files[0]
-
-            var reader = new FileReader();
-
-            reader.onload = function (f) {
-                $('#images_new').attr('src', f.target.result);
-            }
-
-            reader.readAsDataURL(e.files[0]);
-*/
         },
         removeImages(imageNumb){
             const config = {}
