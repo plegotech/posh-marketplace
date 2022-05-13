@@ -25,19 +25,15 @@
                                 <div class="col-lg-3 col-xl-auto col-6 mb-4">
                                     <select class="parentCategory select-custom-point" @change="updateSubCategories()">
                                         <option value="" selected>Category</option>
-                                        <option v-for="(category, index) in parent_categories"
-                                        :value="index">
-                                            {{ index }}
-                                        </option>
+                                        <option v-for="(category, index) in this.catlist"
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3 col-xl-auto col-6 mb-4">
                                     <select class="subCategory select-custom-point" @change="fetchProducts()">
                                         <option value="" selected>Sub Category</option>
-                                        <option v-for="(category, index) in sub_categories"
-                                        :value="category">
-                                            {{ category }}
-                                        </option>
+                                        <option v-for="(category, index) in this.subcatlist"
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3 col-xl-auto col-6 mb-4">
@@ -142,22 +138,67 @@
                     net_price: null,
                     sale_price: null,
                     featured_image: null
-                }
+                },
+                filtersdata:[],
+                filters_input:{},
+                catlist:[],
+                subcatlist:[]
             }
         },
 
         created() {
+            this.loadCategories()
             this.fetchProducts();
-            this.parent_categories = SITE_CATEGORIES;
+            //this.parent_categories = SITE_CATEGORIES;
         },
 
         methods: {
+            async loadCategories(){
+                document.getElementById('ajaxLoader').style.display = 'block';
+                let result = axios.get("/categories");
+                console.warn("Check Data");
+                const obj = (await result).data;
+                console.warn(obj);
+                if(obj.success==true){
+                  this.catlist = obj.data;
+                } else {
+                  alert("Issue loading categories");
+                }
+                document.getElementById('ajaxLoader').style.display = 'none';
+            },
+
+            async loadSubCategories(id){
+                document.getElementById('ajaxLoader').style.display = 'block';
+
+                let result = axios.get("/categories", 
+                        {
+                          params: {
+                            id: id
+                          },
+                        },
+                        { useCredentails: true }
+                );
+
+                console.warn("Check Data");
+                const obj = (await result).data;
+                console.warn(obj);
+                if(obj.success==true){
+                  this.subcatlist = obj.data;
+                } else {
+                  alert("Issue loading categories");
+                }
+
+
+                document.getElementById('ajaxLoader').style.display = 'none';
+            },
+
             updateSubCategories() {
                 var parent = document.getElementsByClassName('parentCategory');
 
                 if(typeof parent[0] !== 'undefined') {
                     parent = parent[0].value;
-                    this.sub_categories = SITE_CATEGORIES[parent];
+                    //this.sub_categories = SITE_CATEGORIES[parent];
+                    this.loadSubCategories(parent)
                 }
                 this.fetchProducts();
             },
