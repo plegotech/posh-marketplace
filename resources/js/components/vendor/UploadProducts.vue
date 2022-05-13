@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
-                                    <select v-model="product.sub_category" class="subCategory form-control-label select-custom-point">
+                                    <select v-model="product.sub_category" @change="updateFilters()" class="subCategory form-control-label select-custom-point">
                                         <option v-for="(category, index) in this.subcatlist"
                                                 :value="category.id">{{ category.title }}</option>
                                     </select>
@@ -40,6 +40,13 @@
                                         :value="brand">{{ brand }}</option>
                                     </select>
                                     <span class="form-label">Brand</span>
+                                </div>
+                                <div class="mb-5">
+                                    <div v-for="(val, index) in filtersdata" :key="index">
+                                        <label>{{index}}</label>
+                                        <input style="border:1px solid #cccccc;" type="text" v-model="filters_input[index]" :name="index" class="form-check" />
+                                    </div>
+                                    
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
@@ -135,6 +142,8 @@ export default {
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
+            filtersdata:[],
+            filters_input:{},
             catlist:[],
             subcatlist:[]
         }
@@ -171,8 +180,8 @@ export default {
             document.getElementById('ajaxLoader').style.display = 'none';
         },
         async loadSubCategories(id){
-//alert(id)
             document.getElementById('ajaxLoader').style.display = 'block';
+            
             let result = axios.get("/categories", 
                     {
                       params: {
@@ -181,6 +190,7 @@ export default {
                     },
                     { useCredentails: true }
             );
+            
             console.warn("Check Data");
             const obj = (await result).data;
             console.warn(obj);
@@ -189,11 +199,29 @@ export default {
             } else {
               alert("Issue loading categories");
             }
+
+            
             document.getElementById('ajaxLoader').style.display = 'none';
         },
 
 
+        updateFilters(){
+            var subcat = document.getElementsByClassName('subCategory');
+            if (typeof subcat[0] !== 'undefined') {
+                subcat = subcat[0].value;
+                //alert(subcat)
+                this.loadFilters(subcat)
+                
+                
 
+            }
+        },
+        async loadFilters(id){
+                let filtersresult = axios.get("/api/category/filters/"+id);
+                console.warn(filtersresult);
+                this.filtersdata = (await filtersresult).data.data;
+                console.warn(this.filtersdata);
+        },
 
         updateSubCategories() {
             var parent = document.getElementsByClassName('parentCategory');
@@ -302,6 +330,9 @@ export default {
             data.append('featured_image', this.product.featured_image);
             data.append('images', this.product.imagesArray.length);
 
+            for (const k of Object.keys(this.filters_input)) {
+                data.append(k, this.filters_input[k])
+            }
             for (const i of Object.keys(this.product.imagesArray)) {
                 data.append('imagesArray_'+i, this.product.imagesArray[i])
             }
@@ -313,7 +344,8 @@ export default {
                     var data = res.data;
                     if (data.success == 'true') {
                         alert('product created successfully.');
-                        object.clearForm();
+                        //object.clearForm();
+                        //this.filtersdata=null
                     } else {
                         object.errors = data.errors;
                     }

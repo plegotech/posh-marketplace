@@ -108,9 +108,11 @@ Route::prefix('product')->group(function () {
     Route::get('/featured', 'ProductController@getFeatured');
     Route::get('/justforyou/{id?}', 'ProductController@getJustForYou');
 });
-
 Route::prefix('category')->group(function () {
+    Route::post('/update/{id}', 'CategoryController@update');
     Route::post('/delete/{id}', 'CategoryController@delete');
+Route::get('/filters/{id}', 'CategoryController@fetchCatFilters');    
+Route::get('/pfilters/{id}', 'CategoryController@fetchFilters');    
 });
 
 Route::get('/website/{seller_id}', 'SellerController@website');

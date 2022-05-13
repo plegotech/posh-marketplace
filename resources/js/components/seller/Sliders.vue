@@ -15,7 +15,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="slider_images_1"
                                           :src="getImgUrll(this.slider_images_1)"
                                           @error="
                                             $event.target.src =
@@ -33,7 +33,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="slider_images_2"
                                           :src="getImgUrll(this.slider_images_2)"
                                           @error="
                                             $event.target.src =
@@ -51,7 +51,7 @@
                                     <label class="form-label">URL</label>
                                 </div>
                                 <div class="upload-site-logo">
-                                        <img
+                                        <img id="slider_images_3"
                                           :src="getImgUrll(this.slider_images_3)"
                                           @error="
                                             $event.target.src =
@@ -86,8 +86,8 @@ export default {
             link1:        '',
             link2:        '',
             link3:        '',
-            //img_url: "https://posh-marketplace.plego.pro/img/product-images/",
-            img_url: "http://localhost:8000/img/product-images/",
+            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            //img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
@@ -110,14 +110,36 @@ this.getSliders()
             console.log(this.list_homepage);
             document.getElementById('ajaxLoader').style.display = 'none';
         },
-        sliderImages1(e) {
-            this.slider_images_1= e.target.files[0];
+        sliderImages1(input) {
+            this.slider_images_1= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#slider_images_1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+
         },        
-        sliderImages2(e) {
-            this.slider_images_2= e.target.files[0];
+        sliderImages2(input) {
+            this.slider_images_2= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#slider_images_2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },        
-        sliderImages3(e) {
-            this.slider_images_3= e.target.files[0];
+        sliderImages3(input) {
+            this.slider_images_3= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#slider_images_3').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },        
         removeImages(imageNumb){
             const config = {}
@@ -177,6 +199,7 @@ this.getSliders()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+this.getSliders()
                 });
         },
         getImgUrll(pet) {

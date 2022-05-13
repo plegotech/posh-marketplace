@@ -16,7 +16,7 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img
+                                        <img id="pro_images_top1" 
                                           :src="getImgUrll(this.pro_images_top1)"
                                           @error="
                                             $event.target.src =
@@ -35,7 +35,7 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img
+                                        <img id="pro_images_top2"
                                           :src="getImgUrll(this.pro_images_top2)"
                                           @error="
                                             $event.target.src =
@@ -56,7 +56,7 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img
+                                        <img id="pro_images_bot1"
                                           :src="getImgUrll(this.pro_images_bot1)"
                                           @error="
                                             $event.target.src =
@@ -75,7 +75,7 @@
                                         <label class="form-label">URL</label>
                                     </div>
                                     <div class="upload-site-logo">
-                                        <img
+                                        <img id="pro_images_bot2"
                                           :src="getImgUrll(this.pro_images_bot2)"
                                           @error="
                                             $event.target.src =
@@ -113,8 +113,8 @@ export default {
             pro_images_bot1:        '',
             link4:        '',
             pro_images_bot2:        '',
-img_url: "https://posh-marketplace.plego.pro/img/product-images/",
-//img_url: "http://localhost:8000/img/product-images/",
+            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            //img_url: "http://localhost:8000/img/product-images/",
         }
     },
     mounted() {
@@ -139,17 +139,46 @@ img_url: "https://posh-marketplace.plego.pro/img/product-images/",
             }
             document.getElementById('ajaxLoader').style.display = 'none';
         },
-        proImages1(e) {
-            this.pro_images_top1= e.target.files[0];
+        proImages1(input) {
+            this.pro_images_top1= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#pro_images_top1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+
         },        
-        proImages2(e) {
-            this.pro_images_top2= e.target.files[0];
+        proImages2(input) {
+            this.pro_images_top2= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#pro_images_top2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },        
-        proImages3(e) {
-            this.pro_images_bot1= e.target.files[0];
+        proImages3(input) {
+            this.pro_images_bot1= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#pro_images_bot1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },        
-        proImages4(e) {
-            this.pro_images_bot2= e.target.files[0];
+        proImages4(input) {
+            this.pro_images_bot2= input.target.files[0];
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#pro_images_bot2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },        
         removeImages(imageNumb){
             const config = {}
@@ -212,6 +241,7 @@ this.getPromotions()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
+this.getPromotions()
                 });
         },
         getImgUrll(pet) {

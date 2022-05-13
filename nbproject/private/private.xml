@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/seller/Sliders.vue</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/seller/Promotions.vue</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/SellerController.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/seller/Headerfooter.vue</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/seller/ManageCategoriesImages.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/vendor/UploadProducts.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/ProductFilters.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/routes/api.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/vendor/EditSubCategories.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Product.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/CategoryController.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/vendor/EditProducts.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Category.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/ProductController.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/vendor/EditCategories.vue</file>
         </group>
     </open-files>
 </project-private>

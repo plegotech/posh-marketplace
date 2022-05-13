@@ -1,49 +1,7 @@
 <template>
     <div class="container-fluid pending-vend">       
         <div class="row mt-12">
-            <div class="col-sm-12 addcat">
-                <div class="top-newOrder myorder mb-4">
-                    <div class="row mb-4 up-main-bx">
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="name" class="form-control-label" required>
-                                    <input type="hidden" v-model="cat_id" />
-                                    <label class="form-label">Category Name</label>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    
-                                    <select class="form-control-label select-custom-point" v-model="parent">
-                                        <option value="0">No Parent</option>
-                                        <option v-for="(category, index) in this.catlist_ddl"
-                                                :value="category.id">{{ category.title }}</option>
-                                    </select>
-                                    <span class="form-label">Category Parent</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="file" ref="file" style="display: none" name="thumb" @change="changeThumb" />
-                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
-                                    <span class="form-label">Thumbnail</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">     
-                            <div>
-                                    <button class="primary"  @click="saveCategories">SAVE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            
             <div class="col-sm-12">
                 <div>
                     <!-- START: FIRST TAB CONTENT for Categories -->
@@ -53,7 +11,7 @@
                         <div class="row mt-5">
                                  <div class="col-sm-6">                                   
                                         <div class="form-outline-ft">
-                                            <input type="text" value="Computer System" class="form-control-label" required>
+                                            <input type="text" v-model="name" class="form-control-label" required>
                                             <input type="hidden"  />
                                             <label class="form-label">Category Name</label>
                                         </div>                               
@@ -72,7 +30,7 @@
                                         </div>
                                     </div>    
                                  </div>
-                        <div class="col-sm-3">     
+                        <div class="col-sm-12">     
                             <div>
                                     <button class="primary"  @click="saveCategories">SAVE</button>
                             </div>
@@ -81,55 +39,6 @@
                         
                        
 
-
-                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
-                            <thead>
-                                <tr>
-                                <th>ID</th>                                
-                                <th>Categories</th>
-                                <th>Sub Categories</th>
-                                <th>Type</th>
-                                <th>Created On</th>
-                                <th>Manage</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="(order, index) in this.catlist" :key="index">
-                                <td>
-                                    {{ order.id }}
-                                </td>
-                                
-                                <td>
-                                    {{ order.title }}
-                                </td>
-                                <td>
-                                    <ul>
-                                            <li v-for="sub in order.children">{{sub.title}}</li>
-                                    </ul>
-                                    
-                                    
-                                </td>
-                                <td>
-                                    {{ order.parent_category_id ? "-" : "MAIN"}}
-                                </td>
-                                <td>
-                                    {{ order.created_at }}
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                            <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <!-- END: TABLE   -->
                     </div>
                     <!-- END::: FIRST TAB CONTENT -->
                 </div>
@@ -149,54 +58,65 @@ export default {
 
     data(){
         return {
-            cat_id:0,
+            bfield:1,
+            afield:1,
+
+            cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
             name:null,
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
-            catlist_ddl_limit:false
+            catlist_ddl_limit:false,
+            filtersdata:[],
+            filters:{}
         }
     },
+//
     mounted(){
-        this.loadParentCategories();
-        this.loadCategories();
-        
+        this.loadCategory();        
+        this.getCategoryFilters();
     },
     methods:{
+        rembrand(){
+            if(this.bfield>1){
+                $("#brand-"+this.bfield).show();
+                this.bfield-=1;
+            }
+            //alert(this.bfield);
+        },
+        addbrand(){
+            if(this.filters!=null){
+                
+            }
+            //alert(this.bfield);
+            if(this.bfield<5){
+                this.bfield+=1;
+                $("#brand-"+this.bfield).show();
+            }
+        },
+        async getCategoryFilters() {
+
+          let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
+          if ((await cat_result).data != null) {
+            this.filters = (await cat_result).data.filterlab;
+          }
+          console.log(this.filtersdata);
+        },
+
         changeThumb(e){
             this.thumb= e.target.files[0];
         },
-        async loadParentCategories(){
+        async loadCategory(){
             document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categories");
+            let result = axios.get("/category/"+this.cat_id);
             console.warn("Check Data");
             const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist_ddl = obj.data;
-              console.warn((await result).data.length);
-              if((await result).data.length<10){
-                console.warn("Inside");
-                this.catlist_ddl_limit=true
-              }
-            } else {
-              alert("Issue loading categories");
+            if(obj!=null){
+                this.name=obj.data.title
             }
-            document.getElementById('ajaxLoader').style.display = 'none';
-        },
-        async loadCategories(){
-            document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categoriesall");
-            console.warn("Check Data");
-            const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist = obj.data;
-            } else {
-              alert("Issue loading categories");
-            }
+            console.log(obj)
             document.getElementById('ajaxLoader').style.display = 'none';
         },
         saveCategories(){
@@ -215,7 +135,12 @@ export default {
             data.append('cat_id', this.cat_id);
             data.append('title', this.name);
             data.append('img', this.thumb);
-            data.append('parent_category_id', this.parent);
+            data.append('parent_category_id', 0);
+
+            
+            
+
+            data.append('parent_category_id', 0);
 
             axios.post('/create-category', data, config)
                 .then(function (res) {
@@ -238,7 +163,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-this.loadCategories()
+                    this.$route.push("categories");
                 });
 
         },

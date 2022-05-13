@@ -1,49 +1,6 @@
 <template>
     <div class="container-fluid pending-vend">       
         <div class="row mt-12">
-            <div class="col-sm-12 addcat">
-                <div class="top-newOrder myorder mb-4">
-                    <div class="row mb-4 up-main-bx">
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="text" v-model="name" class="form-control-label" required>
-                                    <input type="hidden" v-model="cat_id" />
-                                    <label class="form-label">Category Name</label>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    
-                                    <select class="form-control-label select-custom-point" v-model="parent">
-                                        <option value="0">No Parent</option>
-                                        <option v-for="(category, index) in this.catlist_ddl"
-                                                :value="category.id">{{ category.title }}</option>
-                                    </select>
-                                    <span class="form-label">Category Parent</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="up-main-bx-1">
-                                <div class="form-outline-ft mb-5">
-                                    <input type="file" ref="file" style="display: none" name="thumb" @change="changeThumb" />
-                                    <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
-                                    <span class="form-label">Thumbnail</span>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="col-sm-3">     
-                            <div>
-                                    <button class="primary"  @click="saveCategories">SAVE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <div class="col-sm-12">
                 <div>
                     <!-- START: FIRST TAB CONTENT for Categories -->
@@ -53,13 +10,10 @@
                         <div class="row">
                             <div class="col-lg-6  col-6 mb-4">
                                 <div class="form-outline-ft">
-                                    <select class="form-control-label select-custom-point" name="" id="">
+                                    <select class="form-control-label select-custom-point" v-model="parent" name="" id="">
                                         <option value="" selected>Select Main Category</option>
-                                        <option value="">Computer System</option>
-                                        <option value="">Gaming</option>
-                                        <option value="">Networking</option>
-                                        <option value="">Office Solutions</option>
-                                        <option value="">Software Services</option>
+                                        <option v-for="(category, index) in this.catlist_ddl"
+                                                :value="category.id">{{ category.title }}</option>
                                     </select>
                                     <span class="form-label">Category Parent</span>
                                     </div>
@@ -67,76 +21,40 @@
                                 <div class="col-sm-6">                                   
                                         <div class="form-outline-ft mb-5">
                                             <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
                                             <label class="form-label">Enter sub Category Name</label>
                                         </div>                                  
                                  </div>
-                                 <div class="col-sm-6">                                   
-                                        <div class="form-outline-ft mb-5">
-                                            <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
-                                            <label class="form-label">Enter Brand</label>
-                                        </div>                               
+                                 <div class="col-sm-12 row">  
+                                    
+                                    <div class="col-sm-6">
+                                        <button class="primary " @click="addbrand">Add Attribute</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button class="primary " @click="rembrand">Remove Attribute</button>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
+                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute" style="border-bottom:1px solid #CCCCCC;" required>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 brand-list">                                    
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter1" id="brand-1" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter2" id="brand-2" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter3" id="brand-3" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter4" id="brand-4" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter5" id="brand-5" style="border-bottom:1px solid #CCCCCC;" required>
+                                    </div>                                  
                                  </div>
-                                 <div class="col-sm-6">                                    
-                                        <div class="form-outline-ft mb-5">
-                                            <input type="text" v-model="name" class="form-control-label" required>
-                                            <input type="hidden" v-model="cat_id" />
-                                            <label class="form-label">Enter Attribute</label>
-                                        </div>                                     
-                                 </div>
+
+                        <div class="col-sm-12">         
+                            <div>
+                                    <button class="primary"  @click="saveCategories">SAVE</button>
+                            </div>
+                        </div>  
                         </div>
                         <!-- END:: Add new Sub Category-->
 
 
-                        <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
-                            <thead>
-                                <tr>
-                                <th>ID</th>                                
-                                <th>Categories</th>
-                                <th>Sub Categories</th>
-                                <th>Type</th>
-                                <th>Created On</th>
-                                <th>Manage</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="(order, index) in this.catlist" :key="index">
-                                <td>
-                                    {{ order.id }}
-                                </td>
-                                
-                                <td>
-                                    {{ order.title }}
-                                </td>
-                                <td>
-                                    <ul>
-                                            <li v-for="sub in order.children">{{sub.title}}</li>
-                                    </ul>
-                                    
-                                    
-                                </td>
-                                <td>
-                                    {{ order.parent_category_id ? "-" : "MAIN"}}
-                                </td>
-                                <td>
-                                    {{ order.created_at }}
-                                </td>
-                                <td>
-                                    <div class="dropdown cst-slct">
-                                        <img src="/img/more.png" alt="" class="dropdown-toggle"
-                                             data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li @click="updateCategory(order)" class="edit-mob">Edit</li>
-                                            <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <!-- END: TABLE   -->
                     </div>
                     <!-- END::: FIRST TAB CONTENT -->
                 </div>
@@ -156,24 +74,72 @@ export default {
 
     data(){
         return {
-            cat_id:0,
+            bfield:1,
+            afield:1,
+            cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
             name:null,
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
-            catlist_ddl_limit:false
+            catlist_ddl_limit:false,
+           filtersdata:[],
+           filterslab:{},
+            filters:{
+                filter1:null,
+                filter2:null,
+                filter3:null,
+                filter4:null,
+                filter5:null,
+            }
         }
     },
     mounted(){
         this.loadParentCategories();
-        this.loadCategories();
-        
+        this.loadCategory();
+        this.getCategoryFilters();
     },
     methods:{
+        rembrand(){
+            if(this.bfield>1){
+                $("#brand-"+this.bfield).hide();
+                this.bfield-=1;
+            }
+            //alert(this.bfield);
+        },
+        addbrand(){
+            if(this.filters!=null){
+                
+            }
+            //alert(this.bfield);
+            if(this.bfield<5){
+                this.bfield+=1;
+                $("#brand-"+this.bfield).show();
+            }
+        },
+        async getCategoryFilters() {
+
+          let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
+          if ((await cat_result).data != null) {
+            this.filterslab = (await cat_result).data.filterlab;
+          }
+          console.log(this.filterslab);
+        },
         changeThumb(e){
             this.thumb= e.target.files[0];
+        },
+        async loadCategory(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/category/"+this.cat_id);
+            console.warn("Check Data");
+            const obj = (await result).data;
+            if(obj!=null){
+                this.name=obj.data.title
+                this.parent=obj.data.parent_category_id
+            }
+            console.log(obj)
+            document.getElementById('ajaxLoader').style.display = 'none';
         },
         async loadParentCategories(){
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -188,19 +154,6 @@ export default {
                 console.warn("Inside");
                 this.catlist_ddl_limit=true
               }
-            } else {
-              alert("Issue loading categories");
-            }
-            document.getElementById('ajaxLoader').style.display = 'none';
-        },
-        async loadCategories(){
-            document.getElementById('ajaxLoader').style.display = 'block';
-            let result = axios.get("/categoriesall");
-            console.warn("Check Data");
-            const obj = (await result).data;
-            console.warn(obj);
-            if(obj.success==true){
-              this.catlist = obj.data;
             } else {
               alert("Issue loading categories");
             }
@@ -223,7 +176,18 @@ export default {
             data.append('title', this.name);
             data.append('img', this.thumb);
             data.append('parent_category_id', this.parent);
+            data.append('filters', JSON.stringify(this.filters));
+            data.append('filterslab', JSON.stringify(this.filterslab));
+/*
+            
+            for (const k of Object.keys(this.filters)) {
+                data.append(k, this.filters[k])
+            }
+            for (const k of Object.keys(this.filterslab)) {
+                data.append("attr_"+k, this.filterslab[k])
+            }
 
+*/
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);

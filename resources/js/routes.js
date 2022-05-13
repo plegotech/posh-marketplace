@@ -32,6 +32,9 @@ import ManageProducts from  './components/user/ManageProducts';
 import SellerDashboardLayout from './components/layouts/SellerDashboard';
 import SellerOrders from './components/seller/MyOrders';
 import Categories from './components/vendor/Categories';
+import SubCategories from './components/vendor/SubCategories';
+import EditCategories from './components/vendor/EditCategories';
+import EditSubCategories from './components/vendor/EditSubCategories';
 import Headerfooter from './components/seller/Headerfooter';
 import Categoryimages from './components/seller/ManageCategoriesImages';
 import ManagePages from './components/seller/ManagePages';
@@ -104,6 +107,13 @@ export default {
             { name: 'vendor-billing', meta: { title: 'Billing' }, path: '/vendor/billing', component: VendorBilling },
             { name: 'vendor-upload-products', meta: { title: 'Upload Products' }, path: '/vendor/upload/products/:product_id?', component: VendorUploadProducts },
             { name: 'vendor-categories', meta: { title: 'Categories' }, path: '/vendor/categories', component: Categories },
+            
+            
+            { name: 'vendor-subcategories', meta: { title: 'Sub Categories' }, path: '/vendor/subcategories', component: SubCategories },
+            { name: 'vendor-editcategories',props: true, meta: { title: 'Edit Categories' }, path: '/vendor/editcategories/:id?', component: EditCategories },
+            
+            
+            { name: 'vendor-editsubcategories',props: true, meta: { title: 'Edit Sub Categories' }, path: '/vendor/editsubcategories/:id?', component: EditSubCategories },
             { name: 'vendor-orders-pending', meta: { title: 'Pending Orders' }, path: '/vendor/orders/pending', component: VendorOrdersPending },
             { name: 'vendor-orders-in-progress', meta: { title: 'Orders in Progress' }, path: '/vendor/orders/in-progress', component: VendorOrdersInProgress },
             { name: 'vendor-all-orders', meta: { title: 'Completed Orders' }, path: '/vendor/orders/completed', component: VendorCompletedOrders },
