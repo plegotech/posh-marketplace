@@ -86,7 +86,7 @@ class CategoryController extends Controller {
     }
 
     public function fetchCatFilters($CategoryId) {
-        $data = \App\ProductsMeta::where('subcategory_id', $CategoryId)->select('filters')->get();
+        $data = \App\ProductFilters::where('subcategory_id', $CategoryId)->select('filters')->get();
         if ($data) {
             $myAr = array();
             foreach ($data as $p_row) {
