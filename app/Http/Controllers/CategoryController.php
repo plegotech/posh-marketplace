@@ -35,11 +35,7 @@ class CategoryController extends Controller {
         if (isset($data['cat_id']) && $data['cat_id'] != 0) {
             $result = \App\Category::find($data['cat_id'])->update($data);
         } else {
-            $result = \App\Category::create($data);
-        }
-        
-        if($result){
-            return response()->json($result);
+            $data['cat_id'] = \App\Category::create($data)->id;
         }
         
         if ($result) {
