@@ -24,19 +24,29 @@
                                             <label class="form-label">Enter sub Category Name</label>
                                         </div>                                  
                                  </div>
-                                 <div class="col-sm-6">                                   
-                                        <div class="form-outline-ft mb-5">
-                                            <input type="text"  class="form-control-label" required>
-                                            <label class="form-label">Enter Brand</label>
-                                        </div>                               
+                                 <div class="col-sm-12 row">  
+                                    
+                                    <div class="col-sm-6">
+                                        <button class="primary " @click="addbrand">Add Attribute</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button class="primary " @click="rembrand">Remove Attribute</button>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
+                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute" style="border-bottom:1px solid #CCCCCC;" required>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 brand-list">                                    
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter1" id="brand-1" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter2" id="brand-2" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter3" id="brand-3" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter4" id="brand-4" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter5" id="brand-5" style="border-bottom:1px solid #CCCCCC;" required>
+                                    </div>                                  
                                  </div>
-                                 <div class="col-sm-6">                                    
-                                        <div class="form-outline-ft mb-5">
-                                            <input type="text"  class="form-control-label" required>
-                                            <label class="form-label">Enter Attribute</label>
-                                        </div>                                     
-                                 </div>
-<div class="col-sm-12">     
+
+                        <div class="col-sm-12">         
                             <div>
                                     <button class="primary"  @click="saveCategories">SAVE</button>
                             </div>
@@ -64,6 +74,8 @@ export default {
 
     data(){
         return {
+            bfield:1,
+            afield:1,
             cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
@@ -71,14 +83,49 @@ export default {
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
-            catlist_ddl_limit:false
+            catlist_ddl_limit:false,
+           filtersdata:[],
+           filterslab:{},
+            filters:{
+                filter1:null,
+                filter2:null,
+                filter3:null,
+                filter4:null,
+                filter5:null,
+            }
         }
     },
     mounted(){
         this.loadParentCategories();
         this.loadCategory();
+        this.getCategoryFilters();
     },
     methods:{
+        rembrand(){
+            if(this.bfield>1){
+                $("#brand-"+this.bfield).hide();
+                this.bfield-=1;
+            }
+            //alert(this.bfield);
+        },
+        addbrand(){
+            if(this.filters!=null){
+                
+            }
+            //alert(this.bfield);
+            if(this.bfield<5){
+                this.bfield+=1;
+                $("#brand-"+this.bfield).show();
+            }
+        },
+        async getCategoryFilters() {
+
+          let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
+          if ((await cat_result).data != null) {
+            this.filterslab = (await cat_result).data.filterlab;
+          }
+          console.log(this.filterslab);
+        },
         changeThumb(e){
             this.thumb= e.target.files[0];
         },
@@ -129,7 +176,18 @@ export default {
             data.append('title', this.name);
             data.append('img', this.thumb);
             data.append('parent_category_id', this.parent);
+            data.append('filters', JSON.stringify(this.filters));
+            data.append('filterslab', JSON.stringify(this.filterslab));
+/*
+            
+            for (const k of Object.keys(this.filters)) {
+                data.append(k, this.filters[k])
+            }
+            for (const k of Object.keys(this.filterslab)) {
+                data.append("attr_"+k, this.filterslab[k])
+            }
 
+*/
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
