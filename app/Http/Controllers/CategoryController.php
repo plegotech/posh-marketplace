@@ -71,14 +71,26 @@ class CategoryController extends Controller {
     public function delete($id) {
         \App\Category::find($id)->delete();
     }
-
-    public function fetchCatFilters($CategoryId) {
-        $data = \App\ProductsMeta::where('subcategory_id', $CategoryId)->select('field', 'value')->get();
+    public function fetchCatFiltersBK($CategoryId) {
+        $data = \App\ProductFilters::where('subcategory_id', $CategoryId)->select('filters')->get();
         if ($data) {
             $myAr = array();
             foreach ($data as $p_row) {
                 $key = $p_row['field'];
                 $val = $p_row['value'];
+                $myAr[$key] = [];
+            }
+            $data = $myAr;
+        }
+        return Response()->json(array("success" => true, "data" => $data));
+    }
+
+    public function fetchCatFilters($CategoryId) {
+        $data = \App\ProductsMeta::where('subcategory_id', $CategoryId)->select('filters')->get();
+        if ($data) {
+            $myAr = array();
+            foreach ($data as $p_row) {
+                $key = $p_row['filters'];
                 $myAr[$key] = [];
             }
             $data = $myAr;
