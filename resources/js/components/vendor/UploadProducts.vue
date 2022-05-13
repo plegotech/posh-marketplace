@@ -209,7 +209,7 @@ export default {
             var subcat = document.getElementsByClassName('subCategory');
             if (typeof subcat[0] !== 'undefined') {
                 subcat = subcat[0].value;
-                alert(subcat)
+                //alert(subcat)
                 this.loadFilters(subcat)
                 
                 
