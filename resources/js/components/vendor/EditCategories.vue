@@ -30,7 +30,7 @@
                                         </div>
                                     </div>    
                                  </div>
-                        <div class="col-sm-3">     
+                        <div class="col-sm-12">     
                             <div>
                                     <button class="primary"  @click="saveCategories">SAVE</button>
                             </div>
@@ -58,6 +58,9 @@ export default {
 
     data(){
         return {
+            bfield:1,
+            afield:1,
+
             cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
@@ -65,13 +68,43 @@ export default {
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
-            catlist_ddl_limit:false
+            catlist_ddl_limit:false,
+            filtersdata:[],
+            filters:{}
         }
     },
+//
     mounted(){
         this.loadCategory();        
+        this.getCategoryFilters();
     },
     methods:{
+        rembrand(){
+            if(this.bfield>1){
+                $("#brand-"+this.bfield).show();
+                this.bfield-=1;
+            }
+            //alert(this.bfield);
+        },
+        addbrand(){
+            if(this.filters!=null){
+                
+            }
+            //alert(this.bfield);
+            if(this.bfield<5){
+                this.bfield+=1;
+                $("#brand-"+this.bfield).show();
+            }
+        },
+        async getCategoryFilters() {
+
+          let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
+          if ((await cat_result).data != null) {
+            this.filters = (await cat_result).data.filterlab;
+          }
+          console.log(this.filtersdata);
+        },
+
         changeThumb(e){
             this.thumb= e.target.files[0];
         },
@@ -102,6 +135,11 @@ export default {
             data.append('cat_id', this.cat_id);
             data.append('title', this.name);
             data.append('img', this.thumb);
+            data.append('parent_category_id', 0);
+
+            
+            
+
             data.append('parent_category_id', 0);
 
             axios.post('/create-category', data, config)
