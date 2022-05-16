@@ -18,7 +18,13 @@
                                  </div>
                                  <div class="col-sm-3">
                                      <div class="uploadedcategory-icon">
-                                         <img width="24" height="29" src="http://localhost:8000/img/menu-icons/manage-products-icon.png" class="uploaded-icon-img">
+                                        <img id="thumb" width="24" height="29" 
+                                          :src="getImgUrll(this.thumb)"
+                                          @error="
+                                            $event.target.src =
+                                              'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                                          " class="uploaded-icon-img" 
+                                        />
                                          <p >Icon Image</p>
                                          </div>
                                  </div>
@@ -70,7 +76,9 @@ export default {
             user:this.$store.state.auth.user,
             catlist_ddl_limit:false,
             filtersdata:[],
-            filters:{}
+            filters:{},
+            //img_url: "https://posh-marketplace.plego.pro/img/menu-template",
+            img_url: "http://localhost:8000/img/menu-template",
         }
     },
 //
@@ -105,8 +113,17 @@ export default {
           console.log(this.filtersdata);
         },
 
-        changeThumb(e){
-            this.thumb= e.target.files[0];
+        changeThumb(input){
+            this.thumb = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#thumb').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+
+
         },
         async loadCategory(){
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -115,6 +132,7 @@ export default {
             const obj = (await result).data;
             if(obj!=null){
                 this.name=obj.data.title
+                this.thumb=obj.data.img
             }
             console.log(obj)
             document.getElementById('ajaxLoader').style.display = 'none';
@@ -163,7 +181,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-                    this.$route.push("categories");
+                    //this.$route.push("categories");
                 });
 
         },
@@ -195,7 +213,12 @@ export default {
                     this.loadCategories()
                 });
 
-        }
+        },
+        getImgUrll(pet) {
+            console.log(this.img_url + "/" + this.user.id + "/" + pet);
+            return this.img_url + "/" + pet;
+        },
+
 
     }
 }
