@@ -90,8 +90,8 @@
                                 <div class="form-outline-ft mb-5 ">
                                     <p class="sl-title">Site Logo <span class="sl-remove-logo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="upload-site-logo">
-                                    <input type="file" ref="file" style="display: none" name="logo" @change="changeLogo" />
-                                      <img src="/img/no-image-available.png">
+                                    <input type="file" ref="file" style="display: none"  name="logo" @change="changeLogo" />
+                                      <img src="/img/no-image-available.png" v-model="headerfooter.logo" id="logo">
                                       </div>
                                     <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
                                     <!-- <label class="form-label">Logo</label>           -->
@@ -204,6 +204,7 @@ export default {
                     social_link3:        '',
                 },
                 about_us:'',
+                img_url: "https://posh-marketplace.plego.pro/img/menu-template",
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         }
@@ -212,8 +213,17 @@ export default {
         this.getHeaderFooter()
     },
     methods: {
-        changeLogo(e) {
-            this.headerfooter.logo= e.target.files[0];
+        changeLogo(input) {
+            this.headerfooter.logo= input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#logo').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+
+
         },
         sliderImages(e) {
             this.headerfooter.slider_images= e.target.files;
@@ -304,6 +314,7 @@ export default {
             console.log("HeaderFooterData")
             console.log(data)
             this.headerfooter.site_name = data.h_shop_name
+            this.headerfooter.logo = data.logo
             this.headerfooter.site_address = data.h_shop_address
             this.headerfooter.site_domain = data.domain
             this.headerfooter.site_template = data.site_template
@@ -340,7 +351,11 @@ export default {
             this.headerfooter.social_links.social_link3 = data.f_findus_links[2]
 
             document.getElementById('ajaxLoader').style.display = 'none';
-        }
+        },
+        getImgUrll(pet) {
+            console.log(this.img_url + "/" + this.user.id + "/" + pet);
+            return this.img_url + "/" + this.user.id + "/" + pet;
+        },
     }
 }
 </script>

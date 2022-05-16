@@ -20,6 +20,7 @@
                             <thead>
                                 <tr>
                                 <th>ID</th>                                
+                                <th>Thumbnail</th>
                                 <th>Categories</th>
                                 <th>No. of Sub Categories</th>
                                 <th>Manage</th>
@@ -28,6 +29,7 @@
                             <tbody>
                             <tr v-for="(order, index) in this.catlist" :key="index">
                                 <td>{{ order.id }}</td>
+                                <td><img id="thumb" :src="getImgUrll(order.img)" style="width:25px; height:25px;" /></td>
                                 <td>{{ order.title }}</td>
                                 <td>{{ order.children.length }}</td>
                                 <td>
@@ -72,7 +74,8 @@ export default {
             thumb:null,
             parent:null,
             user:this.$store.state.auth.user,
-            catlist_ddl_limit:false
+            catlist_ddl_limit:false,
+            img_url: "https://posh-marketplace.plego.pro/img/menu-template",
         }
     },
     mounted(){
@@ -185,7 +188,12 @@ this.loadCategories()
                     this.loadCategories()
                 });
 
-        }
+        },
+        getImgUrll(pet) {
+            console.log(this.img_url + "/" + this.user.id + "/" + pet);
+            return this.img_url + "/" + pet;
+        },
+
 
     }
 }
