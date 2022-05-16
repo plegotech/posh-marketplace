@@ -341,8 +341,8 @@ export default {
             data.append('featured_image', this.product.featured_image);
             data.append('images', this.product.imagesArray.length);
 
-            for (const k of Object.keys(this.filters_input)) {
-                data.append(k, this.filters_input[k])
+            for (const k of Object.keys(this.filtersdata)) {
+                data.append(k, this.filtersdata[k])
             }
             for (const i of Object.keys(this.product.imagesArray)) {
                 data.append('imagesArray_'+i, this.product.imagesArray[i])
