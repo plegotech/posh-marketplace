@@ -17,7 +17,7 @@
                                     <img src="/img/close-srch.png" class="close-icon" alt="">
                                 </div>
                             </div>
-                            <div class="col-6"><div class="btn-right-bx">
+                            <div class="col-6 my-4"><div class="btn-right-bx">
 <router-link :to="{ path: 'editsubcategories', query: { id: 0 }, props: true }" class="primary">Add New Sub Category</router-link>
 </div></div>
                         </div>
@@ -43,10 +43,9 @@
                                                  data-toggle="dropdown" aria-haspopup="true"
                                                  aria-expanded="false">
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li @click="toggleCategory(order.id)" class="inactive-mob">In-Active</li>
-                                                <router-link :to="{ path: 'editsubcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link>
-                                                <li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>
-                                                
+                                                <li @click="toggleCategory(order.id)" class="inactive-mob"><a href="#">In-Active</a></li>
+                                                <li class="inactive-mob"><router-link :to="{ path: 'editsubcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link></li>
+                                                <li @click="deleteCategory(order.id)" class="inactive-mob"><a href="#">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>
