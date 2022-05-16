@@ -135,6 +135,7 @@ class CategoryController extends Controller {
             foreach ($p_data as $p_row) {
                 $key = $p_row['field'];
                 $val = $p_row['value'];
+                if(!in_array($val, $filters_array[$key]))
                 $filters_array[$key][] = $val;
                 $myArLab[$key] = [];
             }
