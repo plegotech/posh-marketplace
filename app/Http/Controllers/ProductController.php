@@ -23,13 +23,7 @@ class ProductController extends Controller {
     }
 
     public function fetchall(Request $request) {
-
-
-        //DB::enableQueryLog();
-//        dd($request->all());
         extract($request->all());
-        //$filter = json_decode($filter);
-        //extract($filter);
         $filter = json_decode($filter);
         $filterdata = array();
         if ($filter) {
@@ -38,19 +32,14 @@ class ProductController extends Controller {
                     $filterdata[$key] = $val;
             }
         }
-        //echo $min_price;
         $products = new Product();
-        //$filters = array(json_decode($filter));
-        //echo $filters[0]["Brand"];
-        //dd($filters[0]);
-        if (isset($filterdata) && $filterdata != 0) {
-            //dd(json_decode($filter));
+        if (isset($filterdata) && $filterdata && $filterdata != 0) {
             $products = $products->leftJoin('products_meta', 'products_meta.product_id', '=', 'products.id');
             foreach ($filterdata as $field => $value) {
-                
                 $products = $products->where('products_meta.field', '=', $field,'and');
                 $products = $products->whereIn('products_meta.value', $value, 'or');
             }
+            $products = $products->groupBy("products_meta.product_id");
         }
 
         if (isset($user) && $user > 0) {
@@ -113,6 +102,7 @@ class ProductController extends Controller {
 //            $warranty = explode(",", $warranty);
 //            $products->whereIn('warranty', 'in', '(' . $warranty . ')');
 //        }
+        
         $products = $products->orderBy($order_by, $order)
                 ->paginate(18);
         return response()->json($products);
