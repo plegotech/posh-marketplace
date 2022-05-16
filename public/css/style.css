@@ -750,7 +750,6 @@ li.nav-item a.nav-link {
 }
 .dropdown.cst-slct.show ul.dropdown-menu.show {
     min-width: 100px!important;
-    right: 17px!important;
     left: initial!important;
     font-weight: normal;
     transform: none!important;
