@@ -134,7 +134,7 @@ export default {
             let result = axios.get("/category/"+this.cat_id);
             console.warn("Check Data");
             const obj = (await result).data;
-            if(obj!=null){
+            if(obj!=null && obj.data!=null){
                 this.name=obj.data.title ? obj.data.title : null
                 this.parent=obj.data.parent_category_id ? obj.data.parent_category_id : null
             }
