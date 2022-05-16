@@ -32,12 +32,13 @@ class ProductController extends Controller {
                     $filterdata[$key] = $val;
             }
         }
+        //print_r($filterdata);
         $products = new Product();
         if (isset($filterdata) && $filterdata && $filterdata != 0) {
             $products = $products->leftJoin('products_meta', 'products_meta.product_id', '=', 'products.id');
             foreach ($filterdata as $field => $value) {
-                $products = $products->where('products_meta.field', '=', $field,'and');
-                $products = $products->whereIn('products_meta.value', $value, 'or');
+                $products = $products->where('products_meta.field', '=', $field, 'or');
+                $products = $products->whereIn('products_meta.value', $value, 'and');
             }
             $products = $products->groupBy("products_meta.product_id");
         }
