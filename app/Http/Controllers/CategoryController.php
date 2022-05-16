@@ -50,7 +50,7 @@ class CategoryController extends Controller {
         if (isset($data['cat_id']) && $data['cat_id'] != 0) {
             $result = \App\Category::find($data['cat_id'])->update($data);
         } else {
-            $data['cat_id'] = \App\Category::create($data)->id;
+            $result = $data['cat_id'] = \App\Category::create($data)->id;
         }
         
         if ($result) {
