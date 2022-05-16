@@ -135,8 +135,8 @@ export default {
             console.warn("Check Data");
             const obj = (await result).data;
             if(obj!=null){
-                this.name=obj.data.title
-                this.parent=obj.data.parent_category_id
+                this.name=obj.data.title ? obj.data.title : null
+                this.parent=obj.data.parent_category_id ? obj.data.parent_category_id : null
             }
             console.log(obj)
             document.getElementById('ajaxLoader').style.display = 'none';
