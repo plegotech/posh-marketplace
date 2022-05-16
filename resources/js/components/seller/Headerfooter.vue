@@ -313,43 +313,48 @@ export default {
             const data = (await result).data
             console.log("HeaderFooterData")
             console.log(data)
-            this.headerfooter.site_name = data.h_shop_name
-            this.headerfooter.logo = data.logo
-            this.headerfooter.site_address = data.h_shop_address
-            this.headerfooter.site_domain = data.domain
-            this.headerfooter.site_template = data.site_template
-            //this.headerfooter.main_menu_title = data.f_main_menu_title
-            this.headerfooter.main_menu_links.main_menu_link1 = data.f_main_menu_title[0]
-            this.headerfooter.main_menu_links.main_menu_link1_url = data.f_main_menu_links[0]
-            this.headerfooter.main_menu_links.main_menu_link2 = data.f_main_menu_title[1]
-            this.headerfooter.main_menu_links.main_menu_link2_url = data.f_main_menu_links[1]
-            this.headerfooter.main_menu_links.main_menu_link3 = data.f_main_menu_title[2]
-            this.headerfooter.main_menu_links.main_menu_link3_url = data.f_main_menu_links[2]
-            this.headerfooter.main_menu_links.main_menu_link4 = data.f_main_menu_title[3]
-            this.headerfooter.main_menu_links.main_menu_link4_url = data.f_main_menu_links[3]
-
-            //this.headerfooter.company_title = data.f_company_title
-            this.headerfooter.company_links.company_link1 = data.f_company_title[0]
-            this.headerfooter.company_links.company_link1_url = data.f_company_links[0]
-            this.headerfooter.company_links.company_link2 = data.f_company_title[1]
-            this.headerfooter.company_links.company_link2_url = data.f_company_links[1]
-            this.headerfooter.company_links.company_link3 = data.f_company_title[2]
-            this.headerfooter.company_links.company_link3_url = data.f_company_links[2]
-
-            //this.headerfooter.discover_title = data.f_discover_title
-            this.headerfooter.discover_links.discover_link1 = data.f_discover_title[0]
-            this.headerfooter.discover_links.discover_link1_url = data.f_discover_links[0]
-            this.headerfooter.discover_links.discover_link2 = data.f_discover_title[1]
-            this.headerfooter.discover_links.discover_link2_url = data.f_discover_links[1]
-            this.headerfooter.discover_links.discover_link3 = data.f_discover_title[2]
-            this.headerfooter.discover_links.discover_link3_url = data.f_discover_links[2]
+            if(data!=null){
+                this.headerfooter.site_name = data.h_shop_name
+                this.headerfooter.logo = data.logo
+                this.headerfooter.site_address = data.h_shop_address
+                this.headerfooter.site_domain = data.domain
+                this.headerfooter.site_template = data.site_template
 
 
-            this.headerfooter.social_title = data.f_findus_title
-            this.headerfooter.social_links.social_link1 = data.f_findus_links[0]
-            this.headerfooter.social_links.social_link2 = data.f_findus_links[1]
-            this.headerfooter.social_links.social_link3 = data.f_findus_links[2]
+                this.headerfooter.main_menu_links.main_menu_link1 = data.f_main_menu_title ? data.f_main_menu_title[0] : null;
+                this.headerfooter.main_menu_links.main_menu_link2 = data.f_main_menu_title ? data.f_main_menu_title[1] : null;
+                this.headerfooter.main_menu_links.main_menu_link3 = data.f_main_menu_title ? data.f_main_menu_title[2] : null;
+                this.headerfooter.main_menu_links.main_menu_link4 = data.f_main_menu_title ? data.f_main_menu_title[3] : null;
 
+                this.headerfooter.main_menu_links.main_menu_link1_url = data.f_main_menu_links ? data.f_main_menu_links[0] : null;
+                this.headerfooter.main_menu_links.main_menu_link2_url = data.f_main_menu_links ? data.f_main_menu_links[1] : null;
+                this.headerfooter.main_menu_links.main_menu_link3_url = data.f_main_menu_links ? data.f_main_menu_links[2] : null;
+                this.headerfooter.main_menu_links.main_menu_link4_url = data.f_main_menu_links ? data.f_main_menu_links[3] : null;
+
+
+                this.headerfooter.company_links.company_link1 = data.f_company_title ? data.f_company_title[0] : null;
+                this.headerfooter.company_links.company_link2 = data.f_company_title ? data.f_company_title[1] : null;
+                this.headerfooter.company_links.company_link3 = data.f_company_title ? data.f_company_title[2] : null;
+
+                this.headerfooter.company_links.company_link1_url = data.f_company_links ? data.f_company_links[0] : null;
+                this.headerfooter.company_links.company_link2_url = data.f_company_links ? data.f_company_links[1] : null;
+                this.headerfooter.company_links.company_link3_url = data.f_company_links ? data.f_company_links[2] : null;
+
+
+                this.headerfooter.discover_links.discover_link1 = data.f_discover_title ? data.f_discover_title[0] : null;
+                this.headerfooter.discover_links.discover_link2 = data.f_discover_title ? data.f_discover_title[1] : null;
+                this.headerfooter.discover_links.discover_link3 = data.f_discover_title ? data.f_discover_title[2] : null;
+
+                this.headerfooter.discover_links.discover_link1_url = data.f_discover_links ? data.f_discover_links[0] : null;
+                this.headerfooter.discover_links.discover_link2_url = data.f_discover_links ? data.f_discover_links[1] : null;
+                this.headerfooter.discover_links.discover_link3_url = data.f_discover_links ? data.f_discover_links[2] : null;
+
+
+                this.headerfooter.social_title = data.f_findus_title
+                this.headerfooter.social_links.social_link1 = data.f_findus_links ? data.f_findus_links[0] : null
+                this.headerfooter.social_links.social_link2 = data.f_findus_links ? data.f_findus_links[1] : null
+                this.headerfooter.social_links.social_link3 = data.f_findus_links ? data.f_findus_links[2] : null
+            }
             document.getElementById('ajaxLoader').style.display = 'none';
         },
         getImgUrll(pet) {
