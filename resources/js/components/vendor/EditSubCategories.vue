@@ -8,7 +8,7 @@
                         
                         <!-- START:: Add new Sub Category-->
                         <div class="row">
-                            <div class="col-lg-6  col-6 mb-4">
+                            <div class="col-lg-6 col-6 mb-4">
                                 <div class="form-outline-ft">
                                     <select class="form-control-label select-custom-point" v-model="parent" name="" id="">
                                         <option value="" selected>Select Main Category</option>
@@ -24,29 +24,103 @@
                                             <label class="form-label">Enter sub Category Name</label>
                                         </div>                                  
                                  </div>
-                                 <div class="col-sm-12 row">  
+                                </div>
+                                <div class="row">
+                                 <div class="col-sm-6 ">
+                                     <div class="row">                                    
+                                    <!-- <div class="col-sm-6 mb-3" style="display: none;">
+                                        <button class="primary " @click="addbrand"><i class="fa fa-plus"></i> Add Brand</button>
+                                    </div>
+                                    <div class="col-sm-6"  style="display: none;">
+                                        <button class="primary " @click="rembrand"> <i class="fa fa-minus"></i> Remove Brand</button>
+                                    </div> -->                                    
+                                    <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
+                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute" required>
+                                    </div>
                                     
-                                    <div class="col-sm-6">
-                                        <button class="primary " @click="addbrand">Add Attribute</button>
+                                    <div class="col-12 mb-5">
+                                        <h4>Brand List</h4>
+                                        <!-- START:: ENTER BRAND -->
+                                    <div class="produt-list-bx brand-list ">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                               <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="brand-1" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
                                     </div>
-                                    <div class="col-sm-6">
-                                        <button class="primary " @click="rembrand">Remove Attribute</button>
+                                    <!-- END:: ENTER BRAND -->
+                                    <!-- START:: ENTER BRAND -->
+                                    <div class="produt-list-bx brand-list ">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="brand-2" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
                                     </div>
+                                    <!-- END:: ENTER BRAND -->
+                                    </div>                         
+                                 </div>
+                                 </div>
+                                 <!-- START: IMAGE FOR BRAND DEMO -->
+                                  <div class="col-sm-6 ">
+                                    <div class="row"> 
+                                        <div class="col-12"><img src="/img/capture-brand-list.jpg" class="img-fluid"></div>
+                                    </div>
+                                    </div>
+                                 <!-- END  : IMAGE FOR BRAND DEMO -->
+                                  <div class="col-sm-6 ">
+                                      <div class="row">                                    
+                                    <!-- <div class="col-sm-6 mb-3" style="display:none">
+                                        <button class="primary " @click="addbrand"><i class="fa fa-plus"></i> Add Attribute</button>
+                                    </div>
+                                    <div class="col-sm-6" style="display: none;">
+                                        <button class="primary " @click="rembrand"><i class="fa fa-times"></i> Remove Attribute</button>
+                                    </div> -->
                                     
                                     <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
-                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute" style="border-bottom:1px solid #CCCCCC;" required>
+                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute"  required>
                                     </div>
-                                    
-                                    <div class="col-sm-12 brand-list">                                    
-                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter1" id="brand-1" style="border-bottom:1px solid #CCCCCC;" required>
-                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter2" id="brand-2" style="border-bottom:1px solid #CCCCCC;" required>
-                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter3" id="brand-3" style="border-bottom:1px solid #CCCCCC;" required>
-                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter4" id="brand-4" style="border-bottom:1px solid #CCCCCC;" required>
-                                        <input type="text" placeholder="Enter Attribute" v-model="filters.filter5" id="brand-5" style="border-bottom:1px solid #CCCCCC;" required>
-                                    </div>                                  
+                                    <div class="col-12 ">
+                                        <h4>Filter List</h4>
+                                    <!-- START:: ENTER BRAND -->
+                                    <div class="produt-list-bx brand-list ">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                               <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="attri-1" required>
+                                            <label class="form-label">Enter filter</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
+                                    </div>
+                                    <!-- END:: ENTER BRAND -->
+                                    <!-- START:: ENTER BRAND -->
+                                    <div class="produt-list-bx brand-list ">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter2" id="attri-2" required>
+                                            <label class="form-label">Enter filter</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <!-- END:: ENTER BRAND -->                        
                                  </div>
-
-                        <div class="col-sm-12">         
+                                 </div>                                                                   
+                                 </div>
+                                 <!-- START: IMAGE FOR BRAND DEMO -->
+                                  <div class="col-sm-6 ">
+                                    <div class="row"> 
+                                        <div class="col-12"><img src="/img/capture-attribute-list.jpg" class="img-fluid"></div>
+                                    </div>
+                                    </div>
+                                 <!-- END  : IMAGE FOR BRAND DEMO -->
+                                 </div>
+                            </div>
+                        <div class="col-sm-12 mb-5">         
                             <div>
                                     <button class="primary"  @click="saveCategories">SAVE</button>
                             </div>
@@ -66,7 +140,7 @@
 
             
         </div>
-    </div>
+
 </template>
 
 <script>

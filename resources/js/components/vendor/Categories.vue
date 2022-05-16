@@ -36,7 +36,7 @@
                                              data-toggle="dropdown" aria-haspopup="true"
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <router-link :to="{ path: 'editcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link>
+                                            <li class="inactive-mob"><router-link :to="{ path: 'editcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link></li>
                                             <!--<li @click="deleteCategory(order.id)" class="inactive-mob">Delete</li>-->
                                         </ul>
                                     </div>
