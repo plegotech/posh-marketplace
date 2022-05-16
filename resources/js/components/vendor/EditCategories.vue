@@ -77,8 +77,8 @@ export default {
             catlist_ddl_limit:false,
             filtersdata:[],
             filters:{},
-            //img_url: "https://posh-marketplace.plego.pro/img/menu-template",
-            img_url: "http://localhost:8000/img/menu-template",
+            img_url: "https://posh-marketplace.plego.pro/img/menu-template",
+            //img_url: "http://localhost:8000/img/menu-template",
         }
     },
 //
