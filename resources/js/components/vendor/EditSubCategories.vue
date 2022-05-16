@@ -122,8 +122,7 @@ export default {
 
           let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
           if ((await cat_result).data != null) {
-            this.filterslab = (await cat_result).data.filterlab;
-            this.raja = this.filterslab;
+            this.filterslab = (await cat_result).data.data_f;
           }
           console.log(this.filterslab);
         },

@@ -44,7 +44,7 @@
                                 <div class="mb-5">
                                     <div v-for="(val, index) in filtersdata" :key="index">
                                         <label>{{index}}</label>
-                                        <input style="border:1px solid #cccccc;" type="text" v-model="filters_input[index]" :name="index" class="form-check" />
+                                        <input style="border:1px solid #cccccc;" type="text" v-model="filtersdata[index]" :name="index" class="form-check" />
                                     </div>
                                     
                                 </div>
@@ -150,6 +150,7 @@ export default {
     },
 
     created() {
+        this.loadCategories();
         this.parent_categories          = SITE_CATEGORIES;
         this.brands                     = SITE_BRANDS;
         this.product_status             = PRODUCT_STATUS;
@@ -158,14 +159,21 @@ export default {
 
         if(this.product_id) {
             this.getProductById(this.product_id);
+            this.LoadProdFilters(this.product_id);
         }
     },
     mounted(){
-        this.loadCategories();
+        
+        
     },
 
     methods: {
 
+        async LoadProdFilters(prodId){
+            let result = axios.get('/api/category/fetchProductFilter/'+prodId);
+            this.filtersdata = (await result).data;
+            console.warn(this.filtersdata);
+        },
         async loadCategories(){
             document.getElementById('ajaxLoader').style.display = 'block';
             let result = axios.get("/categories");
@@ -180,6 +188,7 @@ export default {
             document.getElementById('ajaxLoader').style.display = 'none';
         },
         async loadSubCategories(id){
+            if(id!=""){
             document.getElementById('ajaxLoader').style.display = 'block';
             
             let result = axios.get("/categories", 
@@ -202,6 +211,7 @@ export default {
 
             
             document.getElementById('ajaxLoader').style.display = 'none';
+            }
         },
 
 
@@ -243,7 +253,7 @@ export default {
                 .then(res => {
                     this.product.parent_category        = res.parent_category;
                     document.getElementsByClassName('parentCategory')[0].value = res.parent_category;
-                    this.updateSubCategories();
+                    this.loadSubCategories(res.parent_category);
                     if(res.featured_image) {
                         let src = "/img/product-images/" + res.vendor_id + "/" + res.featured_image;
                         document.getElementById('img-upload-vup').src = src;
@@ -253,6 +263,7 @@ export default {
                     this.product.net_price              = res.net_price;
                     this.product.vendor_id              = res.vendor_id;
                     this.product.status                 = res.status;
+                    this.product.parent_category           = res.parent_category;
                     this.product.sub_category           = res.sub_category;
                     this.product.brand                  = res.brand;
                     this.product.description            = res.description;
@@ -344,8 +355,8 @@ export default {
                     var data = res.data;
                     if (data.success == 'true') {
                         alert('product created successfully.');
-                        //object.clearForm();
-                        //this.filtersdata=null
+                        object.clearForm();
+                        this.filtersdata=null
                     } else {
                         object.errors = data.errors;
                     }

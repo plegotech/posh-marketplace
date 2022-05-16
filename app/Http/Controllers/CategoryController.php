@@ -125,11 +125,30 @@ class CategoryController extends Controller {
         return Response()->json(array("success" => true, "data" => $data));
     }
 
+    public function fetchFiltersByProduct($productId){
+        $filters = \App\ProductsMeta::where('product_id', $productId)->get();
+        if($filters){
+            $myAr = array();
+            foreach($filters as $row){
+                $key = $row['field'];
+                $val = $row['value'];
+                $myAr[$key]=$val;
+            }
+        }
+        return response()->json($myAr);
+    }
     public function fetchFilters($CategoryId) {
         $data = \App\ProductFilters::where('subcategory_id', $CategoryId)->get();
         $p_data = \App\ProductsMeta::where('subcategory_id', $CategoryId)->select('field', 'value')->get();
         $filters_array = array();
-
+        $myAr = array();
+        if($data){
+            foreach ($data as $p_row) {
+                $key = $p_row['filters'];
+                if (!in_array($key, $myAr) && $key)
+                    $myAr[] = $key;
+            }
+        }
         if ($p_data) {
             $myArLab = array();
             foreach ($p_data as $p_row) {
@@ -151,7 +170,7 @@ class CategoryController extends Controller {
             }
         }
 //        dd($filters_array);
-        return Response()->json(array("success" => true, "data" => $filters_array, "labels" => $myArLab, "filterlab" => $myArLab2));
+        return Response()->json(array("success" => true, "data" => $filters_array, "data_f"=>$myAr, "labels" => $myArLab, "filterlab" => $myArLab2));
         /*
          * Marker
          * Pencils
