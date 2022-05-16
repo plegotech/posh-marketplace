@@ -36,15 +36,16 @@ class CategoryController extends Controller {
         
        
         if ($request->file('img')) {
+            //echo "Exists";
             $photo = rand(5000, 9999) . $request->file('img')->getClientOriginalName();
-            $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
+            $destination = base_path() . '/public/img/menu-template';
             $request->file('img')->move($destination, $photo);
             $data['img'] = $photo;
         } else {
+            //echo "Not Exists";
             unset($data['img']);
         }
-
-        
+        //return response()->json($data);
 
         if (isset($data['cat_id']) && $data['cat_id'] != 0) {
             $result = \App\Category::find($data['cat_id'])->update($data);
