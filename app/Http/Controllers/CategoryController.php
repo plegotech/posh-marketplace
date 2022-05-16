@@ -15,12 +15,26 @@ class CategoryController extends Controller {
 
     public function create(Request $request) {
         $data = $request->all();
+        
+        
 
 //        $filters = $data["filters"];
 //        $filterslab = $data["filterslab"];
         
 //        var_dump($filters);
-//        return response()->json($data);
+        
+        $myAr = \App\ProductFilters::where('subcategory_id', $data['cat_id'])->select('filters')->get();
+        if ($myAr) {
+            $myAr2 = array();
+            foreach ($myAr as $p_row) {
+                $key = $p_row['filters'];
+                if(!in_array($key, $myAr2))
+                $myAr2[] = $key;
+            }
+            $data['filters_bk']=$myAr2;
+        }
+        
+       
         if ($request->file('img')) {
             $photo = rand(5000, 9999) . $request->file('img')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('seller_id');
@@ -39,7 +53,19 @@ class CategoryController extends Controller {
         }
         
         if ($result) {
-            
+            if(isset($data["filterslab"])){
+                $filterslab = json_decode($data["filterslab"]);
+                foreach($filterslab as $key=>$val){
+                    $updatearray = array(
+                        'subcategory_id'=>$data['cat_id'],
+                        'category_id'=>$data['parent_category_id'],
+                        'filters'=>$val,
+                    );
+                    $pre_val = $data["filters_bk"][$key];
+                    if($val)
+                    \App\ProductFilters::where(['subcategory_id'=>$data['cat_id'],'filters'=>$pre_val])->update($updatearray);
+                }
+            }
             if(isset($data["filters"])){
                 $filters = json_decode($data['filters']);
                 foreach($filters as $val){
@@ -48,6 +74,7 @@ class CategoryController extends Controller {
                         'category_id'=>$data['parent_category_id'],
                         'filters'=>$val,
                     );
+                    if($val)
                     \App\ProductFilters::create($updatearray);
                 }
             }

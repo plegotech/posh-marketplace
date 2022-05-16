@@ -84,8 +84,8 @@ export default {
             parent:null,
             user:this.$store.state.auth.user,
             catlist_ddl_limit:false,
-           filtersdata:[],
            filterslab:{},
+           raja:{},
             filters:{
                 filter1:null,
                 filter2:null,
@@ -123,6 +123,7 @@ export default {
           let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
           if ((await cat_result).data != null) {
             this.filterslab = (await cat_result).data.filterlab;
+            this.raja = this.filterslab;
           }
           console.log(this.filterslab);
         },
@@ -178,16 +179,7 @@ export default {
             data.append('parent_category_id', this.parent);
             data.append('filters', JSON.stringify(this.filters));
             data.append('filterslab', JSON.stringify(this.filterslab));
-/*
-            
-            for (const k of Object.keys(this.filters)) {
-                data.append(k, this.filters[k])
-            }
-            for (const k of Object.keys(this.filterslab)) {
-                data.append("attr_"+k, this.filterslab[k])
-            }
 
-*/
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
