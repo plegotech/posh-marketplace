@@ -13,10 +13,10 @@
                                     </router-link>
                                 </div>
                                 <div class="col-sm-4">
-                                    <a class="box-selection">
+                                    <router-link class="box-selection" :to="{ name: 'seller-manage-products'}">
                                         <img src="/img/mail-account.png" alt="">
                                         <h1>Products</h1>
-                                    </a>
+                                    </router-link>
                                 </div>
                                 <div class="col-sm-4">
                                     <router-link class="box-selection" :to="{ name: 'seller-promotion'}">

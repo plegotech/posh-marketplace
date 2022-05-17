@@ -697,6 +697,12 @@ class SellerController extends Controller {
         ));
     }
 
+    public function sellerUpdateProduct(Request $request){
+        $count = SellerProduct::where('seller_id', $request->input('seller_id'))
+                ->where('product_id', $request->input('product_id'))
+                ->update(array('seller_price'=>$request->input('net_price')));  
+        return response()->json(array('status' => 'updated'));
+    }
     public function sellerProduct(Request $request) {
         $count = SellerProduct::where('seller_id', $request->input('seller_id'))
                 ->where('product_id', $request->input('product_id'))
