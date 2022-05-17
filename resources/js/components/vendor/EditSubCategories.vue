@@ -25,46 +25,87 @@
                                         </div>                                  
                                  </div>
                                 </div>
+
+
+
                                 <div class="row">
                                  <div class="col-sm-6 ">
                                      <div class="row">                                    
-                                    <!-- <div class="col-sm-6 mb-3" style="display: none;">
-                                        <button class="primary " @click="addbrand"><i class="fa fa-plus"></i> Add Brand</button>
-                                    </div>
-                                    <div class="col-sm-6"  style="display: none;">
-                                        <button class="primary " @click="rembrand"> <i class="fa fa-minus"></i> Remove Brand</button>
-                                    </div> -->                                    
-                                    <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
-                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute" required>
-                                    </div>
-                                    
+<!-- START:: ENTER BRAND -->
+                                   
                                     <div class="col-12 mb-5">
                                         <h4>Brand List</h4>
-                                        <!-- START:: ENTER BRAND -->
-                                    <div class="produt-list-bx brand-list ">
+
+
+
+
+                                    <div class="produt-list-bx brand-list " v-for="(element, index) in brandslab" :key="index">
                                         <div class="brandlisting-bx mt-3">                                 
                                            <div class="form-outline-ft ">
-                                               <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="brand-1" required>
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brandslab[index]" id="attri-2" required>
                                             <label class="form-label">Enter Brand</label>
                                         </div>
                                         </div>    
-                                        <div class="addbtn-brand"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
+                                        <!--<div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  -->
                                     </div>
-                                    <!-- END:: ENTER BRAND -->
-                                    <!-- START:: ENTER BRAND -->
                                     <div class="produt-list-bx brand-list ">
                                         <div class="brandlisting-bx mt-3">                                 
                                            <div class="form-outline-ft ">
-                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="brand-2" required>
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brands.brand1" id="brand-2" required>
                                             <label class="form-label">Enter Brand</label>
                                         </div>
                                         </div>    
-                                        <div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                        <!--<div class="addbtn-brand" @click="rembrand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  -->
+                                        <div class="addbtn-brand" @click="addbrand"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
                                     </div>
+                                    <div class="produt-list-bx brand-list " id="brand2" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brands.brand2" id="brand-2" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="rembrand(2)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <div class="produt-list-bx brand-list " id="brand3" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brands.brand3" id="brand-2" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="rembrand(3)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <div class="produt-list-bx brand-list " id="brand4" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brands.brand4" id="brand-2" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="rembrand(4)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <div class="produt-list-bx brand-list " id="brand5" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="brands.brand5" id="brand-2" required>
+                                            <label class="form-label">Enter Brand</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="rembrand(5)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+
+
+
+
+
+
                                     <!-- END:: ENTER BRAND -->
                                     </div>                         
                                  </div>
                                  </div>
+
+
                                  <!-- START: IMAGE FOR BRAND DEMO -->
                                   <div class="col-sm-6 ">
                                     <div class="row"> 
@@ -72,41 +113,75 @@
                                     </div>
                                     </div>
                                  <!-- END  : IMAGE FOR BRAND DEMO -->
+
+
+
                                   <div class="col-sm-6 ">
                                       <div class="row">                                    
-                                    <!-- <div class="col-sm-6 mb-3" style="display:none">
-                                        <button class="primary " @click="addbrand"><i class="fa fa-plus"></i> Add Attribute</button>
-                                    </div>
-                                    <div class="col-sm-6" style="display: none;">
-                                        <button class="primary " @click="rembrand"><i class="fa fa-times"></i> Remove Attribute</button>
-                                    </div> -->
-                                    
-                                    <div class="col-sm-12 brand-list" v-for="(element, index) in filterslab" :key="index">         
-                                        <input type="text" v-model="filterslab[index]" class="pre_filters" placeholder="Enter Attribute"  required>
-                                    </div>
+                                   
+
+<!-- START:: ENTER FILTERS -->
                                     <div class="col-12 ">
                                         <h4>Filter List</h4>
-                                    <!-- START:: ENTER BRAND -->
+<!-- Start Looped -->                                    
+                                    <div class="produt-list-bx brand-list " v-for="(element, index) in filterslab" :key="index">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filterslab[index]" id="attri-2" required>
+                                            <label class="form-label">Enter Filter</label>
+                                        </div>
+                                        </div>    
+                                        <!--<div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  -->
+                                    </div>
+
+<!-- End Looped -->                                    
                                     <div class="produt-list-bx brand-list ">
                                         <div class="brandlisting-bx mt-3">                                 
                                            <div class="form-outline-ft ">
-                                               <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="attri-1" required>
-                                            <label class="form-label">Enter filter</label>
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter1" id="brand-2" required>
+                                            <label class="form-label">Enter Filter</label>
                                         </div>
                                         </div>    
-                                        <div class="addbtn-brand"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
+                                        <!--<div class="addbtn-brand" @click="rembrand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  -->
+                                        <div class="addbtn-brand" @click="addfilter"><div class="btn-primary"><i class="fa fa-plus"></i></div></div>  
                                     </div>
-                                    <!-- END:: ENTER BRAND -->
-                                    <!-- START:: ENTER BRAND -->
-                                    <div class="produt-list-bx brand-list ">
+                                    <div class="produt-list-bx brand-list " id="filter2" style="display:none;">
                                         <div class="brandlisting-bx mt-3">                                 
                                            <div class="form-outline-ft ">
-                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter2" id="attri-2" required>
-                                            <label class="form-label">Enter filter</label>
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter2" id="brand-2" required>
+                                            <label class="form-label">Enter Filter</label>
                                         </div>
                                         </div>    
-                                        <div class="addbtn-brand"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                        <div class="addbtn-brand" @click="remfilter(2)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
                                     </div>
+                                    <div class="produt-list-bx brand-list " id="filter3" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter3" id="brand-2" required>
+                                            <label class="form-label">Enter Filter</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="remfilter(3)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <div class="produt-list-bx brand-list " id="filter4" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter4" id="brand-2" required>
+                                            <label class="form-label">Enter Filter</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="remfilter(4)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+                                    <div class="produt-list-bx brand-list " id="filter5" style="display:none;">
+                                        <div class="brandlisting-bx mt-3">                                 
+                                           <div class="form-outline-ft ">
+                                            <input type="text" class="form-control-label" placeholder="" v-model="filters.filter5" id="brand-2" required>
+                                            <label class="form-label">Enter Filter</label>
+                                        </div>
+                                        </div>    
+                                        <div class="addbtn-brand" @click="remfilter(5)"><div class="btn-primary btnclose-bt"><i class="fa fa-times"></i></div></div>  
+                                    </div>
+
                                     <!-- END:: ENTER BRAND -->                        
                                  </div>
                                  </div>                                                                   
@@ -150,6 +225,7 @@ export default {
         return {
             bfield:1,
             afield:1,
+            afilterfield:1,
             cat_id: this.$route.query.id,
             catlist_ddl:[],
             catlist:[],
@@ -158,14 +234,24 @@ export default {
             parent:null,
             user:this.$store.state.auth.user,
             catlist_ddl_limit:false,
-           filterslab:{},
-           raja:{},
+
+            filterslab:{},
+            brandslab:{},
+            raja:{},
+
             filters:{
                 filter1:null,
                 filter2:null,
                 filter3:null,
                 filter4:null,
                 filter5:null,
+            },
+            brands:{
+                brand1:null,
+                brand2:null,
+                brand3:null,
+                brand4:null,
+                brand5:null,
             }
         }
     },
@@ -175,21 +261,26 @@ export default {
         this.getCategoryFilters();
     },
     methods:{
-        rembrand(){
-            if(this.bfield>1){
-                $("#brand-"+this.bfield).hide();
-                this.bfield-=1;
-            }
-            //alert(this.bfield);
+        rembrand(numb){
+            $("#brand"+numb).hide();
+            this.bfield-=1;
         },
         addbrand(){
-            if(this.filters!=null){
-                
-            }
             //alert(this.bfield);
             if(this.bfield<5){
                 this.bfield+=1;
-                $("#brand-"+this.bfield).show();
+                $("#brand"+this.bfield).show();
+            }
+        },
+        remfilter(numb){
+            $("#filter"+numb).hide();
+            this.afilterfield-=1;
+        },
+        addfilter(){
+            
+            if(this.afilterfield<5){
+                this.afilterfield+=1;
+                $("#filter"+this.afilterfield).show();
             }
         },
         async getCategoryFilters() {
@@ -197,6 +288,7 @@ export default {
           let cat_result = axios.get("/api/category/pfilters/" + this.cat_id);
           if ((await cat_result).data != null) {
             this.filterslab = (await cat_result).data.data_f;
+            this.brandslab = (await cat_result).data.brandslab;
           }
           console.log(this.filterslab);
         },
@@ -252,6 +344,8 @@ export default {
             data.append('parent_category_id', this.parent);
             data.append('filters', JSON.stringify(this.filters));
             data.append('filterslab', JSON.stringify(this.filterslab));
+            data.append('brands', JSON.stringify(this.brands));
+            data.append('brandslab', JSON.stringify(this.brandslab));
 
             axios.post('/create-category', data, config)
                 .then(function (res) {

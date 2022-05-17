@@ -36,7 +36,7 @@
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.brand" class="form-control-label select-custom-point">
-                                        <option v-for="brand in brands"
+                                        <option v-for="(brand, id) in brandlist"
                                         :value="brand">{{ brand }}</option>
                                     </select>
                                     <span class="form-label">Brand</span>
@@ -145,6 +145,7 @@ export default {
             filtersdata:[],
             filters_input:{},
             catlist:[],
+            brandlist:[],
             subcatlist:[]
         }
     },
@@ -171,7 +172,9 @@ export default {
 
         async LoadProdFilters(prodId){
             let result = axios.get('/api/category/fetchProductFilter/'+prodId);
-            this.filtersdata = (await result).data;
+            if((await result).data!=null){
+            this.filtersdata = (await result).data.data;
+            }
             console.warn(this.filtersdata);
         },
         async loadCategories(){
@@ -227,10 +230,15 @@ export default {
             }
         },
         async loadFilters(id){
-                let filtersresult = axios.get("/api/category/filters/"+id);
+                let filtersresult = axios.get("/api/category/pfilters/"+id);
                 console.warn(filtersresult);
-                this.filtersdata = (await filtersresult).data.data;
-                console.warn(this.filtersdata);
+
+                if(this.filtersdata.length==0)
+                this.filtersdata = (await filtersresult).data.data_up;
+
+                this.brandlist = (await filtersresult).data.brandslab;
+                console.log(this.filtersdata);
+                console.log(this.brandlist);
         },
 
         updateSubCategories() {
@@ -263,11 +271,13 @@ export default {
                     this.product.net_price              = res.net_price;
                     this.product.vendor_id              = res.vendor_id;
                     this.product.status                 = res.status;
-                    this.product.parent_category           = res.parent_category;
+                    this.product.parent_category        = res.parent_category;
                     this.product.sub_category           = res.sub_category;
                     this.product.brand                  = res.brand;
                     this.product.description            = res.description;
                     console.log(this.product);
+                    this.loadFilters(res.sub_category);
+                    
                 })
                 .catch(err => console.log(err))
                 .finally(() => {
