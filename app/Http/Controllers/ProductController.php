@@ -60,10 +60,10 @@ class ProductController extends Controller {
         if (!isset($order_by)) {
             $order_by = "products.id";
         }
-//        if (isset($brand) && $brand != "0") {
-//            $brand = explode(",", $brand);
-//            $products = $products->whereIn('brand', $brand);
-//        }
+        if (isset($brand) && $brand != "0") {
+            $brand = explode(",", $brand);
+            $products = $products->whereIn('brand', $brand);
+        }
         if (isset($min_price) && $min_price != 0) {
             $products = $products->where('net_price', '>=', $min_price);
         }
@@ -103,7 +103,7 @@ class ProductController extends Controller {
 //            $warranty = explode(",", $warranty);
 //            $products->whereIn('warranty', 'in', '(' . $warranty . ')');
 //        }
-        
+
         $products = $products->orderBy($order_by, $order)
                 ->paginate(18);
         return response()->json($products);
@@ -309,19 +309,28 @@ class ProductController extends Controller {
         }
 
         $data = $request->all();
+        //print_r($data);
         $filters = \App\ProductFilters::where("subcategory_id", $data['sub_category'])->select('filters')->get();
+        //echo '<pre>';
+        //return response()->json($filters);
         if ($filters) {
             $myAr = array();
             foreach ($filters as $row) {
-                $myAr[$row['filters']] = $data[$row['filters']];
-                unset($data[$row['filters']]);
+                if (isset($data[$row['filters']])) {
+
+                    if ($row['filters'])
+                        $myAr[$row['filters']] = $data[$row['filters']];
+
+                    unset($data[$row['filters']]);
+                }
             }
         }
+        
         $data['filters'] = json_encode($myAr);
         //dd($myAr);
         unset($data['id']);
         unset($data['featured_image']);
-
+        //return response()->json($data);
         if ($data['images'] > 0) {
 
             $i = 0;
@@ -355,11 +364,13 @@ class ProductController extends Controller {
         }
         if ($myAr) {
             foreach ($myAr as $key => $val) {
-                $update_array = array('product_id' => $id, 'field' => $key, "value" => $val, "category_id" => $data['parent_category'], "subcategory_id" => $data['sub_category']);
-                if (\App\ProductsMeta::where([['product_id', $id], ['field', $key]])->exists()) {
-                    \App\ProductsMeta::where([['product_id', $id], ['field', $key]])->update($update_array);
-                } else {
-                    \App\ProductsMeta::create($update_array);
+                if ($val) {
+                    $update_array = array('product_id' => $id, 'field' => $key, "value" => $val, "category_id" => $data['parent_category'], "subcategory_id" => $data['sub_category']);
+                    if (\App\ProductsMeta::where([['product_id', $id], ['field', $key]])->exists()) {
+                        \App\ProductsMeta::where([['product_id', $id], ['field', $key]])->update($update_array);
+                    } else {
+                        \App\ProductsMeta::create($update_array);
+                    }
                 }
             }
         }

@@ -74,8 +74,11 @@ input:focus {
 input[type="text"] {
     width: 100%;
     padding: 6px 8px;
-    border: 0px;
+    border: 1px solid #6D6D6D;
     border-radius: 4px;
+}
+.brand-list input {
+    margin-bottom: 10px;
 }
 span.pending-number-bx {
     position: absolute;
@@ -704,11 +707,38 @@ li.nav-item a.nav-link {
 .dropdown.cst-slct img {
     width: 16px;
     position: relative;
-    left: 50%;
-    transform: translatex(-50%);
+    /* left: 50%;
+    transform: translatex(-50%); */
     cursor: pointer;
 }
-
+.produt-list-bx.brand-list {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+.btn-primary {
+    background: #0862a3!important;
+    color: #fff;
+    border: 1px solid #0862a3!important;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: transparent;
+    color: #0862a3;
+    border-color: #0862a3;
+}
+.addbtn-brand {
+    width: 30px;
+    text-align: center;
+}
+.brandlisting-bx {
+    width: 100%;
+}
+.btn-primary.btnclose-bt {
+    background: #FF5454!important;
+    border-color: #FF5454 !important;
+}
 .main .body h2 {
     font-family: Inter;
     font-style: normal;
@@ -720,10 +750,10 @@ li.nav-item a.nav-link {
 }
 .dropdown.cst-slct.show ul.dropdown-menu.show {
     min-width: 100px!important;
-    right: 17px!important;
     left: initial!important;
     font-weight: normal;
     transform: none!important;
+    top:100%!important
 }
 img.uploaded-icon-img {
     width: 24px;
@@ -874,20 +904,23 @@ li.sub-menu ul li a:hover {
 .cst-slct ul {list-style: none;position: absolute;right: 0;background: #FDFCFC;box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);top: 20px;display: none;z-index: 22;}
 .cst-slct ul li {
     padding: 6px 10px;
+    color:#383838;
 }
 ul.dropdown-menu.show {
     display: block!important;
 }
-.cst-slct ul li:hover {
+.cst-slct ul li,.cst-slct ul li a {color:#383838;}
+.cst-slct ul li:hover,.cst-slct ul li:hover a {
     background: #EAF6FF;
     cursor: pointer;
     transition: .1s;
-    color: #000;
+    color: #0862A3;
     font-weight: bold;
+    text-decoration: none;
 }
 aside ul li:hover ul {background:none}
-button.primary {background: #0862a3;color:white;}
-button.primary:hover {color: #0862a3;background:white;transition:.2s;}
+button.primary,a.primary {background: #0862a3;border-color:#0862a3;color:white;border-radius: 4px;padding: 6px 8px;}
+button.primary:hover,a.primary:hover {     text-decoration: none;   background-color: transparent;border:1px solid #0862a3;color:#0862a3;transition:.2s;}
 
 .pending-vend {}
 .pending-vend .tabs {}
@@ -3018,6 +3051,9 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
     width: 100%;
     border: 2px dashed #938989;
     background: #efefef;
+    min-height: 230px;
+    display: flex;
+    align-items: center;
 }
 .upload-site-logo p {
     text-align: center;
@@ -3037,11 +3073,11 @@ img.rl-icon {
     margin-top: 9px;
 }
 .upload-site-logo img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
+    width: auto!important;
+    max-width: 100%;
 }
 .btn-right-bx {
     max-width: 220px;

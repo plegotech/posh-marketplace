@@ -15,26 +15,23 @@ class CategoryController extends Controller {
 
     public function create(Request $request) {
         $data = $request->all();
-        
-        
+        $filters = $data['filters'];
+        $filterslab = $data['filterslab'];
+        $brands = $data['brands'];
+        $brandslab = $data['brandslab'];
 
-//        $filters = $data["filters"];
-//        $filterslab = $data["filterslab"];
-        
-//        var_dump($filters);
-        
+
         $myAr = \App\ProductFilters::where('subcategory_id', $data['cat_id'])->select('filters')->get();
+        $filters_bk = array();
         if ($myAr) {
-            $myAr2 = array();
             foreach ($myAr as $p_row) {
                 $key = $p_row['filters'];
-                if(!in_array($key, $myAr2))
-                $myAr2[] = $key;
+                if (!in_array($key, $filters_bk))
+                    $filters_bk[] = $key;
             }
-            $data['filters_bk']=$myAr2;
         }
-        
-       
+
+
         if ($request->file('img')) {
             //echo "Exists";
             $photo = rand(5000, 9999) . $request->file('img')->getClientOriginalName();
@@ -46,40 +43,62 @@ class CategoryController extends Controller {
             unset($data['img']);
         }
         //return response()->json($data);
+        
+        unset($data['filters']);
+        unset($data['filterslab']);
+        unset($data['brands']);
+        unset($data['brandslab']);
 
         if (isset($data['cat_id']) && $data['cat_id'] != 0) {
             $result = \App\Category::find($data['cat_id'])->update($data);
         } else {
             $result = $data['cat_id'] = \App\Category::create($data)->id;
         }
-        
+
         if ($result) {
-            if(isset($data["filterslab"])){
-                $filterslab = json_decode($data["filterslab"]);
-                foreach($filterslab as $key=>$val){
+            if(isset($data[''])){
+                
+            }
+            
+            if ($filterslab) {
+                $filterslab = json_decode($filterslab);
+                foreach ($filterslab as $key => $val) {
                     $updatearray = array(
-                        'subcategory_id'=>$data['cat_id'],
-                        'category_id'=>$data['parent_category_id'],
-                        'filters'=>$val,
+                        'subcategory_id' => $data['cat_id'],
+                        'category_id' => $data['parent_category_id'],
+                        'filters' => $val,
                     );
-                    $pre_val = $data["filters_bk"][$key];
-                    if($val)
-                    \App\ProductFilters::where(['subcategory_id'=>$data['cat_id'],'filters'=>$pre_val])->update($updatearray);
+                    $pre_val = $filters_bk[$key];
+                    if ($val)
+                        \App\ProductFilters::where(['subcategory_id' => $data['cat_id'], 'filters' => $pre_val])->update($updatearray);
                 }
             }
-            if(isset($data["filters"])){
-                $filters = json_decode($data['filters']);
-                foreach($filters as $val){
+            if ($filters) {
+                $filters = json_decode($filters);
+                foreach ($filters as $val) {
                     $updatearray = array(
-                        'subcategory_id'=>$data['cat_id'],
-                        'category_id'=>$data['parent_category_id'],
-                        'filters'=>$val,
+                        'subcategory_id' => $data['cat_id'],
+                        'category_id' => $data['parent_category_id'],
+                        'filters' => $val,
                     );
-                    if($val)
-                    \App\ProductFilters::create($updatearray);
+                    if ($val)
+                        \App\ProductFilters::create($updatearray);
                 }
             }
             
+            if($brands){
+                $brands = json_decode($brands);
+                foreach($brands as $val){
+                    $updatearray = array(
+                        'subcategory_id' => $data['cat_id'],
+                        'category_id' => $data['parent_category_id'],
+                        'brands' => $val,
+                    );
+                    if ($val)
+                        \App\ProductBrands::create($updatearray);                    
+                }
+            }
+
             return Response()->json(array(
                         'success' => true,
                         'data' => $result
@@ -99,6 +118,7 @@ class CategoryController extends Controller {
     public function delete($id) {
         \App\Category::find($id)->delete();
     }
+
     public function fetchCatFiltersBK($CategoryId) {
         $data = \App\ProductFilters::where('subcategory_id', $CategoryId)->select('filters')->get();
         if ($data) {
@@ -126,28 +146,65 @@ class CategoryController extends Controller {
         return Response()->json(array("success" => true, "data" => $data));
     }
 
-    public function fetchFiltersByProduct($productId){
+    public function fetchFiltersByProduct($productId) {
         $filters = \App\ProductsMeta::where('product_id', $productId)->get();
-        if($filters){
+        if ($filters) {
             $myAr = array();
-            foreach($filters as $row){
+            $subcategory_id = isset($filters[0]) ? $filters[0]['subcategory_id'] : 0;
+            
+            foreach ($filters as $row) {
                 $key = $row['field'];
                 $val = $row['value'];
-                $myAr[$key]=$val;
+                if($key && $val)
+                $myAr[$key] = $val;
+            }
+            if($subcategory_id){
+            $filters_data = \App\ProductFilters::where('subcategory_id', $subcategory_id)->get();
+            if($filters_data){
+                foreach($filters_data as $row){
+                    if(!array_key_exists($row['filters'], $myAr) && $row['filters']){
+                        $myAr[$row['filters']]="";
+                    }
+                }
+            }
             }
         }
-        return response()->json($myAr);
+        return response()->json(array("data"=> $myAr));
     }
+
     public function fetchFilters($CategoryId) {
         $data = \App\ProductFilters::where('subcategory_id', $CategoryId)->get();
+        $databrands = \App\ProductBrands::where('subcategory_id', $CategoryId)->get();
         $p_data = \App\ProductsMeta::where('subcategory_id', $CategoryId)->select('field', 'value')->get();
+        $product_brand = \App\Product::where('sub_category', $CategoryId)->select('brand')->get();
         $filters_array = array();
         $myAr = array();
-        if($data){
+        $myAr2 = array();
+        $myArBr = array();
+        $myArBr2 = array();
+        if ($data) {
             foreach ($data as $p_row) {
                 $key = $p_row['filters'];
-                if (!in_array($key, $myAr) && $key)
+                if (!in_array($key, $myAr) && $key){
                     $myAr[] = $key;
+                    $myAr2[$key] = [];
+                }
+            }
+        }
+        if ($databrands) {
+            foreach ($databrands as $row) {
+                $myArBr[$row['brands']] = [];
+                if (!in_array($row['brands'], $myArBr2))
+                    $myArBr2[$row['id']] = $row['brands'];
+            }
+        }
+        $product_brand_ar=array();
+        $product_brand_ar2=array();
+        if($product_brand){
+            foreach($product_brand as $row){
+                $product_brand_ar[$row['brand']]=[];
+                if(!in_array($row['brand'], $product_brand_ar2) && $row['brand'])
+                $product_brand_ar2[]=$row['brand'];
             }
         }
         if ($p_data) {
@@ -155,8 +212,8 @@ class CategoryController extends Controller {
             foreach ($p_data as $p_row) {
                 $key = $p_row['field'];
                 $val = $p_row['value'];
-                if(isset($filters_array[$key])){
-                    if(!in_array($val, $filters_array[$key])){
+                if (isset($filters_array[$key])) {
+                    if (!in_array($val, $filters_array[$key])) {
                         $filters_array[$key][] = $val;
                     }
                 } else {
@@ -171,7 +228,10 @@ class CategoryController extends Controller {
             }
         }
 //        dd($filters_array);
-        return Response()->json(array("success" => true, "data" => $filters_array, "data_f"=>$myAr, "labels" => $myArLab, "filterlab" => $myArLab2));
+        //data is used in Template>Allproducts.vue file 
+        //labels is used in Template>Allproducts.vue file 
+        //data_f is used in EditSubCategories.vue file 
+        return Response()->json(array("success" => true, "data" => $filters_array, "brandlist"=>$product_brand_ar2, "product_brand"=>$product_brand_ar, "data_up"=>$myAr2, "data_f" => $myAr, "labels" => $myArLab, "filterlab" => $myArLab2, "brands"=>$myArBr, "brandslab"=>$myArBr2));
         /*
          * Marker
          * Pencils
