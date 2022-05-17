@@ -14,7 +14,7 @@
                                            data-type="pending">
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
-                                </div>
+                                </div> 
                             </div>
                             <div class="col-8">
                             <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
