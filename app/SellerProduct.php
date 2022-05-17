@@ -10,7 +10,7 @@ class SellerProduct extends Model {
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [
-        'product_id', 'seller_id'
+        'product_id', 'seller_id', 'seller_price'
     ];
 
     public function products() {

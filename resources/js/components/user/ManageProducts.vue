@@ -77,6 +77,15 @@
                                         </div>
                                         <div @click="deleteProduct(product.id)" class="btn-st btn-red">DELETE</div>
                                     </div>
+
+                                    <div v-if="user.user_type == 'seller'" class="pb-btn-list">
+                                        <div class="btn-st btn-green">
+                                            <router-link :to="{ name: 'seller-update-products', params: { product_id: product.id }}">
+                                                EDIT
+                                            </router-link>
+                                        </div>
+                                        <div @click="deleteSellerProduct(product.id)" class="btn-st btn-red">DELETE</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,6 +131,11 @@
 
         data() {
             return {
+                product_check: {
+                    product_id: 0,
+                    seller_id: 0,
+                    _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
                 parent_categories: null,
                 sub_categories: null,
                 search: 0,
@@ -150,8 +164,8 @@
             this.loadCategories()
             this.fetchProducts();
             //this.parent_categories = SITE_CATEGORIES;
+            this.product_check.seller_id = this.user.id;
         },
-
         methods: {
             async loadCategories(){
                 document.getElementById('ajaxLoader').style.display = 'block';
@@ -309,6 +323,23 @@
 
                         });
                 }
+            },
+            deleteSellerProduct(product){
+                //alert(product)
+                this.product_check.product_id = product;
+                fetch('/api/seller-product', {
+                    method: 'post',
+                    body: JSON.stringify(this.product_check),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert("Updated Successfully");
+                        this.fetchProducts();
+                    })
+                    .catch(err => console.log(err));
             },
 
             fetchProductsSearchClear: function () {

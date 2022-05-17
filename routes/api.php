@@ -52,6 +52,7 @@ Route::prefix('vendor')->group(function () {
 });
 
 Route::post('/seller-product', 'SellerController@sellerProduct');
+Route::post('/seller-update-product', 'SellerController@sellerUpdateProduct');
 
 Route::prefix('seller')->group(function () {
     Route::get('/sold/statistics/{seller}/{order_by}/{order}/{month}/{year}/{per_page}',
