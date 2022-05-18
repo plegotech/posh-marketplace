@@ -109,11 +109,12 @@ class OrdersController extends Controller
         $user_id = $data['user_id'];
         $CartData = \App\CartItems::where('user_id',$user_id)->get();
         $UserInfo = \App\User::where('id', $user_id)->first();
+        $ShippingInfo = \App\UserShipping::where('user_id', $user_id)->first();
         $orderItems = new OrderItems();
         $InsertArray = [
             'user_id'=>$user_id,
             'status'=>'pending',
-            'shipping_address'=>$UserInfo->u_address,
+            'shipping_address'=>$ShippingInfo ? ($ShippingInfo->address." ".$ShippingInfo->city." ".$ShippingInfo->state." ".$ShippingInfo->country) : $UserInfo->u_address,
             'shipping_method'=>'DHL',
             'payment_method'=>'COD',
             'notes'=>'Ok'

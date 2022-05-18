@@ -49,8 +49,9 @@
                         <table class="table recent-Orders-table mobile-btn-show" id="sellerOrders_Admin">
                             <thead>
                             <tr>
-                                <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id <img class="shuffle"
-                                                                                                       src="/img/shuffle.png"></span>
+                                <th class="shuffle-bx" scope="col"><span class="sort-ad">Order Id 
+                                <img class="shuffle" src="/img/shuffle.png">
+                                    </span>
                                 </th>
                                 <th class="shuffle-bx" scope="col"><span class="sort-ad">Product Name <img
                                     class="shuffle" src="/img/shuffle.png"></span></th>
@@ -66,7 +67,14 @@
                             <tbody>
                             <tr v-for="order in orders">
                                 <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
+                <img 
+                  :src="getImgUrl(order.vendor_id, order.featured_image)"
+                  @error="
+                    $event.target.src =
+                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                  "
+                />
+
                                     <span>{{ order.order_id }}</span>
                                     <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
@@ -98,8 +106,8 @@
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
                                             <li class="view-mob">View</li>
-                                            <li class="edit-mob">Edit</li>
-                                            <li class="inactive-mob">Delete</li>
+                                            <!--<li class="edit-mob">Edit</li>
+                                            <li class="inactive-mob">Delete</li>-->
                                         </ul>
                                     </div>
                                 </td>
@@ -151,7 +159,8 @@ export default {
             to: 0,
             from: 0,
             total: 0,
-            current_page: 0
+            current_page: 0,
+            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
         }
     },
     created() {
@@ -253,7 +262,10 @@ export default {
                 .finally(() => {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
-        }
+        },
+        getImgUrl(vendor, pet) {
+            return this.img_url + "/" + vendor + "/" + pet;
+        },
     }
 }
 </script>
