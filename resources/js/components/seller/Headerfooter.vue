@@ -88,7 +88,7 @@
                                     <label class="form-label">Shop Name</label>
                                 </div>
                                 <div class="form-outline-ft mb-5 ">
-                                    <p class="sl-title">Site Logo <span class="sl-remove-logo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <p class="sl-title">Site Logo <span class="sl-remove-logo" @click>Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></p>
                                     <div class="upload-site-logo">
                                     <input type="file" ref="file" style="display: none"  name="logo" @change="changeLogo" />
                                       <img src="/img/no-image-available.png" v-model="headerfooter.logo" id="logo">

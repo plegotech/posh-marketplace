@@ -74,7 +74,12 @@ class CartItemsController extends Controller {
         }
 
     }
-
+    public function updateShipping(Request $request){
+        $data = $request->all();
+        $result = \App\UserShipping::create($data);
+        
+        return response()->json(array('success'=>true));
+    }
     public function userCartData(Request $request){
         $data = $request->all();
         $data = (array)$data;

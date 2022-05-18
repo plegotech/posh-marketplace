@@ -29,6 +29,7 @@
                                 <th>ID</th>                                
                                 <th>Sub Categories</th>
                                 <th>Parent Category</th>
+                                <th>Status</th>
                                 <th>Manage</th>
                             </tr>
                             </thead>
@@ -37,13 +38,14 @@
                                     <td>{{ order.id }}</td>
                                     <td>{{ order.title }}</td>
                                     <td>{{ order.parent.title }}</td>
+                                    <td>{{ order.status==1 ? "Active" : "Inactive" }}</td>
                                     <td>
                                         <div class="dropdown cst-slct">
                                             <img src="/img/more.png" alt="" class="dropdown-toggle"
                                                  data-toggle="dropdown" aria-haspopup="true"
                                                  aria-expanded="false">
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li @click="toggleCategory(order.id)" class="inactive-mob"><a href="#">In-Active</a></li>
+                                                <li @click="toggleCategory(order.id, order.status)" class="inactive-mob"><a href="#">{{ order.status==1 ? "In-Active" : "Active" }}</a></li>
                                                 <li class="inactive-mob"><router-link :to="{ path: 'editsubcategories', query: { id: order.id }, props: true }" class="edit-mob">Edit</router-link></li>
                                                 <li @click="deleteCategory(order.id)" class="inactive-mob"><a href="#">Delete</a></li>
                                             </ul>
@@ -182,7 +184,7 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-this.loadCategories()
+                    this.loadCategories()
                 });
 
         },
@@ -192,8 +194,8 @@ this.loadCategories()
             this.parent=0
             this.cat_id = cat.id
         },
-        toggleCategory(id){
-            axios.post('/api/category/update/'+id)
+        toggleCategory(id, status){
+            axios.post('/api/category/statusupdate/'+id, {st:status})
                 .then(function (res) {
                     console.log(res);
                     var data = res.data;
@@ -210,7 +212,7 @@ this.loadCategories()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-                    this.loadCategories()
+                    this.loadSubCategories();
                 });
         },
         deleteCategory(id){
@@ -220,7 +222,7 @@ this.loadCategories()
                     console.log(res);
                     var data = res.data;
                     if (data.success == 'true') {
-                        alert('Category created successfully.');
+                        alert('Category removed successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;
@@ -232,7 +234,7 @@ this.loadCategories()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-                    this.loadCategories()
+                    this.loadSubCategories();
                 });
 
         }

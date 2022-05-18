@@ -146,6 +146,12 @@ class CategoryController extends Controller {
         return Response()->json(array("success" => true, "data" => $data));
     }
 
+    public function statusUpdate($catId, Request $request){
+        $data = $request->all();
+        $status = $data['st']==1 ? 0 : 1;
+        $result = \App\Category::find($catId)->update(array('status'=>$status));
+        return response()->json(array("success"=> true));
+    }
     public function fetchFiltersByProduct($productId) {
         $filters = \App\ProductsMeta::where('product_id', $productId)->get();
         if ($filters) {
@@ -279,7 +285,7 @@ class CategoryController extends Controller {
     }
 
     public function fetchSub() {
-        $data = \App\Category::where([['parent_category_id', ">", 0], ['status', 1]])->with('parent')->get();
+        $data = \App\Category::where('parent_category_id', ">", 0)->with('parent')->get();
         if ($data)
             return Response()->json(array(
                         'success' => true,
