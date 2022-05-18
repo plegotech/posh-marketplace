@@ -268,7 +268,6 @@ class SellerController extends Controller {
                     break;
             }
             $ret = \App\Sliders::where('seller_id', $seller_id)->update($arDel);
-            
         } else if ($type == "promotion") {
             switch ($image) {
                 case 1:
@@ -285,7 +284,6 @@ class SellerController extends Controller {
                     break;
             }
             $ret = \App\Promotions::where('seller_id', $seller_id)->update($arDel);
-            
         } else if ($type == "cat") {
             switch ($image) {
                 case 1:
@@ -305,7 +303,6 @@ class SellerController extends Controller {
                     break;
             }
             $ret = \App\CategoryImages::where('seller_id', $seller_id)->update($arDel);
-            
         }
         if ($ret) {
             return Response()->json(array(
@@ -317,7 +314,6 @@ class SellerController extends Controller {
                         'errors' => $validator->getMessageBag()->toArray()
             ));
         }
-        
     }
 
     public function createHeaderFooter(Request $request) {
@@ -697,12 +693,33 @@ class SellerController extends Controller {
         ));
     }
 
-    public function sellerUpdateProduct(Request $request){
+    public function getContactUs($seller_id) {
+        $data = \App\Contactus::where('seller_id', $seller_id)->get();
+        if ($data) {
+            return response()->json(array('success' => true, 'data' => $data));
+        } else {
+            return response()->json(array('success' => false));
+        }
+    }
+
+    public function contactUs(Request $request) {
+        $result = \App\Contactus::create($request->all());
+        if ($result) {
+            return response()->json(array("success" => true, "message" => "Submitted Successfully"));
+        } else {
+            return response()->json(array("success" => false));
+        }
+    }
+
+    public function sellerUpdateProduct(Request $request) {
         $count = SellerProduct::where('seller_id', $request->input('seller_id'))
                 ->where('product_id', $request->input('product_id'))
-                ->update(array('seller_price'=>$request->input('net_price')));  
+                ->update(array('seller_price' => $request->input('net_price')));
+        
+        Product::find($request->input('product_id'))->update(array('seller_price' => $request->input('net_price')));
         return response()->json(array('status' => 'updated'));
     }
+
     public function sellerProduct(Request $request) {
         $count = SellerProduct::where('seller_id', $request->input('seller_id'))
                 ->where('product_id', $request->input('product_id'))

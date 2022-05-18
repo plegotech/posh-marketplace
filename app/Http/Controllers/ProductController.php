@@ -309,6 +309,7 @@ class ProductController extends Controller {
         }
 
         $data = $request->all();
+        $data['seller_price']=$data['net_price'];
         //print_r($data);
         $filters = \App\ProductFilters::where("subcategory_id", $data['sub_category'])->select('filters')->get();
         //echo '<pre>';

@@ -39,10 +39,10 @@
                                     </router-link>
                                 </div>
                                 <div class="col-sm-4">
-                                    <a class="box-selection">
-                                        <img src="/img/mail-account.png" alt="">
+                                    <router-link class="box-selection" :to="{ name: 'seller-contactus'}">
+                                        <img src="/img/price-tag.png" alt="">
                                         <h1>Contact Us</h1>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
