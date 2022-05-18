@@ -47,7 +47,7 @@ import Sliders from  './components/seller/Sliders';
 import Promotion from  './components/seller/Promotions';
 import AboutUs from  './components/seller/AboutUs';
 import UpdateProducts from  './components/seller/UpdateProducts';
-
+import Contactus from  './components/seller/Contactus';
 
 import VendorDashboardLayout from './components/layouts/VendorDashboard';
 import UserDashboard from './components/user/Dashboard';
@@ -99,7 +99,8 @@ export default {
             { name: 'seller-promotion', meta: { title: 'Promotion' }, path: '/seller/Promotion', component: Promotion },
             { name: 'seller-aboutus', meta: { title: 'AboutUs' }, path: '/seller/AboutUs', component: AboutUs },
             { name: 'seller-profile', meta: { title: 'Profile' }, path: '/seller/profile', component: UserProfile },
-            { name: 'seller-update-products', meta: { title: 'Update Product' }, path: '/seller/product/:product_id?', component: UpdateProducts }
+            { name: 'seller-update-products', meta: { title: 'Update Product' }, path: '/seller/product/:product_id?', component: UpdateProducts },
+            { name: 'seller-contactus', meta: { title: 'Contact Us' }, path: '/seller/contact', component: Contactus }
         ]},
 
         // Vendor Dashboard
