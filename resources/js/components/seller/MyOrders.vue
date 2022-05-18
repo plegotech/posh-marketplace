@@ -5,8 +5,8 @@
                 <div>
                     <!-- START: FIRST TAB CONTENT -->
                     <div id="first-pvs-posh" class="top-newOrder">
-                        <div class="row  mb-4">
-                            <div class="col-sm-8">
+                        <div class="row  mb-4"> 
+                            <div class="col-sm-4">
                                 <div class="search-box">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
@@ -14,10 +14,11 @@
                                            data-type="pending">
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
                                          alt="">
-                                </div>
+                                </div> 
                             </div>
-
+                            <div class="col-8">
                             <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
+                            </div>
                         </div>
                         <hr>
                         <!-- start: TABLE -->

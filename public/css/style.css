@@ -1934,6 +1934,7 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .btn-st.btn-red {
     background: #ef717d;
 }
+p.plx-title.lbg-gray{background: #f8f9fa;}
 p.plx-title {
     font-size: 17px;
     padding-right: 10px;

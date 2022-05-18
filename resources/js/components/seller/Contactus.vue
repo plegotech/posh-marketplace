@@ -30,6 +30,7 @@
                                 <th>Purpose</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th>Message</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,9 @@
                                 </td>
                                 <td>
                                     <span>{{ row.email }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ row.message }}</span>
                                 </td>
                             </tr>
                             </tbody>

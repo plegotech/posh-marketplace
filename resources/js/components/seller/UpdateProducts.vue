@@ -7,15 +7,31 @@
             <div class="col-sm-12">
 
                 <div class="top-newOrder payment_Hist">
-
+                        
                     <div class="row">
-                        <div class="col-sm-3 mb-3">
-                            <input type="text" v-model="product_check.net_price" placeholder="Enter Amount" />
+                        <!-- START:: PRODUCT DETAIL -->
+                        <div class="col-xl-4 col-lg-6 col-sm-6">
+                            <div class="products-listing-bxx">
+                                <div class="product-img-bx">
+                                    <img src="https://posh-marketplace.plego.pro/img/product-images/997/8982810G-B68TYL1.png" alt="">
+                                </div> 
+                                <p class="plx-title lbg-gray">alien 2</p> 
+                                <div class="price-btn-bx" style="display: block;">
+                                    <div class="price-title-b">
+                                        <!----> 
+                                        <h5>Vendor Price: 200$</h5>
+                                        <input type="text" v-model="product_check.net_price" placeholder="Enter Amount" />
+                                        <br>
+                                         <button @click="updateSellerProduct" class="primary">UPDATE</button>
+                                    </div> 
+                                </div>
+                            </div>
                         </div>
+                        <!-- END  :: PRODUCT DETAIL -->
                     </div>
                     <div class="row">
                         <div class="col-sm-3 mb-3">
-                            <button @click="updateSellerProduct" class="primary">UPDATE</button>
+                           
                         </div>
                     </div>
                 </div>
