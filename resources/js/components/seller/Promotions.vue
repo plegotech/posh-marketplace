@@ -226,7 +226,7 @@ this.getPromotions()
             axios.post('/createpromotions', data, config)
                 .then(function (res) {
                     var result = res.data;
-                    if (result.success === 'true') {
+                    if (result.success===true) {
                         alert('Saved successfully.');
                         object.clearForm();
                     } else {

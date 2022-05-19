@@ -99,7 +99,7 @@
                   :src="getImgUrll(headerfooter.logo)"
                   @error="
                     $event.target.src =
-                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      '/img/no-image-available.png'
                   "
                 />
 
@@ -240,14 +240,14 @@ export default {
 
         },
         removeLogo(){
-            alert("Yes: "+this.user.id);
+            //alert("Yes: "+this.user.id);
             axios.post('/api/removelogo', {seller_id: this.user.id})
                 .then(function (res) {
                     console.log(res);
-                    var data = res.data;
-                    if (data.success == 'true') {
+                    var result = res.data;
+                    if (result.success===true) {
                         alert('Logo removed successfully.');
-                        $('#logo').attr('src', '/img/product-images/997/no_image.png');
+$('#logo').attr('src', '/img/no-image-available.png');
                     } else {
                         object.errors = data.errors;
                     }
@@ -328,7 +328,7 @@ export default {
                     console.log(res);
                     var result = res.data;
                     console.log(result);
-                    if (result.success=='true') {
+                    if (result.success===true) {
                         alert('Created successfully.');
                         //object.clearForm();
                     } else {
