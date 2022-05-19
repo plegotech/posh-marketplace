@@ -1934,6 +1934,16 @@ button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .btn-st.btn-red {
     background: #ef717d;
 }
+.tooltip-bx {
+    position: absolute;
+}
+.sl-title {
+    margin-bottom: 1rem;
+    position: relative;
+}
+.tooltip-bx {
+    position: absolute;
+}
 p.plx-title.lbg-gray{background: #f8f9fa;}
 p.plx-title {
     font-size: 17px;
