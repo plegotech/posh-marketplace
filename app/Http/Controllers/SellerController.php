@@ -24,7 +24,14 @@ class SellerController extends Controller {
     public function index() {
         return 'silence is the gold';
     }
-
+    public function removeLogo(Request $request){
+        $result = SellerWebsite::where('seller_id', $request->input("seller_id"))->update(array('logo'=>''));
+        if($result){
+            return response()->json(array("success"=>true));
+        } else {
+            return response()->json(array("success"=>false));
+        }
+    }
     public function createCategoryImages(Request $request) {
 
         $data = $request->all();
@@ -96,7 +103,7 @@ class SellerController extends Controller {
         if ($resp) {
             return Response()->json(array("success" => true));
         } else {
-            return Response()->json(array("success" => true));
+            return Response()->json(array("success" => false));
         }
     }
 
@@ -712,11 +719,8 @@ class SellerController extends Controller {
     }
 
     public function sellerUpdateProduct(Request $request) {
-        $count = SellerProduct::where('seller_id', $request->input('seller_id'))
-                ->where('product_id', $request->input('product_id'))
-                ->update(array('seller_price' => $request->input('net_price')));
         
-        Product::find($request->input('product_id'))->update(array('seller_price' => $request->input('net_price')));
+        Product::find($request->input('product_id'))->update(array('seller_price' => $request->input('seller_price')));
         return response()->json(array('status' => 'updated'));
     }
 
