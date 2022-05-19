@@ -63,6 +63,7 @@ class CategoryController extends Controller {
             if ($filterslab) {
                 $filterslab = json_decode($filterslab);
                 foreach ($filterslab as $key => $val) {
+                    $val = preg_replace('/\s+/', '', $val);
                     $updatearray = array(
                         'subcategory_id' => $data['cat_id'],
                         'category_id' => $data['parent_category_id'],
@@ -76,6 +77,7 @@ class CategoryController extends Controller {
             if ($filters) {
                 $filters = json_decode($filters);
                 foreach ($filters as $val) {
+                    $val = preg_replace('/\s+/', '', $val);
                     $updatearray = array(
                         'subcategory_id' => $data['cat_id'],
                         'category_id' => $data['parent_category_id'],
