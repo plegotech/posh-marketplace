@@ -11,7 +11,7 @@
                         <div class="col-sm-4">
                             <div class="search-box" style="max-width:100%">
                                 <form action="">
-                                    <img src="/img/search-icon.png" class="search-icon" alt="">
+                                    <img  src="/img/search-icon.png" class="search-icon" alt="">
                                     <input style="float:left" type="text" class="search_BX"
                                            v-on:keypress="searchObjects">
                                     <img src="/img/close-srch.png" @click="removeSearch" class="close-icon"
@@ -160,7 +160,7 @@ export default {
             from: 0,
             total: 0,
             current_page: 0,
-            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            img_url: "/img/product-images/",
         }
     },
     created() {
