@@ -701,7 +701,10 @@ class SellerController extends Controller {
     }
 
     public function getContactUs($seller_id) {
-        $data = \App\Contactus::where('seller_id', $seller_id)->get();
+        $data = \App\Contactus::where('seller_id', $seller_id)->orderBy("id", "desc")->get();
+        /*
+         * 
+         */
         if ($data) {
             return response()->json(array('success' => true, 'data' => $data));
         } else {
