@@ -313,21 +313,23 @@ class ProductController extends Controller {
         //print_r($data);
         $filters = \App\ProductFilters::where("subcategory_id", $data['sub_category'])->select('filters')->get();
         //echo '<pre>';
-        //return response()->json($filters);
+        //return response()->json(array($filters,$data));
+        
         if ($filters) {
             $myAr = array();
             foreach ($filters as $row) {
-                if (isset($data[$row['filters']])) {
-
-                    if ($row['filters'])
-                        $myAr[$row['filters']] = $data[$row['filters']];
-
-                    unset($data[$row['filters']]);
+                $value = $row['filters'];
+                if (array_key_exists($value, $data)) {
+                    if ($value){
+                        $myAr[$value] = $data[$value];
+                    }
+                    unset($data[$value]);
                 }
             }
         }
         
         $data['filters'] = json_encode($myAr);
+        
         //dd($myAr);
         unset($data['id']);
         unset($data['featured_image']);
