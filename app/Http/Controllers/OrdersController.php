@@ -109,7 +109,7 @@ class OrdersController extends Controller
         $user_id = $data['user_id'];
         $CartData = \App\CartItems::where('user_id',$user_id)->get();
         $UserInfo = \App\User::where('id', $user_id)->first();
-        $ShippingInfo = \App\UserShipping::where('user_id', $user_id)->first();
+        $ShippingInfo = \App\UserShipping::where('user_id', $user_id)->orderBy('id','desc')->first();
         $orderItems = new OrderItems();
         $InsertArray = [
             'user_id'=>$user_id,
