@@ -300,7 +300,7 @@ class CategoryController extends Controller {
     public function fetchWithLimit(Request $request) {
         $dataReq = $request->all();
         $p_cat = isset($dataReq['id']) ? $dataReq['id'] : 0;
-        $data = \App\Category::where([['parent_category_id', $p_cat], ['status', 1]])->with('children')->limit(10)->get();
+        $data = \App\Category::where([['parent_category_id', $p_cat], ['status', 1]])->with('active_children')->limit(10)->get();
         if ($data) {
             $myAr = array();
             foreach ($data as $row) {

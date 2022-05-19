@@ -67,6 +67,7 @@
                                 <p class="plx-title">{{ product.name }}</p>
                                 <div class="price-btn-bx">
                                     <div class="price-title-b">
+{{ product.seller_price }} {{ product.net_price }}
                                         <h3 v-if="user.user_type == 'seller'"><sup>$</sup> {{ product.seller_price }}</h3>
                                         <h3 v-if="user.user_type == 'vendor'"><sup>$</sup> {{ product.net_price }}</h3>
                                     </div>
@@ -151,6 +152,7 @@
                     id: null,
                     name: null,
                     net_price: null,
+                    seller_price : null,
                     sale_price: null,
                     featured_image: null
                 },

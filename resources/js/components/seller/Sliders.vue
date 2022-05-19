@@ -149,8 +149,9 @@ this.getSliders()
                 .then(function (res) {
                     var data = res.data;
 
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
+                    var result = res.data;
+                    if (result.success == 'true') {
+                        alert('Removed successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;
@@ -185,9 +186,9 @@ this.getSliders()
             data.append('slider_images_3', this.slider_images_3);
             axios.post('/createsliders', data, config)
                 .then(function (res) {
-                    var data = res.data;
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
+                    var result = res.data;
+                    if (result.success == 'true') {
+                        alert('Saved successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;

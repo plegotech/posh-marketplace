@@ -92,6 +92,7 @@ Route::get('/allproducts', 'ProductController@fetchall');
 Route::get('/categories', 'CategoryController@fetch');
 Route::get('/categorieslimited', 'CategoryController@fetchWithLimit');
 Route::get('/headerfooter/{id}', 'SellerController@fetchHeaderFooter');
+Route::post('/removelogo', 'SellerController@removeLogo');
 Route::get('/filters', 'ProductsMetaController@fetch');
 
 Route::post('/addtocart', 'CartItemsController@addToCart');
