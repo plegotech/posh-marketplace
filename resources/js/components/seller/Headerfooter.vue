@@ -89,7 +89,10 @@
                                 </div>
 
                                 <div class="form-outline-ft mb-5 ">
-                                    <p class="sl-title">Site Logo <span class="sl-remove-logo" @click="removeLogo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></p>
+                                    <div class="sl-title"><div class="tooltip-bx" data-toggle="tooltip" data-placement="top" title="Logo size: 140 x 33">
+  <i class="fa fa-question-circle"></i></div>
+                                        <span style="padding-left: 22px;">Site Logo</span> 
+        <span class="sl-remove-logo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></div>
                                     <div class="upload-site-logo">
                                     <input type="file" ref="file" style="display: none"  name="logo" @change="changeLogo" />
                                       <!--<img src="/img/no-image-available.png" v-model="headerfooter.logo" id="logo">-->
