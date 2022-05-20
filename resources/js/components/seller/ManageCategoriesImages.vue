@@ -216,9 +216,9 @@ export default {
             axios.post('/removeImage', {seller_id:this.user.id, image:imageNumb, type:"cat"}, config)
                 .then(function (res) {
 
-                    var data = res.data;
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
+                    var result = res.data;
+                    if (result.success == 'true') {
+                        alert('Image removed.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;
@@ -260,9 +260,9 @@ this.getSlidersPromotionsCategoryImages()
             axios.post('/catimages', data, config)
                 .then(function (res) {
                     console.log(res);
-                    var data = res.data;
-                    if (data.success == 'true') {
-                        alert('Created successfully.');
+                    var result = res.data;
+                    if (result.success===true) {
+                        alert('Saved successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;

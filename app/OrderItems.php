@@ -19,7 +19,7 @@ class OrderItems extends Model
     public function getAllOrders($per_page, $search, $category, $sub_category)
     {
         $orders = $this->select('products.id as product_id', 'product_categories.title', 'products.name as product_name', 'products.brand',
-            'products.net_price', 'products.featured_image',
+            'products.net_price', 'products.featured_image','products.vendor_id',
             'seller.first_name as seller_first_name', 'seller.last_name as seller_last_name', 'vendor.first_name as vendor_first_name',
             'vendor.last_name as vendor_last_name',
             DB::raw("DATE_FORMAT(order_items.created_at, '%b %d, %Y %h:%i %p') AS 'order_date'"),

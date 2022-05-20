@@ -87,6 +87,7 @@
                                     <input type="text" v-model="headerfooter.site_name" class="form-control-label" required>
                                     <label class="form-label">Shop Name</label>
                                 </div>
+
                                 <div class="form-outline-ft mb-5 ">
                                     <div class="sl-title"><div class="tooltip-bx" data-toggle="tooltip" data-placement="top" title="Logo size: 140 x 33">
   <i class="fa fa-question-circle"></i></div>
@@ -94,11 +95,22 @@
         <span class="sl-remove-logo">Remove Logo <img class="rl-icon" src="/img/Vector.png"></span></div>
                                     <div class="upload-site-logo">
                                     <input type="file" ref="file" style="display: none"  name="logo" @change="changeLogo" />
-                                      <img src="/img/no-image-available.png" v-model="headerfooter.logo" id="logo">
+                                      <!--<img src="/img/no-image-available.png" v-model="headerfooter.logo" id="logo">-->
+
+                <img
+                  id="logo" 
+                  :src="getImgUrll(headerfooter.logo)"
+                  @error="
+                    $event.target.src =
+                      '/img/no-image-available.png'
+                  "
+                />
+
                                       </div>
                                     <button class="img-title-up form-control-label" @click="$refs.file.click()">Upload Image</button>
                                     <!-- <label class="form-label">Logo</label>           -->
                                 </div>
+
                                 <div class="form-outline-ft mb-5">
                                     <textarea type="text" v-model="headerfooter.site_address" class="form-control-label" required></textarea>
                                     <label class="form-label">Address</label>          
@@ -207,9 +219,11 @@ export default {
                     social_link3:        '',
                 },
                 about_us:'',
-                img_url: "https://posh-marketplace.plego.pro/img/menu-template",
+                
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
+            },
+            //img_url: "https://posh-marketplace.plego.pro/img/product-images",
+            img_url: "/img/product-images",
         }
     },
     mounted(){
@@ -226,6 +240,28 @@ export default {
                 reader.readAsDataURL(input.target.files[0]);
             }
 
+
+        },
+        removeLogo(){
+            //alert("Yes: "+this.user.id);
+            axios.post('/api/removelogo', {seller_id: this.user.id})
+                .then(function (res) {
+                    console.log(res);
+                    var result = res.data;
+                    if (result.success===true) {
+                        alert('Logo removed successfully.');
+$('#logo').attr('src', '/img/no-image-available.png');
+                    } else {
+                        object.errors = data.errors;
+                    }
+                })
+                .catch(function (res) {
+                    console.log(res);
+                })
+                .finally(()=>{
+                    this.processing = false;
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
 
         },
         sliderImages(e) {
@@ -293,12 +329,14 @@ export default {
             axios.post('/headerfooter', data, config)
                 .then(function (res) {
                     console.log(res);
-                    var data = res.data;
-                    if (data.success == 'true') {
+                    var result = res.data;
+                    console.log(result);
+                    if (result.success===true) {
                         alert('Created successfully.');
-                        object.clearForm();
+                        //object.clearForm();
                     } else {
-                        object.errors = data.errors;
+                        //object.errors = data.errors;
+                        alert('Something went wrong.');
                     }
                 })
                 .catch(function (res) {

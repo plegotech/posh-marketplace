@@ -186,10 +186,9 @@ export default {
             document.getElementById('ajaxLoader').style.display = 'block';
             axios.post('/removeImage', {seller_id:this.user.id, image:imageNumb, type:"promotion"}, config)
                 .then(function (res) {
-                    var data = res.data;
-
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
+                    var result = res.data;
+                    if (result.success == 'true') {
+                        alert('Removed successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;
@@ -226,10 +225,9 @@ this.getPromotions()
             data.append('pro_images_bot2', this.pro_images_bot2);
             axios.post('/createpromotions', data, config)
                 .then(function (res) {
-                    var data = res;
-                    console.log("Response: "+res);
-                    if (data.success == 'true') {
-                        alert('product created successfully.');
+                    var result = res.data;
+                    if (result.success===true) {
+                        alert('Saved successfully.');
                         object.clearForm();
                     } else {
                         object.errors = data.errors;
@@ -241,7 +239,7 @@ this.getPromotions()
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-this.getPromotions()
+                    this.getPromotions()
                 });
         },
         getImgUrll(pet) {

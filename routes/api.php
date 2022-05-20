@@ -92,11 +92,13 @@ Route::get('/allproducts', 'ProductController@fetchall');
 Route::get('/categories', 'CategoryController@fetch');
 Route::get('/categorieslimited', 'CategoryController@fetchWithLimit');
 Route::get('/headerfooter/{id}', 'SellerController@fetchHeaderFooter');
+Route::post('/removelogo', 'SellerController@removeLogo');
 Route::get('/filters', 'ProductsMetaController@fetch');
 
 Route::post('/addtocart', 'CartItemsController@addToCart');
 Route::post('/updatecart', 'CartItemsController@updateCart');
 Route::post('/usercartdata', 'CartItemsController@userCartData');
+Route::post('/update-shipping', 'CartItemsController@updateShipping');
 Route::post('/removecartdata', 'CartItemsController@removeCartData');
 Route::post('/placeorder', 'OrdersController@createOrder');
 Route::post('/product-history', 'ProductController@producthistory');
@@ -113,6 +115,7 @@ Route::prefix('product')->group(function () {
 
 Route::prefix('category')->group(function () {
     Route::post('/update/{id}', 'CategoryController@update');
+    Route::post('/statusupdate/{id}', 'CategoryController@statusUpdate');
     Route::post('/delete/{id}', 'CategoryController@delete');
     Route::get('/filters/{id}', 'CategoryController@fetchCatFilters');
     Route::get('/pfilters/{id}', 'CategoryController@fetchFilters');
