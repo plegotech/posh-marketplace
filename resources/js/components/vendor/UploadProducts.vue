@@ -42,11 +42,15 @@
                                     <span class="form-label">Brand</span>
                                 </div>
                                 <div class="mb-5">
-                                    <div v-for="(val, index) in filtersdata" :key="index">
-                                        <label>{{index}}</label>
-                                        <input style="border:1px solid #cccccc;" type="text" v-model="filtersdata[index]" :name="index" class="form-check" />
+                                    <div class="attri-filters-bx">
+                                        <div class="filters-bx-item" v-for="(val, index) in filtersdata" :key="index">
+                                            <div class="form-outline-ft mt-3 mb-4">
+                                                <label class="form-label">{{index}}</label>
+                                                <input type="text" v-model="filtersdata[index]" :name="index" class="form-control-label" />
+                                            </div>
+                                        </div>
+                                    <span class="attribx-title">Filter</span>
                                     </div>
-                                    
                                 </div>
                                 <div class="form-outline-ft mb-5">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
@@ -83,7 +87,15 @@
                                         <p>Product Images Gallery</p>
                                     </div>
                                     <div class="upload-image-vup">
-                                        <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup">
+                                        <div class="uploadImage-gallery">
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="https://posh-marketplace.plego.pro/img/product-images/997/8843la1.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="https://posh-marketplace.plego.pro/img/product-images/997/7360715bY3uEYgL%201.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"><span class="plusXmark"><i class="fa fa-plus-circle"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                        </div>
+                                        <!-- <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup"> -->
                                         <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage" />
                                         <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
                                     </div>

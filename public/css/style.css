@@ -1993,6 +1993,7 @@ span.invalidLogin.alert.alert-danger {
     font-weight: 500;
     width: 100%;
     padding: 6px 8px;
+    border-radius: 4px;
 }
 .up-main-bx-2 {
     max-width: 306px;
@@ -2016,6 +2017,11 @@ ul.topnav-user li {
 }
 .upload-image-vup {
     position: relative;
+}
+.upload-title-vup p {
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 .upload-image-vup .img-title-up {
     padding: 10px;
@@ -2065,6 +2071,65 @@ img.help-tag-righ {
 p.input-tip-bx {
     color: #9D9D9D;
     font-size: 13px;
+}
+.attri-filters-bx {
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+img.img-fluid.gtb-item {
+    height: 60px;
+    width: 80px;
+    border-radius: 4px;
+}
+.gallery-thumbn-bx-ea {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 6px;
+    border-radius: 4px;
+    padding: 2px;
+    position: relative;
+}
+span.plusXmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    cursor: pointer;
+    color: green;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+}
+span.closeXmark {
+    position: absolute;
+    top: -8px;
+    right: -3px;
+    color: red;
+    display: none;
+    cursor: pointer;
+}
+.gallery-thumbn-bx-ea:hover span.plusXmark,.gallery-thumbn-bx-ea:hover span.closeXmark {
+    display: block;
+}
+.uploadImage-gallery {
+    background: #c9c9c9;
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+}
+img.img-fluid.gtb-item {
+    height: 60px;
+    width: 80px;
+}
+span.attribx-title {
+    position: absolute;
+    top: -16px;
+    left: 10px;
+    background: #fff;
+    padding: 2px 6px;
 }
 .form-outline-ft {
     position: relative;
