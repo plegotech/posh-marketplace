@@ -13,218 +13,41 @@
                         </div>
                         <div class="col">
                         <div class="select-bx-sho mr-3">
-                            <select name="" id="" class="select-custom-point min-150">
-                                <option value="" selected="selected">Choose Year</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                            </select>
+                            <button class="primary uploadImages-bx"><i class="fas fa-cloud-upload-alt mr-2"></i><strong>
+                                <input type="file" class="uploadpic-bx" style="display: none;">
+                                <a href="/vendor/upload/products" class="">
+                            UPLOAD
+                            </a></strong></button>
                         </div> 
                         </div>
-                        <div class="col">
-                        <div class="select-bx-sho">
-                        <select name="" id="" class="select-custom-point min-150">
-                            <option value="" selected="selected">Choose Month</option>
-                            <option value="Janruary">Janruary</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
-                        </div>
                     </div>
-                    </div>
-                    
                     <div class="row">
-                    <div class="col-sm-12">
-                        <!-- START: FIRST TAB CONTENT -->
-                        <div id="first-pvs-posh" class="mt-4">
-                            <!-- start: TABLE -->
-                            <table class="table recent-Orders-table mobile-btn-show" id="pvs-tab">
-                                <thead>
-                                <tr>
-                                    <th class="shuffle-bx" scope="col" ><span class="sort-ad">Order Id <img class="shuffle" src="/img/shuffle.png"></span>
-                                    </th>
-                                    <th class="shuffle-bx" scope="col"><span class="sort-ad">Recipient <img class="shuffle" src="/img/shuffle.png"></span>
-                                    </th>
-                                    <th class="shuffle-bx" scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span>
-                                    </th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Payment Method</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-                            <div class="foot-table" >
-                                <div class="left"><span>Rows Per Page:
-                                            <select >
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="75">75</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                            </span></div>
-                                <div class="right"><span>1-25 of 81 Items</span> <img src="/img/prev-arrow.png" alt="" class="prev-itm"> <img src="/img/next-arrow.png" alt="" class="next-itm"></div>
-                                <!-- END: TABLE   -->
+                        <div class="col-sm-9">
+                            <div class="mediaGallerybox">
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shoes.png"></div>
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/products-img-1.png"></div>
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shirt.png"></div>
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/templae-sample-3.png"></div>
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/cotton-shirt.png"></div>
+                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/img-upload-product.jpg"></div>
                             </div>
-                            <!-- END::: FIRST TAB CONTENT -->
                         </div>
-                    </div>
+                        <div class="col-sm-3 ">
+                            <div class="uploadGalleryDetail">
+                                <div class="uploadImage-bx">
+                                    <div class="uploadedImage-be"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shoes.png"></div>
+                                    <p><strong>File name:</strong> acernitro.jpg</p>
+                                    <p><strong>File size:</strong> 23 KB</p>
+                                    <p><strong>Uploaded By:</strong> Admin</p>
+                                    <p><strong>Uploaded on:</strong> May 17, 2022</p>
+                                </div>
+                                <div class="uploadImage-fields">
+                                    <div class="uploadfileds-bx"><span>URL</span><span><input type="text" value="https://posh-marketplace.plego.pro/"></span></div>
+                                    <div class="uploadfileds-bx"><span>Title</span><span><input type="text" value="Acer Nitro"></span></div>
+                                    <div class="uploadfileds-bx"><span>Alt Text</span><span><input type="text" value="Acer Nitro"></span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -2101,6 +2101,66 @@ span.plusXmark {
     transform: translate(-50%, -50%);
     font-size: 22px;
 }
+.mediaUploadImg {
+    border: 1px solid #ccc;
+    padding: 4px;
+    width: 150px;
+    border-radius: 4px;
+    height: 120px;
+    display: flex;
+    max-height: 120px;
+    align-items: center;
+}
+.mediaGallerybox {
+    display: flex;
+    gap: 10px;
+}
+.uploadGalleryDetail {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+}
+.uploadImage-bx {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.uploadfileds-bx {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.uploadedImage-be img {
+    width: auto;
+    max-height: 140px;
+}
+.uploadImage-bx p {
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+.select-bx-sho .uploadImages-bx {
+    max-width: 180px;
+    float: right;
+    margin-top: 0;
+}
+.uploadfileds-bx span:first-child {
+    width: 51px;
+    flex-grow: 2;
+    text-align: right;
+    font-size: 13px;
+}
+.uploadedImage-be {
+    margin-bottom: 12px;
+}
+.mediaUploadImg img {
+    height: auto;
+    max-height: 110px;
+    max-width: 140px;
+    text-align: center;
+}
 span.closeXmark {
     position: absolute;
     top: -8px;
