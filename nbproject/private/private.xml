@@ -3,19 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/routes/api.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/composer.json</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/config/paypal.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/config/app.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/admin/VendorOrders.vue</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/routes/web.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/PayPalController.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/OrdersController.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/.env</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/config/sanctum.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/config/services.php</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/admin/SellerOrders.vue</file>
-            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/OrderItems.php</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/vendor/UploadProducts.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/resources/js/components/user/ManageProducts.vue</file>
+            <file>file:/D:/xampp/htdocs/Plego/posh-marketplace/app/Http/Controllers/ProductController.php</file>
         </group>
     </open-files>
 </project-private>
