@@ -106,6 +106,7 @@ class OrdersController extends Controller
     }
     public function createOrder(Request $request){
         $data = $request->all();
+        return response()->json($data);
         $user_id = $data['user_id'];
         $CartData = \App\CartItems::where('user_id',$user_id)->get();
         $UserInfo = \App\User::where('id', $user_id)->first();
