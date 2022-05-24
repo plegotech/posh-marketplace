@@ -2110,6 +2110,7 @@ span.plusXmark {
     display: flex;
     max-height: 120px;
     align-items: center;
+    position: relative;
 }
 .mediaGallerybox {
     display: flex;
@@ -2145,6 +2146,21 @@ span.plusXmark {
     max-width: 180px;
     float: right;
     margin-top: 0;
+}
+.mediaUploadImg.activeUploadedImg:before {
+    content: "\f00c";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    background: #0862a3;
+    border-radius: 4px;
+    color: #fff;
+    padding: 4px;
+    height: 22px;
+    line-height: 15px;
 }
 .uploadfileds-bx span:first-child {
     width: 51px;

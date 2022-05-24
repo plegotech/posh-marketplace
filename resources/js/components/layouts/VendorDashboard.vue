@@ -52,12 +52,31 @@
                             <span class="nav-label">Manage Products</span>
                         </router-link>
                     </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <li class="sub-menu">
+                        <a href="#">
+                            <i class="sb-menu-icon upload-product"></i>
+                            <span class="nav-label">Products <i><img class="arrow" src="/img/menu-icons/arrow-down.png"
+                                                                      alt=""></i> </span>
+                            <ul>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                   <router-link :to="{ name: 'vendor-upload-products'}">
+                                        Upload Product
+                                    </router-link>
+                                </li>
+                                <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                    <router-link :to="{ name: 'vendor-media-gallery'}">
+                                        Media Gallery
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <!-- <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'vendor-upload-products'}">
                             <i class="sb-menu-icon upload-product"></i>
                             <span class="nav-label">Upload Product</span>
                         </router-link>
-                    </li>
+                    </li> -->
                     <li class="sub-menu">
                         <a href="#">
                             <i class="sb-menu-icon orders"></i>

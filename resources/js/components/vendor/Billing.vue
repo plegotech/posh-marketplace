@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="mediaGallerybox">
-                                <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shoes.png"></div>
+                                <div class="mediaUploadImg activeUploadedImg"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shoes.png"></div>
                                 <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/products-img-1.png"></div>
                                 <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/nike-shirt.png"></div>
                                 <div class="mediaUploadImg"><img class="img-uploaded-image" width="100" height="100" src="/img/templae-sample-3.png"></div>
