@@ -777,6 +777,37 @@ span.sort-ad {
     border-color: transparent;
 	position: relative;
 }
+.vendor-rod-imag {
+    width: 120px;
+    display: inline-block;
+    margin-right: 15px;
+}
+.details-bx-area {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+}
+.vendorBox-left {
+    display: flex;
+    align-items: center;
+}
+.vendor-rod-detail {
+    text-align: center;
+}
+.topaid-amout {
+    font-weight: bold;
+}
+img.img-x-v-view {
+    width: 120px;
+    border-radius: 4px;
+}
+.vendor-detail-bx {
+    display: inline-block;
+}
+.box-vender-view h5 {
+    font-size: 18px;
+    color: #a7a7a7;
+}
 .main .body .tabs table tbody {}
 .main .body .tabs table tbody tr:nth-child(2n+2) {background: #F9F9F9;}
 .main .body .tabs table tbody tr td {
@@ -2100,6 +2131,82 @@ span.plusXmark {
     color: green;
     transform: translate(-50%, -50%);
     font-size: 22px;
+}
+.mediaUploadImg {
+    border: 1px solid #ccc;
+    padding: 4px;
+    width: 150px;
+    border-radius: 4px;
+    height: 120px;
+    display: flex;
+    max-height: 120px;
+    align-items: center;
+    position: relative;
+}
+.mediaGallerybox {
+    display: flex;
+    gap: 10px;
+}
+.uploadGalleryDetail {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+}
+.uploadImage-bx {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.uploadfileds-bx {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.uploadedImage-be img {
+    width: auto;
+    max-height: 140px;
+}
+.uploadImage-bx p {
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+.select-bx-sho .uploadImages-bx {
+    max-width: 180px;
+    float: right;
+    margin-top: 0;
+}
+.mediaUploadImg.activeUploadedImg:before {
+    content: "\f00c";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    background: #0862a3;
+    border-radius: 4px;
+    color: #fff;
+    padding: 4px;
+    height: 22px;
+    line-height: 15px;
+}
+.uploadfileds-bx span:first-child {
+    width: 51px;
+    flex-grow: 2;
+    text-align: right;
+    font-size: 13px;
+}
+.uploadedImage-be {
+    margin-bottom: 12px;
+}
+.mediaUploadImg img {
+    height: auto;
+    max-height: 110px;
+    max-width: 140px;
+    text-align: center;
 }
 span.closeXmark {
     position: absolute;
