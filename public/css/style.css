@@ -782,8 +782,24 @@ span.sort-ad {
     display: inline-block;
     margin-right: 15px;
 }
+.details-bx-area {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+}
+.vendorBox-left {
+    display: flex;
+    align-items: center;
+}
+.vendor-rod-detail {
+    text-align: center;
+}
+.topaid-amout {
+    font-weight: bold;
+}
 img.img-x-v-view {
     width: 120px;
+    border-radius: 4px;
 }
 .vendor-detail-bx {
     display: inline-block;
