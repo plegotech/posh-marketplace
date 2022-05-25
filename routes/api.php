@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
   | is assigned the "api" middleware group. Enjoy building your API!
   |
  */
+route::get('createpaypal',[App\Http\Controllers\PaypalController::class,'createpaypal'])->name('createpaypal');
+
+route::get('processPaypal',[App\Http\Controllers\PaypalController::class,'processPaypal'])->name('processPaypal');
+
+route::get('processSuccess',[App\Http\Controllers\PaypalController::class,'processSuccess'])->name('processSuccess');
+
+route::get('processCancel',[App\Http\Controllers\PaypalController::class,'processCancel'])->name('processCancel');
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
