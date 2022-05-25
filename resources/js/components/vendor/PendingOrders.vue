@@ -65,7 +65,7 @@
                                             <h5>Seller Phone Number</h5>
                                             <p>Lauren Graduation Party</p>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="col-sm-3">
                                         <div class="box-vender-view">
                                             <h5>Shipping Details</h5>
