@@ -777,6 +777,21 @@ span.sort-ad {
     border-color: transparent;
 	position: relative;
 }
+.vendor-rod-imag {
+    width: 120px;
+    display: inline-block;
+    margin-right: 15px;
+}
+img.img-x-v-view {
+    width: 120px;
+}
+.vendor-detail-bx {
+    display: inline-block;
+}
+.box-vender-view h5 {
+    font-size: 18px;
+    color: #a7a7a7;
+}
 .main .body .tabs table tbody {}
 .main .body .tabs table tbody tr:nth-child(2n+2) {background: #F9F9F9;}
 .main .body .tabs table tbody tr td {
