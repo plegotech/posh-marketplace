@@ -786,6 +786,7 @@ span.sort-ad {
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 .vendorBox-left {
     display: flex;

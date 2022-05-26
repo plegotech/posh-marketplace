@@ -16,3 +16,4 @@ yarn-error.log
 plegopro_posh.sql.zip
 plegopro_posh/plegopro_posh.sql
 composer__.lock
+public/js/app.js
