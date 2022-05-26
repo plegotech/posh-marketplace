@@ -113,8 +113,8 @@ export default {
             pro_images_bot1:        '',
             link4:        '',
             pro_images_bot2:        '',
-            img_url: "https://posh-marketplace.plego.pro/img/product-images/",
-            //img_url: "http://localhost:8000/img/product-images/",
+            //img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+            img_url: "/img/product-images/",
         }
     },
     mounted() {
@@ -243,6 +243,7 @@ this.getPromotions()
                 });
         },
         getImgUrll(pet) {
+            console.log("Image URL: "+this.img_url + "/" + this.user.id + "/" + pet)
           return this.img_url + "/" + this.user.id + "/" + pet;
         },
     }
