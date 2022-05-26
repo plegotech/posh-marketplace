@@ -59,6 +59,7 @@ import VendorBilling from  './components/vendor/Billing';
 import VendorShipping from  './components/vendor/Shipping';
 import VendorEditProducts from  './components/vendor/EditProducts';
 import VendorProductHistory from  './components/vendor/ProductHistory';
+import ViewOrder from  './components/vendor/ViewOrder';
 
 export default {
     mode: 'history',
@@ -123,7 +124,8 @@ export default {
             { name: 'vendor-shipping', meta: { title: 'Shipping' }, path: '/vendor/shipping', component: VendorShipping },
             { name: 'vendor-profile', meta: { title: 'Profile' }, path: '/vendor/profile', component: UserProfile },
             { name: 'vendor-product-history', meta: { title: 'Product History' }, path: '/vendor/product/history', component: VendorProductHistory },
-            { name: 'vendor-edit-products', meta: { title: 'Edit Products' }, path: '/vendor/edit/products', component: VendorEditProducts }
+            { name: 'vendor-edit-products', meta: { title: 'Edit Products' }, path: '/vendor/edit/products', component: VendorEditProducts },
+            { name: 'vendor-vieworder', meta: { title: 'View Order' }, path: '/vendor/view/order', component: ViewOrder }
         ]},
 
         /*

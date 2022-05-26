@@ -26,6 +26,8 @@ class VendorController extends Controller
     {
         $sql = "SELECT COUNT(*) FROM order_items inner join products on products.id = order_items.item_id";
         $sql .= " where products.vendor_id = '$id' AND ";
+        
+        
         $stats =OrderItems::select(DB::raw('('.$sql.' order_items.status = "approved" AND order_items.progress != "delivered") as total_orders'),
             DB::raw('('.$sql.' order_items.status = "pending") as pending_orders'),
             DB::raw('('.$sql.' order_items.status = "rejected") as cancelled_orders'),
