@@ -77,8 +77,9 @@ export default {
             catlist_ddl_limit:false,
             filtersdata:[],
             filters:{},
-            img_url: "https://posh-marketplace.plego.pro/img/menu-template",
+            //img_url: "https://posh-marketplace.plego.pro/img/menu-template",
             //img_url: "http://localhost:8000/img/menu-template",
+            img_url: "/img/menu-template/",
         }
     },
 //
@@ -155,22 +156,12 @@ export default {
             data.append('img', this.thumb);
             data.append('parent_category_id', 0);
 
-            
-            
-
-            data.append('parent_category_id', 0);
-
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
                     var data = res.data;
-                    this.cat_id=0
-                    this.name=null
-                    this.thumb=null
-                    this.parent=null
                     if (data.success == 'true') {
                         alert('Category created successfully.');
-                        object.clearForm();
                     } else {
                         object.errors = data.errors;
                     }
