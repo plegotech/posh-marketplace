@@ -88,12 +88,12 @@
                                     </div>
                                     <div class="upload-image-vup">
                                         <div class="uploadImage-gallery">
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="https://posh-marketplace.plego.pro/img/product-images/997/8843la1.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="https://posh-marketplace.plego.pro/img/product-images/997/7360715bY3uEYgL%201.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"><span class="plusXmark"><i class="fa fa-plus-circle"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-1" src="https://posh-marketplace.plego.pro/img/product-images/997/8843la1.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-2" src="https://posh-marketplace.plego.pro/img/product-images/997/7360715bY3uEYgL%201.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-3" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"><span class="plusXmark"><i class="fa fa-plus-circle"></i></span></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-4" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-5" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea"><img id="img-6" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
                                         </div>
                                         <!-- <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup"> -->
                                         <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage" />
@@ -334,8 +334,15 @@ export default {
                     document.getElementById('ajaxLoader').style.display = 'none';
                 });
         },
-        featuredImage(e) {
-            this.product.featured_image = e.target.files[0];
+        featuredImage(input) {
+            this.product.featured_image = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-upload-vup').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
         },
         galleryImage(e) {
             this.product.imagesArray = e.target.files;
