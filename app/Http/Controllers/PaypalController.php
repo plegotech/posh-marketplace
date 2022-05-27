@@ -11,6 +11,7 @@ class PaypalController extends Controller {
         return view('paypal_view');
     }
 
+    
     public function processPaypal(Request $request) {
         $data = $request->all();
 //        return response()->json($request->all());
