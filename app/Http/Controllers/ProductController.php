@@ -60,6 +60,8 @@ class ProductController extends Controller {
         if (!isset($order_by)) {
             $order_by = "products.id";
         }
+        //$products = $products->where('products.status', $status);
+        $products = $products->where('products.status', "active");
         if (isset($brand) && $brand != "0") {
             $brand = explode(",", $brand);
             $products = $products->whereIn('brand', $brand);
