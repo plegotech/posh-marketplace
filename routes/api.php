@@ -57,6 +57,7 @@ Route::prefix('user')->group(function () {
 Route::prefix('vendor')->group(function () {
     Route::post('/', 'VendorController@vendor');
     Route::get('/dashboard/{id}', 'VendorController@dashboard');
+    Route::get('/salesgraph/{id}', 'VendorController@SalesGraph');
 });
 
 Route::get('/get-contact-us/{id}', 'SellerController@getContactUs');

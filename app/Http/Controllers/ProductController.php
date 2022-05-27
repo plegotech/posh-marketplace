@@ -236,9 +236,11 @@ class ProductController extends Controller {
     }
 
     public function get($product, Request $request) {
-
-        return response()->json(Product::where('id', $product)
-                                ->first());
+        $data = Product::where('id', $product)->first();
+        if($data['images']){
+            $data['images']= json_decode($data['images']);
+        }
+        return response()->json($data);
     }
 
     public function getRecommended($product, Request $request) {
@@ -259,6 +261,7 @@ class ProductController extends Controller {
                             ->join('order_items as oi', 'oi.order_id', '=', 'o.id')
                             ->join('products as p', 'p.id', '=', 'oi.item_id')
                             ->where("o.user_id", $user_id)
+                            ->where("p.status", "active")
                             ->select(DB::raw("p.*"))
                             ->groupBy("p.id")
                             ->orderBy('o.id', 'desc')->limit(4)->get();
@@ -266,6 +269,7 @@ class ProductController extends Controller {
             $ReportData = DB::table("orders as o")
                             ->join('order_items as oi', 'oi.order_id', '=', 'o.id')
                             ->join('products as p', 'p.id', '=', 'oi.item_id')
+                            ->where("p.status", "active")
                             ->select(DB::raw("p.*"))
                             ->groupBy("p.id")
                             ->orderBy('o.id', 'desc')->limit(4)->get();
@@ -331,32 +335,81 @@ class ProductController extends Controller {
         }
         
         $data['filters'] = json_encode($myAr);
-        
+//        return response()->json($data);
         //dd($myAr);
         unset($data['id']);
         unset($data['featured_image']);
-        //return response()->json($data);
-        if ($data['images'] > 0) {
-
-            $i = 0;
-            while ($i < $data['images']) {
-                if ($request->file('imagesArray_' . $i)) {
-                    $photo = rand(5000, 9999) . $request->file('imagesArray_' . $i)->getClientOriginalName();
-                    $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
-                    $request->file('imagesArray_' . $i)->move($destination, $photo);
-                    $dataM['images'][] = $photo;
-                    unset($data['imagesArray_' . $i]);
-                }
-                $i++;
-            }
-            $data['images'] = json_encode($dataM['images']);
-        }
+        unset($data['gallery_image_1']);
+        unset($data['gallery_image_2']);
+        unset($data['gallery_image_3']);
+        unset($data['gallery_image_4']);
+        unset($data['gallery_image_5']);
+        unset($data['gallery_image_6']);
+        
+//        if ($data['images'] > 0) {
+//
+//            $i = 0;
+//            while ($i < $data['images']) {
+//                if ($request->file('imagesArray_' . $i)) {
+//                    $photo = rand(5000, 9999) . $request->file('imagesArray_' . $i)->getClientOriginalName();
+//                    $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+//                    $request->file('imagesArray_' . $i)->move($destination, $photo);
+//                    $dataM['images'][] = $photo;
+//                    unset($data['imagesArray_' . $i]);
+//                }
+//                $i++;
+//            }
+//            $data['images'] = json_encode($dataM['images']);
+//        }
         if ($request->file('featured_image')) {
             $photo = rand(5000, 9999) . $request->file('featured_image')->getClientOriginalName();
             $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
             $request->file('featured_image')->move($destination, $photo);
             $data['featured_image'] = $photo;
         }
+        /*
+         * Images Gallery new
+         */
+        if ($request->file('gallery_image_1')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_1')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_1')->move($destination, $photo);
+            $data['images'][1] = $photo;
+        }
+        if ($request->file('gallery_image_2')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_2')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_2')->move($destination, $photo);
+            $data['images'][2] = $photo;
+        }
+        if ($request->file('gallery_image_3')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_3')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_3')->move($destination, $photo);
+            $data['images'][3] = $photo;
+        }
+        if ($request->file('gallery_image_4')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_4')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_4')->move($destination, $photo);
+            $data['images'][4] = $photo;
+        }
+        if ($request->file('gallery_image_5')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_5')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_5')->move($destination, $photo);
+            $data['images'][5] = $photo;
+        }
+        if ($request->file('gallery_image_6')) {
+            $photo = rand(5000, 9999) . $request->file('gallery_image_6')->getClientOriginalName();
+            $destination = base_path() . '/public/img/product-images/' . $request->input('vendor_id');
+            $request->file('gallery_image_6')->move($destination, $photo);
+            $data['images'][6] = $photo;
+        }
+        $data['images'] = json_encode($data['images']);
+        /*
+         * Images Gallery new
+         */
 
 //        dd($data);
         if (empty($request->input('id'))) {

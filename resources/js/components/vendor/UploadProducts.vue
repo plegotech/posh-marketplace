@@ -17,7 +17,7 @@
                                     <input v-model="product.net_price" type="number" placeholder="200" class="form-control-label" required>
                                     <label class="form-label">Price</label>
                                 </div>
-                                <div class="form-outline-ft mb-5">
+                                <div class="form-outline-ft mb-5" v-if="this.catlist">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.parent_category" @change="updateSubCategories()" class="parentCategory form-control-label select-custom-point">
                                         <option v-for="(category, index) in this.catlist"
@@ -25,7 +25,7 @@
                                     </select>
                                     <span class="form-label">Category</span>
                                 </div>
-                                <div class="form-outline-ft mb-5">
+                                <div class="form-outline-ft mb-5" v-if="this.subcatlist">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.sub_category" @change="updateFilters()" class="subCategory form-control-label select-custom-point">
                                         <option v-for="(category, index) in this.subcatlist"
@@ -33,7 +33,7 @@
                                     </select>
                                     <span class="form-label">Sub-Category</span>
                                 </div>
-                                <div class="form-outline-ft mb-5">
+                                <div class="form-outline-ft mb-5" v-if="this.brandlist">
                                     <img src="/img/help-icon.png" class="help-tag-righ" width="30" height="30">
                                     <select v-model="product.brand" class="form-control-label select-custom-point">
                                         <option v-for="(brand, id) in brandlist"
@@ -88,16 +88,55 @@
                                     </div>
                                     <div class="upload-image-vup">
                                         <div class="uploadImage-gallery">
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-1" src="https://posh-marketplace.plego.pro/img/product-images/997/8843la1.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-2" src="https://posh-marketplace.plego.pro/img/product-images/997/7360715bY3uEYgL%201.png" class="img-fluid gtb-item"><span class="closeXmark"><i class="fa fa-times"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-3" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"><span class="plusXmark"><i class="fa fa-plus-circle"></i></span></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-4" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-5" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
-                                            <div class="gallery-thumbn-bx-ea"><img id="img-6" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item"></div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-1" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file1" style="display: none" name="images" @change="galleryImage1" />
+                                                <span class="closeXmark">
+                                                <i class="fa fa-plus-circle" @click="$refs.file1.click()"></i>
+                                                </span>
+                                            </div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-2" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage2" />
+                                                <span class="closeXmark">
+                                                <i class="fa fa-times"></i>
+                                                <i class="fa fa-plus-circle" @click="$refs.file2.click()"></i>
+                                                </span>
+                                            </div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-3" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file3" style="display: none" name="images" @change="galleryImage3" />
+                                                <span class="closeXmark">
+                                                <i class="fa fa-plus-circle" @click="$refs.file3.click()"></i>
+                                                </span>
+                                            </div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-4" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file4" style="display: none" name="images" @change="galleryImage4" />
+                                                <span class="closeXmark">
+                                                <i class="fa fa-plus-circle" @click="$refs.file4.click()"></i>
+                                                </span>
+                                            </div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-5" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file5" style="display: none" name="images" @change="galleryImage5" />
+                                                <span class="closeXmark">
+                                                <i class="fa fa-plus-circle" @click="$refs.file5.click()"></i>
+                                                </span>
+                                            </div>
+                                            <div class="gallery-thumbn-bx-ea">
+                                                <img id="img-6" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
+                                                <input type="file" multiple ref="file6" style="display: none" name="images" @change="galleryImage6" />
+                                                <span class="closeXmark">
+                                                
+                                                <i class="fa fa-plus-circle" @click="$refs.file6.click()"></i>
+                                                </span>
+                                            </div>
+
                                         </div>
-                                        <!-- <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup"> -->
+                                        <!-- <img id="img-upload-vup" src="/img/img-upload-dummy.jpg" class="img-fluid img-upload-vup"> 
                                         <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage" />
-                                        <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>
+                                        <button class="img-title-up" @click="$refs.file2.click()">Upload Images</button>-->
                                     </div>
                                 </div>
                                 <div>
@@ -151,6 +190,14 @@ export default {
                 description:            '',
                 featured_image:         '',
                 imagesArray: [],
+
+                gallery_image_1:'',
+                gallery_image_2:'',
+                gallery_image_3:'',
+                gallery_image_4:'',
+                gallery_image_5:'',
+                gallery_image_6:'',
+
                 status:                 '',
                 _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
@@ -287,6 +334,36 @@ export default {
                     this.product.sub_category           = res.sub_category;
                     this.product.brand                  = res.brand;
                     this.product.description            = res.description;
+                    this.imagesArray = res.images;
+
+                    if(res.images) {
+                        if(res.images[1] && res.images[1]){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[1];
+                            document.getElementById('img-1').src = src;
+                        }
+                        if(res.images[2] && res.images[2]!=null){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[2];
+                            document.getElementById('img-2').src = src;
+                        }
+                        if(res.images[3] && res.images[3]!=null){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[3];
+                            document.getElementById('img-3').src = src;
+                        }
+                        if(res.images[1] && res.images[4]!=null){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[4];
+                            document.getElementById('img-4').src = src;
+                        }
+                        if(res.images[5] && res.images[5]!=null){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[5];
+                            document.getElementById('img-5').src = src;
+                        }
+                        if(res.images[6] && res.images[6]!=null){
+                            let src = "/img/product-images/" + res.vendor_id + "/" + res.images[6];
+                            document.getElementById('img-6').src = src;
+                        }
+                    }
+
+
                     console.log(this.product);
                     this.loadFilters(res.sub_category);
                     
@@ -344,8 +421,80 @@ export default {
                 reader.readAsDataURL(input.target.files[0]);
             }
         },
-        galleryImage(e) {
-            this.product.imagesArray = e.target.files;
+        galleryImage1(input) {
+            this.product.gallery_image_1 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage2(input) {
+            this.product.gallery_image_2 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage3(input) {
+            this.product.gallery_image_3 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-3').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage4(input) {
+            this.product.gallery_image_4 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-4').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage5(input) {
+            this.product.gallery_image_5 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-5').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage6(input) {
+            this.product.gallery_image_6 = input.target.files[0]
+            if (input.target.files && input.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img-6').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.target.files[0]);
+            }
+        },
+        galleryImage(input) {
+            this.product.imagesArray = input.target.files;
+            for(var i=0; i<6; i++){
+                alert("One: "+i)
+                if (input.target.files && input.target.files[i]) {
+                    alert("Two: "+i)
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#img-'+i).attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.target.files[i]);
+                }
+                
+            }
         },
         addProduct() {
             document.getElementById('ajaxLoader').style.display = 'block';
@@ -368,13 +517,14 @@ export default {
             data.append('description', this.product.description);
             data.append('brand', this.product.brand);
             data.append('featured_image', this.product.featured_image);
-            data.append('images', this.product.imagesArray.length);
-
+            data.append('gallery_image_1', this.product.gallery_image_1)
+            data.append('gallery_image_2', this.product.gallery_image_2)
+            data.append('gallery_image_3', this.product.gallery_image_3)
+            data.append('gallery_image_4', this.product.gallery_image_4)
+            data.append('gallery_image_5', this.product.gallery_image_5)
+            data.append('gallery_image_6', this.product.gallery_image_6)
             for (const k of Object.keys(this.filtersdata)) {
                 data.append(k, this.filtersdata[k])
-            }
-            for (const i of Object.keys(this.product.imagesArray)) {
-                data.append('imagesArray_'+i, this.product.imagesArray[i])
             }
             data.append('status', this.product.status);
             data.append('sub_category', this.product.sub_category);
