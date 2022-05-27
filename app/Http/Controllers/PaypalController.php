@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
-
 class PaypalController extends Controller {
 
     public function createpaypal() {
@@ -13,6 +12,8 @@ class PaypalController extends Controller {
     }
 
     public function processPaypal(Request $request) {
+        $data = $request->all();
+//        return response()->json($request->all());
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -27,7 +28,7 @@ class PaypalController extends Controller {
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "100.00"
+                        "value" => $data['price']
                     ]
                 ]
             ]
@@ -37,18 +38,18 @@ class PaypalController extends Controller {
 
             // redirect to approve href
             foreach ($response['links'] as $links) {
-                
+
                 if ($links['rel'] == 'approve') {
-                    return response()->json(array("status"=>1,"message"=>$links['href']));
+                    return response()->json(array("status" => 1, "message" => $links['href']));
 //                    return redirect()->away($links['href']);
                 }
             }
-return response()->json(array("status"=>2,"message"=>"Something went wrong"));
+            return response()->json(array("status" => 2, "message" => "Something went wrong"));
 //            return redirect()
 //                            ->route('createpaypal')
 //                            ->with('error', 'Something went wrong.');
         } else {
-            return response()->json(array("status"=>2,"message"=>"Something went wrong"));
+            return response()->json(array("status" => 2, "message" => "Something went wrong"));
 //            return redirect()
 //                            ->route('createpaypal')
 //                            ->with('error', $response['message'] ?? 'Something went wrong.');
@@ -63,12 +64,12 @@ return response()->json(array("status"=>2,"message"=>"Something went wrong"));
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-            return response()->json(array("success"=>true, "message"=>"Transaction complete"));
+            return response()->json(array("success" => true, "message" => "Transaction complete"));
 //            return redirect()
 //                            ->route('createpaypal')
 //                            ->with('success', 'Transaction complete.');
         } else {
-            return response()->json(array("success"=>false, "message"=>"Something went wrong"));
+            return response()->json(array("success" => false, "message" => "Something went wrong"));
 //            return redirect()
 //                            ->route('createpaypal')
 //                            ->with('error', $response['message'] ?? 'Something went wrong.');
@@ -76,7 +77,7 @@ return response()->json(array("status"=>2,"message"=>"Something went wrong"));
     }
 
     public function processCancel(Request $request) {
-        return response()->json(array("success"=>false, "message"=>"You have canceled the transaction."));
+        return response()->json(array("success" => false, "message" => "You have canceled the transaction."));
 //        return redirect()
 //                        ->route('createpaypal')
 //                        ->with('error', $response['message'] ?? 'You have canceled the transaction.');
