@@ -169,6 +169,94 @@
                 </div>
             </div>
         </div>
+        <div class="prof-area vendor-pro-b2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="mini-head">Payment</h1>
+                </div>
+                <div class="col-sm-6">
+                    <button class="add-new" style="display:none">
+                        <img src="/img/add.png" alt="">ADD NEW
+                    </button>
+                    <button class="edit sm-wd" @click="showCompanyEditForm">
+                        <img src="/img/edit.png" alt="">EDIT
+                    </button>
+                </div>
+
+                <div id="companyEdit" class="col-sm-12" style="display: none">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p v-for="error in company_errors" class="alert-danger alert">
+                            {{ error[0] }}
+                        </p>
+                    </div>
+                <div class="col-sm-6">
+                    <label>Company Name:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.name"
+                           :placeholder="company_data.name" /><br>
+                           </div>
+                            <div class="col-sm-6">
+                    <label>Phone:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.phone"
+                           :placeholder="company_data.phone" /><br>
+                           </div>
+                            <div class="col-sm-6">
+                    <label>Address:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.address"
+                           :placeholder="company_data.address" /><br>
+                           </div>
+                            <div class="col-sm-6">
+                    <label>State:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.state"
+                           :placeholder="company_data.state" /><br>
+                           </div>
+                            <div class="col-sm-6">
+                    <label>City:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.city"
+                           :placeholder="company_data.city" /><br>
+                           </div>
+                            <div class="col-sm-6">
+                    <label>Zip Code:</label>
+                    <input type="text" class="form-control"
+                           v-model="company_data.zip_code"
+                           :placeholder="company_data.zip_code" /><br>
+                           </div>
+                            <div class="offset-sm-3 col-sm-6">
+                    <button class="primary" @click="updateCompany">Update</button>
+                    <button @click="closeTab_CompEdit">Close</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <table class="comp-addr">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <h2>Client id</h2>
+                                <span>{{ company.address }}</span>
+                            </td>
+                            <td>
+                                <h2>Secret id</h2>
+                                <span>{{ company.state }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>Email id</h2>
+                                <span>{{ company.city }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
 </template>
