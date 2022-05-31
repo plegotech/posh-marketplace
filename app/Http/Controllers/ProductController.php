@@ -245,7 +245,7 @@ class ProductController extends Controller {
 
     public function getRecommended($product, Request $request) {
         $parent_category = Product::where('id', $product)->first()->parent_category;
-        $data = Product::where('parent_category', $parent_category)->limit(4)->get();
+        $data = Product::where(['parent_category'=>$parent_category, 'status'=>'active'])->orderBy('id', 'desc')->limit(4)->get();
 
         return response()->json($data);
     }
