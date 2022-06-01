@@ -70,9 +70,9 @@ class PaypalController extends Controller {
                 $order_id = $order->id;
                 \App\Order::find($order_id)->update(['status' => 'paid']);
             }
-
-            return "<h1>Payment Successful</h1>";
-            return response()->json(array("success" => true, "message" => "Transaction complete"));
+            header("Location: https://posh-temp1.plego.pro/success"); exit;
+            //return "<h1>Payment Successful</h1>";
+            //return response()->json(array("success" => true, "message" => "Transaction complete"));
 //            return redirect()
 //                            ->route('createpaypal')
 //                            ->with('success', 'Transaction complete.');
