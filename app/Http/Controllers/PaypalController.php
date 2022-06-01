@@ -11,7 +11,6 @@ class PaypalController extends Controller {
         return view('paypal_view');
     }
 
-    
     public function processPaypal(Request $request) {
         $data = $request->all();
 //        return response()->json($request->all());
@@ -59,12 +58,20 @@ class PaypalController extends Controller {
 
     public function processSuccess(Request $request) {
 
+//        return response()->json($request->all());
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            $order = \App\Order::orderBy('id', 'desc')->limit(1)->first();
+            if ($order) {
+                $order_id = $order->id;
+                \App\Order::find($order_id)->update(['status' => 'paid']);
+            }
+
+            return "<h1>Payment Successful</h1>";
             return response()->json(array("success" => true, "message" => "Transaction complete"));
 //            return redirect()
 //                            ->route('createpaypal')
