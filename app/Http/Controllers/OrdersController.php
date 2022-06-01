@@ -106,7 +106,8 @@ class OrdersController extends Controller
     }
     public function createOrder(Request $request){
         $data = $request->all();
-        return response()->json($data);
+//        return response()->json(["success"=>"true","data"=>"508"]);
+//        return response()->json($data);
         $user_id = $data['user_id'];
         $CartData = \App\CartItems::where('user_id',$user_id)->get();
         $UserInfo = \App\User::where('id', $user_id)->first();
@@ -145,6 +146,6 @@ class OrdersController extends Controller
             }
             \App\CartItems::where('user_id', $user_id)->delete();
         }
-        return response()->json(["true"]);
+        return response()->json(["success"=>"true","data"=>$model->id]);
     }
 }
