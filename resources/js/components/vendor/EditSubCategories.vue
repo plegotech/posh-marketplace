@@ -109,7 +109,9 @@
                                  <!-- START: IMAGE FOR BRAND DEMO -->
                                   <div class="col-sm-6 ">
                                     <div class="row"> 
-                                        <div class="col-12"><img src="/img/capture-brand-list.jpg" class="img-fluid"></div>
+                                        <div class="col-12">
+                                            <img src="/img/capture-attribute-list.jpg" class="img-fluid filterSample-bx">
+                                            <img src="/img/capture-brand-list.jpg" class="img-fluid filterSample-bx"></div>
                                     </div>
                                     </div>
                                  <!-- END  : IMAGE FOR BRAND DEMO -->
@@ -186,13 +188,13 @@
                                  </div>
                                  </div>                                                                   
                                  </div>
-                                 <!-- START: IMAGE FOR BRAND DEMO -->
+                                 <!-- START: IMAGE FOR BRAND DEMO 
                                   <div class="col-sm-6 ">
                                     <div class="row"> 
-                                        <div class="col-12"><img src="/img/capture-attribute-list.jpg" class="img-fluid"></div>
+                                        <div class="col-12"><img src="/img/capture-attribute-list.jpg" class="img-fluid filterSample-bx"></div>
                                     </div>
                                     </div>
-                                 <!-- END  : IMAGE FOR BRAND DEMO -->
+                                  END  : IMAGE FOR BRAND DEMO -->
                                  </div>
                             </div>
                         <div class="col-sm-12 mb-5">         

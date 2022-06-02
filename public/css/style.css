@@ -735,6 +735,9 @@ li.nav-item a.nav-link {
 .brandlisting-bx {
     width: 100%;
 }
+.filterSample-bx {
+    box-shadow: 0px 1px 3px 1px #ccc;
+}
 .btn-primary.btnclose-bt {
     background: #FF5454!important;
     border-color: #FF5454 !important;
