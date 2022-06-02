@@ -39,7 +39,7 @@ class ShippingController extends Controller {
 
         $version = new ComplexType\VersionId();
         $version
-                ->setMajor(23)
+                ->setMajor(28)
                 ->setIntermediate(0)
                 ->setMinor(0)
                 ->setServiceId('ship');
