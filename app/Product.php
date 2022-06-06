@@ -18,6 +18,7 @@ class Product extends Model
     public function ParentCategory() {
         return $this->hasMany(Category::class, 'parent_category');
     }    
+    
     public function SubCategory() {
         return $this->hasMany(Category::class, 'sub_category');
     }    

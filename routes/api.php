@@ -93,6 +93,7 @@ Route::prefix('orders')->group(function () {
     Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
             'OrdersController@updateOrderStatus');
     Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
+    Route::get('/vendorbilling', 'OrdersController@billinginfo');
     
     
 });

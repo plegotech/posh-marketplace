@@ -65,6 +65,7 @@ class VendorController extends Controller
             ->join('products', 'products.id', '=', 'order_items.item_id')
             ->join('orders', 'orders.id', '=', 'order_items.order_id')
             ->orderBy('order_items.id', 'desc')
+                ->groupBy('order_items.id')
             ->limit(10)
             ->get()
             ->toArray();
