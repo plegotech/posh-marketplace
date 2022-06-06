@@ -150,7 +150,7 @@
                                 <th scope="col">Email Address</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">City & State</th>
-                                <th scope="col">Total Gross</th>
+                                
                                 <th scope="col">Last Login</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -174,9 +174,7 @@
                                 <td>
                                     <span>{{ company.city }}, {{ company.state }}</span>
                                 </td>
-                                <td>
-                                    <span v-if="company.gross_total > 0">${{ company.gross_total }}</span>
-                                </td>
+                               
                                 <td>
                                     <span>{{ company.login_time }}</span>
                                 </td>
