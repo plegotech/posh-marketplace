@@ -159,12 +159,13 @@ export default {
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
-                    var data = res.data;
-                    if (data.success == 'true') {
+                    var result = res.data;
+                    if (result.success == 'true') {
                         alert('Category created successfully.');
                     } else {
                         object.errors = data.errors;
                     }
+                    
                 })
                 .catch(function (res) {
                     console.log(res);
