@@ -22,12 +22,19 @@
                         <div class="col-sm-6 offset-sm-2">
                             <div class="row justify-content-end">
                                 <div class="w-auto col-6">
+                                    <select v-model="usertype" class="usertype select-custom-point"
+                                            @change="usertype()">
+                                        <option value="1" selected>Vendor</option>
+                                        <option value="2" selected>Seller</option>
+                                    </select>
+                                </div>
+                                <div class="w-auto col-6">
                                     <select v-model="category" class="parentCategory select-custom-point"
                                             @change="updateSubCategories()">
                                         <option value="0" selected>Category</option>
                                         <option v-for="(category, index) in parent_categories"
-                                                :value="index">
-                                            {{ index }}
+                                                :value="category.id">
+                                            {{ category.title }}
                                         </option>
                                     </select>
                                 </div>
@@ -36,8 +43,8 @@
                                             @change="fetch()">
                                         <option value="0" selected>Sub Category</option>
                                         <option v-for="(category, index) in sub_categories"
-                                                :value="category">
-                                            {{ category }}
+                                                :value="category.id">
+                                            {{ category.title }}
                                         </option>
                                     </select>
                                 </div>
@@ -149,6 +156,9 @@ export default {
         return {
             parent_categories: null,
             sub_categories: null,
+            usertype: null,
+
+
             orders: [],
             search: 0,
             category: 0,
@@ -164,19 +174,63 @@ export default {
         }
     },
     created() {
-        this.parent_categories = SITE_CATEGORIES;
+        this.loadCategories()
+        
         this.fetch();
     },
     methods: {
+        usertype(){
+        },
+
+        async loadCategories(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories");
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.parent_categories = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
         updateSubCategories() {
-            let parent = document.getElementsByClassName('parentCategory');
+            var parent = document.getElementsByClassName('parentCategory');
 
             if (typeof parent[0] !== 'undefined') {
                 parent = parent[0].value;
+                if(parent.length < 1) {
+                    document.getElementsByClassName('subCategory')[0].value = ""
+                }
+                
                 this.sub_categories = SITE_CATEGORIES[parent];
+                this.loadSubCategories(parent);
             }
-            this.fetch();
+            this.fetchAllProducts();
         },
+        async loadSubCategories(id){
+//alert(id)
+            document.getElementById('ajaxLoader').style.display = 'block';
+            let result = axios.get("/categories", 
+                    {
+                      params: {
+                        id: id
+                      },
+                    },
+                    { useCredentails: true }
+            );
+            console.warn("Check Data");
+            const obj = (await result).data;
+            console.warn(obj);
+            if(obj.success==true){
+              this.sub_categories = obj.data;
+            } else {
+              alert("Issue loading categories");
+            }
+            document.getElementById('ajaxLoader').style.display = 'none';
+        },
+
         searchObjects: function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
