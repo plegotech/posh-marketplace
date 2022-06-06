@@ -66,7 +66,8 @@
                             <tr v-for="product in all_products"
                                 :id="'allProduct'+product.id">
                                 <td>
-                                    <img src="/img/nike-shoe1.png" alt="">
+                                    <!--<img src="/img/nike-shoe1.png" alt="">-->
+                                    <img :src="'/img/product-images/' + product.vendor_id + '/' + product.featured_image" alt="">
                                     <span>{{ product.id }}</span>
                                     <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                 </td>
@@ -126,7 +127,8 @@
                         <tbody>
                         <tr v-for="product in products">
                             <td>
-                                <img src="/img/nike-shoe1.png" alt="">
+                                <!--<img src="/img/nike-shoe1.png" alt="">-->
+                                <img :src="'/img/product-images/' + product.vendor_id + '/' + product.featured_image" alt="">
                                 <span>{{ product.id }}</span>
                                 <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                             </td>

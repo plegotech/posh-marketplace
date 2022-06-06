@@ -350,14 +350,12 @@ export default {
             axios.post('/create-category', data, config)
                 .then(function (res) {
                     console.log(res);
-                    var data = res.data;
-                    this.cat_id=0
-                    this.name=null
-                    this.thumb=null
-                    this.parent=null
-                    if (data.success == 'true') {
+                    var result = res.data;
+                    
+                    if (result.success === true) {
                         alert('Category created successfully.');
-                        object.clearForm();
+                        
+                        object.$router.push({ path: '/vendor/subcategories' })
                     } else {
                         object.errors = data.errors;
                     }
@@ -368,7 +366,6 @@ export default {
                 .finally(()=>{
                     this.processing = false;
                     document.getElementById('ajaxLoader').style.display = 'none';
-this.loadCategories()
                 });
 
         },

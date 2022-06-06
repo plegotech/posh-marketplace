@@ -21,12 +21,12 @@
                             <span class="nav-label">Dashboard</span>
                         </router-link>
                     </li>
-                    <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <!--<li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-manage-products'}">
                             <i class="sb-menu-icon manage-products"></i>
                             <span class="nav-label">Manage Products</span>
                         </router-link>
-                    </li>
+                    </li>-->
                     <li data-toggle="collapse" data-target="#navbarTogglerSidebar" aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
                         <router-link :to="{ name: 'seller-order'}">
                             <i class="sb-menu-icon orders"></i>

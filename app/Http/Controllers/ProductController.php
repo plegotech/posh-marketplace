@@ -235,10 +235,22 @@ class ProductController extends Controller {
                         ->update(['status' => 'deleted']);
     }
 
-    public function get($product, Request $request) {
-        $data = Product::where('id', $product)->first();
+    public function getForTemplate($product, Request $request) {
+        $data = Product::where('id', $product)->first()->toArray();
         if($data['images']){
-            $data['images']= json_decode($data['images']);
+            $images= json_decode($data['images']);
+            $raja=array();
+            foreach($images as $img){
+                $raja[]=$img;
+            }
+            $data['images']= $raja;
+        }
+        return response()->json($data);
+    }
+    public function get($product, Request $request) {
+        $data = Product::where('id', $product)->first()->toArray();
+        if($data['images']){
+            $data['images'] = json_decode($data['images']);
         }
         return response()->json($data);
     }
@@ -406,16 +418,29 @@ class ProductController extends Controller {
             $request->file('gallery_image_6')->move($destination, $photo);
             $data['images'][6] = $photo;
         }
-        $data['images'] = json_encode($data['images']);
+//        $data['images'] = json_encode($data['images']);
         /*
          * Images Gallery new
          */
 
 //        dd($data);
         if (empty($request->input('id'))) {
+            
+            $data['images'] = json_encode($data['images']);
             $product = Product::create($data);
             $id = $product->id;
         } else {
+            $product_info = Product::where('id', $request->input('id'))->first();
+            if($product_info){
+//                print_r($product_info);
+                $images = json_decode($product_info->images);
+                foreach($images as $key=>$img){
+                    if(!array_key_exists($key, $data['images'])){
+                        $data['images'][$key]=$img;
+                    }
+                }
+            }
+            $data['images'] = json_encode($data['images']);
             Product::where('id', $request->input('id'))
                     ->update($data);
             $id = $request->input('id');

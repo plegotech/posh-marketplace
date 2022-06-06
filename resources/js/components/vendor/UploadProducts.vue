@@ -185,7 +185,7 @@ export default {
                 net_price:              '',
                 vendor_id:              '',
                 parent_category:        '',
-                sub_category:        '',
+                sub_category:           '',
                 brand:                  '',
                 description:            '',
                 featured_image:         '',
@@ -337,7 +337,7 @@ export default {
                     this.imagesArray = res.images;
 
                     if(res.images) {
-                        if(res.images[1] && res.images[1]){
+                        if(res.images[1] && res.images[1]!=null){
                             let src = "/img/product-images/" + res.vendor_id + "/" + res.images[1];
                             document.getElementById('img-1').src = src;
                         }
@@ -535,7 +535,9 @@ export default {
                     if (data.success == 'true') {
                         alert('product created successfully.');
                         object.clearForm();
-                        this.filtersdata=null
+                        object.filtersdata=[]
+                        object.$router.push({ path: '/vendor/manage/products' })
+
                     } else {
                         object.errors = data.errors;
                     }
