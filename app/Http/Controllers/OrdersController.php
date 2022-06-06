@@ -20,7 +20,10 @@ class OrdersController extends Controller {
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
+    public function billinginfo(SRequest $request) {
+        
+        Order::where('vendor_id')->with("product")->get();
+    }
     public function trackingdetails($user_id) {
         $data = Order::where(['user_id'=>$user_id,'status'=>'paid'])->orderBy('id','desc')->first();
 //        $data = array("raja");
@@ -78,7 +81,7 @@ class OrdersController extends Controller {
           //  $user_id = '1020';
         //}
 
-        if ($data['order']) {
+        if (array_key_exists('order', $data) &&  $data['order']) {
             $ordertype = [$data['order']];
         } else {
             $ordertype = ['pending', 'rejected', 'approved'];

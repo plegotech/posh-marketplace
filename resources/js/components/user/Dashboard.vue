@@ -87,7 +87,7 @@
                                     <span>{{ order.name }}</span>
                                 </td>
                                 <td>
-                                    <span>MRP0043456</span>
+                                    <span>{{ order.tracking_id }}</span>
                                 </td>
                                 <td>
                                     <span>{{ order.ordered_at }}</span>

@@ -63,151 +63,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr >
+                                <tr v-for="order in orders">
                                     <td>
-                                        <span>AKN 1250</span>
+                                        <span>{{ order.id }}</span>
                                         <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
                                     </td>
                                     <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <span>AKN 1250</span>
-                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        <span>Nike Shoes</span>
-                                    </td>
-                                    <td>
-                                        <span>03/26/2021</span>
-                                    </td>
-                                    <td>
-                                        <span>$400</span>
-                                    </td>
-                                    <td>
-                                        <span>Credit Card</span>
-                                    </td>
-                                </tr>
 
+                                        <span>{{ order.first_name+" "+order.last_name }}</span>
+                                    </td>
+                                    <td>
+                                        <span>03/26/2021</span>
+                                    </td>
+                                    <td>
+                                        <span>${{ order.net_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span>Paypal</span>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                             <div class="foot-table" >
@@ -235,5 +109,29 @@
 
 <script>
 export default {
+    data() {
+        return {
+            user: this.$store.state.auth.user,
+            orders: [],
+        }
+    },
+    created() {
+        this.fetch();
+    },
+    methods: {
+        async fetch(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/orders/vendor/' + this.user.id;
+            axios.get(url)
+                .then(res => {
+                    this.orders = res.data.data;
+                    console.log(this.orders)
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        }
+    }
 }
 </script>
