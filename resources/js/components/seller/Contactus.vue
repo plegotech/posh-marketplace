@@ -42,7 +42,7 @@
                                     <span>{{ row.name }} </span>
                                 </td>
                                 <td>
-                                    <span>{{ row.created_at }}</span>
+                                    <span>{{ row.new_date }}</span>
                                 </td>
                                 <td>
                                     <span>{{ row.purpose }}</span>

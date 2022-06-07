@@ -22,6 +22,7 @@ route::get('processSuccess',[App\Http\Controllers\PaypalController::class,'proce
 route::get('processCancel',[App\Http\Controllers\PaypalController::class,'processCancel'])->name('processCancel');
 
         Route::get('/shipping', 'ShippingController@Ship1');
+        Route::get('/admin-payment-details', 'AdminController@getPaymentDetails');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

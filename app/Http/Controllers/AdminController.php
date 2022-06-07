@@ -18,7 +18,16 @@ class AdminController extends Controller
     {
         return 'silence is the gold';
     }
-
+    public function getPaymentDetails() {
+        $products = OrderItems::select('products.net_price','products.seller_price','orders.*', DB::raw('concat(seller.first_name," ",seller.last_name) as "seller_name", concat(vendor.first_name," ",vendor.last_name) as "vendor_name" '))
+                ->join('products', 'products.id', '=', 'order_items.item_id')
+                ->join('orders', 'orders.id', '=', 'order_items.order_id')
+                ->join('users as seller', 'seller.id', '=', 'order_items.seller_id')
+                ->join('users as vendor', 'vendor.id', '=', 'products.vendor_id')
+                ->groupBy('order_items.item_id')->paginate(20);
+        return response()->json($products);
+        
+    }
     public function adminData()
     {
         $pending_sellers = User::select(DB::raw('COUNT(id) as pending_sellers'))

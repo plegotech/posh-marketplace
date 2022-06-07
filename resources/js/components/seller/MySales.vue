@@ -38,7 +38,7 @@
                         <div class="box graphs">
                             <div class="left">
                                 <span>Total Earnings</span>
-                                <h1>$25,456</h1>
+                                <h1>${{ stats.stotal }}</h1>
                                 <i class="green"><img src="/img/up.png" alt=""> +28.45%</i>
                             </div>
                             <div class="right">
@@ -50,7 +50,7 @@
                         <div class="box graphs">
                             <div class="left">
                                 <span>Product Sold</span>
-                                <h1>$32,568</h1>
+                                <h1>${{ stats.vtotal }}</h1>
                                 <i class="green"><img src="/img/up.png" alt=""> +23.57%</i>
                             </div>
                             <div class="right">
@@ -62,7 +62,7 @@
                         <div class="box graphs">
                             <div class="left">
                                 <span>Total Revenue</span>
-                                <h1>$46,587</h1>
+                                <h1>${{ stats.vtotal }}</h1>
                                 <i class="red"><img src="/img/down-red.png" alt=""> -23.57%</i>
                             </div>
                             <div class="right">
@@ -91,7 +91,7 @@
                         <tr v-for="product in products">
                             <td>
                                           <span class="txt-cont">
-                                            <img src="/img/nike-shoe1.png" alt="">
+                                            <img :src="'/img/product-images/'+product.vendor_id+'/'+product.featured_image" alt="">
                                             <span>{{ product.name }}</span></span>
                             </td>
                             <td>
@@ -148,7 +148,8 @@ export default {
             current_page: 0,
             order_by: 0,
             order: 0,
-            products: []
+            products: [],
+            stats: [],
         }
     },
     created() {
@@ -208,6 +209,7 @@ export default {
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
+                    this.stats       = res.statistic;
                     this.products       = res.products.data;
                     this.to             = res.products.to;
                     this.from           = res.products.from;

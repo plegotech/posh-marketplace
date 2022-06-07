@@ -99,7 +99,6 @@
                                                 <img id="img-2" src="/img/img-upload-dummy.jpg" class="img-fluid gtb-item">
                                                 <input type="file" multiple ref="file2" style="display: none" name="images" @change="galleryImage2" />
                                                 <span class="closeXmark">
-                                                <i class="fa fa-times"></i>
                                                 <i class="fa fa-plus-circle" @click="$refs.file2.click()"></i>
                                                 </span>
                                             </div>

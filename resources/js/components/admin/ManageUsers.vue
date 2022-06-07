@@ -143,7 +143,7 @@
                                         <li @click="editUser(user)" data-toggle="modal"
                                             data-target=".bd-example-modal-lg" class="edit-mob">Edit
                                         </li>
-                                        <li @click="markInactive(user.id)" class="inactive-mob">Inactive</li>
+                                        <li @click="markInactive(user.id)" class="inactive-mob">{{ user.status=="approved" ? "InActive" : "Activate" }} </li>
                                     </ul>
                                 </div>
 
@@ -238,7 +238,7 @@ export default {
                 url += '/desc';
             }
 
-            url += '/approved';
+            //url += '/approved';
 
             var search = search;
 

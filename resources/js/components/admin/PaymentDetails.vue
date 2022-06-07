@@ -13,141 +13,33 @@
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Transaction Id<img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Amount<img class="shuffle" src="/img/shuffle.png"></span></th>
                             <th class="shuffle-bx" scope="col"><span class="sort-ad">Address <img class="shuffle" src="/img/shuffle.png"></span></th>
-                            <th class="shuffle-bx" scope="col"><span class="sort-ad">Amount Reversed<img class="shuffle" src="/img/shuffle.png"></span></th>
+                            
                             <th scope="col">Currency</th>
                             <th scope="col">Source Type</th>
                             <th scope="col">Seller Name</th>
                             <th scope="col">Vendor Name</th>
-                            <th scope="col">Phone</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(items, key) in paydetails" >
+                                <td>{{ items.id }}</td>
                                 <td>
-                                            <span>tr_1JOAGLENS5s<br>
-                                                3fHBS34fs</span>
-                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                    <span>${{ items.seller_price }}</span>
                                 </td>
                                 <td>
-                                    <span>$2,463.53</span>
+                                    <span>{{items.shipping_address}}</span>
                                 </td>
                                 <td>
-                                    <span>$0.00</span>
+                                    <span>{{ items.currency }}</span>
                                 </td>
                                 <td>
-                                            <span>Aug 14, 2021<br>
-                                                07:00 AM</span>
+                                    <span>PAYPAL</span>
                                 </td>
                                 <td>
-                                    <span>USD</span>
+                                    <span>{{ items.seller_name}}</span>
                                 </td>
                                 <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>+1-641-342-2454</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                            <span>tr_1JOAGLENS5s<br>
-                                                3fHBS34fs</span>
-                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>$2,463.53</span>
-                                </td>
-                                <td>
-                                    <span>$0.00</span>
-                                </td>
-                                <td>
-                                            <span>Aug 14, 2021<br>
-                                                07:00 AM</span>
-                                </td>
-                                <td>
-                                    <span>USD</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>+1-641-342-2454</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                            <span>tr_1JOAGLENS5s<br>
-                                                3fHBS34fs</span>
-                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>$2,463.53</span>
-                                </td>
-                                <td>
-                                    <span>$0.00</span>
-                                </td>
-                                <td>
-                                            <span>Aug 14, 2021<br>
-                                                07:00 AM</span>
-                                </td>
-                                <td>
-                                    <span>USD</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>+1-641-342-2454</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                            <span>tr_1JOAGLENS5s<br>
-                                                3fHBS34fs</span>
-                                            <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                </td>
-                                <td>
-                                    <span>$2,463.53</span>
-                                </td>
-                                <td>
-                                    <span>$0.00</span>
-                                </td>
-                                <td>
-                                            <span>Aug 14, 2021<br>
-                                                07:00 AM</span>
-                                </td>
-                                <td>
-                                    <span>USD</span>
-                                </td>
-                                <td>
-                                    <span>Credit Card</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>Spreetail</span>
-                                </td>
-                                <td>
-                                    <span>+1-641-342-2454</span>
+                                    <span>{{ items.vendor_name}}</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -179,8 +71,31 @@
 
 <script>
 export default {
-    mounted() {
-        console.log('Component mounted.')
+    data() {
+        return {
+            user: this.$store.state.auth.user,
+            paydetails: [],
+        }
+    },
+    created() {
+        this.fetch();
+    },
+    methods:{
+        fetch(){
+            
+
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = "/api/admin-payment-details";
+            axios.get(url)
+                .then(res => {
+                    this.paydetails = res.data.data;
+                    console.log(this.paydetails)
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        }
     }
 }
 </script>

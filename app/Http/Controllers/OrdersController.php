@@ -131,7 +131,7 @@ class OrdersController extends Controller {
             'status' => 'pending',
             'shipping_address' => $ShippingInfo ? ($ShippingInfo->address . " " . $ShippingInfo->city . " " . $ShippingInfo->state . " " . $ShippingInfo->country) : $UserInfo->u_address,
             'shipping_method' => 'FEDEX',
-            'payment_method' => 'COD',
+            'payment_method' => 'PAYPAL',
             'tracking_id' => $data['tracking'],
             'shipping_charges' => $data['amount'],
             'currency' => $data['currency'],

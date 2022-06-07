@@ -31,24 +31,6 @@
         </div>
         <div class="row">
             <h1>Product Report</h1>
-            <a class="export_item">Export CSV</a>
-            
-            <div class="col-sm-3">
-                <canvas id="barChart"></canvas>
-            <br>
-            </div>
-            <div class="col-sm-3">
-                <canvas id="polarArea"></canvas>
-            <br>
-            </div>
-            <div class="col-sm-3">
-                <canvas id="doughnut"></canvas>
-            <br>
-            </div>
-            <div class="col-sm-3">
-                <canvas id="line_Chart"></canvas>
-            <br>
-            </div>
             <div class="col-sm-4">
                 <div class="box">
                     <div class="left">
