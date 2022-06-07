@@ -680,19 +680,24 @@ class SellerController extends Controller {
                         ->first();
     }
 
-    public function soldStatistics($seller_id, $order_by = 'id', $order = 'desc',
-            $month = 0, $year = 0, $per_page = 5) {
-        $products = OrderItems::select('products.id', 'order_items.item_id', 'products.name', 'products.parent_category',
-                        'products.sub_category', 'products.net_price',
+    public function soldStatistics($seller_id, $order_by = 'order_items.id', $order = 'desc',
+            $month = 0, $year = 0, $per_page = 10) {
+        
+        $products = OrderItems::select('products.*', 'order_items.item_id',                         
                         DB::raw('SUM(`order_items`.`quantity`) as sold'))
                 ->where('order_items.seller_id', $seller_id)
-                ->where('order_items.progress', 'delivered')
+                //->where('order_items.progress', 'delivered')
                 ->join('products', 'products.id', '=', 'order_items.item_id')
                 ->orderBy($order_by, $order)
                 ->groupBy('order_items.item_id')
                 ->paginate($per_page);
-
-        $statistics = array();
+$statistics = OrderItems::select(
+        DB::raw('SUM(`order_items`.`quantity`*`products`.`net_price`) as vtotal, SUM(`order_items`.`quantity`*`products`.`seller_price`) as stotal'))
+                ->where('order_items.seller_id', $seller_id)
+                //->where('order_items.progress', 'delivered')
+                ->join('products', 'products.id', '=', 'order_items.item_id')
+                ->first();
+        
 
         return response()->json(array(
                     'products' => $products,
@@ -705,7 +710,13 @@ class SellerController extends Controller {
         /*
          * 
          */
+        
         if ($data) {
+            $myRet = array();
+            foreach($data as $row){
+                $row->new_date = (string)date("j M Y h:i A", strtotime($row->created_at));
+                $myRet[]=$row;
+            }
             return response()->json(array('success' => true, 'data' => $data));
         } else {
             return response()->json(array('success' => false));

@@ -33,7 +33,7 @@ class Order extends Model {
     }
 
     public function getOrdersByVendor($vendor, $per_page, $order_by, $order, $search, $status, $date) {   // Oct 01, 2021 09:58 PM
-        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
+        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price','products.seller_price', 'products.name', 'orders.shipping_address',
                         'users.first_name', 'users.last_name','users.country','users.u_city','users.phone','users.u_zip', 'products.vendor_id', 'order_items.quantity',
                         'order_items.status as item_status', 'order_items.progress',
                         DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));
@@ -82,7 +82,7 @@ class Order extends Model {
     }
 
     public function getOrdersBySeller($seller, $per_page, $order_by, $order, $search, $status, $date) {   // Oct 01, 2021 09:58 PM
-        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price', 'products.name', 'orders.shipping_address',
+        $orders = $this::select('order_items.id', 'products.brand', 'products.net_price','products.seller_price',  'products.name', 'orders.shipping_address',
                         'users.first_name', 'users.last_name', 'products.vendor_id', 'order_items.quantity',
                         'order_items.status as item_status', 'order_items.progress',
                         DB::raw("DATE_FORMAT(orders.created_at, '%b %d, %Y %h:%i %p') AS 'ordered_at'"));

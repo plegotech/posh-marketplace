@@ -26,11 +26,12 @@ class VendorController extends Controller
         $datefr = date("Y-m", strtotime("-5 month"))."-01";
         $dateto = date("Y-m-t");
         //echo $datefr." - ".$dateto;
-        $value = "select concat(MONTHNAME(o.created_at),' ',YEAR(o.created_at)) as 'month', sum(p.net_price) as 'price', sum(p.seller_price) as 'sprice' from orders as o 
+        $value = "select concat(MONTHNAME(o.created_at),' ',YEAR(o.created_at)) as 'month', sum(p.net_price*oi.quantity) as 'price', sum(p.seller_price*oi.quantity) as 'sprice' from orders as o 
         inner join order_items as oi on oi.order_id = o.id 
         inner join products as p on p.id = oi.item_id
         where date(o.created_at) between '".$datefr."' and '".$dateto."' 
         group by YEAR(o.created_at),MONTHNAME(o.created_at)";
+//        echo "<pre>".$value."</pre>";
         $data = DB::select($value);
         $array_lab = array();
         $array_val = array();
@@ -39,7 +40,7 @@ class VendorController extends Controller
             foreach($data as $row){
                 $array_lab[]=$row->month;
                 $array_val[]=$row->price;
-                $array_earn[]=(($row->price)-($row->sprice));
+                $array_earn[]=(($row->sprice)-($row->price));
             }
         }
         $data = array("labels"=>$array_lab,"data"=>$array_val,"earn"=>$array_earn);

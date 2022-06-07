@@ -54,173 +54,39 @@
                                     <th scope="col"><span class="sort-ad">Order Id<img class="shuffle" src="/img/shuffle.png"></span></th>
                                     <th scope="col"><span class="sort-ad">Recipient<img class="shuffle" src="/img/shuffle.png"></span></th>
                                     <th scope="col"><span class="sort-ad">Delivery Date <img class="shuffle" src="/img/shuffle.png"></span></th>
-                                    <th scope="col">Amount</th>
+                                    <th scope="col">Vendor Amount</th>
+                                    <th scope="col">Seller Amount</th>
+                                    <th scope="col">Profit Amount</th>
                                     <th scope="col">Payment Method</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                          <span>AKN 1250</span>
-                                          <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
-                                      </td>
-                                      <td>
-                                          <span>Stevan Kolman</span>
-                                      </td>
-                                      <td>
-                                          <span>03/26/2021</span>
-                                      </td>
-                                      <td>
-                                          <span>500</span>
-                                      </td>
-                                      <td>
-                                          <span>Credit Card</span>
-                                      </td>
-                                    </tr>
+
+                                <tr v-for="order in orders">
+                                    <td>
+                                        <span>{{ order.id }}</span>
+                                        <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+
+                                        <span>{{ order.first_name+" "+order.last_name }}</span>
+                                    </td>
+                                    <td>
+                                        <span>03/26/2021</span>
+                                    </td>
+                                    <td>
+                                        <span>${{ order.net_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span>${{ order.seller_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span>${{ order.seller_price-order.net_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span>Paypal</span>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                             </div>
@@ -250,8 +116,32 @@
 
 </template>
 
+
 <script>
 export default {
-    
+    data() {
+        return {
+            user: this.$store.state.auth.user,
+            orders: [],
+        }
+    },
+    created() {
+        this.fetch();
+    },
+    methods: {
+        async fetch(){
+            document.getElementById('ajaxLoader').style.display = 'block';
+            var url = '/api/orders/seller/' + this.user.id;
+            axios.get(url)
+                .then(res => {
+                    this.orders = res.data.data;
+                    console.log(this.orders)
+                })
+                .catch(err => console.log(err))
+                .finally(function () {
+                    document.getElementById('ajaxLoader').style.display = 'none';
+                });
+        }
+    }
 }
 </script>
