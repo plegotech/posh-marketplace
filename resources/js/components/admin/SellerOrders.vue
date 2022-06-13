@@ -176,7 +176,7 @@
                   :src="getImgUrl(order.vendor_id, order.featured_image)"
                   @error="
                     $event.target.src =
-                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      '/img/product-images/997/no_image.png'
                   "
                 />
 
@@ -210,8 +210,11 @@
                                              data-toggle="dropdown" aria-haspopup="true"
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                            <li class="view-mob" data-toggle="modal" data-target=".bd-example-modal-lg">View</li>
-                                            <!--<li class="edit-mob">Edit</li>
+                                            <li class="view-mob">
+                                                <router-link :to="{ name: 'admin-vieworder', params: { id: order.order_id }}" class="box-selection" >View</router-link>
+                                            </li>
+                                            <!--<li class="view-mob" data-toggle="modal" data-target=".bd-example-modal-lg">View</li>
+                                            <li class="edit-mob">Edit</li>
                                             <li class="inactive-mob">Delete</li>-->
                                         </ul>
                                     </div>

@@ -11,7 +11,7 @@ import AdminPaymentDetails from './components/admin/PaymentDetails';
 import AdminPaymentHistory from './components/admin/PaymentHistory';
 import AdminSellerReports from './components/admin/SellerReports';
 import AdminVendorReports from './components/admin/VendorReports';
-
+import AdminViewOrder from  './components/admin/ViewOrder';
 
 import UserLogin from './components/user/LoginUser';
 import AdminLogin from './components/user/LoginAdmin';
@@ -61,6 +61,7 @@ import VendorEditProducts from  './components/vendor/EditProducts';
 import VendorProductHistory from  './components/vendor/ProductHistory';
 import ViewOrder from  './components/vendor/ViewOrder';
 
+
 export default {
     mode: 'history',
 
@@ -82,6 +83,7 @@ export default {
             { meta: { title: 'Payment History' }, path: '/admin/payment-history', component: AdminPaymentHistory },
             { meta: { title: 'Seller Reports' }, path: '/admin/seller-reports', component: AdminSellerReports },
             { meta: { title: 'Vendor Reports' }, path: '/admin/vendor-reports', component: AdminVendorReports },
+            { name: 'admin-vieworder', meta: { title: 'View Order' }, path: '/admin/view/order/:id?', component: AdminViewOrder }
         ]},
 
         // Seller Dashboard
