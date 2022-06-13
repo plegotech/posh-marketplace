@@ -735,6 +735,9 @@ li.nav-item a.nav-link {
 .brandlisting-bx {
     width: 100%;
 }
+.filterSample-bx {
+    box-shadow: 0px 1px 3px 1px #ccc;
+}
 .btn-primary.btnclose-bt {
     background: #FF5454!important;
     border-color: #FF5454 !important;
@@ -752,8 +755,8 @@ li.nav-item a.nav-link {
     min-width: 100px!important;
     left: initial!important;
     font-weight: normal;
-    transform: none!important;
-    top:100%!important
+    /* transform: none!important; */
+    top:0!important
 }
 img.uploaded-icon-img {
     width: 24px;
@@ -3010,6 +3013,10 @@ body .main .body .graphs .left i img {
 .cstm-modal {}
 .cstm-modal .form-group {
     margin-bottom: 5px;
+}
+.form-group.text-l-label label {
+    text-align: left!important;
+    font-weight: bold;
 }
 input:focus,button:focus,textarea:focus,select:focus {outline:none !important;border-color: inherit !important;-webkit-box-shadow: none !important;box-shadow: none !important;}
 .cstm-modal .form-group button {background: #0862a3;color: white;width: 120px;}

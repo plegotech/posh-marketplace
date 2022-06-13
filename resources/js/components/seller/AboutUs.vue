@@ -6,11 +6,11 @@
                     <div class="row mb-4 up-main-bx">
                         <div class="col-sm-12">
                             <div class="up-main-bx-1">
-<h3>About US:</h3>
+<h3>About Us:</h3>
 <br>
                                 <div class="form-outline-ft mb-5">
                                     <textarea rows="10" type="text" v-model="about_us" class="form-control-label" required></textarea>
-                                    <label class="form-label">About US</label>
+                                    <label class="form-label">About Us</label>
                                     
                                 </div>
 

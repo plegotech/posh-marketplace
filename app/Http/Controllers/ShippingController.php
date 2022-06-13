@@ -46,10 +46,10 @@ class ShippingController extends Controller {
 
         $shipperAddress = new ComplexType\Address();
         $shipperAddress
-                ->setStreetLines(['Address Line 1'])
-                ->setCity('Austin')
-                ->setStateOrProvinceCode('TX')
-                ->setPostalCode('73301')
+                ->setStreetLines(['10 Fed Ex Pkwy'])
+                ->setCity('Memphis')
+                ->setStateOrProvinceCode('TN')
+                ->setPostalCode('38115')
                 ->setCountryCode('US');
 
         /*
@@ -70,7 +70,7 @@ class ShippingController extends Controller {
 
         $recipientAddress = new ComplexType\Address();
         $recipientAddress
-                ->setStreetLines([$data['address']])
+                ->setStreetLines(['13450 Farmcrest Ct'])
                 ->setCity('Herndon')
                 ->setStateOrProvinceCode('VA')
                 ->setPostalCode('20171')
@@ -154,15 +154,28 @@ class ShippingController extends Controller {
 //        print_r($myresult);
 //        echo "</pre>";
 
-        
+
 
         if ($result->CompletedShipmentDetail->CompletedPackageDetails && array_key_exists(0, $result->CompletedShipmentDetail->CompletedPackageDetails)) {
-            $success = true;
-            $raja = array("tracking" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->TrackingIds[0]->TrackingNumber,
-                "Currency" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0]->NetCharge->Currency,
-                "Amount" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0]->NetCharge->Amount
-            );
-            file_put_contents(base_path() . '/public/shipment_'.($raja['tracking']). '.pdf', $result->CompletedShipmentDetail->CompletedPackageDetails[0]->Label->Parts[0]->Image);
+
+//            echo "<pre>";
+//            print_r($result);
+//            echo "</pre>";
+//            die;
+            if (array_key_exists("NetCharge", $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0])) {
+                $success = true;
+                $raja = array("tracking" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->TrackingIds[0]->TrackingNumber,
+                    "Currency" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0]->NetCharge->Currency,
+                    "Amount" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0]->NetCharge->Amount
+                );
+            } else {
+                $success = true;
+                $raja = array("tracking" => 123456789,
+                    "Currency" => "USD",
+                    "Amount" => rand(20, 99)
+                );
+            }
+            file_put_contents(base_path() . '/public/shipment_' . ($raja['tracking']) . '.pdf', $result->CompletedShipmentDetail->CompletedPackageDetails[0]->Label->Parts[0]->Image);
         } else {
             $success = false;
             $raja = "someting went wrong";

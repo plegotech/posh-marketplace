@@ -1,7 +1,105 @@
 <template>
 
     <div class="container-fluid pending-vend">
+        <!-- start modal -->
+        <div class="modal fade bd-example-modal-lg cstm-modal" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content p-4">
+                    <img src="/img/cancel-icon.png" class="cancel-popup" alt="">
+                    <img src="'/img/vendor-logos/'+ company.logo" style="max-width: 150px; height: auto"
+                         alt="">
 
+                    <form ref="form">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                   <div class="form-group">
+                                    <label>Order Id :</label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>528</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Product Name :</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>Dell Laptop</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Date :</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>May 12, 2022 </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Quantity :	</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>2</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Pricing :	</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                     <label>$500</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Delivery Status :</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>Received</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Payment :</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>Credit Card</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Shipping Address :	</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group text-l-label">
+                                    <label>4949 Forest Ave, First FL Downers Grove, Illinois</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- start modal -->
         <div class="row" style="margin-top:20px">
 
             <div class="col-sm-12">
@@ -19,16 +117,16 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-sm-6 offset-sm-2">
+                        <div class="col-sm-8">
                             <div class="row justify-content-end">
-                                <div class="w-auto col-6">
+                                <div class="w-auto col-4">
                                     <select v-model="usertype" class="usertype select-custom-point"
                                             @change="usertype()">
-                                        <option value="1" selected>Vendor</option>
-                                        <option value="2" selected>Seller</option>
+                                        <option value="0" selected>Vendor</option>
+                                        <option value="1" >Seller</option>
                                     </select>
                                 </div>
-                                <div class="w-auto col-6">
+                                <div class="w-auto col-4">
                                     <select v-model="category" class="parentCategory select-custom-point"
                                             @change="updateSubCategories()">
                                         <option value="0" selected>Category</option>
@@ -38,7 +136,7 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="w-auto col-6">
+                                <div class="w-auto col-4">
                                     <select v-model="sub_category" class="subCategory select-custom-point"
                                             @change="fetch()">
                                         <option value="0" selected>Sub Category</option>
@@ -78,7 +176,7 @@
                   :src="getImgUrl(order.vendor_id, order.featured_image)"
                   @error="
                     $event.target.src =
-                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      '/img/product-images/997/no_image.png'
                   "
                 />
 
@@ -112,8 +210,11 @@
                                              data-toggle="dropdown" aria-haspopup="true"
                                              aria-expanded="false">
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                            <li class="view-mob">View</li>
-                                            <!--<li class="edit-mob">Edit</li>
+                                            <li class="view-mob">
+                                                <router-link :to="{ name: 'admin-vieworder', params: { id: order.order_id }}" class="box-selection" >View</router-link>
+                                            </li>
+                                            <!--<li class="view-mob" data-toggle="modal" data-target=".bd-example-modal-lg">View</li>
+                                            <li class="edit-mob">Edit</li>
                                             <li class="inactive-mob">Delete</li>-->
                                         </ul>
                                     </div>

@@ -93,8 +93,10 @@ Route::prefix('orders')->group(function () {
             'OrdersController@fetchAllByVendor');
     Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
             'OrdersController@updateOrderStatus');
+    Route::get('/viewAdminOrder/{id?}', 'OrdersController@viewAdminOrder');
     Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
     Route::get('/vendorbilling', 'OrdersController@billinginfo');
+    
     
     
 });
