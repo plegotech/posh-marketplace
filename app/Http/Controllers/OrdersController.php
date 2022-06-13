@@ -184,6 +184,7 @@ class OrdersController extends Controller {
         if ($CartData) {
             foreach ($CartData as $row) {
                 $seller = \App\SellerProduct::where('product_id', $row->product_id)->first();
+                $product_info = \App\Product::where('id',$row->product_id)->first();
                 if ($seller) {
                     $seller_id = $seller->seller_id;
                 } else {
@@ -194,6 +195,8 @@ class OrdersController extends Controller {
                     'item_id' => $row->product_id,
                     'seller_id' => $seller_id,
                     'quantity' => $row->quantity,
+                    'net_price' => $product_info->net_price,
+                    'seller_price' => $product_info->seller_price,
                     'shipping_date' => date("Y-m-d"),
                     'delivery_date' => date("Y-m-d", strtotime("+2 days")),
                     'status' => 'pending',

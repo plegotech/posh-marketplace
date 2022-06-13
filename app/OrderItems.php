@@ -12,7 +12,7 @@ class OrderItems extends Model
     public      $timestamps     = true;
 
     protected $fillable = [
-        'order_id', 'item_id','seller_id', 'quantity', 'shipping_date', 'delivery_date',
+        'order_id', 'item_id','seller_id','net_price','seller_price', 'quantity', 'shipping_date', 'delivery_date',
         'vendor_notes', 'buyer_notes', 'created_at', 'updated_at'
     ];
 

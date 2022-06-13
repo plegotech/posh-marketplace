@@ -26,9 +26,8 @@ class VendorController extends Controller
         $datefr = date("Y-m", strtotime("-5 month"))."-01";
         $dateto = date("Y-m-t");
         //echo $datefr." - ".$dateto;
-        $value = "select concat(MONTHNAME(o.created_at),' ',YEAR(o.created_at)) as 'month', sum(p.net_price*oi.quantity) as 'price', sum(p.seller_price*oi.quantity) as 'sprice' from orders as o 
+        $value = "select concat(MONTHNAME(o.created_at),' ',YEAR(o.created_at)) as 'month', sum(oi.net_price*oi.quantity) as 'price', sum(oi.seller_price*oi.quantity) as 'sprice' from orders as o 
         inner join order_items as oi on oi.order_id = o.id 
-        inner join products as p on p.id = oi.item_id
         where date(o.created_at) between '".$datefr."' and '".$dateto."' 
         group by YEAR(o.created_at),MONTHNAME(o.created_at)";
 //        echo "<pre>".$value."</pre>";
