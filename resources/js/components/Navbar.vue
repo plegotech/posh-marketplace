@@ -16,9 +16,11 @@
                     </a>
                     <div class="dropdown-menu notificationBx" aria-labelledby="dropdownMenuButton22">
                         <ul class="noti-list-bx">
-                            <li><a href="#"><strong>32GB DDR4 Memory, 512GB SSD + 1TB HDD, RGB Backlit Keyboard, Windows 10 Home, Gray </strong> <span class="noti-ful-des">ASUS TUF F15 Gaming Laptop, 15.6" Full HD 144Hz Screen, Intel Core i7-10870H Processor, NVIDIA GeForce GTX 1660 Ti</span> <span class="time-boxx"><span class="right-rem-bx">4 hours ago</span></span></a></li>
-                            <li><a href="#"><strong>ASUS TUF F15 Gaming Laptop, 15.6" Full HD 144Hz Screen, Intel Core i7-10870H Processor,</strong> <span class="noti-ful-des">32GB DDR4 Memory, 512GB SSD + 1TB HDD, RGB Backlit Keyboard, Windows 10 Home, Gray</span> <span class="time-boxx"><span class="right-rem-bx">4 hours ago</span></span></a></li>
-                            <li><a href="#"><strong>Bilal Khan</strong> <span class="noti-ful-des">ASUS TUF F15 Gaming Laptop, 15.6" Full HD 144Hz Screen, Intel Core i7-10870H Processor</span> <span class="time-boxx"><span class="right-rem-bx">4 hours ago</span></span></a></li>
+                            <li v-for="(items, index) in notdata" :key="index">
+                                <div><img :src="items.desc.img" style="width:10%;" /> {{ items.title+" ("+items.desc.name+")" }}</div>
+                                <div>{{ "Price: "+items.desc.price }}</div>
+                                <a href="#"><strong> Product detailed descriptions </strong> <span class="time-boxx"><span class="right-rem-bx">4 hours ago</span></span></a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -46,7 +48,15 @@
 <script>
 import {mapActions} from 'vuex'
 export default {
-    props: ['first_name', 'last_name'],
+    props: ['first_name', 'last_name', 'user_id'],
+    data(){
+        return {
+            notdata:[]
+        }
+    },
+    created(){
+        this.getnotdata()
+    },
     methods: {
         ...mapActions({
             signOut: "auth/logout"
@@ -56,6 +66,12 @@ export default {
                 this.signOut()
                 axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
                 this.$router.push({name: "login-user"})
+            })
+        },
+        async getnotdata() {
+            await axios.get('/api/notifications/get/'+this.user_id).then(({data}) => {
+                console.log(data)
+                this.notdata=data.data;
             })
         }
     }

@@ -61,6 +61,9 @@ Route::prefix('vendor')->group(function () {
     Route::get('/dashboard/{id}', 'VendorController@dashboard');
     Route::get('/salesgraph/{id}', 'VendorController@SalesGraph');
 });
+Route::prefix('notifications')->group(function () {
+    Route::get('/get/{id}', 'NotificationsController@get');
+});
 
 Route::get('/get-contact-us/{id}', 'SellerController@getContactUs');
 Route::post('/contact-us', 'SellerController@contactUs');
@@ -94,7 +97,7 @@ Route::prefix('orders')->group(function () {
     Route::get('/vendor-change-status/{vendor_id}/{order_id}/{status}',
             'OrdersController@updateOrderStatus');
     Route::get('/viewAdminOrder/{id?}', 'OrdersController@viewAdminOrder');
-    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}', 'OrdersController@index');
+    Route::get('/{per_page}/{search?}/{category?}/{sub_category?}/{usertype?}', 'OrdersController@index');
     Route::get('/vendorbilling', 'OrdersController@billinginfo');
     
     

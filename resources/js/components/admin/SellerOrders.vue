@@ -120,10 +120,10 @@
                         <div class="col-sm-8">
                             <div class="row justify-content-end">
                                 <div class="w-auto col-4">
-                                    <select v-model="usertype" class="usertype select-custom-point"
-                                            @change="usertype()">
-                                        <option value="0" selected>Vendor</option>
-                                        <option value="1" >Seller</option>
+                                    <select v-model="user_type" class="usertype select-custom-point"
+                                            @change="fetch()">
+                                        <option value="vendor" selected>Vendor</option>
+                                        <option value="seller" >Seller</option>
                                     </select>
                                 </div>
                                 <div class="w-auto col-4">
@@ -257,7 +257,7 @@ export default {
         return {
             parent_categories: null,
             sub_categories: null,
-            usertype: null,
+            user_type: null,
 
 
             orders: [],
@@ -351,7 +351,7 @@ export default {
             this.search = 0;
             this.fetch();
         },
-        fetch(page = 0, per_page = 0, search = 0, category = 0, sub_category = 0) {
+        fetch(page = 0, per_page = 0, search = 0, category = 0, sub_category = 0, user_type=0) {
             document.getElementById('ajaxLoader').style.display = 'block';
             let url = '/api/orders';
 
@@ -393,6 +393,17 @@ export default {
                     this.sub_category = sub_category;
                 }
                 url += '/' + this.sub_category;
+            } else {
+                url += '/0';
+            }
+
+            var user_type = user_type;
+
+            if (user_type != 0 || this.user_type != 0) {
+                if (user_type != 0) {
+                    this.user_type = user_type;
+                }
+                url += '/' + this.user_type;
             } else {
                 url += '/0';
             }

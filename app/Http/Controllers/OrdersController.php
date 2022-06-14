@@ -32,11 +32,11 @@ class OrdersController extends Controller {
     public function viewAdminOrder($orderId) {
 //        dd($orderId);
 
-        $orders = OrderItems::select('products.id as product_id', 
+        $orders = OrderItems::select('products.id as product_id',
                         'product_categories.title',
                         'products.name as product_name', 'products.brand',
-                        'products.net_price', 
-                        'products.featured_image', 
+                        'products.net_price',
+                        'products.featured_image',
                         'products.vendor_id',
                         'products.description',
                         'seller.first_name as seller_first_name',
@@ -48,16 +48,16 @@ class OrdersController extends Controller {
                         'vendor.email as vendor_email',
                         'vendor.phone as vendor_phone',
                         DB::raw("DATE_FORMAT(order_items.created_at, '%b %d, %Y %h:%i %p') AS 'order_date'"),
-                        'order_items.quantity', 
+                        'order_items.quantity',
                         'order_items.progress',
-                        DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'), 
+                        DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'),
                         'orders.shipping_address',
-                        'order_items.id as order_item_id', 
-                        'orders.id as order_id', 
+                        'order_items.id as order_item_id',
+                        'orders.id as order_id',
                         'orders.user_id',
                         'customer.first_name as customer_first_name',
-                        'customer.last_name as customer_last_name', 
-                        'customer.email as customer_email', 
+                        'customer.last_name as customer_last_name',
+                        'customer.email as customer_email',
                         'customer.phone as customer_phone');
 
         $orders = $orders->join('products', 'products.id', '=', 'order_items.item_id')
@@ -73,10 +73,10 @@ class OrdersController extends Controller {
         return response()->json($orders, 201);
     }
 
-    public function index($per_page, $search = 0, $category = 0, $sub_category = 0) {
+    public function index($per_page, $search = 0, $category = 0, $sub_category = 0, $user_type = 0) {
         $orderItems = new OrderItems();
 
-        $orders = $orderItems->getAllOrders($per_page, $search, $category, $sub_category);
+        $orders = $orderItems->getAllOrders($per_page, $search, $category, $sub_category, $user_type);
 
         return response()->json($orders, 201);
     }
@@ -169,6 +169,7 @@ class OrdersController extends Controller {
         $UserInfo = \App\User::where('id', $user_id)->first();
         $ShippingInfo = \App\UserShipping::where('user_id', $user_id)->orderBy('id', 'desc')->first();
         $orderItems = new OrderItems();
+
         $InsertArray = [
             'user_id' => $user_id,
             'status' => 'pending',
@@ -184,12 +185,28 @@ class OrdersController extends Controller {
         if ($CartData) {
             foreach ($CartData as $row) {
                 $seller = \App\SellerProduct::where('product_id', $row->product_id)->first();
-                $product_info = \App\Product::where('id',$row->product_id)->first();
+                $product_info = \App\Product::where('id', $row->product_id)->first();
                 if ($seller) {
                     $seller_id = $seller->seller_id;
                 } else {
                     $seller_id = 997;
                 }
+                $desc = array(
+                    'name' => $product_info->name,
+                    'img' => '/img/product-images/' . $product_info->vendor_id . '/' . $product_info->featured_image,
+                    "price" => $product_info->seller_price
+                );
+                \App\Notifications::create([
+                    'sender_id' => $user_id,
+                    'title' => 'NEW ORDER',
+                    'desc' => json_encode($desc),
+                    'sender_id' => $user_id,
+                    'recieved_id' => $seller_id,
+                    'status' => '0',
+                    'notification_type' => '1',
+                    'notificaiton_date' => date("Y-m-d H:i:s")
+                ]);
+
                 $OrderItemsArray = [
                     'order_id' => $model->id,
                     'item_id' => $row->product_id,
