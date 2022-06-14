@@ -39,7 +39,7 @@ class ShippingController extends Controller {
 
         $version = new ComplexType\VersionId();
         $version
-                ->setMajor(28)
+                ->setMajor(23)
                 ->setIntermediate(0)
                 ->setMinor(0)
                 ->setServiceId('ship');
@@ -162,7 +162,7 @@ class ShippingController extends Controller {
 //            print_r($result);
 //            echo "</pre>";
 //            die;
-            if (array_key_exists("NetCharge", $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0])) {
+            if ((array_key_exists("PackageRating", $result->CompletedShipmentDetail->CompletedPackageDetails[0]))) {
                 $success = true;
                 $raja = array("tracking" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->TrackingIds[0]->TrackingNumber,
                     "Currency" => $result->CompletedShipmentDetail->CompletedPackageDetails[0]->PackageRating->PackageRateDetails[0]->NetCharge->Currency,

@@ -68,7 +68,7 @@
         </aside>
         </div>
         <div class="body">
-            <Navbar :first_name="user.first_name" :last_name="user.last_name"/>
+            <Navbar :first_name="user.first_name" :last_name="user.last_name"  :user_id="user.id" />
             <router-view></router-view>
         </div>
     </div>

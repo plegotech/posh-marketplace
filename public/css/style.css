@@ -80,6 +80,22 @@ input[type="text"] {
 .brand-list input {
     margin-bottom: 10px;
 }
+span.right-rem-bx {
+    font-size: 12px;
+    font-style: italic;
+}
+img.imgClBx {
+    float: right;
+    width: 14px;
+    padding-top: 9px;
+    padding-left: 5px;
+}
+.prof-area.vendor-pro-b2.listofNoti {
+    max-width: 650px;
+    margin: 0 auto;
+    display: block;
+    float: inherit;
+}
 span.pending-number-bx {
     position: absolute;
     left: 13px;
@@ -2092,7 +2108,7 @@ span.numberof-ma {
     text-align: center;
     border-radius: 50%;
     line-height: 20px;
-    right: 2px;
+    right: 16px;
 }
 img.img-ut-vup {
     width: 30px;
@@ -3017,6 +3033,39 @@ body .main .body .graphs .left i img {
 .form-group.text-l-label label {
     text-align: left!important;
     font-weight: bold;
+}
+.dropdown-menu.notificationBx {
+    left: initial;
+    right: 0;
+    width: 450px;
+}
+ul.noti-list-bx li {
+    border-left: 0px!important;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 8px 10px!important;
+    display: block;
+    height: auto;
+    width: 100%;
+}
+ul.noti-list-bx li a {
+    color: #333;
+}
+span.time-boxx {
+    color: #0862a3;
+}
+ul.noti-list-bx li:last-child {
+    border-bottom: 0px;
+    margin-left: 0;
+}
+span.noti-ful-des {
+    display: block;
+    width: 100%;
+}
+ul.noti-list-bx li a:hover {
+    text-decoration: none;
+}
+ul.noti-list-bx li:hover {
+    background: #f3f3f3;
 }
 input:focus,button:focus,textarea:focus,select:focus {outline:none !important;border-color: inherit !important;-webkit-box-shadow: none !important;box-shadow: none !important;}
 .cstm-modal .form-group button {background: #0862a3;color: white;width: 120px;}

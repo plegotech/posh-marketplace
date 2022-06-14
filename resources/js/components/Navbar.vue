@@ -10,9 +10,19 @@
             <a class="navbar-brand" href="#">Dashboard</a>
             <ul class="topnav-user">
                 <li>
-                    <a href="">
+                    <a href="" class="dropdown-toggle" id="dropdownMenuButton22" data-toggle="dropdown"
+                             aria-haspopup="true" aria-expanded="false">
                         <img src="/img/notification-bell.png" class="notify" alt=""><span class="numberof-ma">3</span>
                     </a>
+                    <div class="dropdown-menu notificationBx" aria-labelledby="dropdownMenuButton22">
+                        <ul class="noti-list-bx">
+                            <li v-for="(items, index) in notdata" :key="index">
+                                <div><img :src="items.desc.img" style="width:10%;" /> {{ items.title+" ("+items.desc.name+")" }}</div>
+                                <div>{{ "Price: "+items.desc.price }}</div>
+                                <a href="#"><strong> Product detailed descriptions </strong> <span class="time-boxx"><span class="right-rem-bx">4 hours ago</span></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <img src="/img/profile.png" class="profile" alt="">
@@ -38,7 +48,15 @@
 <script>
 import {mapActions} from 'vuex'
 export default {
-    props: ['first_name', 'last_name'],
+    props: ['first_name', 'last_name', 'user_id'],
+    data(){
+        return {
+            notdata:[]
+        }
+    },
+    created(){
+        this.getnotdata()
+    },
     methods: {
         ...mapActions({
             signOut: "auth/logout"
@@ -48,6 +66,12 @@ export default {
                 this.signOut()
                 axios.defaults.headers.common['X-CSRF-TOKEN'] = data;
                 this.$router.push({name: "login-user"})
+            })
+        },
+        async getnotdata() {
+            await axios.get('/api/notifications/get/'+this.user_id).then(({data}) => {
+                console.log(data)
+                this.notdata=data.data;
             })
         }
     }
