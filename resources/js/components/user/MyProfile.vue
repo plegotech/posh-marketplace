@@ -48,26 +48,22 @@
                 <div class="col-sm-6">
                     <label>First Name:</label>
                     <input type="text" class="form-control"
-                           v-model="user_data.first_name"
-                           :placeholder="user_data.first_name" /><br>
+                           v-model="company.name" /><br>
                 </div>
                 <div class="col-sm-6">
                     <label>Last Name:</label>
                     <input type="text" class="form-control"
-                           v-model="user_data.last_name"
-                           :placeholder="user_data.last_name" /><br>
+                           v-model="company.name" /><br>
                 </div>
                 <div class="col-sm-6">
                     <label>Email:</label>
                     <input type="text" class="form-control"
-                           v-model="user_data.email"
-                           :placeholder="user_data.email" /><br>
+                           v-model="company.email" /><br>
                 </div>
                 <div class="col-sm-6">
                     <label>Phone:</label>
                     <input type="text" class="form-control"
-                           v-model="user_data.phone"
-                           :placeholder="user_data.phone" /><br>
+                           v-model="company.phone" /><br>
                 </div>
                 <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateProfile">Update</button>
@@ -193,38 +189,32 @@
                 <div class="col-sm-6">
                     <label>Company Name:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.name"
-                           :placeholder="company_data.name" /><br>
+                           v-model="company.name" /><br>
                            </div>
                             <div class="col-sm-6">
                     <label>Phone:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.phone"
-                           :placeholder="company_data.phone" /><br>
+                           v-model="company.phone" /><br>
                            </div>
                             <div class="col-sm-6">
                     <label>Address:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.address"
-                           :placeholder="company_data.address" /><br>
+                           v-model="company.address" /><br>
                            </div>
                             <div class="col-sm-6">
                     <label>State:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.state"
-                           :placeholder="company_data.state" /><br>
+                           v-model="company.state" /><br>
                            </div>
                             <div class="col-sm-6">
                     <label>City:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.city"
-                           :placeholder="company_data.city" /><br>
+                           v-model="company.city" /><br>
                            </div>
                             <div class="col-sm-6">
                     <label>Zip Code:</label>
                     <input type="text" class="form-control"
-                           v-model="company_data.zip_code"
-                           :placeholder="company_data.zip_code" /><br>
+                           v-model="company.zip_code" /><br>
                            </div>
                             <div class="offset-sm-3 col-sm-6">
                     <button class="primary" @click="updateCompany">Update</button>

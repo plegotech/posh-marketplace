@@ -65,7 +65,7 @@
                     </div>
                     <div class="right">
                         <span>Total Net Sales</span>
-                        <h2>$25,980</h2>
+                        <h2>${{ net_sales }}</h2>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
                         <tbody>
                         <tr v-for="product in top_products">
                             <td>
-                                <img :src="'/img/product-images/' + product.user_id + '/' + product.featured_image"
+                                <img :src="'/img/product-images/' + product.vendor_id + '/' + product.featured_image"
                                      alt="">
                                 <span>{{ product.name }}</span>
                                 <i class="fa fa-angle-double-down mob-expand" aria-hidden="true"></i>
@@ -268,7 +268,7 @@
                         <tbody>
                         <tr v-for="order in recent_orders">
                             <td>
-                                <img src="/img/akn-1250.png" alt="">
+                                <img :src="'/img/product-images/'+order.vendor_id+'/'+order.featured_image" alt="">
                                 <span>{{ order.order_item_id }}</span>
                             </td>
                             <td>
@@ -332,6 +332,7 @@ export default {
             current_page: 0,
             time_period: 0,
             gross_sales: null,
+            net_sales: null,
             total_orders: null,
             vendor_request: null,
             seller_request: null,
@@ -347,17 +348,88 @@ export default {
             sellers_by_year: [],
             top_products: [],
             recent_orders: [],
-            total_users: null
+            total_users: null,
+user: this.$store.state.auth.user,
         }
     },
     components: {
         datepicker
     },
     created() {
+        
         this.basicStatistics();
+        this.LoadSalesGraph();
         this.orders();
     },
     methods: {
+            async LoadSalesGraph(){
+                let result = axios.get('/api/vendor/salesgraph/'+this.user.id);
+                if((await result).data!=null){
+                    let labels = (await result).data.labels
+                    let values = (await result).data.data
+                    let earn = (await result).data.earn
+                    console.warn((await result).data);
+
+                    var barChart = document.getElementById('barChart');
+                    var barChart = new Chart(barChart, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Monthly Sale',
+                                data: values,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+                    //PolarArea Chart Begins Here!
+                    var polarArea_ctx = document.getElementById('polarArea');
+                    var polarArea = new Chart(polarArea_ctx, {
+                        type: 'polarArea',
+                        data: {
+                            datasets: [{
+                                data: earn,
+                                backgroundColor: [
+                                    '#d3d06e',
+                                    '#6ed3d3',
+                                    '#826ed3',
+                                    '#d36ec7'
+                                ]
+                            }],
+                            labels: labels,
+                        },
+                    });
+
+                }
+                
+            },
+
         clearFiltration() {
             this.first_date = 0;
             this.last_date = 0;
@@ -415,6 +487,7 @@ export default {
                     this.total_sellers = res.total_sellers;
                     this.total_users = res.total_users;
                     this.gross_sales = res.gross_sales;
+                    this.net_sales = res.gross_sales;
                     this.orders_by_year = res.orders_by_year;
                     this.orders_by_month = res.orders_by_month;
                     this.orders_by_quarter = res.orders_by_quarter;
@@ -483,45 +556,6 @@ export default {
                 },
         });
 
-        //Bar Chart Begins from here!
-        var barChart = document.getElementById('barChart');
-        var barChart = new Chart(barChart, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
 
         //Doughnut Begins Here!
         var doughnut_ctx = document.getElementById('doughnut');
@@ -545,28 +579,6 @@ export default {
         });
 
 
-        //PolarArea Chart Begins Here!
-        var polarArea_ctx = document.getElementById('polarArea');
-        var polarArea = new Chart(polarArea_ctx, {
-            type: 'polarArea',
-            data: {
-                datasets: [{
-                    data: [15, 20, 10, 5],
-                    backgroundColor: [
-                        '#d3d06e',
-                        '#6ed3d3',
-                        '#826ed3',
-                        '#d36ec7'
-                    ]
-                }],
-                labels: [
-                    'Yellow',
-                    'Sky Blue',
-                    'Purple',
-                    'Pink'
-                ],
-            },
-        });
     }
 }
 </script>
