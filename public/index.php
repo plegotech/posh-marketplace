@@ -1,6 +1,6 @@
 <?php
 ini_set("soap.wsdl_cache_enabled", "0");
-print_r($_SERVER['SERVER_NAME']);
+//print_r($_SERVER['SERVER_NAME']);
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
