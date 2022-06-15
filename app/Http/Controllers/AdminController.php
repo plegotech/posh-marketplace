@@ -89,7 +89,7 @@ class AdminController extends Controller
     {
         $orderItems = new OrderItems();
         return $orderItems->select(DB::raw('SUM((products.net_price * order_items.quantity)) as total_sold'),
-            'products.id', 'products.name', 'companies.name as company', 'products.brand', 'products.featured_image',
+            'products.id','products.vendor_id', 'products.name', 'companies.name as company', 'products.brand', 'products.featured_image',
             'companies.user_id')
             ->join('products', 'products.id', '=', 'order_items.item_id')
             ->join('companies', 'companies.user_id', '=', 'products.vendor_id')

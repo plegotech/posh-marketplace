@@ -38,8 +38,10 @@ class ShippingController extends Controller {
                 ->setMeterNumber(FEDEX_METER_NUMBER);
 
         $version = new ComplexType\VersionId();
+        return response()->json($_SERVER);
         $version
-                ->setMajor(23)
+                //->setMajor(23) // Local
+                ->setMajor(28) // Live
                 ->setIntermediate(0)
                 ->setMinor(0)
                 ->setServiceId('ship');
