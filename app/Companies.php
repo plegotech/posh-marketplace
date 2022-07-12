@@ -17,7 +17,7 @@ class Companies extends Model
 
     private function grossAmount($type)
     {
-        $sql = "(select COALESCE(sum(net_price * quantity), 0) from order_items";
+        $sql = "(select COALESCE(sum(products.net_price * quantity), 0) from order_items";
         $sql .= " inner join products on products.id = order_items.item_id ";
         if($type == 'seller') {
             $sql .= " where seller_id = users.id and progress = 'delivered' and order_items.status = ";
