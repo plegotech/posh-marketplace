@@ -3,6 +3,7 @@
         <div class="row mt-12">
             <div class="col-sm-12">
                 <div>
+                <br>
                     <!-- START: FIRST TAB CONTENT for Categories -->
                     <div id="first-pvs-posh" class="top-newOrder">
                         
@@ -10,14 +11,14 @@
                     <!-- START: FIRST TAB CONTENT for SUB Categories -->
                     
                         <div class="row">
-                            <div class="col-xl-6 col-12  my-4">
+                            <div class="col-sm-6 col-12">
                                 <div class="search-box" style="max-width:100%">
                                     <img src="/img/search-icon.png" class="search-icon" alt="">
                                     <input type="text" class="search_BX fetchProductsSearch">
                                     <img src="/img/close-srch.png" class="close-icon" alt="">
                                 </div>
                             </div>
-                            <div class="col-6 my-4"><div class="btn-right-bx">
+                            <div class="col-sm-6 col-12"><div class="btn-right-bx">
 <router-link :to="{ path: 'editsubcategories', query: { id: 0 }, props: true }" class="primary">Add New Sub Category</router-link>
 </div></div>
                         </div>

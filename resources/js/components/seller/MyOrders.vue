@@ -16,7 +16,7 @@
                                          alt="">
                                 </div> 
                             </div>
-                            <div class="col-8">
+                            <div class="col-sm-8 col-12">
                             <DateFilter :year.sync="year" :month.sync="month" @fetch="fetch()"></DateFilter>
                             </div>
                         </div>

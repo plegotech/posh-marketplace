@@ -1,30 +1,38 @@
 <template>
 
     <div class="container-fluid seller_ord">
+         <div class="row">
+        <div class="col-12">
+         <br>
+        <div class="box-w-shad">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="datepicker-d mt-4">
+            <div class="col-sm-3 mb-xs-20">
+                <div class="datepicker-d">
                     <input placeholder="From" type="text" class="datepicker">
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="datepicker-d mt-4">
+            <div class="col-sm-3 mb-xs-20">
+                <div class="datepicker-d ">
                     <input placeholder="To" type="text" class="datepicker">
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2 mt-4">
+            <div class="col-sm-2 mb-xs-20">
                 <select name="" id="" class="select-custom-point">
                     <option value="">
                     <option value="" selected>Current Year</option>
                     </option>
                 </select>
             </div>
-            <div class="col-sm-2 offset-sm-2">
-                <button class="mt-4">CLEAR ALL</button>
+            <div class="col-sm-2 mb-xs-20 offset-sm-2">
+                <button class="">CLEAR ALL</button>
             </div>
         </div>
+            </div>
+        </div>
+            </div>
+        
         <br>
         <div class="row">
             <h1>Product Report</h1>
@@ -32,22 +40,26 @@
             
             
             <div class="col-sm-3">
+            <div class="box mb-sm-12">
                 <canvas id="polarArea"></canvas>
-            <br>
             </div>
-            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3 mb-sm-12">
+             <div class="box">
                 <canvas id="barChart"></canvas>
-            <br>
-            </div>
-            <div class="col-sm-3">
+                </div>
+                </div>
+            <div class="col-sm-3 mb-sm-12">
+             <div class="box">
                 <canvas id="line_Chart"></canvas>
-            <br>
+                </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mb-sm-12">
+             <div class="box">
                 <canvas id="doughnut"></canvas>
-            <br>
+                </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
                 <div class="box">
                     <div class="left">
                         <img src="/img/Ellipse 8.png" alt="">
