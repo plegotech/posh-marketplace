@@ -1,8 +1,12 @@
 <template>
     <div class="container-fluid">
-
+        
         <div class="row">
-            <div class="col-sm-3">
+        <div class="col-12">
+         <br>
+        <div class="box-w-shad">
+        <div class="row">
+            <div class="col-sm-3 mb-xs-20">
                 <div class="datepicker-d">
                     <datepicker :clear-button="true" v-model="first_date" :value="first_date"
                                 @closed="basicStatistics()" placeholder="From"
@@ -10,15 +14,15 @@
                     <i class="fa fa-calendar-check" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mb-xs-20">
                 <div class="datepicker-d">
                     <datepicker :clear-button="true" v-model="last_date" :value="last_date" @closed="basicStatistics()"
                                 placeholder="To" class="datepicker hasDatepicker"></datepicker>
                     <i class="fa fa-calendar-check calendar"></i>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <select @change="clearFiltration();basicStatistics($event.target.value);" class="mtc-24">
+            <div class="col-sm-2 mb-xs-20">
+                <select @change="clearFiltration();basicStatistics($event.target.value);" >
                     <option value="0" selected>Select time period</option>
                     <option value="year">Current Year</option>
                     <option value="quarter">Current Quarter</option>
@@ -26,26 +30,36 @@
                 </select>
             </div>
             <div class=" col-sm-4">
-                <button @click="clearFiltration()" class="mtc-24 secondary float-right  mt-4">CLEAR ALL</button>
+                <button @click="clearFiltration()" class=" secondary float-right ">CLEAR ALL</button>
             </div>
         </div>
-        <br>
+        </div>
+        </div>
+        </div>
         <div class="row">
-            <h1>Analytics</h1>
+            <div class="col-12"><h1>Analytics</h1></div>
             <div class="col-sm-6">
-                <canvas id="barChart"></canvas>
+                <div class="box">
+                    <canvas id="barChart"></canvas>
+                </div>
             <br>
             </div>
             <div class="col-sm-6">
-                <canvas id="polarArea"></canvas>
+                <div class="box">
+                    <canvas id="polarArea"></canvas>
+                </div>
             <br>
             </div>
             <div class="col-sm-6">
-                <canvas id="doughnut"></canvas>
+                <div class="box">
+                    <canvas id="doughnut"></canvas>
+                </div>
             <br>
             </div>
             <div class="col-sm-6">
-                <canvas id="line_Chart"></canvas>
+            <div class="box">
+                    <canvas id="line_Chart"></canvas>
+                </div>
             <br>
             </div>
             <div class="col-sm-4">
@@ -120,7 +134,7 @@
         <br>
         <div class="row">
 
-            <div class="col-sm-6 mt-5">
+            <div class="col-sm-6">
                 <h2>Sales By Categories</h2>
                 <div>
                     <b-tabs content-class="mt-3">
@@ -164,7 +178,7 @@
                 </div>
 
             </div>
-            <div class="col-sm-6 mt-5">
+            <div class="col-sm-6">
                 <h2>Top 10 Sellers</h2>
                 <div>
                     <b-tabs content-class="mt-3">

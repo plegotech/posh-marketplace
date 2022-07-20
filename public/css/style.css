@@ -626,7 +626,6 @@ i.sb-menu-icon:before {
     margin: 14px 0;
 }
 .main .datepicker-d {
-    margin-top: 24px;
     position: relative;
 }
 .main .datepicker-d i {
@@ -638,7 +637,7 @@ i.sb-menu-icon:before {
     transform: translateY(-50%);
 }
 .main .datepicker-d .datepicker {
-    border: 1px solid #5A5B6A;
+    /* border: 1px solid #5A5B6A; */
     box-sizing: border-box;
     border-radius: 4px;
     width: 100%;
@@ -656,7 +655,7 @@ i.sb-menu-icon:before {
 }
 .main select option{cursor:pointer}
 .main button {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     background: #FFFFFF;
     border: 1px solid #BEBEBE;
     border-radius: 4px;
@@ -911,7 +910,7 @@ li.nav-item a.nav-link.active {
 .top-newOrder tbody tr td{
     vertical-align: middle;
 }
-.top-newOrder tbody tr td img {width:80px;margin-right:19px}
+.top-newOrder tbody tr td img {width:60px;margin-right:19px;max-height:50px}
 .top-newOrder tbody tr td img.more-opt {width: 16px;position: relative;left: 50%;transform: translatex(-50%);cursor: pointer;}
 .top-newOrder .foot-table {
     display: flex;
@@ -925,6 +924,14 @@ li.nav-item a.nav-link.active {
     width: 75px;
     border: 0;
     margin: 0;
+}
+.box-w-shad {
+    padding: 20px;
+    background: #FFFFFF;
+    border: 1px solid #F8F8F8;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 22px rgb(0 0 0 / 10%);
+    border-radius: 10px;
 }
 .top-newOrder .foot-table .left select option {}
 .top-newOrder .foot-table .right span {}
@@ -1916,7 +1923,7 @@ button.primary.search-bc {
     border-radius: 0 3px 3px 0;
     margin-top: 0;
 }
-button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #BEBEBE;max-width: 150px;}
+button.secondary {background:#FFFFFF;color:#3F3F3F;border:1px solid #5A5B6A;max-width: 150px;}
 button.secondary:hover {color:#fff;background:#0862A3;transition:.2s;}
 .search-box-top  {
     width: 100%;
@@ -2170,6 +2177,7 @@ span.closeXmark {
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 60px;
+    justify-content: center;
 }
 img.img-fluid.gtb-item {
     height: 60px;
