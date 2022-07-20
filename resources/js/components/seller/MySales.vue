@@ -3,8 +3,9 @@
     <div class="container-fluid pending-vend sellerMySales">
         <div class="row mb-4">
             <div class="col-sm-12">
+                <div class="box-w-shad">
                 <div class="row">
-                    <div class="col-sm-3 my-3">
+                    <div class="col-sm-3 mb-xs-20">
                         <select class="select-custom-point">
                             <option value="" selected>Choose Year</option>
                             <option value="2021">2021</option>
@@ -14,7 +15,7 @@
                             <option value="2017">2017</option>
                         </select>
                     </div>
-                    <div class="col-sm-3 my-3">
+                    <div class="col-sm-3 mb-xs-20">
                         <select class="select-custom-point">
                             <option value="" selected>Choose Month</option>
                             <option value="Janruary">Janruary</option>
@@ -31,6 +32,7 @@
                             <option value="December">December</option>
                         </select>
                     </div>
+                </div>
                 </div>
                 <br>
                 <div class="row">

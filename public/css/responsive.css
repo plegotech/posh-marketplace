@@ -107,6 +107,9 @@
         }
         }
         @media only screen and (max-width: 991px) {
+            ul.dropdown-menu li.inactive-mob a {
+                color: #fff;
+            }
             .admin-manage-vend-bx {
                 overflow-x: auto;
             }
@@ -349,7 +352,7 @@
                 margin-right: 0;
             }
             img.help-tag-righ {
-                top: -14px;
+                top:-31px;
                 right: 1px;
             }
             .prof-area.vendor-pro-b1 button.edit {
@@ -474,9 +477,6 @@
                     color: #b3b3b3;
                 }
                 .main .body .tabs {padding:0px}
-                .main .myorder select {
-                    margin-top: 20px;
-                }
                 .export_item {
                     top: 21px;
                 }
